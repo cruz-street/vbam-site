@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VBAM — Design System (v0.4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Archivo:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ─── DS Shell tokens ─────────────────────────────────── */
+:root {
+  --atlantic:  #0A3D4A;
+  --inlet:     #1A6B7E;
+  --sea-glass: #5FB3C0;
+  --sunrise:   #F9C784;
+  --coral:     #EE7752;
+  --sand:      #E8DCC8;
+  --foam:      #F5F1E8;
+  --grad-sunrise:  linear-gradient(120deg, #F9C784 0%, #EE7752 100%);
+  --grad-atlantic: linear-gradient(180deg, #1A6B7E 0%, #0A3D4A 100%);
+  --serif:  'Fraunces', Georgia, serif;
+  --italic: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans:   'Archivo', -apple-system, sans-serif;
+  --body:   'Inter', -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--body); color: var(--atlantic);
+  background: #F0EDE6; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── DS Layout ───────────────────────────────────────── */
+.ds-wrap { max-width: 1140px; margin: 0 auto; padding: 0 40px 120px; }
+
+/* ─── DS Header ───────────────────────────────────────── */
+.ds-header {
+  background: var(--atlantic); color: var(--foam);
+  padding: 52px 40px 48px; margin-bottom: 72px;
+}
+.ds-header .inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.ds-header h1 { font-family: var(--serif); font-size: 36px; font-weight: 400; letter-spacing: -.018em; line-height: 1.1; }
+.ds-header h1 em { font-family: var(--italic); font-style: italic; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ds-header .meta { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,241,232,.45); line-height: 1.8; text-align: right; }
+
+/* ─── Section labels ──────────────────────────────────── */
+.ds-section { margin-bottom: 80px; }
+.ds-section-label {
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(10,61,74,.4); padding-bottom: 14px;
+  border-bottom: 1px solid rgba(10,61,74,.1); margin-bottom: 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ds-section-label .ver { color: var(--coral); font-size: 9px; letter-spacing: .15em; }
+
+/* ─── Color swatches ──────────────────────────────────── */
+.swatch-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.swatch {
+  flex: 1; min-width: 140px; border-radius: 8px; overflow: hidden;
+  border: 1px solid rgba(10,61,74,.1);
+}
+.swatch-color { height: 90px; }
+.swatch-info { background: var(--foam); padding: 12px 14px; }
+.swatch-info .token { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--atlantic); display: block; margin-bottom: 3px; }
+.swatch-info .hex { font-family: var(--body); font-size: 12px; color: rgba(10,61,74,.55); display: block; margin-bottom: 5px; }
+.swatch-info .role { font-family: var(--body); font-size: 11px; color: rgba(10,61,74,.45); line-height: 1.4; display: block; }
+
+.swatch-grad { flex: 1; min-width: 220px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(10,61,74,.1); }
+.swatch-grad .swatch-color { height: 64px; }
+
+/* ─── Type specimens ──────────────────────────────────── */
+.type-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.type-card {
+  background: var(--foam); border: 1px solid rgba(10,61,74,.08);
+  border-radius: 8px; padding: 28px 28px 24px;
+}
+.type-card .type-label {
+  font-family: var(--sans); font-size: 9px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--coral); margin-bottom: 18px; display: block;
+}
+.type-card .type-sample { line-height: 1.1; margin-bottom: 18px; }
+.type-card table { width: 100%; border-collapse: collapse; }
+.type-card td { font-family: var(--body); font-size: 11px; color: rgba(10,61,74,.55); padding: 4px 0; border-bottom: 1px solid rgba(10,61,74,.06); vertical-align: top; }
+.type-card td:first-child { color: rgba(10,61,74,.35); width: 90px; }
+
+/* Type scale strip */
+.type-scale { background: var(--foam); border: 1px solid rgba(10,61,74,.08); border-radius: 8px; padding: 32px 32px 28px; }
+.scale-row { display: flex; align-items: baseline; gap: 24px; padding: 12px 0; border-bottom: 1px solid rgba(10,61,74,.07); }
+.scale-row:last-child { border-bottom: none; }
+.scale-meta { font-family: var(--sans); font-size: 10px; color: rgba(10,61,74,.38); letter-spacing: .1em; min-width: 120px; line-height: 1.6; }
+.scale-specimen { color: var(--atlantic); }
+
+/* ─── Button specimens ────────────────────────────────── */
+.btn-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: 999px;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  border: 1.5px solid transparent; cursor: pointer;
+  text-decoration: none;
+}
+.btn-primary { background: var(--atlantic); color: var(--foam); }
+.btn-ghost {
+  background: rgba(245,241,232,.6); color: var(--atlantic);
+  border-color: rgba(10,61,74,.22); backdrop-filter: blur(6px);
+}
+.btn-sunrise { background: var(--grad-sunrise); color: var(--atlantic); font-weight: 700; }
+.btn-outline { background: transparent; color: var(--atlantic); border-color: rgba(10,61,74,.3); }
+.btn-lg { padding: 17px 34px; font-size: 15px; }
+.btn-sm { padding: 9px 18px; font-size: 12px; }
+.btn-pill-label {
+  display: inline-flex; align-items: center;
+  font-family: var(--sans); font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  background: var(--foam); color: var(--inlet);
+  padding: 6px 13px; border-radius: 999px;
+  border: 1px solid rgba(10,61,74,.1);
+}
+.btn-spec { background: var(--sand); border-radius: 8px; padding: 20px 24px; margin-top: 16px; }
+.btn-spec table { width: 100%; border-collapse: collapse; }
+.btn-spec td { font-family: var(--body); font-size: 12px; color: rgba(10,61,74,.65); padding: 5px 8px; border-bottom: 1px solid rgba(10,61,74,.07); }
+.btn-spec td:first-child { font-family: var(--sans); font-weight: 700; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(10,61,74,.4); width: 110px; }
+
+/* ─── Component: NAV ──────────────────────────────────── */
+.comp-nav {
+  background: var(--foam); border: 1px solid rgba(10,61,74,.1);
+  border-radius: 8px; padding: 22px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.brand-lockup { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-lockup .mark { width: 34px; height: 21px; flex-shrink: 0; }
+.brand-lockup .name { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--atlantic); }
+.brand-lockup .name em { font-family: var(--italic); font-style: italic; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; margin-left: 3px; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--atlantic); opacity: .78; text-decoration: none; }
+.nav-cta { background: var(--atlantic) !important; color: var(--foam) !important; opacity: 1 !important; padding: 9px 18px; border-radius: 999px; font-size: 12px; font-family: var(--sans); font-weight: 600; text-decoration: none; display: inline-block; }
+
+/* ─── Component: TRUST BAR ────────────────────────────── */
+.comp-trust {
+  background: var(--sand); border-radius: 8px; padding: 20px 28px;
+  border: 1px solid rgba(10,61,74,.08);
+}
+.comp-trust .row {
+  display: flex; justify-content: center; align-items: center;
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: .13em; text-transform: uppercase;
+  color: var(--inlet); gap: 22px; flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: center; gap: 9px; }
+.trust-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
+.trust-sep { color: rgba(10,61,74,.22); }
+
+/* ─── Component: DOCTOR SLIDE ─────────────────────────── */
+.comp-doctor {
+  background: var(--sand); border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(10,61,74,.08); display: grid;
+  grid-template-columns: 1fr 1fr; min-height: 360px;
+}
+.doc-slide-inner { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+.doc-slide-photo-col { display: flex; align-items: center; justify-content: center; background: rgba(10,61,74,.04); }
+.doc-photo-large {
+  width: 200px; height: 200px; border-radius: 50%;
+  background: var(--foam); position: relative; overflow: hidden;
+  box-shadow: 0 24px 64px -28px rgba(10,61,74,.28);
+  border: 1px solid rgba(10,61,74,.07);
+}
+.doc-photo-large .bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%); opacity: .55; }
+.doc-photo-large .head { position: absolute; bottom: 55%; left: 50%; transform: translateX(-50%); width: 30%; aspect-ratio: 1; border-radius: 50%; background: rgba(10,61,74,.18); }
+.doc-photo-large .silhouette { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 58%; background: rgba(10,61,74,.18); border-radius: 50% 50% 0 0 / 30% 30% 0 0; }
+.slide-num-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--coral); margin-bottom: 14px; }
+.doc-name-large { font-family: var(--serif); font-size: 34px; font-weight: 400; line-height: 1.1; letter-spacing: -.015em; color: var(--atlantic); margin-bottom: 18px; }
+.doc-name-large em { font-family: var(--italic); font-style: italic; font-weight: 500; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.doc-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+.doc-tag { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: var(--foam); color: var(--inlet); padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(10,61,74,.1); }
+.doc-bio-text { font-size: 14px; line-height: 1.72; color: rgba(10,61,74,.8); font-weight: 300; margin-bottom: 18px; max-width: 380px; }
+.doc-link-text { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--coral); text-decoration: none; border-bottom: 1.5px solid rgba(238,119,82,.3); padding-bottom: 2px; }
+.doc-link-text::after { content: '→'; }
+
+/* ─── Component: PHILOSOPHY PRINCIPLE ─────────────────── */
+.comp-principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.principle-card { background: var(--foam); border-radius: 8px; border: 1px solid rgba(10,61,74,.08); padding: 32px 24px; text-align: center; }
+.principle-glyph {
+  width: 64px; height: 64px; border-radius: 50%; background: var(--grad-sunrise);
+  margin: 0 auto 18px; display: flex; align-items: center; justify-content: center;
+  color: var(--atlantic); font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic;
+}
+.principle-title { font-family: var(--serif); font-size: 20px; font-weight: 400; line-height: 1.2; margin-bottom: 10px; letter-spacing: -.01em; color: var(--atlantic); }
+.principle-title em { font-family: var(--italic); font-style: italic; color: var(--coral); }
+.principle-body { font-size: 13px; line-height: 1.65; color: rgba(10,61,74,.75); font-weight: 300; max-width: 240px; margin: 0 auto; }
+
+/* ─── Component: SERVICE CARD ─────────────────────────── */
+.comp-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.service-card {
+  background: #FAF7EC; border: 1px solid rgba(10,61,74,.08);
+  border-radius: 8px; padding: 28px 22px; position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--grad-sunrise);
+}
+.service-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--grad-sunrise); margin-bottom: 12px; opacity: .85; }
+.service-title { font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; letter-spacing: -.005em; color: var(--atlantic); }
+.service-body { font-size: 13px; line-height: 1.6; color: rgba(10,61,74,.72); font-weight: 300; }
+
+/* ─── Component: VBP LINEAGE ─────────────────────────── */
+.comp-lineage { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; padding: 32px; background: var(--foam); border-radius: 8px; border: 1px solid rgba(10,61,74,.08); }
+.lineage-card { text-align: center; padding: 24px 28px; border-radius: 8px; min-width: 180px; }
+.lineage-card.parent { background: var(--sand); }
+.lineage-card.child { background: var(--foam); border: 1px solid rgba(10,61,74,.08); }
+.lineage-label { font-family: var(--sans); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; opacity: .5; margin-bottom: 10px; }
+.lineage-name { font-family: var(--serif); font-size: 20px; line-height: 1.2; font-weight: 500; }
+.lineage-card.parent .lineage-name { color: var(--inlet); }
+.lineage-card.parent .lineage-name em { color: var(--sea-glass); font-family: var(--italic); font-style: italic; display: block; margin-top: 2px; }
+.lineage-card.child .lineage-name { color: var(--atlantic); }
+.lineage-card.child .lineage-name em { font-family: var(--italic); font-style: italic; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; margin-top: 2px; }
+.lineage-bridge { width: 80px; height: 3px; background: var(--grad-sunrise); border-radius: 3px; position: relative; }
+.lineage-bridge::after { content: ''; position: absolute; top: 50%; right: -2px; transform: translateY(-50%) rotate(45deg); width: 8px; height: 8px; border-right: 2.5px solid var(--coral); border-top: 2.5px solid var(--coral); }
+
+/* ─── Component: CTA STRIP ────────────────────────────── */
+.comp-cta { background: var(--grad-sunrise); border-radius: 12px; padding: 64px 48px; text-align: center; }
+.comp-cta h2 { font-family: var(--serif); font-size: 44px; font-weight: 400; letter-spacing: -.018em; line-height: 1.06; color: var(--atlantic); margin-bottom: 14px; }
+.comp-cta h2 em { font-family: var(--italic); font-style: italic; text-decoration: underline; text-decoration-color: rgba(10,61,74,.3); text-underline-offset: 5px; text-decoration-thickness: 1.5px; }
+.comp-cta .sub { font-size: 15px; color: rgba(10,61,74,.76); max-width: 500px; margin: 0 auto 28px; font-weight: 300; }
+.comp-cta .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ─── Component: FOOTER ───────────────────────────────── */
+.comp-footer { background: var(--atlantic); border-radius: 12px; padding: 40px 40px 28px; color: rgba(245,241,232,.85); }
+.comp-footer .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px; }
+.comp-footer h4 { font-family: var(--sans); font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,241,232,.4); margin-bottom: 12px; }
+.comp-footer ul { list-style: none; }
+.comp-footer li { font-size: 12px; line-height: 1.7; color: rgba(245,241,232,.75); }
+.comp-footer a { color: rgba(245,241,232,.75); text-decoration: none; }
+.comp-footer .colophon { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(245,241,232,.1); font-family: var(--sans); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245,241,232,.35); flex-wrap: wrap; gap: 8px; }
+
+/* ─── Logo specimens ──────────────────────────────────── */
+.logo-row { display: flex; gap: 40px; align-items: flex-end; flex-wrap: wrap; }
+.logo-specimen { text-align: center; }
+.logo-specimen .size-label { font-family: var(--sans); font-size: 10px; color: rgba(10,61,74,.4); letter-spacing: .1em; margin-top: 8px; display: block; }
+.logo-on-dark { background: var(--atlantic); border-radius: 8px; padding: 20px 24px; display: inline-flex; align-items: center; flex-direction: column; }
+.logo-on-sand { background: var(--sand); border-radius: 8px; padding: 20px 24px; display: inline-flex; align-items: center; flex-direction: column; }
+
+/* ─── Wordmark specimens ──────────────────────────────── */
+.wordmark-row { display: flex; flex-direction: column; gap: 28px; background: var(--foam); border: 1px solid rgba(10,61,74,.08); border-radius: 8px; padding: 36px; }
+.wm-hero { font-family: var(--serif); font-size: 88px; line-height: .96; font-weight: 400; letter-spacing: -.022em; color: var(--atlantic); }
+.wm-hero .adult { font-family: var(--italic); font-style: italic; font-weight: 500; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; margin-top: -4px; }
+.wm-lg { font-family: var(--serif); font-size: 48px; line-height: 1; font-weight: 400; letter-spacing: -.018em; color: var(--atlantic); }
+.wm-lg .adult { font-family: var(--italic); font-style: italic; font-weight: 500; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; margin-left: 6px; }
+.wm-md { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -.01em; color: var(--atlantic); }
+.wm-md .adult { font-family: var(--italic); font-style: italic; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; margin-left: 4px; }
+.wm-nav { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--atlantic); }
+.wm-nav .adult { font-family: var(--italic); font-style: italic; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; margin-left: 3px; }
+.wm-tagline { font-family: var(--italic); font-style: italic; font-size: 22px; color: var(--inlet); margin-top: -8px; }
+.wm-meta { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .2em; color: rgba(10,61,74,.4); text-transform: uppercase; }
+
+/* ─── Animation classes doc ───────────────────────────── */
+.anim-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.anim-card { background: var(--foam); border: 1px solid rgba(10,61,74,.08); border-radius: 8px; padding: 20px; }
+.anim-class { font-family: 'Courier New', monospace; font-size: 12px; color: var(--coral); font-weight: 700; margin-bottom: 6px; display: block; }
+.anim-desc { font-size: 12px; color: rgba(10,61,74,.65); line-height: 1.5; margin-bottom: 8px; }
+.anim-values { font-family: 'Courier New', monospace; font-size: 11px; color: rgba(10,61,74,.45); line-height: 1.6; }
+
+/* ─── Spacing scale ───────────────────────────────────── */
+.spacing-grid { display: flex; flex-direction: column; gap: 10px; }
+.spacing-row { display: flex; align-items: center; gap: 16px; }
+.spacing-bar-wrap { flex: 1; }
+.spacing-bar { height: 6px; background: var(--coral); border-radius: 3px; opacity: .7; }
+.spacing-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .1em; color: rgba(10,61,74,.55); width: 44px; text-align: right; }
+.spacing-value { font-family: 'Courier New', monospace; font-size: 11px; color: rgba(10,61,74,.4); width: 56px; }
+
+/* ─── Section heading pull ────────────────────────────── */
+.h-display { font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); line-height: 1.06; font-weight: 400; letter-spacing: -.018em; color: var(--atlantic); }
+.h-display em { font-family: var(--italic); font-style: italic; font-weight: 500; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.section-num { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; }
+
+/* ─── SVG drawable highlight path ─────────────────────── */
+.comp-highlight { background: var(--foam); border: 1px solid rgba(10,61,74,.08); border-radius: 8px; padding: 40px 40px 32px; text-align: center; }
+.comp-highlight h2 { font-family: var(--serif); font-size: 62px; font-weight: 400; letter-spacing: -.022em; color: var(--atlantic); line-height: 1; margin-bottom: 0; position: relative; display: inline-block; }
+.comp-highlight h2 em { font-family: var(--italic); font-style: italic; font-weight: 500; background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; }
+.highlight-svg { display: block; width: 100%; overflow: visible; margin-top: -8px; }
+.highlight-path {
+  fill: none; stroke: var(--coral); stroke-width: 3;
+  stroke-linecap: round; stroke-linejoin: round; opacity: .75;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── DS HEADER ──────────────────────────────────────────── -->
+<div class="ds-header">
+  <div class="inner">
+    <h1>Vero Beach <em>Adult Medicine</em><br>Design System</h1>
+    <div class="meta">
+      v0.4 · Palette in stakeholder review<br>
+      Direction B · Approved 2026-05-11<br>
+      screens.html → this file → implementation
+    </div>
+  </div>
+</div>
+
+<div class="ds-wrap">
+
+
+<!-- ══════════════════════════════════════════════════════
+     01. COLOR TOKENS
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">01 · Color Tokens <span class="ver">v0.4 · Values lock at v0.5 → update globals.css @theme only</span></div>
+
+  <div class="swatch-row" style="margin-bottom:14px">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0A3D4A"></div>
+      <div class="swatch-info">
+        <span class="token">--vbam-atlantic</span>
+        <span class="hex">#0A3D4A</span>
+        <span class="role">Anchor — body text, nav, footer, CTA buttons</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1A6B7E"></div>
+      <div class="swatch-info">
+        <span class="token">--vbam-inlet</span>
+        <span class="hex">#1A6B7E</span>
+        <span class="role">Mid teal — gradients, hover states, editorial type</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#5FB3C0"></div>
+      <div class="swatch-info">
+        <span class="token">--vbam-sea-glass</span>
+        <span class="hex">#5FB3C0</span>
+        <span class="role">Light teal — wave accents, icon fills, light type</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F9C784"></div>
+      <div class="swatch-info">
+        <span class="token">--vbam-sunrise</span>
+        <span class="hex">#F9C784</span>
+        <span class="role">Warm gold — gradient start, hero bg, accents</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#EE7752"></div>
+      <div class="swatch-info">
+        <span class="token">--vbam-coral</span>
+        <span class="hex">#EE7752</span>
+        <span class="role">Energy — gradient end, CTA accents, section nums</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E8DCC8"></div>
+      <div class="swatch-info">
+        <span class="token">--vbam-sand</span>
+        <span class="hex">#E8DCC8</span>
+        <span class="role">Warm neutral — doctor section, trust bar, lineage</span>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F5F1E8; border:1px solid rgba(10,61,74,.1)"></div>
+      <div class="swatch-info">
+        <span class="token">--vbam-foam</span>
+        <span class="hex">#F5F1E8</span>
+        <span class="role">Paper — primary page background, cards, content areas</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatch-row">
+    <div class="swatch-grad">
+      <div class="swatch-color" style="background:linear-gradient(120deg,#F9C784 0%,#EE7752 100%)"></div>
+      <div class="swatch-info">
+        <span class="token">--grad-sunrise</span>
+        <span class="hex">#F9C784 → #EE7752 · 120deg</span>
+        <span class="role">Hero image panels, CTA strips, glyph fills, icon fills, principle glyphs</span>
+      </div>
+    </div>
+    <div class="swatch-grad">
+      <div class="swatch-color" style="background:linear-gradient(180deg,#1A6B7E 0%,#0A3D4A 100%)"></div>
+      <div class="swatch-info">
+        <span class="token">--grad-atlantic</span>
+        <span class="hex">#1A6B7E → #0A3D4A · 180deg</span>
+        <span class="role">Footer, deep accent sections — Atlantic is NEVER a full hero fill</span>
+      </div>
+    </div>
+    <div class="swatch-grad">
+      <div class="swatch-color" style="background:linear-gradient(120deg,#F9C784 0%,#C8D8E8 55%,#5FB3C0 100%)"></div>
+      <div class="swatch-info">
+        <span class="token">Sky-to-Sea (stand-in)</span>
+        <span class="hex">#F9C784 → #C8D8E8 → #5FB3C0</span>
+        <span class="role">Doctor photo placeholder gradient until real photography arrives</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding:14px 20px;background:rgba(238,119,82,.08);border:1px solid rgba(238,119,82,.25);border-radius:6px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.75);line-height:1.6;">
+    <strong>Background rule (non-negotiable):</strong> Foam and Sand are the dominant page backgrounds. Atlantic is <em>never</em> used as a full hero or section fill — only body text, footer, nav, and small CTA buttons.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     02. TYPOGRAPHY
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">02 · Typography</div>
+
+  <div class="type-row" style="margin-bottom:24px">
+    <div class="type-card">
+      <span class="type-label">Display — Fraunces · Headings, wordmark</span>
+      <div class="type-sample" style="font-family:'Fraunces',serif;font-size:42px;font-weight:400;letter-spacing:-.018em;color:var(--atlantic);line-height:1.05">
+        Quiet care,<br>quietly confident.
+      </div>
+      <table>
+        <tr><td>Family</td><td>Fraunces · Google Fonts</td></tr>
+        <tr><td>Weights</td><td>300, 400, 500, 600, 700</td></tr>
+        <tr><td>Tracking</td><td>-0.018em to -0.022em</td></tr>
+        <tr><td>Used for</td><td>H1–H3, wordmark, doctor names, section heads</td></tr>
+        <tr><td>Variable</td><td>Yes — optical size axis active</td></tr>
+      </table>
+    </div>
+    <div class="type-card">
+      <span class="type-label">Italic Editorial — Cormorant Garamond · Moments</span>
+      <div class="type-sample" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:42px;font-weight:500;color:var(--coral);line-height:1.05">
+        Adult Medicine.<br>Same coastline.
+      </div>
+      <table>
+        <tr><td>Family</td><td>Cormorant Garamond · Google Fonts</td></tr>
+        <tr><td>Weights</td><td>400, 500, 600 (italic only in brand use)</td></tr>
+        <tr><td>Tracking</td><td>Normal (-0.005em max)</td></tr>
+        <tr><td>Used for</td><td>Gradient wordmark half, tagline, pull quotes, CTA headers</td></tr>
+        <tr><td>Note</td><td>Always italic in brand context — never upright</td></tr>
+      </table>
+    </div>
+    <div class="type-card">
+      <span class="type-label">UI Sans — Archivo · Labels, nav, CTAs</span>
+      <div class="type-sample" style="font-family:'Archivo',sans-serif;font-size:28px;font-weight:700;letter-spacing:.01em;color:var(--atlantic)">
+        BOOK AN APPOINTMENT<br>
+        <span style="font-size:13px;letter-spacing:.18em;opacity:.5;font-weight:700">01 · POSITIONING · v0.4</span>
+      </div>
+      <table>
+        <tr><td>Family</td><td>Archivo · Google Fonts</td></tr>
+        <tr><td>Weights</td><td>400, 500, 600, 700</td></tr>
+        <tr><td>Tracking</td><td>+0.1em to +0.22em for uppercase labels</td></tr>
+        <tr><td>Used for</td><td>Nav links, CTA text, section numbers, tags, badges</td></tr>
+      </table>
+    </div>
+    <div class="type-card">
+      <span class="type-label">Body — Inter · Running copy</span>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:17px;font-weight:300;color:rgba(10,61,74,.82);line-height:1.72;max-width:340px">
+        Dr. Stewart brings a thoughtful, patient-first approach to adult primary care — focused on building relationships over time.
+      </div>
+      <table>
+        <tr><td>Family</td><td>Inter · Google Fonts</td></tr>
+        <tr><td>Weights</td><td>300 (body), 400 (default), 500 (emphasis)</td></tr>
+        <tr><td>Leading</td><td>1.55 default · 1.65–1.72 for long copy</td></tr>
+        <tr><td>Used for</td><td>Body paragraphs, bios, card descriptions, footer links</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Type scale -->
+  <div class="type-scale">
+    <div class="scale-row">
+      <div class="scale-meta">Hero wordmark<br>Fraunces 400<br>clamp(54px, 9vw, 118px)</div>
+      <div class="scale-specimen" style="font-family:'Fraunces',serif;font-size:72px;font-weight:400;letter-spacing:-.022em;line-height:.96;color:var(--atlantic)">Vero Beach</div>
+    </div>
+    <div class="scale-row">
+      <div class="scale-meta">H1 — Section head<br>Fraunces 400<br>clamp(36px, 5vw, 52px)</div>
+      <div class="scale-specimen" style="font-family:'Fraunces',serif;font-size:44px;font-weight:400;letter-spacing:-.018em;color:var(--atlantic)">Same family. <span style="font-family:'Cormorant Garamond',serif;font-style:italic;background:var(--grad-sunrise);-webkit-background-clip:text;background-clip:text;color:transparent">Same coastline.</span></div>
+    </div>
+    <div class="scale-row">
+      <div class="scale-meta">H2 — Doctor name<br>Fraunces 400<br>clamp(30px, 4vw, 46px)</div>
+      <div class="scale-specimen" style="font-family:'Fraunces',serif;font-size:38px;font-weight:400;letter-spacing:-.015em;color:var(--atlantic)">Dr. <span style="font-family:'Cormorant Garamond',serif;font-style:italic;background:var(--grad-sunrise);-webkit-background-clip:text;background-clip:text;color:transparent">Patricia Stewart.</span></div>
+    </div>
+    <div class="scale-row">
+      <div class="scale-meta">H3 — Principle title<br>Fraunces 400<br>22px</div>
+      <div class="scale-specimen" style="font-family:'Fraunces',serif;font-size:22px;font-weight:400;letter-spacing:-.01em;color:var(--atlantic)">Quiet, capable, <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--coral)">unhurried.</span></div>
+    </div>
+    <div class="scale-row">
+      <div class="scale-meta">Tagline / Pull<br>Cormorant Garamond 500 italic<br>clamp(19px, 2.4vw, 26px)</div>
+      <div class="scale-specimen" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;font-weight:500;color:var(--inlet)">Sunrise to shoreline care.</div>
+    </div>
+    <div class="scale-row">
+      <div class="scale-meta">Body lead<br>Inter 300<br>17–18px · leading 1.72</div>
+      <div class="scale-specimen" style="font-family:'Inter',sans-serif;font-size:17px;font-weight:300;color:rgba(10,61,74,.82);line-height:1.72;max-width:560px">A boutique adult primary care practice in Vero Beach — built for the people who chose this coast on purpose, and want their doctor to feel the same way.</div>
+    </div>
+    <div class="scale-row">
+      <div class="scale-meta">UI label<br>Archivo 700<br>10–11px · +0.2em</div>
+      <div class="scale-specimen" style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral)">01 · Care Philosophy</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     03. LOGO / WORDMARK
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">03 · Logo & Wordmark</div>
+
+  <!-- Sun & Sea mark sizes -->
+  <div class="logo-row" style="margin-bottom:32px">
+
+    <div class="logo-specimen">
+      <svg width="180" height="108" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="dsg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F9C784"/><stop offset="100%" stop-color="#EE7752"/></linearGradient></defs>
+        <g stroke="#0A3D4A" stroke-width="1.1" stroke-linecap="round" fill="none">
+          <line x1="50" y1="6" x2="50" y2="13"/><line x1="38" y1="10" x2="41.5" y2="16"/>
+          <line x1="62" y1="10" x2="58.5" y2="16"/><line x1="29" y1="17" x2="33.5" y2="22"/><line x1="71" y1="17" x2="66.5" y2="22"/>
+        </g>
+        <path d="M37 35 A 13 13 0 0 1 63 35 Z" fill="url(#dsg1)"/>
+        <path d="M8 35 Q 25 33 37 35 L 63 35 Q 78 37 92 35" fill="none" stroke="#0A3D4A" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M14 44 Q 32 41 50 44 T 86 44" fill="none" stroke="#1A6B7E" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M20 52 Q 35 50 50 52 T 80 52" fill="none" stroke="#5FB3C0" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <span class="size-label">180×108 · Hero</span>
+    </div>
+
+    <div class="logo-specimen">
+      <svg width="100" height="60" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="dsg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F9C784"/><stop offset="100%" stop-color="#EE7752"/></linearGradient></defs>
+        <g stroke="#0A3D4A" stroke-width="1.1" stroke-linecap="round" fill="none">
+          <line x1="50" y1="6" x2="50" y2="13"/><line x1="38" y1="10" x2="41.5" y2="16"/>
+          <line x1="62" y1="10" x2="58.5" y2="16"/><line x1="29" y1="17" x2="33.5" y2="22"/><line x1="71" y1="17" x2="66.5" y2="22"/>
+        </g>
+        <path d="M37 35 A 13 13 0 0 1 63 35 Z" fill="url(#dsg2)"/>
+        <path d="M8 35 Q 25 33 37 35 L 63 35 Q 78 37 92 35" fill="none" stroke="#0A3D4A" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M14 44 Q 32 41 50 44 T 86 44" fill="none" stroke="#1A6B7E" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M20 52 Q 35 50 50 52 T 80 52" fill="none" stroke="#5FB3C0" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <span class="size-label">100×60 · Medium</span>
+    </div>
+
+    <div class="logo-specimen">
+      <svg width="60" height="36" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="dsg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F9C784"/><stop offset="100%" stop-color="#EE7752"/></linearGradient></defs>
+        <g stroke="#0A3D4A" stroke-width="1.1" stroke-linecap="round" fill="none">
+          <line x1="50" y1="6" x2="50" y2="13"/><line x1="38" y1="10" x2="41.5" y2="16"/>
+          <line x1="62" y1="10" x2="58.5" y2="16"/><line x1="29" y1="17" x2="33.5" y2="22"/><line x1="71" y1="17" x2="66.5" y2="22"/>
+        </g>
+        <path d="M37 35 A 13 13 0 0 1 63 35 Z" fill="url(#dsg3)"/>
+        <path d="M8 35 Q 25 33 37 35 L 63 35 Q 78 37 92 35" fill="none" stroke="#0A3D4A" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M14 44 Q 32 41 50 44 T 86 44" fill="none" stroke="#1A6B7E" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M20 52 Q 35 50 50 52 T 80 52" fill="none" stroke="#5FB3C0" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <span class="size-label">60×36 · Nav</span>
+    </div>
+
+    <div class="logo-specimen">
+      <div class="logo-on-dark">
+        <svg width="60" height="36" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="dsg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F9C784"/><stop offset="100%" stop-color="#EE7752"/></linearGradient></defs>
+          <g stroke="#F5F1E8" stroke-width="1.1" stroke-linecap="round" fill="none">
+            <line x1="50" y1="6" x2="50" y2="13"/><line x1="38" y1="10" x2="41.5" y2="16"/>
+            <line x1="62" y1="10" x2="58.5" y2="16"/><line x1="29" y1="17" x2="33.5" y2="22"/><line x1="71" y1="17" x2="66.5" y2="22"/>
+          </g>
+          <path d="M37 35 A 13 13 0 0 1 63 35 Z" fill="url(#dsg4)"/>
+          <path d="M8 35 Q 25 33 37 35 L 63 35 Q 78 37 92 35" fill="none" stroke="#F5F1E8" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M14 44 Q 32 41 50 44 T 86 44" fill="none" stroke="#5FB3C0" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M20 52 Q 35 50 50 52 T 80 52" fill="none" stroke="#5FB3C0" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <span class="size-label" style="color:rgba(245,241,232,.4)">On Atlantic</span>
+      </div>
+    </div>
+
+    <div class="logo-specimen">
+      <div class="logo-on-sand">
+        <svg width="60" height="36" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="dsg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F9C784"/><stop offset="100%" stop-color="#EE7752"/></linearGradient></defs>
+          <g stroke="#0A3D4A" stroke-width="1.1" stroke-linecap="round" fill="none">
+            <line x1="50" y1="6" x2="50" y2="13"/><line x1="38" y1="10" x2="41.5" y2="16"/>
+            <line x1="62" y1="10" x2="58.5" y2="16"/><line x1="29" y1="17" x2="33.5" y2="22"/><line x1="71" y1="17" x2="66.5" y2="22"/>
+          </g>
+          <path d="M37 35 A 13 13 0 0 1 63 35 Z" fill="url(#dsg5)"/>
+          <path d="M8 35 Q 25 33 37 35 L 63 35 Q 78 37 92 35" fill="none" stroke="#0A3D4A" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M14 44 Q 32 41 50 44 T 86 44" fill="none" stroke="#1A6B7E" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M20 52 Q 35 50 50 52 T 80 52" fill="none" stroke="#5FB3C0" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <span class="size-label" style="color:rgba(10,61,74,.4)">On Sand</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Wordmark scale -->
+  <div class="wordmark-row">
+    <div>
+      <div class="wm-meta" style="margin-bottom:10px">Hero · Fraunces 400 + Cormorant italic · 88px</div>
+      <div class="wm-hero">Vero Beach<span class="adult">Adult Medicine</span></div>
+    </div>
+    <div style="border-top:1px solid rgba(10,61,74,.08);padding-top:20px">
+      <div class="wm-meta" style="margin-bottom:8px">Large · 48px</div>
+      <div class="wm-lg">Vero Beach <span class="adult">Adult Medicine</span></div>
+    </div>
+    <div style="border-top:1px solid rgba(10,61,74,.08);padding-top:20px">
+      <div class="wm-meta" style="margin-bottom:8px">Medium · 24px</div>
+      <div class="wm-md">Vero Beach <span class="adult">Adult Medicine</span></div>
+    </div>
+    <div style="border-top:1px solid rgba(10,61,74,.08);padding-top:20px">
+      <div class="wm-meta" style="margin-bottom:8px">Nav · Fraunces 500 · 16px</div>
+      <div class="wm-nav">Vero Beach <span class="adult">Adult Medicine</span></div>
+    </div>
+    <div style="border-top:1px solid rgba(10,61,74,.08);padding-top:20px">
+      <div class="wm-meta" style="margin-bottom:8px">Tagline · Cormorant Garamond italic · 22px</div>
+      <div class="wm-tagline">Sunrise to shoreline care.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     04. HIGHLIGHT ANIMATION (createDrawable)
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">04 · SVG Highlight — anime.js createDrawable <span class="ver">Draws on load · loops every 6s</span></div>
+
+  <div class="comp-highlight">
+    <div style="position:relative;display:inline-block">
+      <h2>
+        Vero Beach<br>
+        <em>Adult Medicine</em>
+      </h2>
+      <!-- SVG underline drawn over the gradient wordmark "Adult Medicine" -->
+      <svg class="highlight-svg" viewBox="0 0 640 48" preserveAspectRatio="xMidYMid meet" style="height:32px;margin-top:4px">
+        <!-- Wavy underline under "Adult Medicine" -->
+        <path id="highlight-line-1"
+          d="M 60 16 C 100 6, 140 26, 190 16 C 240 6, 290 26, 340 16 C 390 6, 440 26, 490 16 C 530 6, 570 22, 590 16"
+          class="highlight-path" stroke-width="2.5"/>
+        <!-- Soft oval enclosure around the full name -->
+        <ellipse id="highlight-oval"
+          cx="320" cy="22" rx="300" ry="16"
+          fill="none" stroke="var(--coral)" stroke-width="1.5" opacity=".3"
+          stroke-dasharray="1900" stroke-dashoffset="1900"/>
+      </svg>
+    </div>
+    <p style="font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(10,61,74,.4);margin-top:24px">anime.js createDrawable — stroke draws in on page load · coral · stroke-width 2.5</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     05. BUTTONS
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">05 · Buttons & Interactive Elements</div>
+
+  <div class="btn-row">
+    <a class="btn btn-primary">Book an Appointment →</a>
+    <a class="btn btn-ghost">Meet Our Doctors</a>
+    <a class="btn btn-sunrise">Schedule a Visit →</a>
+    <a class="btn btn-outline">Learn More</a>
+  </div>
+  <div class="btn-row">
+    <a class="btn btn-primary btn-lg">Book an Appointment →</a>
+    <a class="btn btn-ghost btn-lg">Contact Us</a>
+  </div>
+  <div class="btn-row">
+    <a class="btn btn-primary btn-sm">Book →</a>
+    <a class="btn btn-ghost btn-sm">Learn More</a>
+    <span class="btn-pill-label">Board-Certified · Internal Medicine</span>
+    <span class="btn-pill-label">12+ Years Treasure Coast</span>
+    <span class="btn-pill-label">Native Floridian</span>
+  </div>
+
+  <div class="btn-spec">
+    <table>
+      <tr><td>btn-primary</td><td>Background: atlantic · Text: foam · Hover: inlet</td></tr>
+      <tr><td>btn-ghost</td><td>Background: foam 60% blur · Border: atlantic 22% · Hover: foam 90%</td></tr>
+      <tr><td>btn-sunrise</td><td>Background: grad-sunrise · Text: atlantic bold · No hover shift</td></tr>
+      <tr><td>btn-outline</td><td>Transparent bg · Border: atlantic 30% · Text: atlantic</td></tr>
+      <tr><td>btn-lg</td><td>Padding 17×34 · Font 15px · Used in CTA strips</td></tr>
+      <tr><td>btn-sm</td><td>Padding 9×18 · Font 12px · Used in nav area</td></tr>
+      <tr><td>pill-label</td><td>Foam bg · Inlet text · Used for doctor credential tags</td></tr>
+      <tr><td>Border radius</td><td>999px (full pill) on all buttons</td></tr>
+      <tr><td>Font</td><td>Archivo 600 (700 for sunrise variant)</td></tr>
+    </table>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     06. NAV
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">06 · Navigation</div>
+  <div class="comp-nav">
+    <a href="#" class="brand-lockup">
+      <svg class="mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="ng" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F9C784"/><stop offset="100%" stop-color="#EE7752"/></linearGradient></defs>
+        <g stroke="#0A3D4A" stroke-width="1.1" stroke-linecap="round" fill="none">
+          <line x1="50" y1="6" x2="50" y2="13"/><line x1="38" y1="10" x2="41.5" y2="16"/>
+          <line x1="62" y1="10" x2="58.5" y2="16"/><line x1="29" y1="17" x2="33.5" y2="22"/><line x1="71" y1="17" x2="66.5" y2="22"/>
+        </g>
+        <path d="M37 35 A 13 13 0 0 1 63 35 Z" fill="url(#ng)"/>
+        <path d="M8 35 Q 25 33 37 35 L 63 35 Q 78 37 92 35" fill="none" stroke="#0A3D4A" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M14 44 Q 32 41 50 44 T 86 44" fill="none" stroke="#1A6B7E" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M20 52 Q 35 50 50 52 T 80 52" fill="none" stroke="#5FB3C0" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <span class="name">Vero Beach <em>Adult Medicine</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#">About</a>
+      <a href="#">Our Doctors</a>
+      <a href="#">Services</a>
+      <a href="#">For Patients</a>
+      <a href="#" class="nav-cta">Book an Appointment</a>
+    </nav>
+  </div>
+  <div style="margin-top:12px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.5);line-height:1.6">
+    Position: absolute, top 0 · z-index: 100 · Transparent background (no bg on scroll — page uses foam/sunrise hero bg) · Nav CTA: atlantic pill button
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     07. TRUST BAR
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">07 · Trust Bar</div>
+  <div class="comp-trust">
+    <div class="row">
+      <div class="trust-item"><span class="trust-dot"></span>Now welcoming new patients</div>
+      <span class="trust-sep">·</span>
+      <div class="trust-item">Boutique panel · Direct doctor access</div>
+      <span class="trust-sep">·</span>
+      <div class="trust-item">Sibling of Vero Beach Pediatrics</div>
+      <span class="trust-sep">·</span>
+      <div class="trust-item">Most insurance accepted</div>
+    </div>
+  </div>
+  <div style="margin-top:12px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.5)">
+    Background: Sand · Font: Archivo 700 · Size: 11px · Tracking: +0.13em · Color: Inlet · Dot: Coral 5px circle · Animates in with stagger on page load
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     08. DOCTOR SLIDE
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">08 · Doctor Slide (Full-Section Slider · one of three)</div>
+  <div class="comp-doctor">
+    <div class="doc-slide-inner">
+      <div class="slide-num-label">02 · Physician</div>
+      <h3 class="doc-name-large">Meet Dr. <em>Patricia Stewart.</em></h3>
+      <div class="doc-tags">
+        <span class="doc-tag">Board-Certified · Internal Medicine</span>
+        <span class="doc-tag">12+ Years Treasure Coast</span>
+        <span class="doc-tag">Native Floridian</span>
+      </div>
+      <p class="doc-bio-text">Dr. Stewart brings a thoughtful, patient-first approach to adult primary care — focused on building relationships over time and creating a more personal, unhurried experience.</p>
+      <a href="#" class="doc-link-text">Meet Dr. Stewart</a>
+    </div>
+    <div class="doc-slide-photo-col">
+      <div class="doc-photo-large" aria-hidden="true">
+        <div class="bg"></div><div class="head"></div><div class="silhouette"></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:12px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.5);line-height:1.6">
+    Full section: 100vh · Background: Sand · 3 slides (Stewart, D'Elia, Wije) · anime.js v4 transitions: photo scales 0.84→1, text staggers in · Prev/Next arrows + dots + keyboard + swipe · Sunrise progress bar at bottom · Dr. Wije: minimal pending card
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     09. PHILOSOPHY PRINCIPLES
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">09 · Philosophy Principles (3-col grid)</div>
+  <div class="comp-principles">
+    <div class="principle-card">
+      <div class="principle-glyph">i.</div>
+      <div class="principle-title">Quiet, capable, <em>unhurried.</em></div>
+      <p class="principle-body">Same-day callbacks. Same-week visits. A panel small enough that your doctor remembers your last conversation, not just your chart.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-glyph">ii.</div>
+      <div class="principle-title">Warm, <em>not clinical.</em></div>
+      <p class="principle-body">Light-filled rooms. Coastal art. A practice that reads like a hospitality brand — because that's how primary care should feel in 2026.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-glyph">iii.</div>
+      <div class="principle-title">Local, <em>never generic.</em></div>
+      <p class="principle-body">Real relationships with the specialists, hospitals, and labs Vero patients already trust. Care that fits your life on this coast.</p>
+    </div>
+  </div>
+  <div style="margin-top:12px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.5)">
+    Glyph: 64px circle, grad-sunrise fill · Title: Fraunces 400 22px with Cormorant italic coral accent · Body: Inter 300 13px · Stagger reveal on scroll
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     10. SERVICE CARDS
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">10 · Service Cards (3×2 grid)</div>
+  <div class="comp-services-grid">
+    <div class="service-card"><div class="service-icon"></div><div class="service-title">Annual Physicals &amp; Wellness</div><p class="service-body">Comprehensive yearly exams that go beyond a checklist — bloodwork, screenings, and a real conversation.</p></div>
+    <div class="service-card"><div class="service-icon"></div><div class="service-title">Chronic Condition Management</div><p class="service-body">Hypertension, diabetes, thyroid — managed proactively with a doctor who knows your history.</p></div>
+    <div class="service-card"><div class="service-icon"></div><div class="service-title">Same-Day Sick Visits</div><p class="service-body">Direct line to the practice. Same-day appointments when you need them.</p></div>
+    <div class="service-card"><div class="service-icon"></div><div class="service-title">Women's &amp; Men's Health</div><p class="service-body">Annual exams, hormone health, perimenopause care — handled with care, not a checklist.</p></div>
+    <div class="service-card"><div class="service-icon"></div><div class="service-title">Preventive Screenings &amp; Labs</div><p class="service-body">Onsite labs, in-house bloodwork, modern screening protocols built around your stage of life.</p></div>
+    <div class="service-card"><div class="service-icon"></div><div class="service-title">Travel &amp; Lifestyle Medicine</div><p class="service-body">Pre-travel consults, sleep, performance, and longevity care.</p></div>
+  </div>
+  <div style="margin-top:12px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.5);line-height:1.6">
+    Background: #FAF7EC · Sunrise gradient top border (3px) reveals on hover · Hover: translateY(-2px) + shadow · Icon: 28px sunrise circle · Stagger reveal on scroll · Title: Fraunces 400 18px · Body: Inter 300 13px
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     11. VBP LINEAGE
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">11 · VBP Lineage</div>
+  <div class="comp-lineage">
+    <div class="lineage-card parent">
+      <div class="lineage-label">Sibling Practice · Est. 1987</div>
+      <div class="lineage-name">Vero Beach<br><em>Pediatrics</em></div>
+    </div>
+    <div class="lineage-bridge"></div>
+    <div class="lineage-card child">
+      <div class="lineage-label">Sibling Practice · Est. 2026</div>
+      <div class="lineage-name">Vero Beach<br><em>Adult Medicine</em></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     12. CTA STRIP
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">12 · CTA Strip</div>
+  <div class="comp-cta">
+    <h2>Now welcoming <em>new patients.</em></h2>
+    <p class="sub">Schedule your first visit in minutes. Same coastline, same family — a practice built for the way you actually live.</p>
+    <div class="btns">
+      <a class="btn btn-primary btn-lg">Book an Appointment →</a>
+      <a class="btn btn-ghost btn-lg">Contact Us</a>
+    </div>
+  </div>
+  <div style="margin-top:12px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.5)">
+    Background: grad-sunrise · H2: Fraunces 400 clamp(36–56px) atlantic · Italic underline: atlantic 35% · Sub: Inter 300 15px · Buttons: atlantic + ghost
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     13. FOOTER
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">13 · Footer</div>
+  <div class="comp-footer">
+    <div class="footer-grid">
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>Citrus Medical Plaza</li>
+          <li>959 37th Place</li>
+          <li>Vero Beach, FL 32960</li>
+          <li>(772) 569-3212</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Our Doctors</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">VBP Connection</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Patients</h4>
+        <ul>
+          <li><a href="#">Book an Appointment</a></li>
+          <li><a href="#">Patient Portal</a></li>
+          <li><a href="#">New Patient Forms</a></li>
+          <li><a href="#">Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon – Thu · 8a–5p</li>
+          <li>Fri · 8a–12p</li>
+          <li>Sat – Sun · Closed</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <div>© 2026 Vero Beach Adult Medicine · vbadultmedicine.com</div>
+      <div>design-system.html v0.4 · 2026-05-11</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     14. SPACING SCALE
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">14 · Spacing Scale</div>
+  <div style="background:var(--foam);border:1px solid rgba(10,61,74,.08);border-radius:8px;padding:32px">
+    <div class="spacing-grid">
+      <div class="spacing-row"><div class="spacing-label">4</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:4px"></div></div><div class="spacing-value">4px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Inline gap (dot separators)</div></div>
+      <div class="spacing-row"><div class="spacing-label">8</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px"></div></div><div class="spacing-value">8px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Button icon gap, credential tag gap</div></div>
+      <div class="spacing-row"><div class="spacing-label">12</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px"></div></div><div class="spacing-value">12px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">CTA button gap, small element spacing</div></div>
+      <div class="spacing-row"><div class="spacing-label">16</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px"></div></div><div class="spacing-value">16px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Card inner padding top, label bottom margin</div></div>
+      <div class="spacing-row"><div class="spacing-label">24</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px"></div></div><div class="spacing-value">24px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Card padding, grid gap (mobile)</div></div>
+      <div class="spacing-row"><div class="spacing-label">32</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px"></div></div><div class="spacing-value">32px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Section inner padding, hero CTA margin-top</div></div>
+      <div class="spacing-row"><div class="spacing-label">48</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:48px"></div></div><div class="spacing-value">48px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Container padding-x, principle grid gap</div></div>
+      <div class="spacing-row"><div class="spacing-label">72</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:72px"></div></div><div class="spacing-value">72px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Footer top padding, section head bottom margin</div></div>
+      <div class="spacing-row"><div class="spacing-label">112</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:112px"></div></div><div class="spacing-value">112px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Section vertical padding (.bay)</div></div>
+      <div class="spacing-row"><div class="spacing-label">160</div><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:160px"></div></div><div class="spacing-value">160px</div><div style="font-size:12px;color:rgba(10,61,74,.45)">Hero top padding</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     15. ANIMATION SYSTEM
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">15 · Animation System — anime.js v4 (ESM)</div>
+  <div class="anim-grid" style="margin-bottom:20px">
+    <div class="anim-card">
+      <span class="anim-class">.reveal</span>
+      <div class="anim-desc">Fade up — general content blocks, headings, body copy</div>
+      <div class="anim-values">opacity: 0 → 1<br>translateY: 28px → 0<br>duration: 750ms · outExpo</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">.reveal-left</span>
+      <div class="anim-desc">Slide in from left — section numbers, eyebrow labels</div>
+      <div class="anim-values">opacity: 0 → 1<br>translateX: -24px → 0<br>duration: 600ms · outExpo</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">.reveal-scale</span>
+      <div class="anim-desc">Scale in — non-grid elements (lineage cards, bridges)</div>
+      <div class="anim-values">opacity: 0 → 1<br>scale: 0.92 → 1<br>duration: 700ms · outExpo</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">service-card stagger</span>
+      <div class="anim-desc">Grid stagger — dedicated IIFE, fires once on first intersection</div>
+      <div class="anim-values">opacity: 0 → 1, scale: 0.9 → 1<br>stagger: 90ms<br>duration: 640ms · outExpo</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">principle stagger</span>
+      <div class="anim-desc">Philosophy cards — dedicated IIFE, left-to-right cascade</div>
+      <div class="anim-values">opacity: 0 → 1, translateY: 32→0<br>stagger: 130ms<br>duration: 700ms · outExpo</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">hero timeline</span>
+      <div class="anim-desc">Entrance sequence — mark → wordmark → tagline → lede → CTAs</div>
+      <div class="anim-values">createTimeline · outExpo<br>t=0→300→480→800→1000→1180<br>duration 600–900ms each</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">logo float</span>
+      <div class="anim-desc">Hero mark — infinite gentle float after entrance</div>
+      <div class="anim-values">translateY: -7px ↔ 7px<br>duration: 3200ms · inOutSine<br>loop: true · alternate: true</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">wave oscillation</span>
+      <div class="anim-desc">SVG wave paths — 3 phases, opposite directions, different speeds</div>
+      <div class="anim-values">w1: -5px · 3400ms<br>w2: +6px · 2700ms<br>w3: -4px · 2100ms</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">hero glow pulse</span>
+      <div class="anim-desc">Background orb — breathes in after entrance, then cycles</div>
+      <div class="anim-values">scale: 1.12 ↔ 1.22<br>opacity: 1 ↔ 0.78<br>5200ms · inOutSine</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">ray shimmer</span>
+      <div class="anim-desc">Sun rays — staggered opacity twinkle on each line</div>
+      <div class="anim-values">opacity: 1 ↔ 0.35<br>stagger: 220ms<br>1600ms · inOutSine</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">sun pulse</span>
+      <div class="anim-desc">Sun semicircle — slow brightness shimmer</div>
+      <div class="anim-values">opacity: 1 ↔ 0.72<br>3800ms · inOutSine<br>delay: 1900ms</div>
+    </div>
+    <div class="anim-card">
+      <span class="anim-class">slider transition</span>
+      <div class="anim-desc">Doctor slides — directional slide/fade out, scale/stagger in</div>
+      <div class="anim-values">out: translateX ±60px · 320ms inQuad<br>in: photo scale 0.84→1 · 750ms outExpo<br>text stagger: 60ms delay</div>
+    </div>
+  </div>
+  <div style="padding:14px 20px;background:rgba(249,199,132,.15);border:1px solid rgba(249,199,132,.4);border-radius:6px;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.75);line-height:1.6">
+    <strong>Import:</strong> <code style="font-family:'Courier New';font-size:11px;background:rgba(10,61,74,.07);padding:2px 6px;border-radius:3px">import { animate, stagger, createTimeline } from 'https://esm.sh/animejs@4'</code><br>
+    In Next.js: install <code style="font-family:'Courier New';font-size:11px;background:rgba(10,61,74,.07);padding:2px 6px;border-radius:3px">animejs</code> from npm · import in client components only (<code>use client</code>)
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     16. BORDER RADIUS & SHADOW
+════════════════════════════════════════════════════════ -->
+<div class="ds-section">
+  <div class="ds-section-label">16 · Border Radius & Shadow</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+    <div style="background:var(--foam);border:1px solid rgba(10,61,74,.08);border-radius:4px;padding:20px;text-align:center">
+      <div style="font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,61,74,.4);margin-bottom:8px">4px</div>
+      <div style="font-family:var(--body);font-size:12px;color:rgba(10,61,74,.55)">Utility (internal)</div>
+    </div>
+    <div style="background:var(--foam);border:1px solid rgba(10,61,74,.08);border-radius:8px;padding:20px;text-align:center">
+      <div style="font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,61,74,.4);margin-bottom:8px">8px</div>
+      <div style="font-family:var(--body);font-size:12px;color:rgba(10,61,74,.55)">Cards, nav items, service cards</div>
+    </div>
+    <div style="background:var(--foam);border:1px solid rgba(10,61,74,.08);border-radius:12px;padding:20px;text-align:center">
+      <div style="font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,61,74,.4);margin-bottom:8px">12px</div>
+      <div style="font-family:var(--body);font-size:12px;color:rgba(10,61,74,.55)">Doctor section, CTA strip, footer</div>
+    </div>
+    <div style="background:var(--foam);border:1px solid rgba(10,61,74,.08);border-radius:999px;padding:20px;text-align:center">
+      <div style="font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,61,74,.4);margin-bottom:8px">999px</div>
+      <div style="font-family:var(--body);font-size:12px;color:rgba(10,61,74,.55)">All buttons, tags, dots, pills</div>
+    </div>
+  </div>
+  <div style="margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    <div style="background:var(--foam);border-radius:8px;padding:24px;box-shadow:0 4px 12px -6px rgba(10,61,74,.12);text-align:center;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.55)">
+      sm · 0 4px 12px -6px rgba(10,61,74,.12)
+    </div>
+    <div style="background:var(--foam);border-radius:8px;padding:24px;box-shadow:0 14px 32px -18px rgba(10,61,74,.18);text-align:center;font-family:var(--body);font-size:12px;color:rgba(10,61,74,.55)">
+      md · 0 14px 32px -18px rgba(10,61,74,.18)<br><span style="opacity:.6">card hover state</span>
+    </div>
+    <div style="background:var(--foam);border-radius:50%;width:80px;height:80px;margin:0 auto;box-shadow:0 24px 64px -28px rgba(10,61,74,.3);display:flex;align-items:center;justify-content:center;font-family:var(--body);font-size:11px;color:rgba(10,61,74,.5)">
+      photo
+    </div>
+  </div>
+</div>
+
+
+</div><!-- /ds-wrap -->
+
+
+<!-- ── ANIME.JS — highlight drawable ──────────────────────── -->
+<script type="module">
+import { createDrawable, animate, stagger } from 'https://esm.sh/animejs@4';
+
+/* Wavy underline under "Adult Medicine" */
+const underline = createDrawable('#highlight-line-1');
+animate(underline, {
+  draw: ['0 0', '0 1'],
+  duration: 1400,
+  ease: 'inOutQuad',
+  delay: 600,
+});
+
+/* Oval enclosure — draws around full wordmark */
+const oval = createDrawable('#highlight-oval');
+animate(oval, {
+  draw: ['0 0', '0 1'],
+  duration: 1800,
+  ease: 'inOutQuad',
+  delay: 1200,
+});
+
+/* Re-draw loop every 6s */
+setInterval(() => {
+  animate(underline, { draw: ['0 0', '0 1'], duration: 1400, ease: 'inOutQuad' });
+  animate(oval, { draw: ['0 0', '0 1'], duration: 1800, ease: 'inOutQuad', delay: 400 });
+}, 6000);
+
+</script>
+
+</body>
+</html>

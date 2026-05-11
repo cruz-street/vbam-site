@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* ─── VBAM Design Tokens v0.4 ─────────────────────────────────────────────────
+   Values lock at v0.5 — update this file only, never hardcode hex in components.
+   All Tailwind classes are generated from @theme below.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Colors — available as bg-vbam-*, text-vbam-*, border-vbam-*, etc. */
+  --color-vbam-atlantic:  #0A3D4A;
+  --color-vbam-inlet:     #1A6B7E;
+  --color-vbam-sea-glass: #5FB3C0;
+  --color-vbam-sunrise:   #F9C784;
+  --color-vbam-coral:     #EE7752;
+  --color-vbam-sand:      #E8DCC8;
+  --color-vbam-foam:      #F5F1E8;
+
+  /* Fonts — reference CSS vars injected by next/font on <html>
+     Classes: font-fraunces, font-cormorant, font-archivo, font-inter */
+  --font-fraunces:  var(--nf-fraunces), Georgia, serif;
+  --font-cormorant: var(--nf-cormorant), "Times New Roman", serif;
+  --font-archivo:   var(--nf-archivo), -apple-system, sans-serif;
+  --font-inter:     var(--nf-inter), -apple-system, sans-serif;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-vbam-foam);
+  color: var(--color-vbam-atlantic);
+  font-family: var(--font-inter);
+  line-height: 1.55;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── Gradient utilities ────────────────────────────────────────────────────── */
+:root {
+  --grad-sunrise:  linear-gradient(120deg, #F9C784 0%, #EE7752 100%);
+  --grad-atlantic: linear-gradient(180deg, #1A6B7E 0%, #0A3D4A 100%);
+}
+
+/* Gradient text — applied to inline elements */
+.text-grad-sunrise {
+  background: var(--grad-sunrise);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ─── Scroll reveal — toggled by ScrollReveal component ─────────────────────── */
+.sr-rise  { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.sr-left  { opacity: 0; transform: translateX(-24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.sr-scale { opacity: 0; transform: scale(0.93);       transition: opacity 0.7s ease, transform 0.7s ease; }
+.sr-in    { opacity: 1; transform: none; }

@@ -7,3 +7,11 @@ out/
 .env*.local
 *.log
 .superpowers/
+
+# Playwright test artifacts
+.playwright-mcp/
+
+# Screenshot review files
+*.png
+*.jpeg
+*.jpg

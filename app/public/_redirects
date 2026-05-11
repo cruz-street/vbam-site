@@ -1,0 +1,7 @@
+# Cloudflare Pages redirects
+# Format: /old-path  /new-path  [status]
+# SEO gate (Phase 5): map every existing vbadultmedicine.com URL before DNS cutover.
+# Existing site has regional landing pages — audit traffic, then add redirects here.
+
+# Placeholder: old home → new home (remove when DNS is live)
+# /index.html  /  301

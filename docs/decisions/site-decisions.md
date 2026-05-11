@@ -4,6 +4,75 @@ Newest entry first.
 
 ---
 
+## 2026-05-11 — Dr. Stewart positioning: employee, not founder
+
+**Decision:** All copy must describe Dr. Stewart as a key physician and important member of the practice — not as founder or owner. The practice is structured to grow beyond any single doctor; additional physicians will be hired over time.
+
+**Why:** Accurate. She did not found the practice and the practice will extend beyond her. Framing her as founder misrepresents the business and creates messaging problems when new doctors join.
+
+**Alternatives considered:** "Founded by Dr. Stewart" language (AI-generated in mockup — rejected). "Dr. Stewart leads the practice" framing is acceptable as long as it doesn't imply sole-founder status.
+
+**Content flag:** The mockup bio block reads "Dr. Stewart founded VBAM to practice medicine the way she always wished she could…" — this must be rewritten before implementation.
+
+---
+
+## 2026-05-11 — Multi-doctor layout: scrollable homepage section + individual profile pages
+
+**Decision:** Homepage "Meet the Doctors" section uses a horizontal scroll (carousel) to show all three physicians — Dr. D'Elia, Dr. Patricia Stewart, Dr. Wije. Each doctor also gets their own individual profile page (pattern mirrors VBP's /delia/ page).
+
+**Why:** Practice has three physicians at launch, not just Dr. Stewart. Scroll pattern keeps the homepage layout intact (Direction B structure) while accommodating growth. Individual pages give each doctor SEO presence and a dedicated canonical URL.
+
+**Nav impact:** "Dr. Stewart" nav item becomes "Our Doctors" (or equivalent) linking to the multi-doctor section or a doctors index page.
+
+**Alternatives considered:** Single-doctor homepage with others on an inner page (rejected — undersells the practice depth at launch).
+
+---
+
+## 2026-05-11 — Homepage content direction brief (8-section flow)
+
+**Decision:** The following directional copy maps to Direction B's layout structure. Not final copy — intended to guide screens.html with intentional content instead of placeholder text. Structure must not change.
+
+**Section mapping (Direction B layout → content brief):**
+
+| Section | Content direction |
+|---|---|
+| Hero | Headline: "Primary care, reimagined for Vero Beach" / "Modern care. Coastal calm." / "A more thoughtful approach to adult medicine" — Subhead: "Now welcoming patients with Dr. Patricia Stewart…" — CTA: "Book an Appointment" / "Become a Patient" |
+| Trust bar | "Trusted by the Vero Beach community" + "From the families who know and trust VBP" + 3 patient testimonials |
+| VBP sibling / Intro | "Care that feels personal." — rooted in VBP, next chapter for adults who value thoughtful personalized care |
+| Dr. Stewart | "Meet Dr. Patricia Stewart" — patient-first, long-term relationships, unhurried. Use Amy's approved bio. CTA: "Learn More" / "Schedule Your First Visit" |
+| Three quiet promises → Care philosophy | "Care, designed differently." — 4 icon-based points: longer visits, thoughtful conversations, prevention focus, care around your life |
+| Services grid | "Comprehensive Adult Care" — 6 services: Preventative Care & Physicals, Chronic Condition Management, Women's & Men's Health, Same-Day Sick Visits, Ongoing Wellness & Lifestyle, (6th TBD) |
+| Same family / Same coastline | "A natural next step." — families who trusted VBP, seamless transition to adult care |
+| CTA strip | "Your care should feel this good." — "Book an Appointment" + "Contact Us" |
+
+**Design notes from brief:** Fully incorporate Sun & Sea color system (not just logo). Gradients and coastal tones used with intention. Whitespace-driven. Boutique hospitality feel, not traditional medical. Mirror VBP structure but more elevated, calm, refined.
+
+**Why:** Enough direction to build screens.html with real content instead of lorem ipsum. Stakeholder-approved structure + tone.
+
+---
+
+## 2026-05-11 — Homepage direction: Direction B confirmed
+
+**Decision:** Direction B (the "Quiet care, quietly confident." layout) is the approved homepage direction. Foam/Sand backgrounds throughout, split hero with coastal image right, orange CTA, trust ticker bar, VBP sibling section, Dr. Stewart section, Three Promises, Services grid, Same Family / Same Coastline section, Atlantic footer.
+
+**Why:** Selected after review of all three directions by the Brewer International project team. Direction B best matches the boutique coastal brand tone — warm, not clinical. Design B also confirmed as the winner.
+
+**Alternatives considered:** Other directions reviewed and passed on. Pre-roll looping video header is a post-launch enhancement (modeled on the VBP approach) — not in scope for launch.
+
+**Content note:** Some AI-generated placeholder copy made it into the mockup and must be audited before implementation. The Dr. Stewart bio is the known instance.
+
+---
+
+## 2026-05-11 — Sebastian Inlet regional landing pages: decision deferred to post-launch
+
+**Decision:** The existing vbadultmedicine.com site has three regional landing pages (Sebastian, Fort Pierce, Vero) served geographically — an SEO play built by the original agency to signal local relevance to surrounding communities. We are not replicating this pattern in the new site at launch.
+
+**Why:** Sebastian Inlet is in Sebastian, not Vero Beach — the geographic framing is inaccurate and could undermine the Vero-first brand identity we're building. The strategy decision (keep regional pages, consolidate around Vero, or rework) requires deliberate input from client and SEO review, not a rushed call before launch.
+
+**Post-launch action needed:** Evaluate the regional pages' traffic contribution, decide on consolidation vs. rework, then implement a redirects strategy in `app/public/_redirects`.
+
+---
+
 ## 2026-05-05 — Design workflow: Claude Design before implementation
 
 **Decision:** Use Claude Design (claude.ai) to generate and approve homepage direction before any Next.js components are built. Approved output becomes the source of truth for screens.html and design-system.html.
