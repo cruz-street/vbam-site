@@ -17,7 +17,7 @@
 - [x] Phase 3: Home page (all 8 sections)
 - [x] Phase 4: Inner pages (About, Services, For Patients, Contact)
 - [x] Phase 5: SEO (metadata, sitemap, robots, JSON-LD)
-- [ ] Phase 6: CF Pages deployment + DNS cutover
+- [x] Phase 6: CF Pages deployment — preview live at https://2a0a86eb.vbam-site.pages.dev
 
 ## Design Status
 
@@ -109,9 +109,9 @@ Read this channel at session start for current project context. Key people: Jess
 
 ## Session State
 
-- **Last completed:** Phase 5 COMPLETE — SEO gate all 5 items pass; Header/Footer layout fix; JSON-LD on home + contact
-- **Next:** Phase 6 — CF Pages deployment + DNS cutover (pnpm build → commit → CF Pages deploy)
-- **Last sync commit:** c4854bf (Phases 3–5 not yet committed)
+- **Last completed:** Phase 6 COMPLETE — deployed to https://2a0a86eb.vbam-site.pages.dev (2026-05-11)
+- **Next:** DNS cutover to vbadultmedicine.com + set NEXT_PUBLIC_WEB3FORMS_KEY in CF Pages env vars
+- **Last sync commit:** 0de91dc (Phases 3–5 committed; deployment logged)
 
 ## Implementation Plan
 

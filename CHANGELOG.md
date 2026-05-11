@@ -6,6 +6,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- Phase 6: Cloudflare Pages deployment — preview URL https://2a0a86eb.vbam-site.pages.dev
+  - CF Pages project `vbam-site` created under ashwin@cruzstreet.com account
+  - 99 files uploaded; `_redirects` and static assets confirmed live
+  - Deployment logged in DEPLOYMENTS.md
 - Phase 5: SEO gate — all 5 checklist items pass
   - `layout.tsx` — Header + Footer added to RootLayout (was missing)
   - `shared/JsonLd.tsx` — JSON-LD script tag component
