@@ -1,0 +1,316 @@
+# ─────────────────────────────────────────────────────────────────
+# Decap CMS — Vero Beach Adult Medicine
+#
+# SETUP REQUIRED before this works:
+#   1. Deploy sveltia-cms-auth CF Worker (see CONTENT-EDITOR-SETUP.md)
+#   2. Replace base_url below with your Worker URL
+#   3. Add GITHUB_CLIENT_ID + GITHUB_CLIENT_SECRET to CF Pages env
+# ─────────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: cruz-street/vbam-site
+  branch: main
+  base_url: https://vbam-cms-auth.cruzstreet-vbam.workers.dev
+
+media_folder: app/public/images
+public_folder: /images
+
+collections:
+  - name: pages
+    label: Site Content
+    files:
+
+      # ── Homepage ─────────────────────────────────────────────────
+      - name: home
+        label: Homepage
+        file: app/src/content/home.json
+        format: json
+        fields:
+          - label: Hero Section
+            name: hero
+            widget: object
+            fields:
+              - { label: Tagline, name: tagline, widget: string }
+              - { label: Lede (body text under tagline), name: lede, widget: text }
+              - { label: "Primary button", name: cta1, widget: string }
+              - { label: "Secondary button", name: cta2, widget: string }
+
+          - label: Trust Bar
+            name: trustBar
+            widget: list
+            field: { label: Item, name: item, widget: string }
+
+          - label: About Section
+            name: positioning
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: headingLine1, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Body (first paragraph), name: body1, widget: text }
+              - { label: Pull quote, name: pullQuote, widget: string }
+              - { label: Body (second paragraph), name: body2, widget: text }
+
+          - label: Care Philosophy Header
+            name: philosophy
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: headingLine1, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+
+          - label: "Philosophy Cards (Three Promises)"
+            name: principles
+            widget: list
+            fields:
+              - { label: Number glyph (e.g. i.), name: glyph, widget: string }
+              - { label: Card title, name: headingLine1, widget: string }
+              - { label: Card title — italic part, name: headingItalic, widget: string }
+              - { label: Card body, name: body, widget: text }
+
+          - label: Services Section Header
+            name: servicesSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: headingLine1, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+
+          - label: Homepage Service Cards
+            name: homeServices
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+
+          - label: VBP Connection Section
+            name: vbpSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: headingLine1, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Body, name: body, widget: text }
+              - label: VBP Card
+                name: vbpCard
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Practice name, name: name, widget: string }
+                  - { label: Italic text, name: italic, widget: string }
+              - label: VBAM Card
+                name: vbamCard
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Practice name, name: name, widget: string }
+                  - { label: Italic text, name: italic, widget: string }
+              - { label: Footer tagline, name: footer, widget: string }
+
+          - label: CTA Strip (bottom of homepage)
+            name: ctaStrip
+            widget: object
+            fields:
+              - { label: Heading, name: headingLine1, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+              - { label: Primary button, name: cta1, widget: string }
+              - { label: Secondary button, name: cta2, widget: string }
+
+      # ── Doctors ───────────────────────────────────────────────────
+      - name: doctors
+        label: Our Doctors
+        file: app/src/content/doctors.json
+        format: json
+        fields:
+          - label: Doctors
+            name: doctors
+            widget: list
+            fields:
+              - { label: Eyebrow label, name: eyebrow, widget: string }
+              - { label: "Name prefix (e.g. Meet Dr. )", name: namePrefix, widget: string }
+              - { label: Name — italic part, name: nameItalic, widget: string }
+              - label: Credentials
+                name: credentials
+                widget: list
+                field: { label: Credential pill, name: item, widget: string }
+              - { label: Bio, name: bio, widget: text }
+              - { label: Profile link (e.g. /about/), name: link, widget: string, required: false }
+              - { label: Link label, name: linkLabel, widget: string, required: false }
+
+      # ── About Page ────────────────────────────────────────────────
+      - name: about
+        label: About Page
+        file: app/src/content/about.json
+        format: json
+        fields:
+          - label: Page Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+          - label: Dr. Stewart Section
+            name: drStewart
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - label: Credentials
+                name: credentials
+                widget: list
+                field: { label: Credential, name: item, widget: string }
+              - { label: Bio paragraph 1, name: bio1, widget: text }
+              - { label: Bio paragraph 2, name: bio2, widget: text }
+              - { label: CTA button text, name: cta, widget: string }
+          - label: CTA Section
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+              - { label: CTA button text, name: cta, widget: string }
+
+      # ── Services Page ─────────────────────────────────────────────
+      - name: services
+        label: Services Page
+        file: app/src/content/services.json
+        format: json
+        fields:
+          - label: Page Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+          - label: Services
+            name: services
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Summary, name: body, widget: text }
+              - { label: Detail, name: detail, widget: text }
+          - label: First Visit Section
+            name: approach
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Body, name: body, widget: text }
+              - { label: Pull quote, name: pullQuote, widget: text }
+          - label: CTA Section
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+              - { label: Primary button, name: cta1, widget: string }
+              - { label: Secondary button, name: cta2, widget: string }
+
+      # ── For Patients Page ─────────────────────────────────────────
+      - name: for_patients
+        label: For Patients Page
+        file: app/src/content/for-patients.json
+        format: json
+        fields:
+          - label: Page Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+          - label: New Patient Section
+            name: newPatient
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Note, name: note, widget: text }
+          - label: What to Bring Checklist
+            name: checklist
+            widget: list
+            field: { label: Item, name: item, widget: string }
+          - label: Insurance Section
+            name: insurance
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Note, name: note, widget: text }
+              - label: Accepted Plans
+                name: plans
+                widget: list
+                field: { label: Plan name, name: item, widget: string }
+          - label: FAQs
+            name: faqs
+            widget: list
+            fields:
+              - { label: Question, name: q, widget: string }
+              - { label: Answer, name: a, widget: text }
+          - label: CTA Section
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+              - { label: CTA button text, name: cta1, widget: string }
+
+      # ── Contact Page ──────────────────────────────────────────────
+      - name: contact
+        label: Contact Page
+        file: app/src/content/contact.json
+        format: json
+        fields:
+          - label: Page Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+          - label: Contact Info Header
+            name: info
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+          - label: Practice Details
+            name: practice
+            widget: object
+            fields:
+              - label: Address
+                name: address
+                widget: object
+                fields:
+                  - { label: Building name, name: building, widget: string }
+                  - { label: Street address, name: street, widget: string }
+                  - { label: City/State/Zip, name: city, widget: string }
+              - { label: "Phone (formatted, e.g. (772) 569-3212)", name: phone, widget: string }
+              - { label: "Phone (digits only for tel: link)", name: phoneTel, widget: string }
+              - label: Office Hours
+                name: hours
+                widget: list
+                field: { label: Line, name: item, widget: string }
+              - { label: Hours note, name: hoursNote, widget: string }
+              - { label: Same-day visit note, name: sameDay, widget: text }
+          - label: Form Labels
+            name: form
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subhead, name: subhead, widget: string }
+          - { label: Sibling callout text, name: sibling, widget: string }

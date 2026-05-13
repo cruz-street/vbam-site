@@ -68,7 +68,7 @@ export default function AppointmentForm() {
       {/* Honeypot */}
       <input type="checkbox" name="botcheck" className="hidden" aria-hidden="true" tabIndex={-1} />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="font-archivo font-[700] text-vbam-atlantic/60 block mb-1.5" style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
             First Name <span className="text-vbam-coral">*</span>
@@ -137,7 +137,7 @@ export default function AppointmentForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full font-archivo font-[600] bg-vbam-atlantic text-vbam-foam hover:bg-vbam-inlet disabled:opacity-60 transition-colors rounded-full"
+        className="btn-primary w-full font-archivo font-[600] disabled:opacity-60 transition-colors rounded-full"
         style={{ fontSize: 14, padding: '14px 28px' }}
       >
         {status === 'submitting' ? 'Sending…' : 'Send Request →'}

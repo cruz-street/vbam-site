@@ -109,9 +109,9 @@ Read this channel at session start for current project context. Key people: Jess
 
 ## Session State
 
-- **Last completed:** Phase 6 COMPLETE — deployed to https://2a0a86eb.vbam-site.pages.dev (2026-05-11)
-- **Next:** DNS cutover to vbadultmedicine.com + set NEXT_PUBLIC_WEB3FORMS_KEY in CF Pages env vars
-- **Last sync commit:** 0de91dc (Phases 3–5 committed; deployment logged)
+- **Last completed:** vbam-cms-auth Worker deployed (https://vbam-cms-auth.cruzstreet-vbam.workers.dev); config.yml placeholder replaced; GitHub Actions deploy.yml created; CF workers.dev subdomain created (cruzstreet-vbam) (2026-05-12)
+- **Next:** (1) User creates GitHub OAuth App at github.com/settings/developers — callback URL: https://vbam-cms-auth.cruzstreet-vbam.workers.dev/callback — then share client_id+secret so I can `wrangler secret put` them; (2) User creates CF API token (Pages:Write) at dash.cloudflare.com/profile/api-tokens and adds as CLOUDFLARE_API_TOKEN + NEXT_PUBLIC_WEB3FORMS_KEY to GitHub Actions secrets; (3) DNS cutover to vbadultmedicine.com
+- **Last sync commit:** d9b15bcbe34b4d5782445732556ad26a3fb90c4e (uncommitted changes in working tree)
 
 ## Implementation Plan
 

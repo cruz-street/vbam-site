@@ -1,0 +1,17 @@
+{
+  "doctors": [
+    {
+      "eyebrow": "Physician",
+      "namePrefix": "Meet Dr. ",
+      "nameItalic": "Patricia Stewart.",
+      "credentials": [
+        "Board-Certified · Internal Medicine",
+        "12+ Years Treasure Coast",
+        "Native Floridian"
+      ],
+      "bio": "Dr. Stewart brings a thoughtful, patient-first approach to adult primary care — focused on building relationships over time and creating a more personal, unhurried experience. She trained at Emory, completed her residency at the University of Miami, and chose Vero Beach because she believes great primary care belongs in the places people actually want to live.",
+      "link": "/about/",
+      "linkLabel": "Meet Dr. Stewart"
+    }
+  ]
+}

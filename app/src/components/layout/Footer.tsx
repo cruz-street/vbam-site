@@ -18,7 +18,7 @@ const LINKS = {
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--grad-atlantic)' }} className="text-vbam-foam/85 pt-16 pb-8">
-      <div className="max-w-[1200px] mx-auto px-12">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
         {/* Brand */}
         <div className="text-center mb-14">
@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-4 gap-10 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
           <div>
             <h4 className="font-archivo text-[9px] font-[700] tracking-[.2em] uppercase text-vbam-foam/40 mb-3">
               Visit
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
 
         {/* Colophon */}
-        <div className="flex justify-between items-center pt-5 border-t border-vbam-foam/10 font-archivo text-[9px] tracking-[.14em] uppercase text-vbam-foam/35 flex-wrap gap-3">
+        <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left pt-5 border-t border-vbam-foam/10 font-archivo text-[9px] tracking-[.14em] uppercase text-vbam-foam/35 gap-3">
           <span>© 2026 Vero Beach Adult Medicine · vbadultmedicine.com</span>
           <span>
             <Link href="/contact/" className="hover:text-vbam-foam/60 transition-colors mr-4">Contact</Link>

@@ -1,5 +1,32 @@
 # Component Change Log (newest first)
 
+### 2026-05-12 19:05 — refactor content layer extraction — all copy moved to src/content/
+- Files: src/content/{doctors,home,about,services,for-patients,contact}.ts (new)
+- All user-facing strings extracted from 12 components/pages into typed content files; components now import from @/content/*
+- DoctorsSection: only Dr. Stewart (removed D'Elia + Wije — they are at VBP, not VBAM); slider nav hidden when DOCTORS.length === 1
+- about/page.tsx: removed "Also joining the practice" D'Elia/Wije section entirely; hero subhead corrected to single-physician framing
+- Enables Claude Desktop content workflow: client edits content/*.ts files, Claude pushes to main, CF Pages auto-deploys
+
+### 2026-05-12 16:08 — fix mobile nav dropdown animation + on-brand styling; fix doctor slider arrows overlapping content
+- File: /Users/ashwinchandran/work/vbam-site/app/src/components/layout/Header.tsx
+- Dropdown always in DOM, animates via `max-height`/`opacity`/`translateY` transitions (320ms cubic-bezier); sand bg, sunrise gradient top rule, Fraunces 22px nav links with coral → arrows, sunrise gradient CTA button; hamburger lines animate to × via CSS transform (translateY ±6.5px + rotate ±45deg)
+- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/DoctorsSection.tsx
+- Prev/next arrows changed from `flex` to `hidden sm:flex` — arrows are hidden on mobile (<640px) where they overlap credential pill chips; dot nav still works on all sizes
+
+### 2026-05-12 14:17 — fix mobile responsiveness across 9 components
+- Files: Header.tsx, Footer.tsx, PhilosophySection.tsx, ServicesSection.tsx, VbpSection.tsx, DoctorsSection.tsx, PositioningSection.tsx, CtaStrip.tsx, TrustBar.tsx
+- Header converted to `'use client'` with hamburger menu (SVG, no library), mobile dropdown with stacked nav links + Book CTA; desktop nav unchanged
+- All containers: `px-12` → `px-5 sm:px-8 md:px-12`; section padding: fixed px → `clamp()`; grids: added mobile collapse breakpoints (`grid-cols-1 sm:grid-cols-3`, `grid-cols-2 md:grid-cols-4`, etc.); VbpSection lineage row: `flex-col sm:flex-row`, bridge arrow `hidden sm:block`; DoctorsSection arrows pulled in to 12px, photo size clamp; PositioningSection pull-quote font clamp; TrustBar gap reduced on small screens
+
+### 2026-05-12 12:49 — feat wave-on-beach hero animation + createDrawable underline
+- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/HeroSection.tsx
+- Added asymmetric wave-on-beach animation to sunrise wash (outSine rush 2600ms → hold 600ms → inSine recede 3200ms) via createTimeline loop; halo orb breathes out-of-phase at 400ms offset; all looping effects gated on prefers-reduced-motion
+- Added anime.js v4 createDrawable wave underline (3-arc sunrise gradient path) beneath "Adult Medicine" wordmark, drawing in at 1380ms delay; removed old CSS heroGlowBg keyframe
+
+### 2026-05-12 11:42 — fix primary button text invisible on deployed site
+- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/HeroSection.tsx (+ 6 other files)
+- Added .btn-primary CSS class outside any @layer in globals.css — unlayered CSS beats Tailwind base `a{color:inherit}` reset that was swallowing text-vbam-foam on <a> elements
+
 ### 2026-05-11 21:53 — feat JsonLd shared component + layout Header/Footer fix
 - File: /Users/ashwinchandran/work/vbam-site/app/src/components/shared/JsonLd.tsx
 - Thin wrapper for JSON-LD script tags (dangerouslySetInnerHTML); used by home + contact pages
@@ -36,31 +63,3 @@
 ### 2026-05-11 21:03 — feat page.tsx home page wiring
 - File: /Users/ashwinchandran/work/vbam-site/app/src/app/page.tsx
 - Replaced placeholder stub with full 8-section home page: HeroSection → TrustBar → PositioningSection → DoctorsSection → PhilosophySection → ServicesSection → VbpSection → CtaStrip
-
-### 2026-05-11 21:03 — feat CtaStrip sunrise gradient CTA section
-- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/CtaStrip.tsx
-- "Now welcoming new patients." on sunrise gradient bg; two CTA buttons (Book + Contact); ScrollReveal; server component
-
-### 2026-05-11 21:03 — feat VbpSection lineage cards
-- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/VbpSection.tsx
-- VBP → VBAM lineage cards connected by sunrise-gradient bridge arrow; ScrollReveal stagger; sand bg; server component
-
-### 2026-05-11 21:02 — feat ServicesSection 6-card grid
-- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/ServicesSection.tsx
-- 3×2 service card grid on foam bg; sunrise gradient top-bar hover accent via CSS scale; ScrollReveal stagger per card; server component
-
-### 2026-05-11 21:02 — feat PhilosophySection 3-col principles grid
-- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/PhilosophySection.tsx
-- "Three quiet promises." section with 3 principle cards (sunrise-gradient glyph circles, ScrollReveal scale stagger); server component
-
-### 2026-05-11 21:02 — feat DoctorsSection full-section slider
-- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/DoctorsSection.tsx
-- 100vh animated slider with 3 doctor slides, auto-advance (7s), progress bar, prev/next arrows, dot nav, CSS opacity transitions; placeholder photo silhouettes; approved Dr. Stewart bio copy verbatim
-
-### 2026-05-11 21:01 — feat PositioningSection server component
-- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/PositioningSection.tsx
-- "A grown-up sibling, on purpose." section with ScrollReveal on heading, 2 body paragraphs, pull quote with em-dashes; matches screens.html §02
-
-### 2026-05-11 21:00 — feat TrustBar server component
-- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/TrustBar.tsx
-- Created Sand-bg trust bar with 4 items (coral dot + Archivo uppercase text), separator dots, matches screens.html design

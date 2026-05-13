@@ -1,33 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-
-const DOCTORS = [
-  {
-    index: '02 · Physician',
-    name: ['Meet Dr. ', 'Patricia Stewart.'],
-    credentials: ['Board-Certified · Internal Medicine', '12+ Years Treasure Coast', 'Native Floridian'],
-    bio: 'Dr. Stewart brings a thoughtful, patient-first approach to adult primary care — focused on building relationships over time and creating a more personal, unhurried experience. She trained at Emory, completed her residency at the University of Miami, and chose Vero Beach because she believes great primary care belongs in the places people actually want to live.',
-    link: '/about/',
-    linkLabel: 'Meet Dr. Stewart',
-  },
-  {
-    index: '02 · Physician',
-    name: ['Meet Dr. ', "D'Elia."],
-    credentials: ['Internal Medicine'],
-    bio: 'Bio and credentials to be provided.',
-    link: '/about/',
-    linkLabel: "Meet Dr. D'Elia",
-  },
-  {
-    index: '02 · Physician',
-    name: ['Meet Dr. ', 'Wije.'],
-    credentials: ['Internal Medicine'],
-    bio: 'Coming soon — announcement forthcoming.',
-    link: null,
-    linkLabel: null,
-  },
-];
+import { DOCTORS } from '@/content/doctors';
 
 const AUTO_INTERVAL = 7000;
 
@@ -37,17 +11,20 @@ export default function DoctorsSection() {
   const progressRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const multiSlide = DOCTORS.length > 1;
+
   const goTo = useCallback((idx: number) => {
-    if (isAnimating || idx === active) return;
+    if (!multiSlide || isAnimating || idx === active) return;
     setIsAnimating(true);
     setActive(idx);
     setTimeout(() => setIsAnimating(false), 420);
-  }, [active, isAnimating]);
+  }, [active, isAnimating, multiSlide]);
 
   const next = useCallback(() => goTo((active + 1) % DOCTORS.length), [active, goTo]);
   const prev = useCallback(() => goTo((active - 1 + DOCTORS.length) % DOCTORS.length), [active, goTo]);
 
   useEffect(() => {
+    if (!multiSlide) return;
     if (progressRef.current) {
       progressRef.current.style.transition = 'none';
       progressRef.current.style.width = '0%';
@@ -62,7 +39,7 @@ export default function DoctorsSection() {
     }
     timerRef.current = setInterval(next, AUTO_INTERVAL);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [active, next]);
+  }, [active, next, multiSlide]);
 
   return (
     <section
@@ -70,7 +47,6 @@ export default function DoctorsSection() {
       className="relative overflow-hidden bg-vbam-sand"
       style={{ height: '100vh', minHeight: 600 }}
     >
-      {/* Slides */}
       <div className="relative w-full h-full">
         {DOCTORS.map((doc, i) => (
           <div
@@ -82,7 +58,7 @@ export default function DoctorsSection() {
               transition: 'opacity 0.4s ease',
             }}
           >
-            <div className="text-center px-12" style={{ maxWidth: 720, width: '100%', padding: '80px 48px' }}>
+            <div className="text-center" style={{ maxWidth: 720, width: '100%', padding: 'clamp(32px, 5vw, 80px) clamp(16px, 4vw, 48px)' }}>
 
               {/* Photo placeholder */}
               <div className="flex justify-center" style={{ marginBottom: 32 }}>
@@ -90,7 +66,7 @@ export default function DoctorsSection() {
                   aria-hidden="true"
                   className="rounded-full relative overflow-hidden"
                   style={{
-                    width: 260, height: 260,
+                    width: 'clamp(160px, 30vw, 260px)', height: 'clamp(160px, 30vw, 260px)',
                     background: 'var(--foam)',
                     boxShadow: '0 24px 64px -28px rgba(10,61,74,.3)',
                     border: '1px solid rgba(10,61,74,.07)',
@@ -127,15 +103,15 @@ export default function DoctorsSection() {
                 className="font-archivo font-[700] text-vbam-coral"
                 style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 16 }}
               >
-                {doc.index}
+                {doc.eyebrow}
               </p>
 
               <h3
                 className="font-fraunces font-[400] text-vbam-atlantic"
                 style={{ fontSize: 'clamp(30px, 4vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 20 }}
               >
-                {doc.name[0]}
-                <em className="font-cormorant italic text-grad-sunrise">{doc.name[1]}</em>
+                {doc.namePrefix}
+                <em className="font-cormorant italic text-grad-sunrise">{doc.nameItalic}</em>
               </h3>
 
               <div className="flex flex-wrap gap-[7px] justify-center" style={{ marginBottom: 22 }}>
@@ -174,62 +150,68 @@ export default function DoctorsSection() {
         ))}
       </div>
 
-      {/* Prev arrow */}
-      <button
-        onClick={prev}
-        aria-label="Previous doctor"
-        className="absolute top-1/2 z-10 -translate-y-1/2 flex items-center justify-center transition-transform hover:scale-[1.08]"
-        style={{
-          left: 32, width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(245,241,232,.75)', backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(10,61,74,.12)', color: '#0A3D4A', cursor: 'pointer',
-        }}
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      </button>
-
-      {/* Next arrow */}
-      <button
-        onClick={next}
-        aria-label="Next doctor"
-        className="absolute top-1/2 z-10 -translate-y-1/2 flex items-center justify-center transition-transform hover:scale-[1.08]"
-        style={{
-          right: 32, width: 52, height: 52, borderRadius: '50%',
-          background: 'rgba(245,241,232,.75)', backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(10,61,74,.12)', color: '#0A3D4A', cursor: 'pointer',
-        }}
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
-
-      {/* Dot indicators */}
-      <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex gap-[10px] z-10">
-        {DOCTORS.map((doc, i) => (
+      {/* Prev/next arrows — only when multiple doctors */}
+      {multiSlide && (
+        <>
           <button
-            key={i}
-            onClick={() => goTo(i)}
-            aria-label={`Go to ${doc.name[0]}${doc.name[1]}`}
-            className="p-0 border-none cursor-pointer transition-transform"
+            onClick={prev}
+            aria-label="Previous doctor"
+            className="hidden sm:flex absolute top-1/2 z-10 -translate-y-1/2 items-center justify-center transition-transform hover:scale-[1.08]"
             style={{
-              width: 8, height: 8, borderRadius: '50%',
-              background: i === active ? '#EE7752' : 'rgba(10,61,74,.25)',
-              transform: i === active ? 'scale(1.35)' : 'scale(1)',
+              left: 12, width: 52, height: 52, borderRadius: '50%',
+              background: 'rgba(245,241,232,.75)', backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(10,61,74,.12)', color: '#0A3D4A', cursor: 'pointer',
             }}
-          />
-        ))}
-      </div>
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next doctor"
+            className="hidden sm:flex absolute top-1/2 z-10 -translate-y-1/2 items-center justify-center transition-transform hover:scale-[1.08]"
+            style={{
+              right: 12, width: 52, height: 52, borderRadius: '50%',
+              background: 'rgba(245,241,232,.75)', backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(10,61,74,.12)', color: '#0A3D4A', cursor: 'pointer',
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </>
+      )}
 
-      {/* Progress bar */}
-      <div
-        ref={progressRef}
-        className="absolute bottom-0 left-0 h-[2px]"
-        style={{ background: 'var(--grad-sunrise)', width: '0%' }}
-        aria-hidden="true"
-      />
+      {/* Dot indicators — only when multiple doctors */}
+      {multiSlide && (
+        <div className="absolute bottom-9 left-1/2 -translate-x-1/2 flex gap-[10px] z-10">
+          {DOCTORS.map((doc, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to ${doc.namePrefix}${doc.nameItalic}`}
+              className="p-0 border-none cursor-pointer transition-transform"
+              style={{
+                width: 8, height: 8, borderRadius: '50%',
+                background: i === active ? '#EE7752' : 'rgba(10,61,74,.25)',
+                transform: i === active ? 'scale(1.35)' : 'scale(1)',
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Progress bar — only when multiple doctors */}
+      {multiSlide && (
+        <div
+          ref={progressRef}
+          className="absolute bottom-0 left-0 h-[2px]"
+          style={{ background: 'var(--grad-sunrise)', width: '0%' }}
+          aria-hidden="true"
+        />
+      )}
     </section>
   );
 }

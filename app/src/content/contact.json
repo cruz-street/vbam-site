@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "eyebrow": "Contact",
+    "heading": "We'd love to",
+    "headingItalic": "hear from you.",
+    "subhead": "Request an appointment or ask us a question. We typically respond within one business day."
+  },
+  "info": {
+    "eyebrow": "Get in Touch",
+    "heading": "Come find us on",
+    "headingItalic": "the coast."
+  },
+  "practice": {
+    "address": {
+      "building": "Citrus Medical Plaza",
+      "street": "959 37th Place",
+      "city": "Vero Beach, FL 32960"
+    },
+    "phone": "(772) 569-3212",
+    "phoneTel": "7725693212",
+    "hours": [
+      "Mon – Thu · 8:00 am – 5:00 pm",
+      "Fri · 8:00 am – 12:00 pm",
+      "Sat – Sun · Closed"
+    ],
+    "hoursNote": "By appointment",
+    "sameDay": "Call in the morning and we'll do our best to see you the same day. Direct access — no phone tree."
+  },
+  "form": {
+    "heading": "Request an Appointment",
+    "subhead": "New and existing patients welcome."
+  },
+  "sibling": "Same family. Different chapter. Same coast."
+}

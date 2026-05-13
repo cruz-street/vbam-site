@@ -12,9 +12,9 @@ export default function PageHero({ eyebrow, heading, headingItalic, subhead, bg 
   return (
     <section
       className={bg === 'sand' ? 'bg-vbam-sand' : 'bg-vbam-foam'}
-      style={{ paddingTop: 160, paddingBottom: 80, textAlign: 'center' }}
+      style={{ paddingTop: 'clamp(110px, 12vw, 160px)', paddingBottom: 'clamp(40px, 6vw, 80px)', textAlign: 'center' }}
     >
-      <div className="max-w-[1200px] mx-auto px-12">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
         {eyebrow && (
           <ScrollReveal>
             <p

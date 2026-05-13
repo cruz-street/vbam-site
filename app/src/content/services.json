@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "eyebrow": "Services",
+    "heading": "Modern primary care,",
+    "headingItalic": "on the coast.",
+    "subhead": "A complete practice for adults — preventive, proactive, and personal. Everything your health needs, under one roof."
+  },
+  "services": [
+    {
+      "title": "Annual Physicals & Wellness",
+      "body": "Comprehensive yearly exams that go beyond a checklist — bloodwork, screenings, and a real conversation about what matters most to you.",
+      "detail": "Includes age-appropriate cancer screenings, cardiovascular risk assessment, immunizations, and a personalized wellness plan."
+    },
+    {
+      "title": "Chronic Condition Management",
+      "body": "Hypertension, diabetes, thyroid, cholesterol — managed proactively with a doctor who knows your history.",
+      "detail": "Coordinated care plans, regular monitoring, and direct access to your physician when things change."
+    },
+    {
+      "title": "Same-Day Sick Visits",
+      "body": "Direct line to the practice. Same-day appointments when you need them. No waiting-room marathon.",
+      "detail": "Call or portal message in the morning. We'll fit you in. Because that's what primary care should mean."
+    },
+    {
+      "title": "Women's & Men's Health",
+      "body": "Annual exams, hormone health, perimenopause care, men's wellness — handled with care, not a checklist.",
+      "detail": "From preventive screenings to complex hormonal questions, we approach gender-specific care with depth and respect."
+    },
+    {
+      "title": "Preventive Screenings & Labs",
+      "body": "Onsite labs, in-house bloodwork, and modern screening protocols built around your stage of life.",
+      "detail": "We coordinate colonoscopies, mammograms, DEXA scans, and other referrals — so you don't have to manage it all yourself."
+    },
+    {
+      "title": "Travel & Lifestyle Medicine",
+      "body": "Pre-travel consults, vaccines, sleep, performance, and longevity — care that fits how you actually live.",
+      "detail": "International travel prep, sleep optimization, executive wellness, and concierge-adjacent access — for patients who expect more."
+    }
+  ],
+  "approach": {
+    "heading": "What to expect at your",
+    "headingItalic": "first visit.",
+    "body": "Your first appointment is longer than you might expect. We want to understand your history, your goals, and what matters most to you — not just your vitals.",
+    "pullQuote": "Same-day callbacks. Same-week visits. A panel small enough that your doctor remembers your last conversation."
+  },
+  "cta": {
+    "heading": "Not sure where to start?",
+    "headingItalic": "Let's talk.",
+    "subhead": "Book an appointment and we'll figure out the right starting point for you together.",
+    "cta1": "Book an Appointment →",
+    "cta2": "New Patient Info"
+  }
+}

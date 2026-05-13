@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "tagline": "Sunrise to shoreline care.",
+    "lede": "A boutique adult primary care practice in Vero Beach — built for the people who chose this coast on purpose, and want their doctor to feel the same way.",
+    "cta1": "Book an Appointment",
+    "cta2": "Meet Our Doctors"
+  },
+  "trustBar": [
+    "Now welcoming new patients",
+    "Boutique panel · Direct doctor access",
+    "Sibling of Vero Beach Pediatrics",
+    "Most insurance accepted"
+  ],
+  "positioning": {
+    "eyebrow": "01 · About",
+    "headingLine1": "A grown-up sibling,",
+    "headingItalic": "on purpose.",
+    "body1": "Vero Beach Pediatrics raised this town's children. Vero Beach Adult Medicine is the practice for the adults they grew into — and for the parents and professionals who chose Vero because the natural beauty quietly runs everything here.",
+    "pullQuote": "Same family. New chapter.",
+    "body2": "Not a clinic at the end of a hospital hallway. A practice. With doors that open onto the same light Vero locals already love, and a panel small enough that your doctor remembers your last conversation, not just your chart."
+  },
+  "philosophy": {
+    "eyebrow": "03 · Care Philosophy",
+    "headingLine1": "Three quiet",
+    "headingItalic": "promises."
+  },
+  "principles": [
+    {
+      "glyph": "i.",
+      "headingLine1": "Quiet, capable, ",
+      "headingItalic": "unhurried.",
+      "body": "Same-day callbacks. Same-week visits. A panel small enough that your doctor remembers your last conversation, not just your chart."
+    },
+    {
+      "glyph": "ii.",
+      "headingLine1": "Warm, ",
+      "headingItalic": "not clinical.",
+      "body": "Light-filled rooms. Coastal art. A practice that reads like a hospitality brand — because that's how primary care should feel in 2026."
+    },
+    {
+      "glyph": "iii.",
+      "headingLine1": "Local, ",
+      "headingItalic": "never generic.",
+      "body": "Real relationships with the specialists, hospitals, and labs Vero patients already trust. Care that fits your life on this coast."
+    }
+  ],
+  "servicesSection": {
+    "eyebrow": "04 · Services",
+    "headingLine1": "Modern primary care,",
+    "headingItalic": "on the coast.",
+    "subhead": "A complete practice for adults — preventive, proactive, and personal."
+  },
+  "homeServices": [
+    {
+      "title": "Annual Physicals & Wellness",
+      "body": "Comprehensive yearly exams that go beyond a checklist — bloodwork, screenings, and a real conversation."
+    },
+    {
+      "title": "Chronic Condition Management",
+      "body": "Hypertension, diabetes, thyroid, cholesterol — managed proactively with a doctor who knows your history."
+    },
+    {
+      "title": "Same-Day Sick Visits",
+      "body": "Direct line to the practice. Same-day appointments when you need them. No waiting-room marathon."
+    },
+    {
+      "title": "Women's & Men's Health",
+      "body": "Annual exams, hormone health, perimenopause care, men's wellness — handled with care, not a checklist."
+    },
+    {
+      "title": "Preventive Screenings & Labs",
+      "body": "Onsite labs, in-house bloodwork, and modern screening protocols built around your stage of life."
+    },
+    {
+      "title": "Travel & Lifestyle Medicine",
+      "body": "Pre-travel consults, vaccines, sleep, performance, and longevity — care that fits how you actually live."
+    }
+  ],
+  "vbpSection": {
+    "eyebrow": "05 · The VBP Connection",
+    "headingLine1": "Same family.",
+    "headingItalic": "Same coastline.",
+    "body": "Vero Beach Pediatrics raised a generation of Vero kids. Vero Beach Adult Medicine is the next chapter — built with the same family resemblance and the same belief that great primary care belongs here, for every stage of life.",
+    "vbpCard": {
+      "label": "Sibling Practice · Est. 1987",
+      "name": "Vero Beach",
+      "italic": "Pediatrics"
+    },
+    "vbamCard": {
+      "label": "Sibling Practice · Est. 2026",
+      "name": "Vero Beach",
+      "italic": "Adult Medicine"
+    },
+    "footer": "Different practice. Same DNA."
+  },
+  "ctaStrip": {
+    "headingLine1": "Now welcoming",
+    "headingItalic": "new patients.",
+    "subhead": "Schedule your first visit in minutes. Same coastline, same family — a practice built for the way you actually live.",
+    "cta1": "Book an Appointment →",
+    "cta2": "Contact Us"
+  }
+}

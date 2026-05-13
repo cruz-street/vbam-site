@@ -1,32 +1,6 @@
 'use client';
 import { useState } from 'react';
-
-const FAQS = [
-  {
-    q: 'Are you accepting new patients?',
-    a: 'Yes — we are actively welcoming new patients. Book an appointment online or call us at (772) 569-3212 to get started.',
-  },
-  {
-    q: 'Do you accept my insurance?',
-    a: 'We accept most major insurance plans including Medicare, Blue Cross Blue Shield, Aetna, Cigna, United Healthcare, and others. Call our office to verify your specific plan before your first visit.',
-  },
-  {
-    q: 'How do I transfer from Vero Beach Pediatrics?',
-    a: 'Transferring is simple — we already have a relationship with the VBP team. Call our office and let us know you\'re a VBP family. We\'ll coordinate your records and make the transition as seamless as possible.',
-  },
-  {
-    q: 'What is the same-day sick visit policy?',
-    a: 'Call or message us through the patient portal in the morning. We reserve same-day slots for acute illness and will do our best to see you the same day you call.',
-  },
-  {
-    q: 'What should I bring to my first appointment?',
-    a: 'Please bring a valid photo ID, your insurance card, a list of current medications and dosages, any relevant medical records or lab results, and a list of questions or concerns you\'d like to discuss.',
-  },
-  {
-    q: 'Do you offer telehealth visits?',
-    a: 'Yes, telehealth visits are available for appropriate follow-ups and consultations. Contact our office to determine if your visit qualifies for a virtual appointment.',
-  },
-];
+import { FAQS } from '@/content/for-patients';
 
 export default function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(null);
