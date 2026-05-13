@@ -29,8 +29,7 @@ jobs:
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: 5cd6b90ef438de1c66cb99601d48c035
-          command: pages deploy app/out --project-name=vbam-site --branch=main
+        run: npx wrangler@latest pages deploy app/out --project-name=vbam-site --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 5cd6b90ef438de1c66cb99601d48c035
