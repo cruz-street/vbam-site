@@ -9,9 +9,11 @@
 
 backend:
   name: github
-  repo: ashwin-cruzstreet/vbam-site
+  repo: cruz-street/vbam-site
   branch: main
   base_url: https://vbam-cms-auth.cruzstreet-vbam.workers.dev
+
+logo_url: https://vbam-site.pages.dev/images/cms-logo.svg
 
 media_folder: app/public/images
 public_folder: /images
