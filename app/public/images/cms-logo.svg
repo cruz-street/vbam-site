@@ -1,28 +1,36 @@
-<svg width="200" height="140" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI',Arial,sans-serif">
+<svg width="240" height="155" viewBox="0 0 240 155" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI',Arial,sans-serif">
 
-  <!-- Hexagon mark -->
-  <polygon points="100,6 124,20 124,48 100,62 76,48 76,20" fill="#0B2A38"/>
-  <!-- Code brackets inside hex -->
-  <text x="88" y="42" font-family="'Courier New',monospace" font-size="14" font-weight="700" fill="#1491ED" text-anchor="middle">&lt;/&gt;</text>
-  <text x="112" y="42" font-family="'Courier New',monospace" font-size="14" font-weight="700" fill="#0784BF" text-anchor="middle"></text>
+  <!-- ── CodeFoundry section ── -->
 
-  <!-- CF inside hex -->
-  <text x="100" y="43" font-family="'Courier New',monospace" font-size="20" font-weight="900" fill="white" text-anchor="middle">CF</text>
+  <!-- Hex badge -->
+  <polygon points="60,6 82,19 82,45 60,58 38,45 38,19" fill="#0B2A38"/>
+  <text x="60" y="39" font-family="'Courier New',monospace" font-size="19" font-weight="900" fill="white" text-anchor="middle">CF</text>
 
-  <!-- CodeFoundry wordmark -->
-  <text x="100" y="84" font-size="15" font-weight="700" fill="#0B2A38" text-anchor="middle" letter-spacing="2">CODEFOUNDRY</text>
+  <!-- Wordmark -->
+  <text x="96" y="30" font-size="11" font-weight="700" fill="#0B2A38" letter-spacing="2">CODE</text>
+  <text x="96" y="48" font-size="11" font-weight="700" fill="#0784BF" letter-spacing="2">FOUNDRY</text>
 
   <!-- Divider -->
-  <line x1="50" y1="97" x2="150" y2="97" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="20" y1="72" x2="220" y2="72" stroke="#E0E0E0" stroke-width="1"/>
 
-  <!-- powered by label -->
-  <text x="100" y="114" font-size="9" fill="#999" text-anchor="middle" letter-spacing="1">POWERED BY</text>
+  <!-- ── Powered by label ── -->
+  <text x="120" y="89" font-size="8" fill="#AAAAAA" text-anchor="middle" letter-spacing="2">POWERED BY</text>
 
-  <!-- Cruz Street CS badge -->
-  <rect x="84" y="120" width="16" height="16" rx="3" fill="#0784BF"/>
-  <text x="92" y="132" font-size="9" font-weight="700" fill="white" text-anchor="middle">CS</text>
+  <!-- ── Cruz Street logo ── -->
 
-  <!-- Cruz Street name -->
-  <text x="106" y="132" font-size="11" font-weight="600" fill="#0784BF" text-anchor="start">Cruz Street</text>
+  <!-- Diamond pinwheel icon, centered horizontally with text -->
+  <!-- Diamond corners: T(72,105) R(90,123) B(72,141) L(54,123) C(72,123) -->
+  <!-- Top-left quadrant: light gray -->
+  <polygon points="72,105 54,123 72,123" fill="#A8A8A8"/>
+  <!-- Top-right quadrant: lighter gray -->
+  <polygon points="72,105 90,123 72,123" fill="#C0C0C0"/>
+  <!-- Bottom-right quadrant: steel blue -->
+  <polygon points="90,123 72,141 72,123" fill="#5BA4CD"/>
+  <!-- Bottom-left quadrant: medium blue -->
+  <polygon points="72,141 54,123 72,123" fill="#3B82B0"/>
+
+  <!-- CruzStreet text -->
+  <text x="98" y="119" font-size="14" font-weight="700" fill="#3B82B0">CruzStreet</text>
+  <text x="98" y="135" font-size="9" fill="#888888">Data Science on Demand</text>
 
 </svg>
