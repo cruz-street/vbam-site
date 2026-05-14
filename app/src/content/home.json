@@ -1,23 +1,33 @@
 {
-  "hero": {
-    "tagline": "Sunrise to shoreline care.",
-    "lede": "A boutique adult primary care practice in Vero Beach — built for the people who chose this coast on purpose, and want their doctor to feel the same way.",
-    "cta1": "Book an Appointment",
-    "cta2": "Meet Our Doctors"
+  "vbpSection": {
+    "eyebrow": "05 · The VBP Connection",
+    "headingLine1": "Same family.",
+    "headingItalic": "Same coastline.",
+    "body": "Vero Beach Pediatrics raised a generation of Vero kids. Vero Beach Adult Medicine is the next chapter — built with the same family resemblance and the same belief that great primary care belongs here, for every stage of life.",
+    "vbpCard": {
+      "label": "Sibling Practice · Est. 1987",
+      "name": "Vero Beach",
+      "italic": "Pediatrics"
+    },
+    "vbamCard": {
+      "label": "Sibling Practice · Est. 2026",
+      "name": "Vero Beach",
+      "italic": "Adult Medicine"
+    },
+    "footer": "Different practice. Same DNA."
   },
-  "trustBar": [
-    "Now welcoming new patients",
-    "Boutique panel · Direct doctor access",
-    "Sibling of Vero Beach Pediatrics",
-    "Most insurance accepted"
-  ],
-  "positioning": {
-    "eyebrow": "01 · About",
-    "headingLine1": "A grown-up sibling,",
-    "headingItalic": "on purpose.",
-    "body1": "Vero Beach Pediatrics raised this town's children. Vero Beach Adult Medicine is the practice for the adults they grew into — and for the parents and professionals who chose Vero because the natural beauty quietly runs everything here.",
-    "pullQuote": "Same family. New chapter.",
-    "body2": "Not a clinic at the end of a hospital hallway. A practice. With doors that open onto the same light Vero locals already love, and a panel small enough that your doctor remembers your last conversation, not just your chart."
+  "servicesSection": {
+    "eyebrow": "04 · Services",
+    "headingLine1": "Modern primary care,",
+    "headingItalic": "on the coast.",
+    "subhead": "A complete practice for adults — preventive, proactive, and personal."
+  },
+  "ctaStrip": {
+    "headingLine1": "Now welcoming",
+    "headingItalic": "new patients.",
+    "subhead": "Schedule your first visit in minutes. Same coastline, same family — a practice built for the way you actually live.",
+    "cta1": "Book an Appointment →",
+    "cta2": "Contact Us"
   },
   "philosophy": {
     "eyebrow": "03 · Care Philosophy",
@@ -44,12 +54,26 @@
       "body": "Real relationships with the specialists, hospitals, and labs Vero patients already trust. Care that fits your life on this coast."
     }
   ],
-  "servicesSection": {
-    "eyebrow": "04 · Services",
-    "headingLine1": "Modern primary care,",
-    "headingItalic": "on the coast.",
-    "subhead": "A complete practice for adults — preventive, proactive, and personal."
+  "positioning": {
+    "eyebrow": "01 · About",
+    "headingLine1": "A grown-up sibling,",
+    "headingItalic": "on purpose.",
+    "body1": "Vero Beach Pediatrics raised this town's children. Vero Beach Adult Medicine is the practice for the adults they grew into — and for the parents and professionals who chose Vero because the natural beauty quietly runs everything here.",
+    "pullQuote": "Same family. New chapter.",
+    "body2": "Not a clinic at the end of a hospital hallway. A practice. With doors that open onto the same light Vero locals already love, and a panel small enough that your doctor remembers your last conversation, not just your chart."
   },
+  "hero": {
+    "tagline": "Sunrise to shoreline care. Testing",
+    "lede": "A boutique adult primary care practice in Vero Beach — built for the people who chose this coast on purpose, and want their doctor to feel the same way.",
+    "cta1": "Book an Appointment",
+    "cta2": "Meet Our Doctors"
+  },
+  "trustBar": [
+    "Now welcoming new patients",
+    "Boutique panel · Direct doctor access",
+    "Sibling of Vero Beach Pediatrics",
+    "Most insurance accepted"
+  ],
   "homeServices": [
     {
       "title": "Annual Physicals & Wellness",
@@ -75,29 +99,5 @@
       "title": "Travel & Lifestyle Medicine",
       "body": "Pre-travel consults, vaccines, sleep, performance, and longevity — care that fits how you actually live."
     }
-  ],
-  "vbpSection": {
-    "eyebrow": "05 · The VBP Connection",
-    "headingLine1": "Same family.",
-    "headingItalic": "Same coastline.",
-    "body": "Vero Beach Pediatrics raised a generation of Vero kids. Vero Beach Adult Medicine is the next chapter — built with the same family resemblance and the same belief that great primary care belongs here, for every stage of life.",
-    "vbpCard": {
-      "label": "Sibling Practice · Est. 1987",
-      "name": "Vero Beach",
-      "italic": "Pediatrics"
-    },
-    "vbamCard": {
-      "label": "Sibling Practice · Est. 2026",
-      "name": "Vero Beach",
-      "italic": "Adult Medicine"
-    },
-    "footer": "Different practice. Same DNA."
-  },
-  "ctaStrip": {
-    "headingLine1": "Now welcoming",
-    "headingItalic": "new patients.",
-    "subhead": "Schedule your first visit in minutes. Same coastline, same family — a practice built for the way you actually live.",
-    "cta1": "Book an Appointment →",
-    "cta2": "Contact Us"
-  }
+  ]
 }
