@@ -9,7 +9,7 @@
 
 backend:
   name: github
-  repo: cruz-street/vbam-site
+  repo: ashwin-cruzstreet/vbam-site
   branch: main
   base_url: https://vbam-cms-auth.cruzstreet-vbam.workers.dev
 
