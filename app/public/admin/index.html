@@ -5,8 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager — Vero Beach Adult Medicine</title>
+  <style>
+    a[href*="decapcms"],
+    a[href*="decap-cms"],
+    a[href*="netlifycms"],
+    [class*="DecapBranding"],
+    [class*="PoweredBy"] { display: none !important; }
+  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Hide Decap footer branding once React renders it
+    const observer = new MutationObserver(() => {
+      document.querySelectorAll('a[href*="decap"]').forEach(el => {
+        const footer = el.closest('div') || el;
+        footer.style.display = 'none';
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
 </body>
 </html>
