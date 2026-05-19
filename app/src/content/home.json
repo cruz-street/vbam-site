@@ -47,6 +47,28 @@
     "linkHref": "https://www.priviahealth.com/",
     "footer": "Proud to be part of Privia Medical Group."
   },
+  "reviewsSection": {
+    "eyebrow": "What patients say",
+    "headingLine1": "Trusted by our",
+    "headingItalic": "neighbors.",
+    "body": "Reviews from real patients of the practice — verified through Google.",
+    "emptyTitle": "We're just getting started.",
+    "emptyBody": "Be the first to share your experience with Vero Beach Adult Medicine.",
+    "emptyCtaLabel": "Leave a Google review",
+    "emptyCtaHref": "https://www.google.com/maps"
+  },
+  "videosSection": {
+    "eyebrow": "See us in action",
+    "headingLine1": "A look inside",
+    "headingItalic": "the practice.",
+    "body": "Short videos covering what to expect, who we are, and how we work."
+  },
+  "socialSection": {
+    "eyebrow": "Follow along",
+    "headingLine1": "From our",
+    "headingItalic": "feed.",
+    "body": "Updates, patient education, and behind-the-scenes from Instagram and Facebook."
+  },
   "vbpSection": {
     "eyebrow": "05 · The VBP Connection",
     "headingLine1": "Same family.",

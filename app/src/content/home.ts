@@ -10,4 +10,7 @@ export const HOME_SERVICES = data.homeServices;
 export const VBP_SECTION = data.vbpSection;
 export const FLOW_SECTION = data.flowSection;
 export const PRIVIA_SECTION = data.priviaSection;
+export const REVIEWS_SECTION = data.reviewsSection;
+export const VIDEOS_SECTION = data.videosSection;
+export const SOCIAL_SECTION = data.socialSection;
 export const CTA_STRIP = data.ctaStrip;
