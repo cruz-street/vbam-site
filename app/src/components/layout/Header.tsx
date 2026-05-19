@@ -4,7 +4,7 @@ import Link from 'next/link';
 import SunSeaMark from '@/components/shared/SunSeaMark';
 
 const NAV_LINKS = [
-  { href: '/about/',        label: 'Our Doctors'  },
+  { href: '/about/',        label: 'About'        },
   { href: '/services/',     label: 'Services'     },
   { href: '/for-patients/', label: 'For Patients' },
 ];

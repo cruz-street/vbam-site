@@ -6,8 +6,8 @@ type FooterLink = { href: string; label: string; external?: boolean };
 const LINKS: Record<string, FooterLink[]> = {
   Practice: [
     { href: '/about/',        label: 'About'          },
-    { href: '/about/',        label: 'Our Doctors'    },
     { href: '/services/',     label: 'Services'       },
+    { href: '/for-patients/', label: 'For Patients'   },
   ],
   Patients: [
     { href: '/contact/',      label: 'Book an Appointment' },

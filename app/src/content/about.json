@@ -1,12 +1,19 @@
 {
   "hero": {
-    "eyebrow": "Our Doctors",
+    "eyebrow": "About the Practice",
     "heading": "Care that begins with",
     "headingItalic": "the patient.",
-    "subhead": "A physician known for taking the time to listen, building real relationships, and helping patients feel genuinely cared for."
+    "subhead": "A new practice for adults in Vero Beach — built around relationships, continuity, and the same standard of care our community has come to expect."
+  },
+  "practice": {
+    "eyebrow": "Our Identity",
+    "heading": "A new practice,",
+    "headingItalic": "built to last.",
+    "body1": "Vero Beach Adult Medicine is a practice — not a single physician's office. It was built to grow thoughtfully, the way a long-tenured family practice does: as patient need rises, so will the team.",
+    "body2": "Every physician who joins will carry the same standard for relationship-based, continuous, proactive care. Today, that standard is championed by our inaugural physician, Dr. Patricia Stewart."
   },
   "drStewart": {
-    "eyebrow": "Physician",
+    "eyebrow": "Our Inaugural Physician",
     "heading": "Meet Dr.",
     "headingItalic": "Patricia Stewart.",
     "credentials": [
