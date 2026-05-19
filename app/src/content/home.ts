@@ -8,4 +8,5 @@ export const PRINCIPLES = data.principles;
 export const SERVICES_SECTION = data.servicesSection;
 export const HOME_SERVICES = data.homeServices;
 export const VBP_SECTION = data.vbpSection;
+export const PRIVIA_SECTION = data.priviaSection;
 export const CTA_STRIP = data.ctaStrip;

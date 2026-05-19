@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import SunSeaMark from '@/components/shared/SunSeaMark';
 
-const LINKS = {
+type FooterLink = { href: string; label: string; external?: boolean };
+
+const LINKS: Record<string, FooterLink[]> = {
   Practice: [
     { href: '/about/',        label: 'About'          },
     { href: '/about/',        label: 'Our Doctors'    },
@@ -11,7 +13,8 @@ const LINKS = {
     { href: '/contact/',      label: 'Book an Appointment' },
     { href: '/for-patients/', label: 'New Patient Forms'   },
     { href: '/for-patients/', label: 'Insurance'           },
-    { href: '/for-patients/', label: 'FAQ'                 },
+    { href: 'https://www.myprivia.com/account-access/', label: 'Patient Portal', external: true },
+    { href: 'https://payment.patient.athenahealth.com/statement/', label: 'Bill Pay', external: true },
   ],
 };
 
@@ -58,16 +61,29 @@ export default function Footer() {
                 {section}
               </h4>
               <ul className="space-y-1.5">
-                {items.map(({ href, label }) => (
-                  <li key={label}>
-                    <Link
-                      href={href}
-                      className="font-inter text-[13px] text-vbam-foam/75 hover:text-vbam-sunrise transition-colors"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
+                {items.map(({ href, label, external }) =>
+                  external ? (
+                    <li key={label}>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-inter text-[13px] text-vbam-foam/75 hover:text-vbam-sunrise transition-colors"
+                      >
+                        {label}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={label}>
+                      <Link
+                        href={href}
+                        className="font-inter text-[13px] text-vbam-foam/75 hover:text-vbam-sunrise transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           ))}
@@ -83,6 +99,34 @@ export default function Footer() {
               <li className="text-vbam-sea-glass mt-2">By appointment</li>
             </ul>
           </div>
+        </div>
+
+        {/* Privia attribution + compliance band */}
+        <div className="pt-6 pb-5 border-t border-vbam-foam/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <a
+            href="https://www.priviahealth.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-archivo font-[700] text-vbam-foam/70 hover:text-vbam-sunrise transition-colors"
+            style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase' }}
+          >
+            Proud to be part of Privia Medical Group
+          </a>
+          <nav
+            aria-label="Privia compliance"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-archivo text-vbam-foam/55"
+            style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase' }}
+          >
+            <a href="https://www.priviahealth.com/notice-nondiscrimination/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
+              Notice of Nondiscrimination
+            </a>
+            <a href="https://www.priviahealth.com/privacy-and-compliance/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
+              HIPAA Privacy Notice
+            </a>
+            <a href="https://www.priviahealth.com/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
+              priviahealth.com
+            </a>
+          </nav>
         </div>
 
         {/* Colophon */}

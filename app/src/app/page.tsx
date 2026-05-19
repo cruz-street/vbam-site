@@ -6,6 +6,7 @@ import DoctorsSection from '@/components/home/DoctorsSection';
 import PhilosophySection from '@/components/home/PhilosophySection';
 import ServicesSection from '@/components/home/ServicesSection';
 import VbpSection from '@/components/home/VbpSection';
+import PriviaSection from '@/components/home/PriviaSection';
 import CtaStrip from '@/components/home/CtaStrip';
 import JsonLd from '@/components/shared/JsonLd';
 
@@ -43,7 +44,15 @@ const homeJsonLd = {
   ],
   medicalSpecialty: 'Internal Medicine',
   priceRange: 'Accepts most insurance',
-  sameAs: ['https://verobeachpediatrics.com'],
+  parentOrganization: {
+    '@type': 'MedicalOrganization',
+    name: 'Privia Medical Group',
+    url: 'https://www.priviahealth.com/',
+  },
+  sameAs: [
+    'https://verobeachpediatrics.com',
+    'https://www.priviahealth.com/',
+  ],
 };
 
 export default function HomePage() {
@@ -57,6 +66,7 @@ export default function HomePage() {
       <PhilosophySection />
       <ServicesSection />
       <VbpSection />
+      <PriviaSection />
       <CtaStrip />
     </main>
   );
