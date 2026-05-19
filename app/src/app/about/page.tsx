@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
-import { ABOUT_HERO, ABOUT_PRACTICE, DR_STEWART, ABOUT_CTA } from '@/content/about';
+import { ABOUT_HERO, DR_STEWART, ABOUT_CTA } from '@/content/about';
 
 export const metadata: Metadata = {
   title: 'About the Practice',
@@ -40,34 +40,6 @@ export default function AboutPage() {
         subhead={ABOUT_HERO.subhead}
       />
 
-      {/* ── Practice identity ─── */}
-      <section className="bg-vbam-sand border-y border-vbam-atlantic/[.06]" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
-          <div className="max-w-[820px] mx-auto text-center">
-            <ScrollReveal animation="left" as="div">
-              <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 20 }}>
-                {ABOUT_PRACTICE.eyebrow}
-              </p>
-            </ScrollReveal>
-            <ScrollReveal>
-              <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 'clamp(30px, 4vw, 48px)', lineHeight: 1.1, letterSpacing: '-0.018em', marginBottom: 26 }}>
-                {ABOUT_PRACTICE.heading} <em className="font-cormorant italic text-grad-sunrise">{ABOUT_PRACTICE.headingItalic}</em>
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={80}>
-              <p className="font-inter font-[300] text-vbam-atlantic/[.84]" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 18 }}>
-                {ABOUT_PRACTICE.body1}
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={140}>
-              <p className="font-inter font-[300] text-vbam-atlantic/[.84]" style={{ fontSize: 17, lineHeight: 1.75 }}>
-                {ABOUT_PRACTICE.body2}
-              </p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
       {/* ── Dr. Patricia Stewart ─── */}
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
@@ -82,9 +54,14 @@ export default function AboutPage() {
                 </p>
               </ScrollReveal>
               <ScrollReveal animation="left" delay={60}>
-                <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 18 }}>
+                <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 14 }}>
                   {DR_STEWART.heading} <em className="font-cormorant italic text-grad-sunrise">{DR_STEWART.headingItalic}</em>
                 </h2>
+              </ScrollReveal>
+              <ScrollReveal animation="left" delay={80}>
+                <p className="font-cormorant italic text-vbam-inlet" style={{ fontSize: 18, lineHeight: 1.5, marginBottom: 22 }}>
+                  {DR_STEWART.prelude}
+                </p>
               </ScrollReveal>
               <ScrollReveal animation="left" delay={100}>
                 <div className="flex flex-wrap gap-2" style={{ marginBottom: 22 }}>
