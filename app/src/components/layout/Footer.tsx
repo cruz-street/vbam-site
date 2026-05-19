@@ -45,7 +45,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-1.5 font-inter text-[13px] text-vbam-foam/75 leading-relaxed">
               <li>Citrus Medical Plaza</li>
-              <li>959 37th Place</li>
+              <li>955 37th Place</li>
               <li>Vero Beach, FL 32960</li>
               <li>
                 <a href="tel:7725693212" className="hover:text-vbam-sunrise transition-colors">

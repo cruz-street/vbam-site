@@ -27,7 +27,7 @@ const homeJsonLd = {
   telephone: '+1-772-569-3212',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '959 37th Place',
+    streetAddress: '955 37th Place',
     addressLocality: 'Vero Beach',
     addressRegion: 'FL',
     postalCode: '32960',

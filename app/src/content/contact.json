@@ -13,7 +13,7 @@
   "practice": {
     "address": {
       "building": "Citrus Medical Plaza",
-      "street": "959 37th Place",
+      "street": "955 37th Place",
       "city": "Vero Beach, FL 32960"
     },
     "phone": "(772) 569-3212",
@@ -26,9 +26,13 @@
     "hoursNote": "By appointment",
     "sameDay": "Call in the morning and we'll do our best to see you the same day. Direct access — no phone tree."
   },
-  "form": {
-    "heading": "Request an Appointment",
-    "subhead": "New and existing patients welcome."
+  "klara": {
+    "heading": "Text us to schedule.",
+    "subhead": "The fastest way to reach us. Send a message through Klara and our staff will respond within one business day.",
+    "cta": "Message Us on Klara →",
+    "klaraUrl": "https://patient.klara.com/#/widget/168b842c-9a0d-43dd-bc25-d0dc202289aa",
+    "altLine": "Prefer to call? Reach our front desk directly at (772) 569-3212 — no phone tree.",
+    "disclaimer": "Not for medical emergencies. Call 911 or go to your nearest emergency room."
   },
   "sibling": "Same family. Different chapter. Same coast."
 }

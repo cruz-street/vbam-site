@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
-import AppointmentForm from '@/components/contact/AppointmentForm';
 import JsonLd from '@/components/shared/JsonLd';
-import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_FORM, CONTACT_CTA } from '@/content/contact';
+import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_KLARA, CONTACT_CTA } from '@/content/contact';
 
 export const metadata: Metadata = {
   title: 'Contact & Appointments',
-  description: 'Book an appointment or contact Vero Beach Adult Medicine. Located at Citrus Medical Plaza, 959 37th Place, Vero Beach, FL 32960. Call (772) 569-3212.',
+  description: 'Book an appointment or contact Vero Beach Adult Medicine. Located at Citrus Medical Plaza, 955 37th Place, Vero Beach, FL 32960. Call (772) 569-3212.',
   alternates: { canonical: 'https://vbadultmedicine.com/contact/' },
 };
 
@@ -97,16 +96,33 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          {/* Form */}
+          {/* Klara CTA */}
           <ScrollReveal animation="left" delay={100}>
-            <div className="bg-vbam-sand rounded-xl" style={{ padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 36px)' }}>
-              <h3 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 24, lineHeight: 1.15, letterSpacing: '-0.01em', marginBottom: 6 }}>
-                {CONTACT_FORM.heading}
+            <div className="bg-vbam-sand rounded-xl" style={{ padding: 'clamp(28px, 4vw, 44px) clamp(20px, 3vw, 40px)' }}>
+              <h3 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 26, lineHeight: 1.15, letterSpacing: '-0.012em', marginBottom: 10 }}>
+                {CONTACT_KLARA.heading}
               </h3>
-              <p className="font-inter font-[300] text-vbam-atlantic/60" style={{ fontSize: 14, marginBottom: 28 }}>
-                {CONTACT_FORM.subhead}
+              <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 15, lineHeight: 1.65, marginBottom: 28 }}>
+                {CONTACT_KLARA.subhead}
               </p>
-              <AppointmentForm />
+
+              <a
+                href={CONTACT_KLARA.klaraUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-block w-full text-center font-archivo font-[600] rounded-full transition-colors"
+                style={{ fontSize: 14, padding: '14px 28px', letterSpacing: '0.01em' }}
+              >
+                {CONTACT_KLARA.cta}
+              </a>
+
+              <p className="font-inter font-[300] text-vbam-atlantic/70 text-center" style={{ fontSize: 14, lineHeight: 1.6, marginTop: 24 }}>
+                {CONTACT_KLARA.altLine}
+              </p>
+
+              <p className="font-inter font-[300] text-vbam-atlantic/40 text-center" style={{ fontSize: 12, lineHeight: 1.5, marginTop: 18 }}>
+                {CONTACT_KLARA.disclaimer}
+              </p>
             </div>
           </ScrollReveal>
 
