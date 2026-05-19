@@ -3,7 +3,7 @@
     "eyebrow": "05 · The VBP Connection",
     "headingLine1": "Same family.",
     "headingItalic": "New chapter.",
-    "body": "Vero Beach Pediatrics has cared for this community since 1987. Vero Beach Adult Medicine is the same family's answer to a real gap: high-quality, relationship-based primary care for adults in Vero Beach — without the concierge price.",
+    "body": "Vero Beach Pediatrics has cared for this community since 1987. Vero Beach Adult Medicine carries that same family standard forward — high-quality, relationship-based primary care, now for the adults in our community.",
     "vbpCard": {
       "label": "Sibling Practice · Est. 1987",
       "name": "Vero Beach",
@@ -25,7 +25,7 @@
   "ctaStrip": {
     "headingLine1": "Now welcoming",
     "headingItalic": "new patients.",
-    "subhead": "Most insurance accepted. No membership fee. Book your first appointment online or call us directly.",
+    "subhead": "Most insurance accepted. Book your first appointment online or call us directly.",
     "cta1": "Book an Appointment →",
     "cta2": "Contact Us"
   },
@@ -51,7 +51,7 @@
       "glyph": "iii.",
       "headingLine1": "Accessible,",
       "headingItalic": "not impersonal.",
-      "body": "Same-day sick visits, direct callbacks, and a panel small enough that the front desk knows your name. Attentive care — without a membership fee."
+      "body": "Same-day sick visits, direct callbacks, and a front desk that knows your name and your story. The kind of care families have come to expect."
     }
   ],
   "positioning": {
@@ -60,17 +60,17 @@
     "headingItalic": "done differently.",
     "body1": "Vero Beach Pediatrics spent decades caring for this community's children. Vero Beach Adult Medicine was built for those same families — now grown — along with the professionals, retirees, and working adults who make Vero Beach home.",
     "pullQuote": "A real practice. A real doctor. Every visit.",
-    "body2": "We keep our patient panel intentionally small so care stays consistent. You see the same physician each visit — someone who knows your history and engages with your health over time, not just when something goes wrong."
+    "body2": "We practice medicine the way it was meant to work — with continuity. You see the same physician each visit — someone who knows your history and engages with your health over time, not just when something goes wrong."
   },
   "hero": {
     "tagline": "Sunrise to shoreline care.",
-    "lede": "Vero Beach Adult Medicine is a small-panel primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with the same doctor, every time. Most insurance accepted. No membership fee.",
+    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with the same doctor, every time. Most insurance accepted.",
     "cta1": "Book an Appointment",
     "cta2": "Meet Our Doctors"
   },
   "trustBar": [
     "Now welcoming new patients",
-    "Small panel · Same physician every visit",
+    "Same physician · Every visit, every time",
     "Sibling of Vero Beach Pediatrics",
     "Most insurance accepted"
   ],
