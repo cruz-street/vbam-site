@@ -109,8 +109,9 @@ Read this channel at session start for current project context. Key people: Jess
 
 ## Session State
 
-- **Last completed:** vbam-cms-auth Worker deployed (https://vbam-cms-auth.cruzstreet-vbam.workers.dev); config.yml placeholder replaced; GitHub Actions deploy.yml created; CF workers.dev subdomain created (cruzstreet-vbam) (2026-05-12)
-- **Next:** (1) User creates GitHub OAuth App at github.com/settings/developers — callback URL: https://vbam-cms-auth.cruzstreet-vbam.workers.dev/callback — then share client_id+secret so I can `wrangler secret put` them; (2) User creates CF API token (Pages:Write) at dash.cloudflare.com/profile/api-tokens and adds as CLOUDFLARE_API_TOKEN + NEXT_PUBLIC_WEB3FORMS_KEY to GitHub Actions secrets; (3) DNS cutover to vbadultmedicine.com
+- **Last completed:** Marketing content layer implementation plan written (2026-05-19) — `docs/superpowers/plans/2026-05-19-marketing-content-layer.md`. 15 bite-sized tasks covering build-time Google Places + Meta Graph fetch, three homepage section components (Reviews/Videos/Social), hero scroll parallax, site-wide Klara widget (env-gated), aggregateRating JSON-LD, and a GitHub Actions daily cron.
+- **Next:** (1) Choose execution mode (subagent-driven recommended vs inline) and start Task 1; (2) DNS cutover to vbadultmedicine.com still pending
+- **Last sync commit:** 2d5f8ca2a4a0c5230f97d052987067dc29edd5f0
 - **Last sync commit:** d9b15bcbe34b4d5782445732556ad26a3fb90c4e (uncommitted changes in working tree)
 
 ## Implementation Plan

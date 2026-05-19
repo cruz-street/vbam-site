@@ -1,5 +1,23 @@
 # Component Change Log (newest first)
 
+### 2026-05-14 23:52 — fix: hide Decap footer branding from admin panel
+- File: app/public/admin/index.html
+- CSS + MutationObserver to hide the "Powered by Decap" footer link once React renders it
+
+### 2026-05-14 23:50 — fix: CMS logo updated to official Cruz Street docs logo
+- File: app/public/images/cms-logo.svg
+- Replaced CS badge with accurate diamond pinwheel recreation + "CruzStreet / Data Science on Demand" from the official docs logo
+
+### 2026-05-14 23:43 — feat: CodeFoundry/Cruz Street CMS admin logo
+- File: app/public/images/cms-logo.svg
+- Custom SVG logo replacing Decap CMS default — hex CF mark + CODEFOUNDRY wordmark + "powered by Cruz Street" badge
+- Wired via logo_url in admin/config.yml pointing to https://vbam-site.pages.dev/images/cms-logo.svg
+
+### 2026-05-13 16:47 — fix CI deploy workflow
+- File: .github/workflows/deploy.yml
+- Replaced cloudflare/wrangler-action@v3 with direct `npx wrangler@latest` to fix auth error (wrangler-action was installing 3.x which rejected the API token)
+- CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID now passed as env vars directly to wrangler
+
 ### 2026-05-12 19:05 — refactor content layer extraction — all copy moved to src/content/
 - Files: src/content/{doctors,home,about,services,for-patients,contact}.ts (new)
 - All user-facing strings extracted from 12 components/pages into typed content files; components now import from @/content/*
