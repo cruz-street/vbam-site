@@ -50,7 +50,7 @@ export default function PriviaSection() {
                 className="font-archivo font-[700] text-vbam-atlantic/50 mb-3"
                 style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' }}
               >
-                A Proud Member
+                A Member Practice
               </p>
               <p
                 className="font-fraunces font-[500] text-vbam-inlet"
