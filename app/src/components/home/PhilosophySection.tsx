@@ -46,7 +46,7 @@ export default function PhilosophySection() {
                   className="font-fraunces font-[400] text-vbam-atlantic"
                   style={{ fontSize: 22, lineHeight: 1.2, marginBottom: 12, letterSpacing: '-0.01em' }}
                 >
-                  {p.headingLine1}
+                  {p.headingLine1}{' '}
                   <em className="font-cormorant italic text-vbam-coral">{p.headingItalic}</em>
                 </h3>
                 <p
