@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import FaqAccordion from '@/components/for-patients/FaqAccordion';
-import { FOR_PATIENTS_HERO, NEW_PATIENT, NEW_PATIENT_CHECKLIST, INSURANCE, FOR_PATIENTS_CTA } from '@/content/for-patients';
+import { FOR_PATIENTS_HERO, NEW_PATIENT, NEW_PATIENT_CHECKLIST, VISIT_FLOW, INSURANCE, FOR_PATIENTS_CTA } from '@/content/for-patients';
 
 export const metadata: Metadata = {
   title: 'For Patients',
@@ -75,6 +75,43 @@ export default function ForPatientsPage() {
             </div>
           </ScrollReveal>
 
+        </div>
+      </section>
+
+      {/* ── How a Visit Works ─── */}
+      <section className="bg-vbam-foam border-t border-vbam-atlantic/[.06]" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
+          <ScrollReveal>
+            <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
+              {VISIT_FLOW.eyebrow}
+            </p>
+            <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 32, lineHeight: 1.15, letterSpacing: '-0.015em', marginBottom: 20, maxWidth: 720 }}>
+              {VISIT_FLOW.heading} <em className="font-cormorant italic text-grad-sunrise">{VISIT_FLOW.headingItalic}</em>
+            </h2>
+            <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 16, lineHeight: 1.7, maxWidth: 720, marginBottom: 36 }}>
+              {VISIT_FLOW.intro}
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+            {VISIT_FLOW.steps.map((step, i) => (
+              <ScrollReveal key={step.title} delay={i * 80}>
+                <div className="flex gap-4">
+                  <span aria-hidden="true" className="font-fraunces italic text-vbam-coral flex-shrink-0" style={{ fontSize: 22, lineHeight: 1, paddingTop: 2 }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="font-fraunces font-[500] text-vbam-atlantic" style={{ fontSize: 17, lineHeight: 1.3, marginBottom: 6 }}>
+                      {step.title}
+                    </h3>
+                    <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 14, lineHeight: 1.65 }}>
+                      {step.body}
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 

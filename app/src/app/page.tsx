@@ -6,6 +6,7 @@ import DoctorsSection from '@/components/home/DoctorsSection';
 import PhilosophySection from '@/components/home/PhilosophySection';
 import ServicesSection from '@/components/home/ServicesSection';
 import VbpSection from '@/components/home/VbpSection';
+import FlowSection from '@/components/home/FlowSection';
 import PriviaSection from '@/components/home/PriviaSection';
 import CtaStrip from '@/components/home/CtaStrip';
 import JsonLd from '@/components/shared/JsonLd';
@@ -67,6 +68,7 @@ export default function HomePage() {
       <ServicesSection />
       <VbpSection />
       <PriviaSection />
+      <FlowSection />
       <CtaStrip />
     </main>
   );

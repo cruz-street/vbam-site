@@ -19,6 +19,30 @@
     "List of questions or concerns",
     "Completed new patient forms (sent before your visit)"
   ],
+  "visitFlow": {
+    "eyebrow": "How a Visit Works",
+    "heading": "Modern tools,",
+    "headingItalic": "personal practice.",
+    "intro": "We use modern systems quietly in the background so your visit can be about your health — not paperwork. Here's what to expect:",
+    "steps": [
+      {
+        "title": "Before your visit",
+        "body": "Complete registration, history, and insurance on your own device — usually a few minutes the night before. Copays are handled up front so check-in at the front desk is quick."
+      },
+      {
+        "title": "In the room",
+        "body": "Your physician walks in already familiar with what you submitted. The time in the room is for your health, not for catching up on forms."
+      },
+      {
+        "title": "After your visit",
+        "body": "A short text-message survey gives you a moment to tell us if anything could have gone better. We read every response."
+      },
+      {
+        "title": "Between visits",
+        "body": "Refills, school or work forms, quick questions, and care coordination are all handled by secure text or a phone call to our staff. Whichever you prefer — both reach the same team."
+      }
+    ]
+  },
   "insurance": {
     "eyebrow": "Insurance",
     "heading": "Most plans",

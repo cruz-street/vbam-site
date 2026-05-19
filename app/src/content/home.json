@@ -1,4 +1,41 @@
 {
+  "flowSection": {
+    "eyebrow": "07 · How a Visit Works",
+    "headingLine1": "Built around",
+    "headingItalic": "your time.",
+    "body": "Modern tools, used in a personal practice. The system works quietly in the background so your visit can be about your health — not paperwork.",
+    "stages": [
+      {
+        "number": "01",
+        "label": "Before",
+        "headingLine1": "Check in",
+        "headingItalic": "from your phone.",
+        "body": "Complete paperwork, history, and insurance on your own device before you arrive. Copays handled up front so check-in is quick."
+      },
+      {
+        "number": "02",
+        "label": "In the room",
+        "headingLine1": "Your story,",
+        "headingItalic": "already in hand.",
+        "body": "Your physician walks in already familiar with your history. The visit is about you — not catching up on forms."
+      },
+      {
+        "number": "03",
+        "label": "After",
+        "headingLine1": "One tap to",
+        "headingItalic": "tell us how it went.",
+        "body": "A short text-message survey gives you a moment to tell us if anything could have gone better — usually within minutes of leaving."
+      },
+      {
+        "number": "04",
+        "label": "Between visits",
+        "headingLine1": "Text or call",
+        "headingItalic": "our staff directly.",
+        "body": "Refills, forms, quick questions, care coordination — handled by secure text with our staff. Or call and reach a familiar voice. Our call tree even gives you the option to text instead."
+      }
+    ],
+    "footer": "Quiet efficiency. More comfort. More time with your doctor."
+  },
   "priviaSection": {
     "eyebrow": "06 · Part of Privia Medical Group",
     "headingLine1": "Locally owned.",
@@ -75,13 +112,14 @@
   },
   "hero": {
     "tagline": "Sunrise to shoreline care.",
-    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with the same doctor, every time. Most insurance accepted.",
+    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with the same doctor, every time. Quiet, modern tools keep your visit about your health, not paperwork. Most insurance accepted.",
     "cta1": "Book an Appointment",
     "cta2": "Meet Our Doctors"
   },
   "trustBar": [
     "Now welcoming new patients",
     "Same physician · Every visit, every time",
+    "Mobile check-in · Text our staff",
     "Sibling of Vero Beach Pediatrics",
     "Most insurance accepted"
   ],
