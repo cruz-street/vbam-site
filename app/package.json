@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/fetch-marketing-content.ts",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "fetch-content": "tsx scripts/fetch-marketing-content.ts"
   },
   "dependencies": {
     "animejs": "^4.4.1",
