@@ -76,8 +76,106 @@ async function fetchGoogleReviews(): Promise<void> {
   }
 }
 
+interface InstagramMediaItem {
+  id: string;
+  caption?: string;
+  media_type?: string;
+  media_url?: string;
+  thumbnail_url?: string;
+  permalink?: string;
+  timestamp?: string;
+}
+
+interface FacebookPostItem {
+  id: string;
+  message?: string;
+  full_picture?: string;
+  permalink_url?: string;
+  created_time?: string;
+}
+
+interface SocialPostOut {
+  platform: 'instagram' | 'facebook';
+  id: string;
+  caption: string;
+  mediaUrl: string;
+  permalink: string;
+  timestamp: string;
+}
+
+async function fetchInstagram(token: string, userId: string): Promise<SocialPostOut[]> {
+  const url = `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=6&access_token=${token}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Instagram ${res.status}: ${await res.text()}`);
+  const data = (await res.json()) as { data?: InstagramMediaItem[] };
+  return (data.data ?? []).map((p) => ({
+    platform: 'instagram' as const,
+    id: p.id,
+    caption: p.caption ?? '',
+    mediaUrl: p.media_type === 'VIDEO' ? (p.thumbnail_url ?? '') : (p.media_url ?? ''),
+    permalink: p.permalink ?? '',
+    timestamp: p.timestamp ?? '',
+  }));
+}
+
+async function fetchFacebook(token: string, pageId: string): Promise<SocialPostOut[]> {
+  const url = `https://graph.facebook.com/v18.0/${pageId}/posts?fields=id,message,full_picture,permalink_url,created_time&limit=6&access_token=${token}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Facebook ${res.status}: ${await res.text()}`);
+  const data = (await res.json()) as { data?: FacebookPostItem[] };
+  return (data.data ?? [])
+    .filter((p) => p.message || p.full_picture)
+    .map((p) => ({
+      platform: 'facebook' as const,
+      id: p.id,
+      caption: p.message ?? '',
+      mediaUrl: p.full_picture ?? '',
+      permalink: p.permalink_url ?? '',
+      timestamp: p.created_time ?? '',
+    }));
+}
+
 async function fetchSocialPosts(): Promise<void> {
-  console.log('[social] not yet wired — skipping');
+  const token = process.env.META_PAGE_ACCESS_TOKEN;
+  const igUserId = process.env.INSTAGRAM_USER_ID;
+  const fbPageId = process.env.FACEBOOK_PAGE_ID;
+
+  if (!token) {
+    console.warn('[social] META_PAGE_ACCESS_TOKEN missing — keeping existing social.json');
+    return;
+  }
+
+  const posts: SocialPostOut[] = [];
+
+  if (igUserId) {
+    try {
+      posts.push(...(await fetchInstagram(token, igUserId)));
+    } catch (err) {
+      console.warn(`[social/instagram] ${(err as Error).message}`);
+    }
+  } else {
+    console.warn('[social/instagram] INSTAGRAM_USER_ID missing — skipping IG');
+  }
+
+  if (fbPageId) {
+    try {
+      posts.push(...(await fetchFacebook(token, fbPageId)));
+    } catch (err) {
+      console.warn(`[social/facebook] ${(err as Error).message}`);
+    }
+  } else {
+    console.warn('[social/facebook] FACEBOOK_PAGE_ID missing — skipping FB');
+  }
+
+  if (posts.length === 0) {
+    console.warn('[social] no posts fetched — keeping existing social.json');
+    return;
+  }
+
+  posts.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+  const top6 = posts.slice(0, 6);
+  writeJson('social.json', top6);
+  console.log(`[social] wrote ${top6.length} posts (${posts.filter(p => p.platform === 'instagram').length} IG, ${posts.filter(p => p.platform === 'facebook').length} FB)`);
 }
 
 async function main(): Promise<void> {
