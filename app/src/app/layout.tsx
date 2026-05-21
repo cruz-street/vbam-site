@@ -3,6 +3,7 @@ import { Fraunces, Cormorant_Garamond, Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 
 const fraunces = Fraunces({
   variable: "--nf-fraunces",
@@ -61,6 +62,14 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        {/* Klara floating "Message us" widget — site-wide. Inert until VBAM Klara widget UUID is set. */}
+        {process.env.NEXT_PUBLIC_KLARA_WIDGET_ID && (
+          <Script
+            id="klara-widget"
+            src={`https://patient.klara.com/widget.js?id=${process.env.NEXT_PUBLIC_KLARA_WIDGET_ID}`}
+            strategy="lazyOnload"
+          />
+        )}
       </body>
     </html>
   );
