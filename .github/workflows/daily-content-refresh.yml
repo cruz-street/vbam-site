@@ -1,0 +1,29 @@
+name: Daily Content Refresh
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 06:00 UTC daily
+  workflow_dispatch: {}
+
+jobs:
+  trigger-deploy:
+    name: Ping Cloudflare Pages deploy hook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger CF Pages rebuild
+        env:
+          DEPLOY_HOOK: ${{ secrets.CF_PAGES_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$DEPLOY_HOOK" ]; then
+            echo "CF_PAGES_DEPLOY_HOOK secret missing — skipping"
+            exit 0
+          fi
+          response=$(curl -sS -X POST "$DEPLOY_HOOK" -w "\n%{http_code}")
+          status=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+          echo "Status: $status"
+          echo "Body: $body"
+          if [ "$status" -ge 400 ]; then
+            echo "Deploy hook failed"
+            exit 1
+          fi
