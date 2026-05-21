@@ -6,6 +6,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- ReviewsSection on homepage — Google Places API reviews fetched at build time, with empty-state CTA and conditional AggregateRating JSON-LD
+- VideosSection on homepage — YouTube gallery using lite-youtube-embed (thumbnail-first, click to load iframe)
+- SocialFeedSection on homepage — Instagram + Facebook combined feed via Meta Graph API, with platform filter
+- Site-wide Klara floating widget in `layout.tsx`, env-gated by `NEXT_PUBLIC_KLARA_WIDGET_ID`
+- Scroll-linked parallax on the hero sunrise wash (respects `prefers-reduced-motion`)
+- Build-time content fetch script (`app/scripts/fetch-marketing-content.ts`) wired into `prebuild`
+- GitHub Actions cron at `.github/workflows/daily-content-refresh.yml` to refresh content daily via CF Pages deploy hook
 - Phase 6: Cloudflare Pages deployment — preview URL https://2a0a86eb.vbam-site.pages.dev
   - CF Pages project `vbam-site` created under ashwin@cruzstreet.com account
   - 99 files uploaded; `_redirects` and static assets confirmed live
