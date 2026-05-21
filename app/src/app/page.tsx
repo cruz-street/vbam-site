@@ -10,6 +10,10 @@ import FlowSection from '@/components/home/FlowSection';
 import PriviaSection from '@/components/home/PriviaSection';
 import CtaStrip from '@/components/home/CtaStrip';
 import JsonLd from '@/components/shared/JsonLd';
+import ReviewsSection from '@/components/home/ReviewsSection';
+import VideosSection from '@/components/home/VideosSection';
+import SocialFeedSection from '@/components/home/SocialFeedSection';
+import { REVIEWS } from '@/content/reviews';
 
 export const metadata: Metadata = {
   title: 'Vero Beach Adult Medicine | Primary Care on the Treasure Coast',
@@ -54,6 +58,15 @@ const homeJsonLd = {
     'https://verobeachpediatrics.com',
     'https://www.priviahealth.com/',
   ],
+  ...(REVIEWS.totalRatings > 0 && {
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: REVIEWS.placeRating,
+      reviewCount: REVIEWS.totalRatings,
+      bestRating: 5,
+      worstRating: 1,
+    },
+  }),
 };
 
 export default function HomePage() {
@@ -69,6 +82,9 @@ export default function HomePage() {
       <VbpSection />
       <PriviaSection />
       <FlowSection />
+      <ReviewsSection />
+      <VideosSection />
+      <SocialFeedSection />
       <CtaStrip />
     </main>
   );
