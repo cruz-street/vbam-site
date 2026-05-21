@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { HERO } from '@/content/home';
 
 export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const markRef   = useRef<SVGSVGElement>(null);
   const veroRef   = useRef<HTMLSpanElement>(null);
   const adultRef  = useRef<HTMLSpanElement>(null);
@@ -12,6 +13,27 @@ export default function HeroSection() {
   const ctasRef   = useRef<HTMLDivElement>(null);
   const glowRef   = useRef<HTMLDivElement>(null);
   const washRef   = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = sectionRef.current;
+        if (!el) return;
+        const offset = Math.max(0, window.scrollY) * 0.18;
+        el.style.setProperty('--hero-parallax', `${offset}px`);
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   useEffect(() => {
     import('animejs').then(({ animate, stagger, createTimeline, svg }) => {
@@ -86,20 +108,26 @@ export default function HeroSection() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative text-center overflow-hidden"
       style={{ paddingTop: 'clamp(110px, 12vw, 160px)', paddingBottom: 'clamp(60px, 8vw, 110px)' }}
     >
-      {/* Sunrise wash — wave-on-beach animation drives scaleY + opacity */}
+      {/* Sunrise wash — parallax wrapper translates on scroll; inner element keeps anime.js scaleY */}
       <div
-        ref={washRef}
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-4/5 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse 85% 105% at 50% 0%, #F9C784 0%, #FBCF9A 20%, #F7D8B4 40%, rgba(245,241,232,.88) 70%, #F5F1E8 100%)',
-          transformOrigin: 'top center',
-          opacity: 0.89,
-        }}
-      />
+        style={{ transform: 'translate3d(0, var(--hero-parallax, 0px), 0)', willChange: 'transform' }}
+      >
+        <div
+          ref={washRef}
+          className="w-full h-full"
+          style={{
+            background: 'radial-gradient(ellipse 85% 105% at 50% 0%, #F9C784 0%, #FBCF9A 20%, #F7D8B4 40%, rgba(245,241,232,.88) 70%, #F5F1E8 100%)',
+            transformOrigin: 'top center',
+            opacity: 0.89,
+          }}
+        />
+      </div>
       {/* Separator line */}
       <div
         aria-hidden="true"
