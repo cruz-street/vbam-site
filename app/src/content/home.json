@@ -17,7 +17,7 @@
         "label": "In the room",
         "headingLine1": "Your story,",
         "headingItalic": "already in hand.",
-        "body": "Your physician walks in already familiar with your history. The visit is about you — not catching up on forms."
+        "body": "Your provider walks in already familiar with your story. The visit is about you — not catching up on forms."
       },
       {
         "number": "03",
@@ -89,7 +89,7 @@
       "glyph": "i.",
       "headingLine1": "Consistent,",
       "headingItalic": "not rotational.",
-      "body": "You see the same physician every visit. They know your history, your current medications, and what you discussed last time — because continuity is how good medicine works."
+      "body": "A practice that knows your name — from the front desk to your physician. You see your doctor for your wellness visits and ongoing care, and your story follows you across the team between visits, because continuity is how good medicine works."
     },
     {
       "glyph": "ii.",
@@ -110,17 +110,17 @@
     "headingItalic": "done differently.",
     "body1": "Vero Beach Adult Medicine was built by the same team behind Vero Beach Pediatrics — a practice with deep local roots, started because Vero Beach families wanted an alternative to how medicine has been delivered here. Not a call center on the other end of the phone. Not a different face at every visit. A practice where you know who answers, who works the front desk, and who your doctor is.",
     "pullQuote": "A real practice. A real doctor. Every visit.",
-    "body2": "We practice medicine the way it was meant to work — with continuity. You see the same physician each visit — someone who knows your history and engages with your health over time, not just when something goes wrong."
+    "body2": "We practice medicine the way it was meant to work — with continuity. Your physician guides your annual care and stays engaged with your health over time. The front desk knows your name. The staff knows your story. Care that follows you between visits, not just when something goes wrong."
   },
   "hero": {
     "tagline": "Sunrise to shoreline care.",
-    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with the same doctor, every time. Quiet, modern tools keep your visit about your health, not paperwork. Most insurance accepted.",
+    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with a familiar team who knows your name. Quiet, modern tools keep your visit about your health, not paperwork. Most insurance accepted.",
     "cta1": "Book an Appointment",
     "cta2": "Meet Dr. Stewart"
   },
   "trustBar": [
     "Now welcoming new patients",
-    "Same physician · Every visit, every time",
+    "A practice that knows your name",
     "Mobile check-in · Text our staff",
     "Sibling of Vero Beach Pediatrics",
     "Most insurance accepted"
@@ -136,7 +136,7 @@
     },
     {
       "title": "Same-Day Sick Visits",
-      "body": "When you're sick, you get in. Direct access to the practice, same-day availability, and a doctor who already knows your history."
+      "body": "When you're sick, you get in. Direct access to the practice, same-day availability, and a team that already knows your history."
     },
     {
       "title": "Women's & Men's Health",
