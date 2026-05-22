@@ -22,6 +22,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Home: reduced gap between `PhilosophySection` (03 · Care Philosophy) and `ServicesSection` (04 · Services) by lowering the adjoining vertical paddings (per Alex Robbins comment on Home — Copy)
 - Services page: added mobile-only "Book an Appointment" + "New Patient Info" CTA row directly below the page hero so primary actions are above the fold on mobile (per Alex Robbins comment on Services — Copy)
 - For Patients page: added `id="insurance"` anchor on the Insurance column; updated Footer "Insurance" link to `/for-patients/#insurance` so it deep-links to the section (per Alex Robbins comment on For Patients — Copy)
+- For Patients insurance list updates: added "CIGNA HealthSpring" alongside CIGNA (CIGNA's Medicare Advantage line); added "Railroad Medicare" under Medicare & Other Plans (administered by Palmetto GBA, relevant for railroad retirees); appended "(UHC)" to United Healthcare for clarity
 - For Patients page: restructured insurance display from flat pill grid to two **grouped bullet lists** that reflect what the plans actually are:
   - "National Carriers" (Florida Blue, United Healthcare, CIGNA, Aetna/Coventry/First Health)
   - "Medicare & Other Plans" (Medicare, Health First, FHCP, MultiPlan/PHCS)

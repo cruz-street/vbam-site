@@ -53,8 +53,8 @@
         "label": "National Carriers",
         "plans": [
           "Florida Blue (Blue Cross Blue Shield)",
-          "United Healthcare",
-          "CIGNA",
+          "United Healthcare (UHC)",
+          "CIGNA / CIGNA HealthSpring",
           "Aetna / Coventry / First Health"
         ]
       },
@@ -62,6 +62,7 @@
         "label": "Medicare & Other Plans",
         "plans": [
           "Medicare",
+          "Railroad Medicare",
           "Health First Health Plans",
           "Florida Health Care Plans (FHCP)",
           "MultiPlan / PHCS"
