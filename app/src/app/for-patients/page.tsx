@@ -59,17 +59,46 @@ export default function ForPatientsPage() {
               <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 32, lineHeight: 1.15, letterSpacing: '-0.015em', marginBottom: 20 }}>
                 {INSURANCE.heading} <em className="font-cormorant italic text-grad-sunrise">{INSURANCE.headingItalic}</em>
               </h2>
-              <div className="grid grid-cols-2 gap-2" style={{ marginBottom: 24 }}>
-                {INSURANCE.plans.map(plan => (
-                  <div
-                    key={plan}
-                    className={`font-archivo font-[700] text-vbam-inlet bg-vbam-sand border border-vbam-atlantic/[.08] text-center${plan === 'Cash Pay Welcome' ? ' col-span-2' : ''}`}
-                    style={{ fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '8px 13px', borderRadius: 999 }}
-                  >
-                    {plan}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7" style={{ marginBottom: 24 }}>
+                {INSURANCE.groups.map(group => (
+                  <div key={group.label}>
+                    <p
+                      className="font-archivo font-[700] text-vbam-atlantic/55"
+                      style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}
+                    >
+                      {group.label}
+                    </p>
+                    <ul className="space-y-2">
+                      {group.plans.map(plan => (
+                        <li key={plan} className="flex items-start gap-2.5">
+                          <span aria-hidden="true" className="mt-2 w-[5px] h-[5px] rounded-full bg-vbam-coral flex-shrink-0" />
+                          <span className="font-inter font-[400] text-vbam-atlantic/[.86]" style={{ fontSize: 14, lineHeight: 1.55 }}>
+                            {plan}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
+
+              {INSURANCE.selfPay && (
+                <div className="border-t border-vbam-atlantic/[.10] pt-5" style={{ marginBottom: 18 }}>
+                  <p
+                    className="font-archivo font-[700] text-vbam-coral"
+                    style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 6 }}
+                  >
+                    {INSURANCE.selfPay.label}
+                  </p>
+                  <p
+                    className="font-inter font-[300] text-vbam-atlantic/75"
+                    style={{ fontSize: 14, lineHeight: 1.6 }}
+                  >
+                    {INSURANCE.selfPay.note}
+                  </p>
+                </div>
+              )}
+
               <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 15, lineHeight: 1.7, marginBottom: 16 }}>
                 {INSURANCE.note}
               </p>
