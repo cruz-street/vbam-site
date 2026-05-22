@@ -15,7 +15,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Home: reduced gap between `PhilosophySection` (03 · Care Philosophy) and `ServicesSection` (04 · Services) by lowering the adjoining vertical paddings (per Alex Robbins comment on Home — Copy)
 - Services page: added mobile-only "Book an Appointment" + "New Patient Info" CTA row directly below the page hero so primary actions are above the fold on mobile (per Alex Robbins comment on Services — Copy)
 - For Patients page: added `id="insurance"` anchor on the Insurance column; updated Footer "Insurance" link to `/for-patients/#insurance` so it deep-links to the section (per Alex Robbins comment on For Patients — Copy)
-- For Patients page: replaced accepted insurances list with current carriers — Aetna / Coventry / First Health, CIGNA, Florida Blue (Blue Cross Blue Shield), Florida Health Care Plans (FHCP), Health First Health Plans, Medicare, MultiPlan / PHCS, United Healthcare, Cash Pay Welcome
+- For Patients page: replaced accepted insurances list with current carriers, reordered by patient-population commonality (Florida Blue, United Healthcare, Medicare first; Aetna, CIGNA, Health First, FHCP, MultiPlan next; Cash Pay Welcome anchors the bottom)
+- For Patients Insurance chips: switched from ragged `flex flex-wrap` to a 2-column grid so chip widths align symmetrically. Cash Pay Welcome spans both columns to visually separate it from insurance carriers
 
 ### Added
 - Phase 6: Cloudflare Pages deployment — preview URL https://2a0a86eb.vbam-site.pages.dev

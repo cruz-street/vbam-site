@@ -59,11 +59,15 @@ export default function ForPatientsPage() {
               <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 32, lineHeight: 1.15, letterSpacing: '-0.015em', marginBottom: 20 }}>
                 {INSURANCE.heading} <em className="font-cormorant italic text-grad-sunrise">{INSURANCE.headingItalic}</em>
               </h2>
-              <div className="flex flex-wrap gap-2" style={{ marginBottom: 24 }}>
+              <div className="grid grid-cols-2 gap-2" style={{ marginBottom: 24 }}>
                 {INSURANCE.plans.map(plan => (
-                  <span key={plan} className="font-archivo font-[700] text-vbam-inlet bg-vbam-sand border border-vbam-atlantic/[.08]" style={{ fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '7px 13px', borderRadius: 999 }}>
+                  <div
+                    key={plan}
+                    className={`font-archivo font-[700] text-vbam-inlet bg-vbam-sand border border-vbam-atlantic/[.08] text-center${plan === 'Cash Pay Welcome' ? ' col-span-2' : ''}`}
+                    style={{ fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '8px 13px', borderRadius: 999 }}
+                  >
                     {plan}
-                  </span>
+                  </div>
                 ))}
               </div>
               <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 15, lineHeight: 1.7, marginBottom: 16 }}>
