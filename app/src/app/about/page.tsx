@@ -31,10 +31,10 @@ function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
           alt={alt ?? ''}
           className="absolute"
           style={{
-            width: '125%',
+            width: '135%',
             height: 'auto',
             left: '50%',
-            top: '10%',
+            top: '0%',
             transform: 'translateX(-50%)',
           }}
         />
