@@ -21,7 +21,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - For Patients page: restructured insurance display from flat pill grid to two **grouped bullet lists** that reflect what the plans actually are:
   - "National Carriers" (Florida Blue, United Healthcare, CIGNA, Aetna/Coventry/First Health)
   - "Medicare & Other Plans" (Medicare, Health First, FHCP, MultiPlan/PHCS)
-  - "Self-Pay Patients Welcome" pulled out as a separate band with its own treatment — it's a payment option, not insurance, so it gets a distinct callout
+  - "Self-Pay Welcome" pulled out as a separate band with its own treatment — it's a payment option, not insurance, so it gets a distinct callout. Copy reframed to position self-pay as a sensible choice for several common scenarios (high-deductible plans, no insurance, preference for direct payment) rather than a fallback for the uninsured. Removed duplicate "cash-pay / self-pay" wording.
   - Switched chips → coral-bullet list to match the New Patients checklist (internal consistency) and improve plan-name scannability
 
 ### Added

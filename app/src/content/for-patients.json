@@ -69,8 +69,8 @@
       }
     ],
     "selfPay": {
-      "label": "Self-Pay Patients Welcome",
-      "note": "Cash-pay rates available. Call our office for details."
+      "label": "Self-Pay Welcome",
+      "note": "A simple, transparent option — common for patients with high-deductible plans, those without insurance, or anyone who prefers to pay directly. Call our office for current rates."
     }
   },
   "faqs": [
