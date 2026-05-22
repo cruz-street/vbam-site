@@ -19,8 +19,9 @@
     "phone": "(772) 569-3212",
     "phoneTel": "7725693212",
     "hours": [
-      "Mon – Thu · 8:00 am – 5:00 pm",
-      "Fri · 8:00 am – 12:00 pm",
+      "Mon, Wed – Fri · 8:00 am – 12:00 pm",
+      "Mon, Wed – Fri · 1:00 pm – 5:00 pm",
+      "Tue · Closed",
       "Sat – Sun · Closed"
     ],
     "hoursNote": "By appointment",
