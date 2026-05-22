@@ -6,6 +6,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Changed
+- About page `DoctorPhoto`: switched from a 280px circle to a 380px-max portrait rectangle (aspect 3:5, rounded corners) so Dr. Stewart's photo displays uncropped at its native ratio
+- For Patients `VisitFlow` (Modern tools section): replaced the prominent coral italic step numbers with on-brand single-stroke SVG icons inside soft coral-tinted circular badges. Icons: phone-with-check (Before), clipboard (In the room), speech-bubble-with-check (After), overlapping chat bubbles (Between visits). Adds visual meaning to each step without dominating the editorial layout
+- Home `PositioningSection` body2: softened further — removed the "physician guides your annual care / stays engaged over time" framing in favor of "a practice where the staff knows your name, your physician knows you, and your story follows you between visits." Less promise of physician interaction frequency
 - Home `PositioningSection` (01): rewrote body copy to remove Dr. Wije / 1976 lineage and instead reinforce VBAM's deep local roots and positioning as an alternative to call-center-style medicine (know who answers the phone, know the front desk, know your doctor)
 - Home `VbpSection` (05): rewrote body copy in the same voice — VBP framed as an intentional alternative for Vero families who wanted a practice they'd recognize, with VBAM carrying that conviction forward
 - Home copy: toned down "same physician every visit" promises across hero lede, trust bar, positioning body, philosophy principle i, flow section stage 02, and same-day sick visits service blurb. New theme leans on knowing-the-people: staff knows your name, your physician guides annual/wellness care, your story follows you across the team — leaving room to add a PA or NP as the practice grows without breaking promises

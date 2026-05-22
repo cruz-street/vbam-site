@@ -10,14 +10,15 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://vbadultmedicine.com/about/' },
 };
 
-function DoctorPhoto({ size = 280, src, alt }: { size?: number; src?: string; alt?: string }) {
+function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
   return (
     <div
-      className="rounded-full relative overflow-hidden mx-auto"
+      className="rounded-2xl relative overflow-hidden mx-auto"
       style={{
-        width: size, height: size,
+        width: '100%', maxWidth: 380,
+        aspectRatio: '3 / 5',
         background: '#F5F1E8',
-        boxShadow: '0 24px 64px -28px rgba(10,61,74,.28)',
+        boxShadow: '0 28px 72px -32px rgba(10,61,74,.32)',
         border: '1px solid rgba(10,61,74,.07)',
         flexShrink: 0,
       }}
@@ -28,14 +29,10 @@ function DoctorPhoto({ size = 280, src, alt }: { size?: number; src?: string; al
           src={src}
           alt={alt ?? ''}
           className="absolute inset-0 w-full h-full"
-          style={{ objectFit: 'cover', objectPosition: 'center 18%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center top' }}
         />
       ) : (
-        <>
-          <div aria-hidden="true" className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)', opacity: 0.55 }} />
-          <div aria-hidden="true" className="absolute" style={{ bottom: '55%', left: '50%', transform: 'translateX(-50%)', width: '30%', aspectRatio: '1', borderRadius: '50%', background: 'rgba(10,61,74,.18)' }} />
-          <div aria-hidden="true" className="absolute" style={{ bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '60%', height: '58%', background: 'rgba(10,61,74,.18)', borderRadius: '50% 50% 0 0 / 30% 30% 0 0' }} />
-        </>
+        <div aria-hidden="true" className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)', opacity: 0.55 }} />
       )}
     </div>
   );
