@@ -20,6 +20,18 @@ export default function ServicesPage() {
         subhead={SERVICES_HERO.subhead}
       />
 
+      {/* ── Mobile-only CTAs (above the fold of cards) ─── */}
+      <div className="md:hidden bg-vbam-sand text-center" style={{ paddingBottom: 36 }}>
+        <div className="flex gap-3 justify-center flex-wrap px-5">
+          <Link href="/contact/" className="btn-primary font-archivo font-[600] inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '12px 22px' }}>
+            Book an Appointment →
+          </Link>
+          <Link href="/for-patients/" className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full" style={{ fontSize: 14, padding: '12px 22px' }}>
+            New Patient Info
+          </Link>
+        </div>
+      </div>
+
       {/* ── Service cards ─── */}
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">

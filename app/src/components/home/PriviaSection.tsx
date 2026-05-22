@@ -28,11 +28,27 @@ export default function PriviaSection() {
         <ScrollReveal delay={80}>
           <p
             className="font-inter font-[300] text-vbam-atlantic/[.84] mx-auto"
-            style={{ fontSize: 18, lineHeight: 1.72, maxWidth: 680, marginBottom: 56 }}
+            style={{ fontSize: 18, lineHeight: 1.72, maxWidth: 680, marginBottom: 24 }}
           >
             {PRIVIA_SECTION.body}
           </p>
         </ScrollReveal>
+
+        {PRIVIA_SECTION.attribution && (
+          <ScrollReveal delay={140}>
+            <p
+              className="font-inter font-[300] text-vbam-atlantic/55 mx-auto"
+              style={{ fontSize: 13, lineHeight: 1.65, maxWidth: 520, marginBottom: 56 }}
+            >
+              {PRIVIA_SECTION.attributionLead && (
+                <em className="font-cormorant italic text-vbam-inlet/70 mr-1.5">
+                  {PRIVIA_SECTION.attributionLead}
+                </em>
+              )}
+              {PRIVIA_SECTION.attribution}
+            </p>
+          </ScrollReveal>
+        )}
 
         <ScrollReveal animation="scale" delay={120}>
           <a

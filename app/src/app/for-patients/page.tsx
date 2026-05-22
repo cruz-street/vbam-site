@@ -52,7 +52,7 @@ export default function ForPatientsPage() {
 
           {/* Insurance */}
           <ScrollReveal animation="left" delay={100}>
-            <div>
+            <div id="insurance" style={{ scrollMarginTop: 96 }}>
               <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
                 {INSURANCE.eyebrow}
               </p>

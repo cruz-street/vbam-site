@@ -44,8 +44,8 @@ export default function DoctorsSection() {
   return (
     <section
       id="doctors"
-      className="relative overflow-hidden bg-vbam-sand"
-      style={{ height: '100vh', minHeight: 600 }}
+      className="relative overflow-hidden bg-vbam-sand md:py-12 lg:py-20"
+      style={{ minHeight: '100vh' }}
     >
       <div className="relative w-full h-full">
         {DOCTORS.map((doc, i) => (
@@ -60,10 +60,9 @@ export default function DoctorsSection() {
           >
             <div className="text-center" style={{ maxWidth: 720, width: '100%', padding: 'clamp(32px, 5vw, 80px) clamp(16px, 4vw, 48px)' }}>
 
-              {/* Photo placeholder */}
+              {/* Photo */}
               <div className="flex justify-center" style={{ marginBottom: 32 }}>
                 <div
-                  aria-hidden="true"
                   className="rounded-full relative overflow-hidden"
                   style={{
                     width: 'clamp(160px, 30vw, 260px)', height: 'clamp(160px, 30vw, 260px)',
@@ -72,30 +71,45 @@ export default function DoctorsSection() {
                     border: '1px solid rgba(10,61,74,.07)',
                   }}
                 >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)',
-                      opacity: 0.55,
-                    }}
-                  />
-                  <div
-                    className="absolute"
-                    style={{
-                      bottom: '55%', left: '50%', transform: 'translateX(-50%)',
-                      width: '30%', aspectRatio: '1', borderRadius: '50%',
-                      background: 'rgba(10,61,74,.18)',
-                    }}
-                  />
-                  <div
-                    className="absolute"
-                    style={{
-                      bottom: 0, left: '50%', transform: 'translateX(-50%)',
-                      width: '60%', height: '58%',
-                      background: 'rgba(10,61,74,.18)',
-                      borderRadius: '50% 50% 0 0 / 30% 30% 0 0',
-                    }}
-                  />
+                  {doc.photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={doc.photo}
+                      alt={`${doc.namePrefix}${doc.nameItalic}`.trim()}
+                      className="absolute inset-0 w-full h-full"
+                      style={{ objectFit: 'cover', objectPosition: 'center 18%' }}
+                    />
+                  ) : (
+                    <>
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0"
+                        style={{
+                          background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)',
+                          opacity: 0.55,
+                        }}
+                      />
+                      <div
+                        aria-hidden="true"
+                        className="absolute"
+                        style={{
+                          bottom: '55%', left: '50%', transform: 'translateX(-50%)',
+                          width: '30%', aspectRatio: '1', borderRadius: '50%',
+                          background: 'rgba(10,61,74,.18)',
+                        }}
+                      />
+                      <div
+                        aria-hidden="true"
+                        className="absolute"
+                        style={{
+                          bottom: 0, left: '50%', transform: 'translateX(-50%)',
+                          width: '60%', height: '58%',
+                          background: 'rgba(10,61,74,.18)',
+                          borderRadius: '50% 50% 0 0 / 30% 30% 0 0',
+                        }}
+                      />
+                    </>
+                  )}
                 </div>
               </div>
 

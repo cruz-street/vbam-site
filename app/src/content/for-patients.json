@@ -49,14 +49,15 @@
     "headingItalic": "accepted.",
     "note": "We also offer self-pay options. Call our office to verify your specific plan before your first visit — we're happy to help.",
     "plans": [
+      "Aetna / Coventry / First Health",
+      "CIGNA",
+      "Florida Blue (Blue Cross Blue Shield)",
+      "Florida Health Care Plans (FHCP)",
+      "Health First Health Plans",
       "Medicare",
-      "Blue Cross Blue Shield",
-      "Aetna",
-      "Cigna",
+      "MultiPlan / PHCS",
       "United Healthcare",
-      "Humana",
-      "Tricare",
-      "Most major PPO plans"
+      "Cash Pay Welcome"
     ]
   },
   "faqs": [
