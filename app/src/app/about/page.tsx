@@ -13,10 +13,11 @@ export const metadata: Metadata = {
 function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
   return (
     <div
-      className="rounded-2xl relative overflow-hidden mx-auto"
+      className="relative overflow-hidden mx-auto"
       style={{
-        width: '100%', maxWidth: 380,
-        aspectRatio: '3 / 5',
+        width: '100%', maxWidth: 360,
+        aspectRatio: '7 / 10',
+        borderRadius: '50%',
         background: '#F5F1E8',
         boxShadow: '0 28px 72px -32px rgba(10,61,74,.32)',
         border: '1px solid rgba(10,61,74,.07)',
@@ -53,7 +54,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal animation="scale">
-              <DoctorPhoto src="/images/dr-stewart.jpg" alt="Dr. Patricia Stewart" />
+              <DoctorPhoto src="/images/dr-stewart-oval.jpg" alt="Dr. Patricia Stewart" />
             </ScrollReveal>
             <div>
               <ScrollReveal animation="left">
