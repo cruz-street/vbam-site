@@ -6,6 +6,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Changed
+- Home `PositioningSection` (01): rewrote body copy to remove Dr. Wije / 1976 lineage and instead reinforce VBAM's deep local roots and positioning as an alternative to call-center-style medicine (know who answers the phone, know the front desk, know your doctor)
+- Home `VbpSection` (05): rewrote body copy in the same voice — VBP framed as an intentional alternative for Vero families who wanted a practice they'd recognize, with VBAM carrying that conviction forward
 - Footer: added Privia-required compliance links (`Press Room`, `Prospective Doctors`) to the existing compliance row at the same low-opacity small-caps treatment so they remain visually subordinate to VBAM brand
 - Footer: added improvised white Privia logo (`shared/PriviaLogo.tsx`) inline beside the "Proud to be part of Privia Medical Group" attribution. ⚠️ **Placeholder** — replace with official Privia asset when delivered by the performance consultant
 - Home `PriviaSection`: added prescribed verbatim Privia Medical Group paragraph as a caption-style secondary block (small Inter, 55% opacity, Cormorant italic "From Privia Medical Group:" lead-in). Our editorial "Locally owned. Collectively committed." remains the dominant voice (per Privia guideline Part 2.2 + VBAM brand-hierarchy principle: care center brand supersedes Privia visually)
