@@ -73,6 +73,17 @@ No refactoring during feature work. Build it, make it work, then refactor.
 Nothing identifying the internal development toolchain may be committed to this repo
 in any file, comment, or commit message.
 
+### 15. Git Identity Rule (Non-Negotiable)
+All work on this project must be committed under the `ashwin@cruzstreet.com` identity,
+not the `ashwin_eviocld` / iCD account or any personal Gmail. Local repo config
+(`.git/config`) must be set to:
+- `user.name = Ashwin Chandran`
+- `user.email = ashwin@cruzstreet.com`
+
+Before pushing, confirm `git config --local user.email` returns the cruzstreet
+address. Push credentials (keychain PAT) must also map to a GitHub account with
+write access to `cruz-street/vbam-site` — the iCD account does not.
+
 ---
 
 ## Tech Stack
