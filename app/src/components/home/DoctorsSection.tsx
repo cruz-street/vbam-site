@@ -47,7 +47,7 @@ export default function DoctorsSection() {
       className="relative overflow-hidden bg-vbam-sand md:py-12 lg:py-20"
       style={{ minHeight: '100vh' }}
     >
-      <div className="relative w-full h-full">
+      <div className="relative w-full" style={{ minHeight: 'inherit' }}>
         {DOCTORS.map((doc, i) => (
           <div
             key={i}

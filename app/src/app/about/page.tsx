@@ -18,9 +18,7 @@ function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
         width: '100%', maxWidth: 360,
         aspectRatio: '5 / 7',
         borderRadius: '50%',
-        background: '#F5F1E8',
-        boxShadow: '0 28px 72px -32px rgba(10,61,74,.32)',
-        border: '1px solid rgba(10,61,74,.07)',
+        background: 'transparent',
         flexShrink: 0,
       }}
     >
@@ -29,14 +27,8 @@ function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
         <img
           src={src}
           alt={alt ?? ''}
-          className="absolute"
-          style={{
-            width: '135%',
-            height: 'auto',
-            left: '50%',
-            top: '0%',
-            transform: 'translateX(-50%)',
-          }}
+          className="absolute inset-0 w-full h-full"
+          style={{ objectFit: 'cover', objectPosition: 'center top' }}
         />
       ) : (
         <div aria-hidden="true" className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)', opacity: 0.55 }} />
@@ -60,7 +52,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal animation="scale">
-              <DoctorPhoto src="/images/dr-stewart.jpg" alt="Dr. Patricia Stewart" />
+              <DoctorPhoto src="/images/dr-stewart-cutout.png" alt="Dr. Patricia Stewart" />
             </ScrollReveal>
             <div>
               <ScrollReveal animation="left">

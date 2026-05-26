@@ -109,10 +109,9 @@ Read this channel at session start for current project context. Key people: Jess
 
 ## Session State
 
-- **Last completed:** Marketing content layer implementation plan written (2026-05-19) — `docs/superpowers/plans/2026-05-19-marketing-content-layer.md`. 15 bite-sized tasks covering build-time Google Places + Meta Graph fetch, three homepage section components (Reviews/Videos/Social), hero scroll parallax, site-wide Klara widget (env-gated), aggregateRating JSON-LD, and a GitHub Actions daily cron.
-- **Next:** (1) Choose execution mode (subagent-driven recommended vs inline) and start Task 1; (2) DNS cutover to vbadultmedicine.com still pending
-- **Last sync commit:** 2d5f8ca2a4a0c5230f97d052987067dc29edd5f0
-- **Last sync commit:** d9b15bcbe34b4d5782445732556ad26a3fb90c4e (uncommitted changes in working tree)
+- **Last completed:** Authored `docs/claude-code-setup-guide.md` — Mac+Windows setup guide for content editors covering Claude Code install, Playwright + GitHub MCPs, repo clone, local Decap CMS at localhost/admin, first-edit smoke test, security, troubleshooting. Modeled on the WordPress-Claude-Setup-Guide PDF reference. Install commands verified against official Claude Code docs.
+- **Next:** Generate styled PDF of the guide via markdown-to-pdf skill using the Cruz Street brand template.
+- **Last sync commit:** beb66af (docs: changelog — marketing content layer)
 
 ## Implementation Plan
 

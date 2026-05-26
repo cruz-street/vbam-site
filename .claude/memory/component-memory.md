@@ -1,5 +1,29 @@
 # Component Change Log (newest first)
 
+### 2026-05-23 23:15 — feat: Claude Code + Decap CMS setup guide for content editors
+- File: /Users/ashwinchandran/work/vbam-site/docs/claude-code-setup-guide.md
+- New non-technical onboarding doc covering Mac + Windows install of Node, Git, pnpm, Claude Code, repo clone, Playwright + GitHub MCPs (user scope), local `pnpm dev`, Decap CMS at localhost/admin, first-edit smoke test, daily workflow, security, troubleshooting, escalation — modeled on the WordPress-Claude-Setup-Guide reference; install commands verified against https://code.claude.com/docs/en/setup and /mcp
+
+### 2026-05-21 22:03 — feat: GitHub Actions daily content refresh workflow
+- File: /Users/ashwinchandran/work/vbam-site/.github/workflows/daily-content-refresh.yml
+- Created scheduled workflow (06:00 UTC daily + manual dispatch) that POSTs to the CF Pages deploy hook secret `CF_PAGES_DEPLOY_HOOK`; gracefully no-ops if the secret is absent, fails loudly (exit 1) on HTTP ≥ 400
+
+### 2026-05-21 16:36 — feat: SocialFeedSection component
+- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/SocialFeedSection.tsx
+- Created SocialFeedSection consuming `SOCIAL_POSTS` (from `@/content/social`) and `SOCIAL_SECTION` headings; renders null when posts array is empty (current default state); includes platform filter (All / Instagram / Facebook), PostCard sub-component with lazy-loaded image and caption truncation, and ScrollReveal-wrapped grid
+
+### 2026-05-20 23:16 — feat: ReviewsSection component
+- File: /Users/ashwinchandran/work/vbam-site/app/src/components/home/ReviewsSection.tsx
+- Created ReviewsSection consuming `REVIEWS` and `REVIEWS_SECTION` content exports; includes StarRow sub-component with inline hex for conditional coral/atlantic fill, EmptyState with CTA for zero-review state, and full grid layout for populated reviews — AggregateRating-ready for JSON-LD
+
+### 2026-05-20 11:14 — feat(build): scaffold marketing content fetch script
+- File: /Users/ashwinchandran/work/vbam-site/app/scripts/fetch-marketing-content.ts
+- Created build-time script with `fetchGoogleReviews` and `fetchSocialPosts` stubs (both log "not yet wired — skipping"); includes `writeJson`/`readJsonOrDefault` helpers for Tasks 6/7 API wiring
+
+### 2026-05-19 23:06 — feat(content): scaffold reviews/social/videos data + typed exports
+- Files: app/src/content/reviews.json, reviews.ts, social.json, social.ts, videos.json, videos.ts
+- Created 3 data + 3 typed export files: ReviewsContent (from Google Places), SocialPost[] (from Meta Graph), Video[] (for future use); all empty defaults; JSON imports cast to pinned types to resolve TypeScript strict mode issues with empty arrays
+
 ### 2026-05-14 23:52 — fix: hide Decap footer branding from admin panel
 - File: app/public/admin/index.html
 - CSS + MutationObserver to hide the "Powered by Decap" footer link once React renders it
