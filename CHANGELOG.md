@@ -5,7 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+- **Logo V4** recreated from the approved brand PDF (`233701 - Vero Beach Adult Medicine - Logo Concepts + Development V4`). No vector export was provided, so the mark was hand-built as inline SVG to match: **solid amber sun** (was a sunrise gradient), **seven navy rays** (was five), **two waves** — navy + sea glass (was three). New `--color-vbam-sun: #F9A826` token added to `globals.css` (per Brand Token Rule — no ad-hoc hex in components) and used as the sun fill
+- `public/images/vbam-mark.svg` — standalone square mark asset. Referenced by the home-page `MedicalOrganization` JSON-LD `logo` field but previously missing (404); now created
+- `src/app/icon.svg` — crisp SVG favicon (mark on a rounded foam tile), replacing reliance on the legacy `favicon.ico` for modern browsers
+
 ### Changed
+- `SunSeaMark` component rebuilt to the V4 mark (solid sun, 7 rays, 2 waves). Backward compatible — `gradId`/`strokeColor` props retained so existing Header/Footer call sites are unaffected; added optional `sunColor`/`waveColor` props
 - Dr. Stewart portrait: replaced the original watermarked JPG with a transparent PNG cutout (`dr-stewart-cutout.png`) framed per Dr. Stewart's reference — head, shoulders, dress, and cascading hair down to upper-torso, with the bottom of the oval/circle clipping cleanly before the folded arms become a focal point. About-page `DoctorPhoto` simplified to use `objectFit: cover` on the pre-framed asset (removed foam fill, shadow, and border so the figure floats on the page background). Homepage `DoctorsSection` now uses the same asset
 - Home `DoctorsSection`: fixed pre-existing slider height collapse — the inner `relative w-full h-full` wrapper was collapsing to height 0 because the section's `minHeight: 100vh` doesn't establish a resolvable `height` for `h-full`. Switched to `minHeight: inherit` so the wrapper takes the section's full height and the doctor card (including photo) renders inside the section instead of being clipped by `overflow: hidden`
 - Practice hours updated to mirror Vero Beach Pediatrics: Mon, Wed–Fri 8 am–12 pm and 1 pm–5 pm (closed for lunch 12–1); Tuesday closed; Sat–Sun closed. Updated in four places: `contact.json` hours array, footer Hours block, home page MedicalOrganization JSON-LD, contact page MedicalOrganization JSON-LD

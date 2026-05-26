@@ -4,6 +4,21 @@ Newest entry first.
 
 ---
 
+## 2026-05-19 — Logo V4 hand-rebuilt as SVG; new `vbam-sun` token
+
+**Decision:** Recreate the approved V4 logo mark directly as inline SVG (`SunSeaMark.tsx`) plus standalone `public/images/vbam-mark.svg` and `src/app/icon.svg`, rather than embedding a raster export. Added `--color-vbam-sun: #F9A826` to `globals.css`.
+
+**Why:** The brand deliverable was provided only as a PDF (`233701 … V4`) — no SVG/EPS/PNG export, and no PDF-to-SVG tooling was available locally. The mark is simple line-art (sun, rays, two waves) that reproduces faithfully as hand-authored SVG, which stays crisp at every size, themes via props, and adds zero asset weight. The V4 sun is a flat amber distinct from both `sunrise` (#F9C784) and `coral` (#EE7752), so it needed its own token to honor the Brand Token Rule.
+
+**Alternatives considered:** (1) Embed a PNG of the logo — rejected: blurry at retina/large sizes, heavier, not themeable. (2) Hardcode the sun hex in the component — rejected: violates Brand Token Rule. (3) Wait for the designer's vector files — viable for a pixel-perfect lockup, but blocks the requested update; the hand-built mark is faithful to the V4 geometry.
+
+**Follow-ups / flags:**
+- Visual fidelity should be eyeballed on the live deploy; if the designer later provides official vector files, swap them in (the token + component structure make this a drop-in).
+- The full **wordmark lockup** ("Vero Beach Adult Medicine" + tagline) remains live HTML text (Fraunces/Cormorant/Archivo) in Header/Footer — not converted to a single SVG, since text-to-path can't be hand-traced reliably. A single-file logo lockup still needs the designer's vector.
+- `docs/design-system.html` / `docs/screens.html` should be refreshed to show the V4 mark (Design Memory Rule) — not done in this change.
+
+---
+
 ## 2026-05-11 — Dr. Stewart positioning: employee, not founder
 
 **Decision:** All copy must describe Dr. Stewart as a key physician and important member of the practice — not as founder or owner. The practice is structured to grow beyond any single doctor; additional physicians will be hired over time.
