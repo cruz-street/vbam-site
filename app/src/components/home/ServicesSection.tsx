@@ -3,7 +3,7 @@ import { HOME_SERVICES, SERVICES_SECTION } from '@/content/home';
 
 export default function ServicesSection() {
   return (
-    <section className="bg-vbam-foam text-center" id="services" style={{ padding: 'clamp(48px, 8vw, 112px) 0' }}>
+    <section className="bg-vbam-foam text-center" id="services" style={{ padding: 'clamp(32px, 5vw, 64px) 0 clamp(48px, 8vw, 112px)' }}>
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
         <div style={{ marginBottom: 52 }}>

@@ -5,6 +5,31 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+- Practice hours updated to mirror Vero Beach Pediatrics: Mon, Wed–Fri 8 am–12 pm and 1 pm–5 pm (closed for lunch 12–1); Tuesday closed; Sat–Sun closed. Updated in four places: `contact.json` hours array, footer Hours block, home page MedicalOrganization JSON-LD, contact page MedicalOrganization JSON-LD
+- About page `DoctorPhoto`: re-tuned the oval composition per Dr. Stewart's feedback. Switched from `object-fit: cover` on the cropped source to **absolute positioning of the original full image** at 125% width, `top: 10%`, horizontally centered. Container is now aspect 5:7 (slightly taller). Head sits in the upper-third (wider part of the ellipse) with hair flowing naturally, shoulders fill the middle, and the bottom of the oval clips most of the arms via overflow. Source is back to `/images/dr-stewart.jpg` (uncropped) — `/images/dr-stewart-oval.jpg` from the earlier attempt is no longer referenced
+- About page `DoctorPhoto`: switched from a 280px circle to a 380px-max portrait rectangle (aspect 3:5, rounded corners) so Dr. Stewart's photo displays uncropped at its native ratio
+- For Patients `VisitFlow` (Modern tools section): replaced the prominent coral italic step numbers with on-brand single-stroke SVG icons inside soft coral-tinted circular badges. Icons: phone-with-check (Before), clipboard (In the room), speech-bubble-with-check (After), overlapping chat bubbles (Between visits). Adds visual meaning to each step without dominating the editorial layout
+- Home `PositioningSection` body2: softened further — removed the "physician guides your annual care / stays engaged over time" framing in favor of "a practice where the staff knows your name, your physician knows you, and your story follows you between visits." Less promise of physician interaction frequency
+- Home `PositioningSection` (01): rewrote body copy to remove Dr. Wije / 1976 lineage and instead reinforce VBAM's deep local roots and positioning as an alternative to call-center-style medicine (know who answers the phone, know the front desk, know your doctor)
+- Home `VbpSection` (05): rewrote body copy in the same voice — VBP framed as an intentional alternative for Vero families who wanted a practice they'd recognize, with VBAM carrying that conviction forward
+- Home copy: toned down "same physician every visit" promises across hero lede, trust bar, positioning body, philosophy principle i, flow section stage 02, and same-day sick visits service blurb. New theme leans on knowing-the-people: staff knows your name, your physician guides annual/wellness care, your story follows you across the team — leaving room to add a PA or NP as the practice grows without breaking promises
+- Footer: added Privia-required compliance links (`Press Room`, `Prospective Doctors`) to the existing compliance row at the same low-opacity small-caps treatment so they remain visually subordinate to VBAM brand
+- Footer: added improvised white Privia logo (`shared/PriviaLogo.tsx`) inline beside the "Proud to be part of Privia Medical Group" attribution. ⚠️ **Placeholder** — replace with official Privia asset when delivered by the performance consultant
+- Home `PriviaSection`: added prescribed verbatim Privia Medical Group paragraph as a caption-style secondary block (small Inter, 55% opacity, Cormorant italic "From Privia Medical Group:" lead-in). Our editorial "Locally owned. Collectively committed." remains the dominant voice (per Privia guideline Part 2.2 + VBAM brand-hierarchy principle: care center brand supersedes Privia visually)
+- About page `DoctorPhoto`: embedded Dr. Patricia Stewart photo (`/images/dr-stewart.jpg`) in the left column of her bio block; gradient placeholder retained as fallback when no `src` is passed
+- Home `DoctorsSection`: embedded Dr. Patricia Stewart photo at `/images/dr-stewart.jpg` (replaces gradient placeholder). ⚠️ **Current file is a watermarked photographer proof** — replace with licensed/final image before production deploy
+- Home `DoctorsSection`: changed `height: 100vh` to `minHeight: 100vh` and added desktop-only vertical padding (`md:py-12 lg:py-20`) to give the doctor photo and "Meet Dr. Stewart" button more breathing room on computer (per Alex Robbins comment on Home — Copy)
+- Home: reduced gap between `PhilosophySection` (03 · Care Philosophy) and `ServicesSection` (04 · Services) by lowering the adjoining vertical paddings (per Alex Robbins comment on Home — Copy)
+- Services page: added mobile-only "Book an Appointment" + "New Patient Info" CTA row directly below the page hero so primary actions are above the fold on mobile (per Alex Robbins comment on Services — Copy)
+- For Patients page: added `id="insurance"` anchor on the Insurance column; updated Footer "Insurance" link to `/for-patients/#insurance` so it deep-links to the section (per Alex Robbins comment on For Patients — Copy)
+- For Patients insurance list updates: added "CIGNA HealthSpring" alongside CIGNA (CIGNA's Medicare Advantage line); added "Railroad Medicare" under Medicare & Other Plans (administered by Palmetto GBA, relevant for railroad retirees); appended "(UHC)" to United Healthcare for clarity
+- For Patients page: restructured insurance display from flat pill grid to two **grouped bullet lists** that reflect what the plans actually are:
+  - "National Carriers" (Florida Blue, United Healthcare, CIGNA, Aetna/Coventry/First Health)
+  - "Medicare & Other Plans" (Medicare, Health First, FHCP, MultiPlan/PHCS)
+  - "Self-Pay Welcome" pulled out as a separate band with its own treatment — it's a payment option, not insurance, so it gets a distinct callout. Copy reframed to position self-pay as a sensible choice for several common scenarios (high-deductible plans, no insurance, preference for direct payment) rather than a fallback for the uninsured. Removed duplicate "cash-pay / self-pay" wording.
+  - Switched chips → coral-bullet list to match the New Patients checklist (internal consistency) and improve plan-name scannability
+
 ### Added
 - ReviewsSection on homepage — Google Places API reviews fetched at build time, with empty-state CTA and conditional AggregateRating JSON-LD
 - VideosSection on homepage — YouTube gallery using lite-youtube-embed (thumbnail-first, click to load iframe)

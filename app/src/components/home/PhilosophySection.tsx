@@ -3,7 +3,7 @@ import { PRINCIPLES, PHILOSOPHY } from '@/content/home';
 
 export default function PhilosophySection() {
   return (
-    <section className="text-center" style={{ padding: 'clamp(48px, 8vw, 112px) 0' }}>
+    <section className="text-center" style={{ padding: 'clamp(48px, 8vw, 112px) 0 clamp(32px, 5vw, 64px)' }}>
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
         <ScrollReveal animation="left" as="div">

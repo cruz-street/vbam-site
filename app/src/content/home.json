@@ -17,7 +17,7 @@
         "label": "In the room",
         "headingLine1": "Your story,",
         "headingItalic": "already in hand.",
-        "body": "Your physician walks in already familiar with your history. The visit is about you — not catching up on forms."
+        "body": "Your provider walks in already familiar with your story. The visit is about you — not catching up on forms."
       },
       {
         "number": "03",
@@ -41,6 +41,8 @@
     "headingLine1": "Locally owned.",
     "headingItalic": "Collectively committed.",
     "body": "Vero Beach Adult Medicine is locally owned and physician-led — one of the independent practices that together make up Privia Medical Group, a physician-led ACO and national collective of member practices. We share a simple commitment: raise the standard of primary care, and stay accountable to the patients and communities we serve.",
+    "attributionLead": "From Privia Medical Group:",
+    "attribution": "Vero Beach Adult Medicine is a proud member of Privia Medical Group. The best doctors in our community have joined together to form Privia Medical Group (PMG), a multi-specialty, high-performance medical group that puts patients first. Our physicians are united by the mission of providing better, more coordinated care for their patients.",
     "wordmarkLine1": "Privia",
     "wordmarkLine2": "Medical Group",
     "linkLabel": "Visit priviahealth.com →",
@@ -73,7 +75,7 @@
     "eyebrow": "05 · The VBP Connection",
     "headingLine1": "Same family.",
     "headingItalic": "New chapter.",
-    "body": "Vero Beach Pediatrics is a practice with deep community roots — built and maintained by the families who trust it. Since opening in 2022, VBP has stood for excellence in care. Vero Beach Adult Medicine carries those same qualities forward in 2026.",
+    "body": "Vero Beach Pediatrics opened in 2022 with deep local roots, started because Vero families wanted an alternative — a practice they'd recognize, with staff who know them by name. Built and maintained by the community it serves, VBP has stood for that kind of care from day one. Vero Beach Adult Medicine carries the same conviction forward for adults in 2026.",
     "vbpCard": {
       "label": "Sibling Practice · Est. 2022",
       "name": "Vero Beach",
@@ -109,7 +111,7 @@
       "glyph": "i.",
       "headingLine1": "Consistent,",
       "headingItalic": "not rotational.",
-      "body": "You see the same physician every visit. They know your history, your current medications, and what you discussed last time — because continuity is how good medicine works."
+      "body": "A practice that knows your name — from the front desk to your physician. You see your doctor for your wellness visits and ongoing care, and your story follows you across the team between visits, because continuity is how good medicine works."
     },
     {
       "glyph": "ii.",
@@ -128,19 +130,19 @@
     "eyebrow": "01 · About",
     "headingLine1": "Adult medicine,",
     "headingItalic": "done differently.",
-    "body1": "Dr. Wije has cared for this community's children since 1976. In 2022 the practice continued as Vero Beach Pediatrics. Vero Beach Adult Medicine was built for those same families — now grown — along with the professionals, retirees, and working adults who make Vero Beach home.",
+    "body1": "Vero Beach Adult Medicine was built by the same team behind Vero Beach Pediatrics — a practice with deep local roots, started because Vero Beach families wanted an alternative to how medicine has been delivered here. Not a call center on the other end of the phone. Not a different face at every visit. A practice where you know who answers, who works the front desk, and who your doctor is.",
     "pullQuote": "A real practice. A real doctor. Every visit.",
-    "body2": "We practice medicine the way it was meant to work — with continuity. You see the same physician each visit — someone who knows your history and engages with your health over time, not just when something goes wrong."
+    "body2": "We practice medicine the way it was meant to work — with continuity. A practice where the staff knows your name, your physician knows you, and your story follows you between visits — not just when something goes wrong."
   },
   "hero": {
     "tagline": "Sunrise to shoreline care.",
-    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with the same doctor, every time. Quiet, modern tools keep your visit about your health, not paperwork. Most insurance accepted.",
+    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with a familiar team who knows your name. Quiet, modern tools keep your visit about your health, not paperwork. Most insurance accepted.",
     "cta1": "Book an Appointment",
     "cta2": "Meet Dr. Stewart"
   },
   "trustBar": [
     "Now welcoming new patients",
-    "Same physician · Every visit, every time",
+    "A practice that knows your name",
     "Mobile check-in · Text our staff",
     "Sibling of Vero Beach Pediatrics",
     "Most insurance accepted"
@@ -156,7 +158,7 @@
     },
     {
       "title": "Same-Day Sick Visits",
-      "body": "When you're sick, you get in. Direct access to the practice, same-day availability, and a doctor who already knows your history."
+      "body": "When you're sick, you get in. Direct access to the practice, same-day availability, and a team that already knows your history."
     },
     {
       "title": "Women's & Men's Health",

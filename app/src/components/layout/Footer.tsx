@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SunSeaMark from '@/components/shared/SunSeaMark';
+import PriviaLogo from '@/components/shared/PriviaLogo';
 
 type FooterLink = { href: string; label: string; external?: boolean };
 
@@ -12,7 +13,7 @@ const LINKS: Record<string, FooterLink[]> = {
   Patients: [
     { href: '/contact/',      label: 'Book an Appointment' },
     { href: '/for-patients/', label: 'New Patient Forms'   },
-    { href: '/for-patients/', label: 'Insurance'           },
+    { href: '/for-patients/#insurance', label: 'Insurance'           },
     { href: 'https://www.myprivia.com/account-access/', label: 'Patient Portal', external: true },
     { href: 'https://payment.patient.athenahealth.com/statement/', label: 'Bill Pay', external: true },
   ],
@@ -93,8 +94,9 @@ export default function Footer() {
               Hours
             </h4>
             <ul className="font-inter text-[13px] text-vbam-foam/75 space-y-1.5">
-              <li>Mon – Thu · 8a – 5p</li>
-              <li>Fri · 8a – 12p</li>
+              <li>Mon, Wed – Fri · 8a – 12p</li>
+              <li>Mon, Wed – Fri · 1p – 5p</li>
+              <li>Tue · Closed</li>
               <li>Sat – Sun · Closed</li>
               <li className="text-vbam-sea-glass mt-2">By appointment</li>
             </ul>
@@ -107,10 +109,17 @@ export default function Footer() {
             href="https://www.priviahealth.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-archivo font-[700] text-vbam-foam/70 hover:text-vbam-sunrise transition-colors"
-            style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase' }}
+            className="inline-flex items-center gap-3 text-vbam-foam/70 hover:text-vbam-sunrise transition-colors"
+            aria-label="Privia Medical Group — priviahealth.com"
           >
-            Proud to be part of Privia Medical Group
+            {/* Placeholder logo — replace with official Privia asset when provided */}
+            <PriviaLogo variant="light" height={20} className="opacity-70" />
+            <span
+              className="font-archivo font-[700]"
+              style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase' }}
+            >
+              Proud to be part of Privia Medical Group
+            </span>
           </a>
           <nav
             aria-label="Privia compliance"
@@ -122,6 +131,12 @@ export default function Footer() {
             </a>
             <a href="https://www.priviahealth.com/privacy-and-compliance/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
               HIPAA Privacy Notice
+            </a>
+            <a href="https://www.priviahealth.com/newsroom/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
+              Press Room
+            </a>
+            <a href="https://www.priviahealth.com/who-we-support/physicians/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
+              Prospective Doctors
             </a>
             <a href="https://www.priviahealth.com/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
               priviahealth.com

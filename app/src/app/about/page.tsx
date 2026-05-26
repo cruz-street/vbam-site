@@ -10,22 +10,37 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://vbadultmedicine.com/about/' },
 };
 
-function DoctorPhoto({ size = 280 }: { size?: number }) {
+function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
   return (
     <div
-      aria-hidden="true"
-      className="rounded-full relative overflow-hidden mx-auto"
+      className="relative overflow-hidden mx-auto"
       style={{
-        width: size, height: size,
+        width: '100%', maxWidth: 360,
+        aspectRatio: '5 / 7',
+        borderRadius: '50%',
         background: '#F5F1E8',
-        boxShadow: '0 24px 64px -28px rgba(10,61,74,.28)',
+        boxShadow: '0 28px 72px -32px rgba(10,61,74,.32)',
         border: '1px solid rgba(10,61,74,.07)',
         flexShrink: 0,
       }}
     >
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)', opacity: 0.55 }} />
-      <div className="absolute" style={{ bottom: '55%', left: '50%', transform: 'translateX(-50%)', width: '30%', aspectRatio: '1', borderRadius: '50%', background: 'rgba(10,61,74,.18)' }} />
-      <div className="absolute" style={{ bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '60%', height: '58%', background: 'rgba(10,61,74,.18)', borderRadius: '50% 50% 0 0 / 30% 30% 0 0' }} />
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
+          alt={alt ?? ''}
+          className="absolute"
+          style={{
+            width: '135%',
+            height: 'auto',
+            left: '50%',
+            top: '0%',
+            transform: 'translateX(-50%)',
+          }}
+        />
+      ) : (
+        <div aria-hidden="true" className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)', opacity: 0.55 }} />
+      )}
     </div>
   );
 }
@@ -45,7 +60,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal animation="scale">
-              <DoctorPhoto />
+              <DoctorPhoto src="/images/dr-stewart.jpg" alt="Dr. Patricia Stewart" />
             </ScrollReveal>
             <div>
               <ScrollReveal animation="left">
