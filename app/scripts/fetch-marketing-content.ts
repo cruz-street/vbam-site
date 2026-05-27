@@ -112,10 +112,27 @@ async function fetchFeaturableReviews(): Promise<boolean> {
     const res = await fetch(`https://featurable.com/api/v1/widgets/${widgetId}`);
     if (!res.ok) throw new Error(`Featurable ${res.status}`);
     const data = (await res.json()) as FeaturableResponse;
-    const picked = (data.reviews ?? []).filter((r) => {
-      const c = (r.comment ?? '').trim();
-      return r.starRating === 5 && c.length >= 40 && c.length <= 360 && !/Translated by Google/i.test(c);
-    }).slice(0, 12);
+
+    // Terms to hide: any review whose comment mentions one of these (case-
+    // insensitive) is excluded. Override/extend via FEATURABLE_EXCLUDE_TERMS
+    // (comma-separated env var) without code changes.
+    const EXCLUDE_TERMS: string[] = [
+      ...(process.env.FEATURABLE_EXCLUDE_TERMS ?? '').split(',').map((s) => s.trim()).filter(Boolean),
+    ];
+
+    const picked = (data.reviews ?? [])
+      .filter((r) => {
+        const c = (r.comment ?? '').trim();
+        if (r.starRating !== 5) return false;          // 5-star only
+        if (c.length < 20) return false;               // must have real text, not rating-only
+        if (/Translated by Google/i.test(c)) return false;
+        const lc = c.toLowerCase();
+        if (EXCLUDE_TERMS.some((t) => lc.includes(t.toLowerCase()))) return false;
+        return true;
+      })
+      // newest first, then older
+      .sort((a, b) => new Date(b.createTime ?? 0).getTime() - new Date(a.createTime ?? 0).getTime())
+      .slice(0, 12);
     if (picked.length === 0) throw new Error('no usable reviews in payload');
     const output = {
       placeRating: data.averageRating ?? 5,

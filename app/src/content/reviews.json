@@ -4,6 +4,13 @@
   "profileUrl": "https://search.google.com/local/writereview?placeid=ChIJ0ZqeOPdf3ogRtYhNl_3jHS0",
   "reviews": [
     {
+      "author": "Tiffany McLaughlin",
+      "rating": 5,
+      "text": "I love how laid back Dr. Cruz is! She’s never rushed and comes across as actually being interested in my kids. We see her as their regular pediatrician for regular checkups, but we also had an emergency when my son split his knee open and it got infected after stitches at the ER. The office and Dr. Cruz didn’t take any chances and told me to take my son back to the ER and sure enough, his wound was infected.\nWe’re also self pay as we are part of a health share program. I needed extra info to submit our bills to the program for reimbursement and the office staff were very patient and helpful in getting me that info.",
+      "relativeTime": "recently",
+      "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjWsYZfti9XP1Eqj4gjkjhoOvsNHLpKqdKWn92QaYVquDSETXw=s120-c-rp-mo-br100"
+    },
+    {
       "author": "Hari Prasad",
       "rating": 5,
       "text": "Great team taking care of patient needs!",
@@ -18,25 +25,11 @@
       "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocLp0WFMisHdLFSXo8a-_4Cm27xPlTVHmIpwqqlGM2i1vCHqIA=s120-c-rp-mo-br100"
     },
     {
-      "author": "J W",
-      "rating": 5,
-      "text": "We absolutely love VBP! The staff is so amazing and really care about the wellbeing of your child. Been there since day 2 of our first child and have never had a bad experience!",
-      "relativeTime": "2 years ago",
-      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocJ6UN-a6jvYCglFxo7b-uaXXD4HTdf7r6t7FMZSxqP93tXevw=s120-c-rp-mo-br100"
-    },
-    {
       "author": "Kathy Modesitt",
       "rating": 5,
       "text": "We love Dr. Vora. She is kind and knowledgeable and treats each us with respect. She also treats the teenagers as teenagers instead of little kids which is amazing too. This makes them able to communicate with her. She has the right balance of knowing when to prescribe and when to allow the body to heal in its own. Thank you Dr. Vora!",
       "relativeTime": "3 weeks ago",
       "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocL-R2tzgJz38z1xMPWb6SWp6WcaJ8Gii7u6nKo3gzKpVxjXrA=s120-c-rp-mo-br100"
-    },
-    {
-      "author": "nikkjs10",
-      "rating": 5,
-      "text": "Cannot say enough good things about this office. We saw Dr. Vora today and she was wonderful! Would give 10 stars if I could.",
-      "relativeTime": "2 years ago",
-      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocL_40NxerdM7Ix-pw6SW_xEqKgqgdMCOwQQl8UQH9pdU0u53Q=s120-c-rp-mo-br100"
     },
     {
       "author": "Charlene Scherf",
@@ -74,18 +67,25 @@
       "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocLZYTLphN2U92d3F167f54XrdeTqXIHCyulmRVmpgouiMFWtw=s120-c-rp-mo-br100"
     },
     {
-      "author": "shawnie andersonl",
-      "rating": 5,
-      "text": "Staff is always nice and doctors are awesome they listen to the parents and the kids, can’t ask for more.",
-      "relativeTime": "2 years ago",
-      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocIbizsKsieg1lI67qk5HO9RJ9_CqJoa6pVyquGjOcGMmdf2uA=s120-c-rp-mo-br100"
-    },
-    {
       "author": "Megan Hyde",
       "rating": 5,
       "text": "We love Vero Beach Pediatrics and its entire staff. We feel heard, respected, and well cared for. Thank you for providing our community with a kind and compassionate practice.",
       "relativeTime": "2 months ago",
       "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjWG2iHGh4bubolvZNXOGdTEbPz_3yciJjjiNuRoYuZVpm4llQmj=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Nadege Osne",
+      "rating": 5,
+      "text": "They always see my child same day when needed. They are very flexible with scheduling. Very friendly. I’ve been going there for the past 8 years never had a problem.",
+      "relativeTime": "2 months ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocKuTbdIHns8-CzjbUGamZ6Xsj_F8KkN1BVqVG3Sota_KelY=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Laura Robinson",
+      "rating": 5,
+      "text": "Love Dr. Cruz! Shes so informative, knowledgeable, and very much cares for her patients and families! She has such a relaxing presence about her that truly makes your whole experience with her so comfortable and easy.  The office staff were extremely kind and helpful as well. All around great experience.  Highly recommend!",
+      "relativeTime": "3 months ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjUy_mjZIDowi1dfgKZlhaff_0jxfIc7HHZM0AgPiwIuJ8O6k_zh=s120-c-rp-mo-br100"
     }
   ]
 }
