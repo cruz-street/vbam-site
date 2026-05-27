@@ -168,11 +168,11 @@ export default function HeroSection() {
             <line x1="65.07" y1="29.29" x2="71.01" y2="26.64" />
             <line x1="34.93" y1="29.29" x2="28.99" y2="26.64" />
           </g>
-          <path id="hm-sun" d="M37 36 A 13 13 0 0 1 63 36 Z" fill="#F9A826" />
-          <path id="hm-w1" d="M8 37 Q 25 34.5 37 37 L 63 37 Q 78 39 92 37"
+          <path id="hm-sun" d="M37 36 A 13 13 0 0 1 63 36 Z" fill="#F49B2C" />
+          <path id="hm-w1" d="M8 37 Q 25 34.5 37 37 Q 50 39.2 63 37 Q 78 39 92 37"
                 fill="none" stroke="#0A3D4A" strokeWidth="1.6" strokeLinecap="round" />
           <path id="hm-w2" d="M14 46 Q 32 43 50 46 T 86 46"
-                fill="none" stroke="#5FB3C0" strokeWidth="1.3" strokeLinecap="round" />
+                fill="none" stroke="#5FB3C0" strokeWidth="1.45" strokeLinecap="round" />
         </svg>
 
         {/* Wordmark */}

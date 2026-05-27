@@ -21,7 +21,7 @@ interface Props {
 export default function SunSeaMark({
   className,
   strokeColor = '#0A3D4A',
-  sunColor = '#F9A826',
+  sunColor = '#F49B2C',
   waveColor = '#5FB3C0',
 }: Props) {
   return (
@@ -40,13 +40,13 @@ export default function SunSeaMark({
       {/* Sun — solid amber semicircle */}
       <path d="M37 36 A 13 13 0 0 1 63 36 Z" fill={sunColor} />
 
-      {/* Upper wave — navy, hugs the sun base */}
-      <path d="M8 37 Q 25 34.5 37 37 L 63 37 Q 78 39 92 37"
+      {/* Upper wave — navy, cradles the sun (slight dip beneath the sun base) */}
+      <path d="M8 37 Q 25 34.5 37 37 Q 50 39.2 63 37 Q 78 39 92 37"
             fill="none" stroke={strokeColor} strokeWidth="1.6" strokeLinecap="round" />
 
       {/* Lower wave — sea glass */}
       <path d="M14 46 Q 32 43 50 46 T 86 46"
-            fill="none" stroke={waveColor} strokeWidth="1.3" strokeLinecap="round" />
+            fill="none" stroke={waveColor} strokeWidth="1.45" strokeLinecap="round" />
     </svg>
   );
 }

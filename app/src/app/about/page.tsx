@@ -53,7 +53,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal animation="scale">
-              <DoctorPhoto src="/images/dr-stewart-cutout.png" alt="Dr. Patricia Stewart" />
+              <DoctorPhoto src="/images/dr-stewart-cutout.webp" alt="Dr. Patricia Stewart" />
             </ScrollReveal>
             <div>
               <ScrollReveal animation="left">
