@@ -1,5 +1,91 @@
 {
-  "placeRating": 0,
-  "totalRatings": 0,
-  "reviews": []
+  "placeRating": 5.0,
+  "totalRatings": 361,
+  "profileUrl": "https://search.google.com/local/writereview?placeid=ChIJ0ZqeOPdf3ogRtYhNl_3jHS0",
+  "reviews": [
+    {
+      "author": "Hari Prasad",
+      "rating": 5,
+      "text": "Great team taking care of patient needs!",
+      "relativeTime": "recently",
+      "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjX0KuYX26vUmKQeqIvzzqqKHrw8h9md-YUI2B5kPrXoPJqAcYsm=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Maleny Zamarripa",
+      "rating": 5,
+      "text": "Staff is super friendly, fast and efficient. Dr. Johnson is patient, caring and professional. Best team!",
+      "relativeTime": "recently",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocLp0WFMisHdLFSXo8a-_4Cm27xPlTVHmIpwqqlGM2i1vCHqIA=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "J W",
+      "rating": 5,
+      "text": "We absolutely love VBP! The staff is so amazing and really care about the wellbeing of your child. Been there since day 2 of our first child and have never had a bad experience!",
+      "relativeTime": "2 years ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocJ6UN-a6jvYCglFxo7b-uaXXD4HTdf7r6t7FMZSxqP93tXevw=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Kathy Modesitt",
+      "rating": 5,
+      "text": "We love Dr. Vora. She is kind and knowledgeable and treats each us with respect. She also treats the teenagers as teenagers instead of little kids which is amazing too. This makes them able to communicate with her. She has the right balance of knowing when to prescribe and when to allow the body to heal in its own. Thank you Dr. Vora!",
+      "relativeTime": "3 weeks ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocL-R2tzgJz38z1xMPWb6SWp6WcaJ8Gii7u6nKo3gzKpVxjXrA=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "nikkjs10",
+      "rating": 5,
+      "text": "Cannot say enough good things about this office. We saw Dr. Vora today and she was wonderful! Would give 10 stars if I could.",
+      "relativeTime": "2 years ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocL_40NxerdM7Ix-pw6SW_xEqKgqgdMCOwQQl8UQH9pdU0u53Q=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Charlene Scherf",
+      "rating": 5,
+      "text": "Very informative, helpful and caring each time. Very pleased with our care.",
+      "relativeTime": "5 weeks ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjXms9htDAE8KsoMsYEhN6JlT_VnfWm4RJhNco5_93pXMUd5uDiXYg=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Mette Seaton",
+      "rating": 5,
+      "text": "Dr Johnson is just amazing. She listens and she cares.",
+      "relativeTime": "6 weeks ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjWlM_-ImZSEH89HwN31DVZigjUtXVBhMEdqYnt20gw5OJgNSNHY=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Jennifer",
+      "rating": 5,
+      "text": "I have Been bringing my kids here for over 20 years. Always the best care from Dr Cruz and Dr Wiji!! The staff is awesome too! Thank you for always treating my family like family ❤️",
+      "relativeTime": "7 weeks ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocIzNM6BWqdQW45PQdrxGfQyZhwThyRBRXrFf95T5cHjgKrCLg=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Erin Railey",
+      "rating": 5,
+      "text": "I have had nothing but great Appointment experiences since we followed Dr. Laura Johnson to this office.\nThe staff is welcoming and most importantly, great with my daughter.",
+      "relativeTime": "8 weeks ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjXXZEKPWJIH2XjTvsg9KS0tixZzgD6P5ZIQwlBX8EInt5qybi1K=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Annie Lue",
+      "rating": 5,
+      "text": "Dr Wiji is fantastic and thorough & has been since he was my pediatrician.",
+      "relativeTime": "8 weeks ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocLZYTLphN2U92d3F167f54XrdeTqXIHCyulmRVmpgouiMFWtw=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "shawnie andersonl",
+      "rating": 5,
+      "text": "Staff is always nice and doctors are awesome they listen to the parents and the kids, can’t ask for more.",
+      "relativeTime": "2 years ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a/ACg8ocIbizsKsieg1lI67qk5HO9RJ9_CqJoa6pVyquGjOcGMmdf2uA=s120-c-rp-mo-br100"
+    },
+    {
+      "author": "Megan Hyde",
+      "rating": 5,
+      "text": "We love Vero Beach Pediatrics and its entire staff. We feel heard, respected, and well cared for. Thank you for providing our community with a kind and compassionate practice.",
+      "relativeTime": "2 months ago",
+      "profilePhoto": "https://lh3.googleusercontent.com/a-/ALV-UjWG2iHGh4bubolvZNXOGdTEbPz_3yciJjjiNuRoYuZVpm4llQmj=s120-c-rp-mo-br100"
+    }
+  ]
 }

@@ -4,6 +4,18 @@ Newest entry first.
 
 ---
 
+## 2026-05-19 — Reviews: render our own carousel from build-time data (supersedes the embed plan)
+
+**Decision:** Abandon the Featurable client-side **embed** and instead render VBP's reviews in our own on-brand scroll-snap carousel, fed by `reviews.json`, which is refreshed at build time by `scripts/fetch-marketing-content.ts`. Source priority: **Featurable widget API** (`/api/v1/widgets/{id}`, ~34 cached reviews, no API key) → **Google Places API** (fallback, 5-review cap, needs key) → committed snapshot.
+
+**Why the embed was dropped:** Featurable's loader `<script>` URL is not publicly documented and wasn't discoverable (every guessed path 404'd; their own site bundles it), and the widget enforces a **client-side domain allowlist**. Rendering the data ourselves removes both problems, drops a third-party runtime script (better mobile PageSpeed), and gives full `vbam-` brand control. The Featurable **API** itself returns the full payload server-side with no key or domain gate, so it's an ideal build-time source.
+
+**Honest attribution:** Each card is tagged "Vero Beach Pediatrics · Google" and the section says these are the sister practice's reviews — not VBAM's own (VBAM opens Sept 1 with none yet).
+
+**Trade-offs / flags:** Reviews refresh per deploy, not live (acceptable — a 5.0/361 profile is stable; a scheduled rebuild can be added later). Featurable's `/api/v1/widgets/{id}` is undocumented and could change; the Google Places fallback + committed snapshot keep the section resilient. Widget ID defaults in-script but is overridable via `FEATURABLE_WIDGET_ID`. The carousel uses native CSS scroll-snap — no new dependency.
+
+---
+
 ## 2026-05-19 — Reviews section: Featurable embed pulling Vero Beach Pediatrics' Google reviews
 
 **Decision:** Populate the home "What patients say" section with a third-party **Featurable** widget that auto-pulls Google reviews for **Vero Beach Pediatrics** (the sister practice), rather than VBAM's own (VBAM has no reviews yet — opens Sept 1). Gated behind `reviewsSection.featurableWidgetId` in `home.json`; empty string falls back to the manual grid / "just getting started" empty state.
