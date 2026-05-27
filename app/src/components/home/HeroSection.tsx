@@ -157,7 +157,7 @@ export default function HeroSection() {
           viewBox="0 0 100 60"
           xmlns="http://www.w3.org/2000/svg"
           aria-label="Vero Beach Adult Medicine sun and sea mark"
-          style={{ width: 'clamp(150px, 22vw, 280px)', height: 'clamp(90px, 13.2vw, 168px)', display: 'block', margin: '0 auto 34px', opacity: 0 }}
+          style={{ width: 'clamp(165px, 24vw, 320px)', height: 'clamp(99px, 14.4vw, 192px)', display: 'block', margin: '0 auto 34px', opacity: 0 }}
         >
           <g id="hm-rays" stroke="#0A3D4A" strokeWidth="1.1" strokeLinecap="round" fill="none">
             <line x1="50"    y1="19.5" x2="50"    y2="13"   />
