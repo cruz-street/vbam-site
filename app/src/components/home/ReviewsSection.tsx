@@ -1,6 +1,26 @@
+import Script from 'next/script';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import { REVIEWS_SECTION } from '@/content/home';
 import { REVIEWS } from '@/content/reviews';
+
+/**
+ * Featurable embed — auto-pulls Google reviews for the configured Google
+ * Business Profile (Vero Beach Pediatrics, our sister practice) and renders
+ * its own carousel client-side. Set `featurableWidgetId` in home.json to the
+ * widget ID from the Featurable dashboard to turn this on. Empty string ⇒
+ * falls back to the manual grid / empty state below.
+ */
+function FeaturableEmbed({ widgetId }: { widgetId: string }) {
+  return (
+    <div className="mx-auto" style={{ maxWidth: 1000 }}>
+      <div id={`featurable-${widgetId}`} data-featurable-async />
+      <Script
+        src="https://featurable.com/assets/js/widget.js"
+        strategy="lazyOnload"
+      />
+    </div>
+  );
+}
 
 function StarRow({ rating }: { rating: number }) {
   const full = Math.round(rating);
@@ -45,6 +65,7 @@ function EmptyState() {
 }
 
 export default function ReviewsSection() {
+  const widgetId = REVIEWS_SECTION.featurableWidgetId ?? '';
   const hasReviews = REVIEWS.reviews.length > 0;
 
   return (
@@ -79,7 +100,9 @@ export default function ReviewsSection() {
           </p>
         </ScrollReveal>
 
-        {!hasReviews ? (
+        {widgetId ? (
+          <FeaturableEmbed widgetId={widgetId} />
+        ) : !hasReviews ? (
           <EmptyState />
         ) : (
           <>

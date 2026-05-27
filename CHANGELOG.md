@@ -6,6 +6,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Reviews section now supports a Featurable Google-reviews embed.** `ReviewsSection` renders a Featurable carousel (auto-pulls Vero Beach Pediatrics' Google reviews — sister practice) when `reviewsSection.featurableWidgetId` is set in `home.json`; otherwise falls back to the manual grid / empty state. Script loaded via `next/script` `lazyOnload` to protect mobile PageSpeed. Section copy rewritten for honest sister-practice attribution ("real Google reviews for our sister practice, Vero Beach Pediatrics, run by the same family") instead of implying VBAM's own patients. ⚠️ Widget ID still needs to be pasted in once the Featurable widget is created. See decision log 2026-05-19
 - **Logo V4** recreated from the approved brand PDF (`233701 - Vero Beach Adult Medicine - Logo Concepts + Development V4`). No vector export was provided, so the mark was hand-built as inline SVG to match: **solid amber sun** (was a sunrise gradient), **seven navy rays** (was five), **two waves** — navy + sea glass (was three). New `--color-vbam-sun: #F9A826` token added to `globals.css` (per Brand Token Rule — no ad-hoc hex in components) and used as the sun fill
 - `public/images/vbam-mark.svg` — standalone square mark asset. Referenced by the home-page `MedicalOrganization` JSON-LD `logo` field but previously missing (404); now created
 - `src/app/icon.svg` — crisp SVG favicon (mark on a rounded foam tile), replacing reliance on the legacy `favicon.ico` for modern browsers

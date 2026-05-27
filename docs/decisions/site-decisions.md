@@ -4,6 +4,20 @@ Newest entry first.
 
 ---
 
+## 2026-05-19 — Reviews section: Featurable embed pulling Vero Beach Pediatrics' Google reviews
+
+**Decision:** Populate the home "What patients say" section with a third-party **Featurable** widget that auto-pulls Google reviews for **Vero Beach Pediatrics** (the sister practice), rather than VBAM's own (VBAM has no reviews yet — opens Sept 1). Gated behind `reviewsSection.featurableWidgetId` in `home.json`; empty string falls back to the manual grid / "just getting started" empty state.
+
+**Why:** VBP runs the "Widget for Google Reviews" (Richplugins) WordPress plugin — not portable to VBAM's static Next.js export. Featurable is a free, script-embed equivalent that works on static sites, has no 5-review cap (it caches on its own servers, unlike the raw Google Places API which returns max 5 and bars >30-day storage), and renders its own carousel. Pointing it at VBP's listing means each card is natively labeled as a Vero Beach Pediatrics review — honest attribution is built in.
+
+**Honest-attribution guard:** Section copy was rewritten from "Reviews from real patients of the practice" to explicitly state these are **Vero Beach Pediatrics** reviews from the same family/team. Showing them as VBAM's own would be deceptive; framed as the sister practice's track record, it's truthful.
+
+**Alternatives considered:** (A) Google Places API at build time into our own Swiper carousel — fully on-brand but capped at ~5 rotating reviews + API key plumbing; deferred. (B) Elfsight/Trustindex — paid tiers; Featurable's free tier suffices. (C) Leave empty until VBAM has its own reviews — rejected; loses the sister-practice social proof at launch.
+
+**Trade-offs / flags:** Third-party client script (`featurable.com/assets/js/widget.js`, loaded `lazyOnload` to protect the PageSpeed ≥ 90 mobile gate — verify after go-live). External dependency + vendor account. Styling control is limited vs. `vbam-` tokens. Widget ID must be added to `home.json` before it renders.
+
+---
+
 ## 2026-05-19 — Logo V4 hand-rebuilt as SVG; new `vbam-sun` token
 
 **Decision:** Recreate the approved V4 logo mark directly as inline SVG (`SunSeaMark.tsx`) plus standalone `public/images/vbam-mark.svg` and `src/app/icon.svg`, rather than embedding a raster export. Added `--color-vbam-sun: #F9A826` to `globals.css`.
