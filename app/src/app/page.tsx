@@ -80,9 +80,9 @@ export default function HomePage() {
       <PhilosophySection />
       <ServicesSection />
       <VbpSection />
+      <ReviewsSection />
       <PriviaSection />
       <FlowSection />
-      <ReviewsSection />
       <VideosSection />
       <SocialFeedSection />
       <CtaStrip />

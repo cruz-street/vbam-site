@@ -11,6 +11,17 @@ export default function CtaStrip() {
     >
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
+        {CTA_STRIP.proof && (
+          <ScrollReveal>
+            <p
+              className="font-archivo font-[600] text-vbam-atlantic/70 mx-auto"
+              style={{ fontSize: 12, letterSpacing: '0.08em', marginBottom: 18, maxWidth: 540 }}
+            >
+              {CTA_STRIP.proof}
+            </p>
+          </ScrollReveal>
+        )}
+
         <ScrollReveal>
           <h2
             className="font-fraunces font-[400] text-vbam-atlantic mx-auto"
