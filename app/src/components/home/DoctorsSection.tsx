@@ -66,7 +66,7 @@ export default function DoctorsSection() {
                   className="rounded-full relative overflow-hidden"
                   style={{
                     width: 'clamp(160px, 30vw, 260px)', height: 'clamp(160px, 30vw, 260px)',
-                    background: 'var(--foam)',
+                    background: 'transparent',
                     boxShadow: '0 24px 64px -28px rgba(10,61,74,.3)',
                     border: '1px solid rgba(10,61,74,.07)',
                   }}
