@@ -1,52 +1,24 @@
+/* eslint-disable @next/next/no-img-element */
 interface Props {
   className?: string;
-  /** Kept for backward compatibility with existing call sites; no longer used
-   *  now that the sun is a solid fill (logo V4). Safe to omit. */
-  gradId?: string;
-  /** Stroke color for rays + the upper (navy) wave.
-   *  Use '#F5F1E8' on dark (Atlantic) backgrounds. Default = Atlantic. */
-  strokeColor?: string;
-  /** Solid fill for the sun. Defaults to the brand sun token value. */
-  sunColor?: string;
-  /** Color for the lower wave. Defaults to Sea Glass. */
-  waveColor?: string;
+  /** Render the mark in white for dark (Atlantic) backgrounds, e.g. the footer. */
+  onDark?: boolean;
 }
 
 /**
- * Sun & Sea mark — Vero Beach Adult Medicine logo V4.
- * Solid amber sun, seven navy rays, two waves (navy + sea glass).
- * Hand-built to match the approved V4 brand logo. viewBox kept at 100×60
- * so existing width/height utility classes render at the same proportions.
+ * Sun & Sea mark — the official Vero Beach Adult Medicine logo (final brand
+ * vector). Rendered as the static SVG asset at /images/vbam-mark.svg so it
+ * stays pixel-true to the artwork. On dark backgrounds, a brightness/invert
+ * filter renders it as a clean white silhouette (no separate white asset).
  */
-export default function SunSeaMark({
-  className,
-  strokeColor = '#0A3D4A',
-  sunColor = '#F49B2C',
-  waveColor = '#5FB3C0',
-}: Props) {
+export default function SunSeaMark({ className, onDark = false }: Props) {
   return (
-    <svg className={className} viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      {/* Seven rays — fanned across the top hemisphere, detached from the sun */}
-      <g stroke={strokeColor} strokeWidth="1.1" strokeLinecap="round" fill="none">
-        <line x1="50"    y1="19.5" x2="50"    y2="13"   />
-        <line x1="56.18" y1="20.7" x2="58.62" y2="14.67" />
-        <line x1="43.82" y1="20.7" x2="41.38" y2="14.67" />
-        <line x1="61.46" y1="24.13" x2="65.98" y2="19.46" />
-        <line x1="38.54" y1="24.13" x2="34.02" y2="19.46" />
-        <line x1="65.07" y1="29.29" x2="71.01" y2="26.64" />
-        <line x1="34.93" y1="29.29" x2="28.99" y2="26.64" />
-      </g>
-
-      {/* Sun — solid amber semicircle */}
-      <path d="M37 36 A 13 13 0 0 1 63 36 Z" fill={sunColor} />
-
-      {/* Upper wave — navy, cradles the sun (slight dip beneath the sun base) */}
-      <path d="M8 37 Q 25 34.5 37 37 Q 50 39.2 63 37 Q 78 39 92 37"
-            fill="none" stroke={strokeColor} strokeWidth="1.6" strokeLinecap="round" />
-
-      {/* Lower wave — sea glass */}
-      <path d="M14 46 Q 32 43 50 46 T 86 46"
-            fill="none" stroke={waveColor} strokeWidth="1.45" strokeLinecap="round" />
-    </svg>
+    <img
+      src="/images/vbam-mark.svg"
+      alt=""
+      aria-hidden="true"
+      className={className}
+      style={onDark ? { filter: 'brightness(0) invert(1)', opacity: 0.92 } : undefined}
+    />
   );
 }

@@ -16,7 +16,7 @@ export default function Header() {
     <header className="absolute top-0 left-0 right-0 z-50 py-6">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between gap-10">
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <SunSeaMark gradId="nav" className="w-9 h-[22px]" />
+          <SunSeaMark className="w-10 h-auto" />
           <span className="font-fraunces text-[17px] font-[500] text-vbam-atlantic leading-none">
             Vero Beach{' '}
             <em className="font-cormorant not-italic italic text-grad-sunrise ml-0.5">

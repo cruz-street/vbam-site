@@ -5,7 +5,7 @@ import { HERO } from '@/content/home';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const markRef   = useRef<SVGSVGElement>(null);
+  const markRef   = useRef<HTMLImageElement>(null);
   const veroRef   = useRef<HTMLSpanElement>(null);
   const adultRef  = useRef<HTMLSpanElement>(null);
   const tagRef    = useRef<HTMLParagraphElement>(null);
@@ -91,17 +91,6 @@ export default function HeroSection() {
         animate(markRef.current!, { translateY: ['-7px', '7px'], duration: 3200, ease: 'inOutSine', loop: true, alternate: true, delay: 1600 });
       }
 
-      // ── Waves ─────────────────────────────────────────────────
-      if (!reducedMotion) {
-        animate('#hm-w1', { translateX: ['0px', '-5px'], duration: 3400, ease: 'inOutSine', loop: true, alternate: true, delay: 2000 });
-        animate('#hm-w2', { translateX: ['0px', '6px'],  duration: 2700, ease: 'inOutSine', loop: true, alternate: true, delay: 2300 });
-      }
-
-      // ── Sun shimmer + ray twinkle ─────────────────────────────
-      if (!reducedMotion) {
-        animate('#hm-sun',       { opacity: [1, 0.72], duration: 3800, ease: 'inOutSine', loop: true, alternate: true, delay: 1900 });
-        animate('#hm-rays line', { opacity: [1, 0.35], duration: 1600, ease: 'inOutSine', loop: true, alternate: true, delay: stagger(220, { start: 2200 }) });
-      }
     });
   }, []);
 
@@ -150,30 +139,15 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
-        {/* Sun & Sea mark — animated */}
-        <svg
+        {/* Sun & Sea mark — official logo */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           ref={markRef}
-          id="hero-mark"
-          viewBox="0 0 100 60"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="Vero Beach Adult Medicine sun and sea mark"
-          style={{ width: 'clamp(165px, 24vw, 320px)', height: 'clamp(99px, 14.4vw, 192px)', display: 'block', margin: '0 auto 34px', opacity: 0 }}
-        >
-          <g id="hm-rays" stroke="#0A3D4A" strokeWidth="1.1" strokeLinecap="round" fill="none">
-            <line x1="50"    y1="19.5" x2="50"    y2="13"   />
-            <line x1="56.18" y1="20.7" x2="58.62" y2="14.67" />
-            <line x1="43.82" y1="20.7" x2="41.38" y2="14.67" />
-            <line x1="61.46" y1="24.13" x2="65.98" y2="19.46" />
-            <line x1="38.54" y1="24.13" x2="34.02" y2="19.46" />
-            <line x1="65.07" y1="29.29" x2="71.01" y2="26.64" />
-            <line x1="34.93" y1="29.29" x2="28.99" y2="26.64" />
-          </g>
-          <path id="hm-sun" d="M37 36 A 13 13 0 0 1 63 36 Z" fill="#F49B2C" />
-          <path id="hm-w1" d="M8 37 Q 25 34.5 37 37 Q 50 39.2 63 37 Q 78 39 92 37"
-                fill="none" stroke="#0A3D4A" strokeWidth="1.6" strokeLinecap="round" />
-          <path id="hm-w2" d="M14 46 Q 32 43 50 46 T 86 46"
-                fill="none" stroke="#5FB3C0" strokeWidth="1.45" strokeLinecap="round" />
-        </svg>
+          src="/images/vbam-mark.svg"
+          alt=""
+          aria-hidden="true"
+          style={{ width: 'clamp(180px, 26vw, 300px)', height: 'auto', display: 'block', margin: '0 auto 30px', opacity: 0 }}
+        />
 
         {/* Wordmark */}
         <h1

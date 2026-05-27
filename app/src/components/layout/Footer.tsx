@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="text-center mb-14">
           <Link href="/" className="inline-flex items-center gap-3 justify-center">
-            <SunSeaMark gradId="footer" strokeColor="#F5F1E8" className="w-11 h-[27px]" />
+            <SunSeaMark onDark className="w-12 h-auto" />
             <span className="font-fraunces text-[22px] font-[400] text-vbam-foam">
               Vero Beach{' '}
               <em className="font-cormorant italic text-grad-sunrise ml-0.5">Adult Medicine</em>
