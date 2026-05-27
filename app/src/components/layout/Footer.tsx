@@ -23,8 +23,7 @@ type Social = { label: string; href: string; icon: 'facebook' | 'instagram' };
 
 const SOCIAL: Social[] = [
   { label: 'Facebook', href: 'https://www.facebook.com/verobeachadultmedicine', icon: 'facebook' },
-  // Instagram: add once the profile URL is confirmed —
-  // { label: 'Instagram', href: 'https://www.instagram.com/<handle>/', icon: 'instagram' },
+  { label: 'Instagram', href: 'https://www.instagram.com/verobeachadultmedicine/', icon: 'instagram' },
 ];
 
 function SocialIcon({ icon }: { icon: Social['icon'] }) {
