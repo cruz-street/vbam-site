@@ -76,6 +76,85 @@ async function fetchGoogleReviews(): Promise<void> {
   }
 }
 
+// ── Featurable (preferred reviews source) ──────────────────────────────────
+// Featurable caches the Google Business Profile's reviews on its own servers,
+// so this returns far more than the Google Places API's 5-review cap and needs
+// no API key (the widget ID is public). Points at Vero Beach Pediatrics — the
+// sister practice — since VBAM has no reviews yet.
+interface FeaturableReview {
+  reviewer?: { displayName?: string; profilePhotoUrl?: string };
+  starRating?: number;
+  comment?: string;
+  createTime?: string;
+}
+interface FeaturableResponse {
+  averageRating?: number;
+  totalReviewCount?: number;
+  profileUrl?: string;
+  reviews?: FeaturableReview[];
+}
+
+function relativeTime(iso?: string): string {
+  if (!iso) return '';
+  const then = new Date(iso).getTime();
+  if (Number.isNaN(then)) return '';
+  const days = Math.floor((Date.now() - then) / 86_400_000);
+  if (days < 14) return 'recently';
+  if (days < 60) return `${Math.round(days / 7)} weeks ago`;
+  if (days < 365) return `${Math.max(1, Math.round(days / 30))} months ago`;
+  const y = Math.round(days / 365);
+  return y <= 1 ? 'a year ago' : `${y} years ago`;
+}
+
+async function fetchFeaturableReviews(): Promise<boolean> {
+  const widgetId = process.env.FEATURABLE_WIDGET_ID ?? 'bae616c0-332c-490f-93f2-0d8c4981efa9';
+  try {
+    const res = await fetch(`https://featurable.com/api/v1/widgets/${widgetId}`);
+    if (!res.ok) throw new Error(`Featurable ${res.status}`);
+    const data = (await res.json()) as FeaturableResponse;
+
+    // Terms to hide: any review whose comment mentions one of these (case-
+    // insensitive) is excluded. Override/extend via FEATURABLE_EXCLUDE_TERMS
+    // (comma-separated env var) without code changes.
+    const EXCLUDE_TERMS: string[] = [
+      ...(process.env.FEATURABLE_EXCLUDE_TERMS ?? '').split(',').map((s) => s.trim()).filter(Boolean),
+    ];
+
+    const picked = (data.reviews ?? [])
+      .filter((r) => {
+        const c = (r.comment ?? '').trim();
+        if (r.starRating !== 5) return false;          // 5-star only
+        if (c.length < 20) return false;               // must have real text, not rating-only
+        if (/Translated by Google/i.test(c)) return false;
+        const lc = c.toLowerCase();
+        if (EXCLUDE_TERMS.some((t) => lc.includes(t.toLowerCase()))) return false;
+        return true;
+      })
+      // newest first, then older
+      .sort((a, b) => new Date(b.createTime ?? 0).getTime() - new Date(a.createTime ?? 0).getTime())
+      .slice(0, 12);
+    if (picked.length === 0) throw new Error('no usable reviews in payload');
+    const output = {
+      placeRating: data.averageRating ?? 5,
+      totalRatings: data.totalReviewCount ?? 0,
+      profileUrl: data.profileUrl ?? '',
+      reviews: picked.map((r) => ({
+        author: r.reviewer?.displayName ?? 'Anonymous',
+        rating: r.starRating ?? 5,
+        text: (r.comment ?? '').trim(),
+        relativeTime: relativeTime(r.createTime),
+        profilePhoto: r.reviewer?.profilePhotoUrl ?? '',
+      })),
+    };
+    writeJson('reviews.json', output);
+    console.log(`[reviews] Featurable: wrote ${output.reviews.length} reviews · ${output.placeRating} (${output.totalRatings} total)`);
+    return true;
+  } catch (err) {
+    console.warn(`[reviews] Featurable failed: ${(err as Error).message} — falling back`);
+    return false;
+  }
+}
+
 interface InstagramMediaItem {
   id: string;
   caption?: string;
@@ -180,7 +259,10 @@ async function fetchSocialPosts(): Promise<void> {
 
 async function main(): Promise<void> {
   console.log('[fetch-marketing-content] start');
-  await fetchGoogleReviews();
+  // Prefer Featurable (more reviews, no API key); fall back to Google Places;
+  // if both are unavailable the committed reviews.json is kept as-is.
+  const gotReviews = await fetchFeaturableReviews();
+  if (!gotReviews) await fetchGoogleReviews();
   await fetchSocialPosts();
   console.log('[fetch-marketing-content] done');
 }

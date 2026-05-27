@@ -11,6 +11,7 @@ export interface Review {
 export interface ReviewsContent {
   placeRating: number;
   totalRatings: number;
+  profileUrl?: string;
   reviews: Review[];
 }
 

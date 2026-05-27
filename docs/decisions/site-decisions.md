@@ -4,6 +4,47 @@ Newest entry first.
 
 ---
 
+## 2026-05-19 — Reviews: render our own carousel from build-time data (supersedes the embed plan)
+
+**Decision:** Abandon the Featurable client-side **embed** and instead render VBP's reviews in our own on-brand scroll-snap carousel, fed by `reviews.json`, which is refreshed at build time by `scripts/fetch-marketing-content.ts`. Source priority: **Featurable widget API** (`/api/v1/widgets/{id}`, ~34 cached reviews, no API key) → **Google Places API** (fallback, 5-review cap, needs key) → committed snapshot.
+
+**Why the embed was dropped:** Featurable's loader `<script>` URL is not publicly documented and wasn't discoverable (every guessed path 404'd; their own site bundles it), and the widget enforces a **client-side domain allowlist**. Rendering the data ourselves removes both problems, drops a third-party runtime script (better mobile PageSpeed), and gives full `vbam-` brand control. The Featurable **API** itself returns the full payload server-side with no key or domain gate, so it's an ideal build-time source.
+
+**Honest attribution:** Each card is tagged "Vero Beach Pediatrics · Google" and the section says these are the sister practice's reviews — not VBAM's own (VBAM opens Sept 1 with none yet).
+
+**Trade-offs / flags:** Reviews refresh per deploy, not live (acceptable — a 5.0/361 profile is stable; a scheduled rebuild can be added later). Featurable's `/api/v1/widgets/{id}` is undocumented and could change; the Google Places fallback + committed snapshot keep the section resilient. Widget ID defaults in-script but is overridable via `FEATURABLE_WIDGET_ID`. The carousel uses native CSS scroll-snap — no new dependency.
+
+---
+
+## 2026-05-19 — Reviews section: Featurable embed pulling Vero Beach Pediatrics' Google reviews
+
+**Decision:** Populate the home "What patients say" section with a third-party **Featurable** widget that auto-pulls Google reviews for **Vero Beach Pediatrics** (the sister practice), rather than VBAM's own (VBAM has no reviews yet — opens Sept 1). Gated behind `reviewsSection.featurableWidgetId` in `home.json`; empty string falls back to the manual grid / "just getting started" empty state.
+
+**Why:** VBP runs the "Widget for Google Reviews" (Richplugins) WordPress plugin — not portable to VBAM's static Next.js export. Featurable is a free, script-embed equivalent that works on static sites, has no 5-review cap (it caches on its own servers, unlike the raw Google Places API which returns max 5 and bars >30-day storage), and renders its own carousel. Pointing it at VBP's listing means each card is natively labeled as a Vero Beach Pediatrics review — honest attribution is built in.
+
+**Honest-attribution guard:** Section copy was rewritten from "Reviews from real patients of the practice" to explicitly state these are **Vero Beach Pediatrics** reviews from the same family/team. Showing them as VBAM's own would be deceptive; framed as the sister practice's track record, it's truthful.
+
+**Alternatives considered:** (A) Google Places API at build time into our own Swiper carousel — fully on-brand but capped at ~5 rotating reviews + API key plumbing; deferred. (B) Elfsight/Trustindex — paid tiers; Featurable's free tier suffices. (C) Leave empty until VBAM has its own reviews — rejected; loses the sister-practice social proof at launch.
+
+**Trade-offs / flags:** Third-party client script (`featurable.com/assets/js/widget.js`, loaded `lazyOnload` to protect the PageSpeed ≥ 90 mobile gate — verify after go-live). External dependency + vendor account. Styling control is limited vs. `vbam-` tokens. Widget ID must be added to `home.json` before it renders.
+
+---
+
+## 2026-05-19 — Logo V4 hand-rebuilt as SVG; new `vbam-sun` token
+
+**Decision:** Recreate the approved V4 logo mark directly as inline SVG (`SunSeaMark.tsx`) plus standalone `public/images/vbam-mark.svg` and `src/app/icon.svg`, rather than embedding a raster export. Added `--color-vbam-sun: #F9A826` to `globals.css`.
+
+**Why:** The brand deliverable was provided only as a PDF (`233701 … V4`) — no SVG/EPS/PNG export, and no PDF-to-SVG tooling was available locally. The mark is simple line-art (sun, rays, two waves) that reproduces faithfully as hand-authored SVG, which stays crisp at every size, themes via props, and adds zero asset weight. The V4 sun is a flat amber distinct from both `sunrise` (#F9C784) and `coral` (#EE7752), so it needed its own token to honor the Brand Token Rule.
+
+**Alternatives considered:** (1) Embed a PNG of the logo — rejected: blurry at retina/large sizes, heavier, not themeable. (2) Hardcode the sun hex in the component — rejected: violates Brand Token Rule. (3) Wait for the designer's vector files — viable for a pixel-perfect lockup, but blocks the requested update; the hand-built mark is faithful to the V4 geometry.
+
+**Follow-ups / flags:**
+- Visual fidelity should be eyeballed on the live deploy; if the designer later provides official vector files, swap them in (the token + component structure make this a drop-in).
+- The full **wordmark lockup** ("Vero Beach Adult Medicine" + tagline) remains live HTML text (Fraunces/Cormorant/Archivo) in Header/Footer — not converted to a single SVG, since text-to-path can't be hand-traced reliably. A single-file logo lockup still needs the designer's vector.
+- `docs/design-system.html` / `docs/screens.html` should be refreshed to show the V4 mark (Design Memory Rule) — not done in this change.
+
+---
+
 ## 2026-05-11 — Dr. Stewart positioning: employee, not founder
 
 **Decision:** All copy must describe Dr. Stewart as a key physician and important member of the practice — not as founder or owner. The practice is structured to grow beyond any single doctor; additional physicians will be hired over time.

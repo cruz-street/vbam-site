@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
+import ReviewsSection from '@/components/home/ReviewsSection';
 import { ABOUT_HERO, DR_STEWART, ABOUT_CTA } from '@/content/about';
 
 export const metadata: Metadata = {
@@ -96,6 +97,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Social proof ─── */}
+      <ReviewsSection />
 
       {/* ── CTA ─── */}
       <section className="text-center" style={{ background: 'var(--grad-sunrise)', padding: 'clamp(40px, 6vw, 80px) 0' }}>

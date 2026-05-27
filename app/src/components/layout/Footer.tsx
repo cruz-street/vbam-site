@@ -19,6 +19,30 @@ const LINKS: Record<string, FooterLink[]> = {
   ],
 };
 
+type Social = { label: string; href: string; icon: 'facebook' | 'instagram' };
+
+const SOCIAL: Social[] = [
+  { label: 'Facebook', href: 'https://www.facebook.com/verobeachadultmedicine', icon: 'facebook' },
+  { label: 'Instagram', href: 'https://www.instagram.com/verobeachadultmedicine/', icon: 'instagram' },
+];
+
+function SocialIcon({ icon }: { icon: Social['icon'] }) {
+  if (icon === 'facebook') {
+    return (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9.5c0-.28.22-.5.5-.5z" />
+      </svg>
+    );
+  }
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--grad-atlantic)' }} className="text-vbam-foam/85 pt-16 pb-8">
@@ -36,6 +60,23 @@ export default function Footer() {
           <p className="font-cormorant italic text-[20px] text-vbam-sunrise mt-3">
             Sunrise to shoreline care.
           </p>
+          {SOCIAL.length > 0 && (
+            <div className="flex items-center justify-center gap-3 mt-5">
+              {SOCIAL.map(({ label, href, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Vero Beach Adult Medicine on ${label}`}
+                  className="flex items-center justify-center rounded-full border border-vbam-foam/20 text-vbam-foam/80 hover:text-vbam-sunrise hover:border-vbam-sunrise/50 transition-colors"
+                  style={{ width: 38, height: 38 }}
+                >
+                  <SocialIcon icon={icon} />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Grid */}

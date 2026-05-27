@@ -2,19 +2,24 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import { REVIEWS_SECTION } from '@/content/home';
 import { REVIEWS } from '@/content/reviews';
 
-function StarRow({ rating }: { rating: number }) {
+function GoogleG({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+      <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+      <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+      <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" />
+      <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+    </svg>
+  );
+}
+
+function StarRow({ rating, size = 14 }: { rating: number; size?: number }) {
   const full = Math.round(rating);
   return (
-    <div aria-label={`${rating} out of 5 stars`} className="flex items-center gap-0.5" style={{ marginBottom: 12 }}>
+    <div aria-label={`${rating} out of 5 stars`} className="flex items-center gap-0.5">
       {[0, 1, 2, 3, 4].map((i) => (
-        <svg
-          key={i}
-          width="14"
-          height="14"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
-          fill={i < full ? '#EE7752' : 'rgba(10,61,74,0.18)'}
-        >
+        <svg key={i} width={size} height={size} viewBox="0 0 20 20" aria-hidden="true"
+          fill={i < full ? '#EE7752' : 'rgba(10,61,74,0.18)'}>
           <path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.2 1 5.9L10 15l-5.2 2.8 1-5.9L1.5 7.7l5.9-.9z" />
         </svg>
       ))}
@@ -31,13 +36,9 @@ function EmptyState() {
       <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 15, lineHeight: 1.6, marginBottom: 22 }}>
         {REVIEWS_SECTION.emptyBody}
       </p>
-      <a
-        href={REVIEWS_SECTION.emptyCtaHref}
-        target="_blank"
-        rel="noopener noreferrer"
+      <a href={REVIEWS_SECTION.emptyCtaHref} target="_blank" rel="noopener noreferrer"
         className="btn-primary inline-block font-archivo font-[600] rounded-full"
-        style={{ fontSize: 13, padding: '12px 24px', letterSpacing: '0.01em' }}
-      >
+        style={{ fontSize: 13, padding: '12px 24px', letterSpacing: '0.01em' }}>
         {REVIEWS_SECTION.emptyCtaLabel}
       </a>
     </div>
@@ -46,35 +47,30 @@ function EmptyState() {
 
 export default function ReviewsSection() {
   const hasReviews = REVIEWS.reviews.length > 0;
+  const profileUrl = REVIEWS.profileUrl ?? REVIEWS_SECTION.emptyCtaHref;
 
   return (
     <section className="bg-vbam-foam" id="reviews" style={{ padding: 'clamp(48px, 8vw, 112px) 0' }}>
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
         <ScrollReveal animation="left" as="div" className="text-center">
-          <p
-            className="font-archivo font-[700] text-vbam-coral"
-            style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}
-          >
+          <p className="font-archivo font-[700] text-vbam-coral"
+            style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 24 }}>
             {REVIEWS_SECTION.eyebrow}
           </p>
         </ScrollReveal>
 
         <ScrollReveal>
-          <h2
-            className="font-fraunces font-[400] text-vbam-atlantic mx-auto text-center"
-            style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.018em', maxWidth: 640, marginBottom: 20 }}
-          >
+          <h2 className="font-fraunces font-[400] text-vbam-atlantic mx-auto text-center"
+            style={{ fontSize: 'clamp(34px, 5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.018em', maxWidth: 640, marginBottom: 20 }}>
             {REVIEWS_SECTION.headingLine1}{' '}
             <em className="font-cormorant italic text-grad-sunrise">{REVIEWS_SECTION.headingItalic}</em>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={80}>
-          <p
-            className="font-inter font-[300] text-vbam-atlantic/[.84] mx-auto text-center"
-            style={{ fontSize: 18, lineHeight: 1.72, maxWidth: 680, marginBottom: 56 }}
-          >
+          <p className="font-inter font-[300] text-vbam-atlantic/[.84] mx-auto text-center"
+            style={{ fontSize: 18, lineHeight: 1.72, maxWidth: 680, marginBottom: hasReviews ? 32 : 56 }}>
             {REVIEWS_SECTION.body}
           </p>
         </ScrollReveal>
@@ -83,36 +79,67 @@ export default function ReviewsSection() {
           <EmptyState />
         ) : (
           <>
-            <ScrollReveal delay={120}>
-              <p className="font-inter text-vbam-atlantic/[.6] text-center" style={{ fontSize: 14, marginBottom: 36 }}>
-                <strong className="font-[500] text-vbam-atlantic">{REVIEWS.placeRating.toFixed(1)}</strong>
-                {' '}rating from {REVIEWS.totalRatings} Google reviews
-              </p>
+            {/* Rating summary */}
+            <ScrollReveal delay={110}>
+              <div className="flex items-center justify-center gap-3 flex-wrap" style={{ marginBottom: 44 }}>
+                <span className="font-fraunces font-[500] text-vbam-atlantic" style={{ fontSize: 22, lineHeight: 1 }}>
+                  {REVIEWS.placeRating.toFixed(1)}
+                </span>
+                <StarRow rating={REVIEWS.placeRating} size={18} />
+                <span className="inline-flex items-center gap-1.5 font-inter font-[300] text-vbam-atlantic/[.7]" style={{ fontSize: 15 }}>
+                  <GoogleG size={15} />
+                  {REVIEWS.totalRatings}+ Google reviews · Vero Beach Pediatrics
+                </span>
+              </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {REVIEWS.reviews.map((r, i) => (
-                <ScrollReveal key={`${r.author}-${i}`} animation="scale" delay={i * 80}>
+            {/* Carousel — native horizontal scroll-snap (swipe on mobile, no JS library) */}
+            <ScrollReveal delay={140}>
+              <div
+                className="flex gap-5 overflow-x-auto pb-4 -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-12 md:px-12"
+                style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'thin', WebkitOverflowScrolling: 'touch' }}
+              >
+                {REVIEWS.reviews.map((r, i) => (
                   <article
-                    className="rounded-lg bg-white border border-vbam-atlantic/[.08] h-full flex flex-col"
-                    style={{ padding: '24px 22px' }}
+                    key={`${r.author}-${i}`}
+                    className="rounded-lg bg-white border border-vbam-atlantic/[.08] flex flex-col shrink-0"
+                    style={{ padding: '24px 22px', width: 'min(82vw, 340px)', scrollSnapAlign: 'start' }}
                   >
-                    <StarRow rating={r.rating} />
-                    <p className="font-inter font-[300] text-vbam-atlantic/[.84] flex-1" style={{ fontSize: 15, lineHeight: 1.65, marginBottom: 18 }}>
+                    <div className="flex items-center justify-between" style={{ marginBottom: 12 }}>
+                      <StarRow rating={r.rating} />
+                      <GoogleG size={15} />
+                    </div>
+                    <p
+                      className="font-inter font-[300] text-vbam-atlantic/[.84] flex-1"
+                      style={{
+                        fontSize: 15, lineHeight: 1.65, marginBottom: 18,
+                        display: '-webkit-box', WebkitLineClamp: 7, WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                      }}
+                    >
                       &ldquo;{r.text}&rdquo;
                     </p>
-                    <div className="flex items-center gap-3 pt-3 border-t border-vbam-atlantic/[.06]">
+                    <div className="pt-3 border-t border-vbam-atlantic/[.06]">
                       <p className="font-archivo font-[600] text-vbam-atlantic" style={{ fontSize: 13 }}>
                         {r.author}
                       </p>
-                      <p className="font-inter text-vbam-atlantic/[.5]" style={{ fontSize: 12 }}>
-                        · {r.relativeTime}
+                      <p className="font-inter text-vbam-atlantic/[.5]" style={{ fontSize: 11, marginTop: 2 }}>
+                        Vero Beach Pediatrics · Google{r.relativeTime ? ` · ${r.relativeTime}` : ''}
                       </p>
                     </div>
                   </article>
-                </ScrollReveal>
-              ))}
-            </div>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={180}>
+              <div className="text-center" style={{ marginTop: 36 }}>
+                <a href={profileUrl} target="_blank" rel="noopener noreferrer"
+                  className="font-archivo font-[600] text-vbam-atlantic hover:text-vbam-inlet transition-colors inline-block"
+                  style={{ fontSize: 12, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+                  Read more on Google →
+                </a>
+              </div>
+            </ScrollReveal>
           </>
         )}
 

@@ -95,7 +95,6 @@ export default function HeroSection() {
       if (!reducedMotion) {
         animate('#hm-w1', { translateX: ['0px', '-5px'], duration: 3400, ease: 'inOutSine', loop: true, alternate: true, delay: 2000 });
         animate('#hm-w2', { translateX: ['0px', '6px'],  duration: 2700, ease: 'inOutSine', loop: true, alternate: true, delay: 2300 });
-        animate('#hm-w3', { translateX: ['0px', '-4px'], duration: 2100, ease: 'inOutSine', loop: true, alternate: true, delay: 2600 });
       }
 
       // ── Sun shimmer + ray twinkle ─────────────────────────────
@@ -158,28 +157,22 @@ export default function HeroSection() {
           viewBox="0 0 100 60"
           xmlns="http://www.w3.org/2000/svg"
           aria-label="Vero Beach Adult Medicine sun and sea mark"
-          style={{ width: 'clamp(80px, 12vw, 140px)', height: 'clamp(48px, 7vw, 84px)', display: 'block', margin: '0 auto 28px', opacity: 0 }}
+          style={{ width: 'clamp(165px, 24vw, 320px)', height: 'clamp(99px, 14.4vw, 192px)', display: 'block', margin: '0 auto 34px', opacity: 0 }}
         >
-          <defs>
-            <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F9C784" />
-              <stop offset="100%" stopColor="#EE7752" />
-            </linearGradient>
-          </defs>
           <g id="hm-rays" stroke="#0A3D4A" strokeWidth="1.1" strokeLinecap="round" fill="none">
-            <line x1="50" y1="6"  x2="50"   y2="13"  />
-            <line x1="38" y1="10" x2="41.5" y2="16"  />
-            <line x1="62" y1="10" x2="58.5" y2="16"  />
-            <line x1="29" y1="17" x2="33.5" y2="22"  />
-            <line x1="71" y1="17" x2="66.5" y2="22"  />
+            <line x1="50"    y1="19.5" x2="50"    y2="13"   />
+            <line x1="56.18" y1="20.7" x2="58.62" y2="14.67" />
+            <line x1="43.82" y1="20.7" x2="41.38" y2="14.67" />
+            <line x1="61.46" y1="24.13" x2="65.98" y2="19.46" />
+            <line x1="38.54" y1="24.13" x2="34.02" y2="19.46" />
+            <line x1="65.07" y1="29.29" x2="71.01" y2="26.64" />
+            <line x1="34.93" y1="29.29" x2="28.99" y2="26.64" />
           </g>
-          <path id="hm-sun" d="M37 35 A 13 13 0 0 1 63 35 Z" fill="url(#hg)" />
-          <path id="hm-w1" d="M8 35 Q 25 33 37 35 L 63 35 Q 78 37 92 35"
-                fill="none" stroke="#0A3D4A" strokeWidth="1.4" strokeLinecap="round" />
-          <path id="hm-w2" d="M14 44 Q 32 41 50 44 T 86 44"
-                fill="none" stroke="#1A6B7E" strokeWidth="1.2" strokeLinecap="round" />
-          <path id="hm-w3" d="M20 52 Q 35 50 50 52 T 80 52"
-                fill="none" stroke="#5FB3C0" strokeWidth="1" strokeLinecap="round" opacity={0.5} />
+          <path id="hm-sun" d="M37 36 A 13 13 0 0 1 63 36 Z" fill="#F9A826" />
+          <path id="hm-w1" d="M8 37 Q 25 34.5 37 37 L 63 37 Q 78 39 92 37"
+                fill="none" stroke="#0A3D4A" strokeWidth="1.6" strokeLinecap="round" />
+          <path id="hm-w2" d="M14 46 Q 32 43 50 46 T 86 46"
+                fill="none" stroke="#5FB3C0" strokeWidth="1.3" strokeLinecap="round" />
         </svg>
 
         {/* Wordmark */}

@@ -53,7 +53,7 @@
     "eyebrow": "What patients say",
     "headingLine1": "Trusted by our",
     "headingItalic": "neighbors.",
-    "body": "Reviews from real patients of the practice — verified through Google.",
+    "body": "Vero Beach Adult Medicine is new — but the team behind it isn't. These are real Google reviews for our sister practice, Vero Beach Pediatrics, run by the same family.",
     "emptyTitle": "We're just getting started.",
     "emptyBody": "Be the first to share your experience with Vero Beach Adult Medicine.",
     "emptyCtaLabel": "Leave a Google review",
@@ -90,11 +90,12 @@
   },
   "servicesSection": {
     "eyebrow": "04 · Services",
-    "headingLine1": "Full-scope care,",
+    "headingLine1": "Everyday care,",
     "headingItalic": "for adults.",
-    "subhead": "Primary care that covers your whole health picture — not just the reason you came in today."
+    "subhead": "Primary care that pays attention to the whole of your health — not just the reason you came in today."
   },
   "ctaStrip": {
+    "proof": "★★★★★  Rated 5.0 across 361 Google reviews at our sister practice, Vero Beach Pediatrics.",
     "headingLine1": "Now welcoming",
     "headingItalic": "new patients.",
     "subhead": "Most insurance accepted. Book your first appointment online or call us directly.",
@@ -144,7 +145,7 @@
     "Now welcoming new patients",
     "A practice that knows your name",
     "Mobile check-in · Text our staff",
-    "Sibling of Vero Beach Pediatrics",
+    "Sibling of Vero Beach Pediatrics · 5.0★ Google",
     "Most insurance accepted"
   ],
   "homeServices": [
@@ -169,8 +170,8 @@
       "body": "In-house labs and evidence-based screening protocols. We order what's appropriate for your age and risk profile — and go over results with you directly."
     },
     {
-      "title": "Travel & Lifestyle Medicine",
-      "body": "Pre-travel consults, vaccines, and destination-specific guidance. Plus ongoing support for sleep, weight management, and long-term health goals."
+      "title": "Lifestyle & Wellness Guidance",
+      "body": "Practical, everyday guidance on weight, nutrition, sleep, and stress — plus routine vaccinations — woven into your regular care."
     }
   ]
 }

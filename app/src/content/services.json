@@ -3,7 +3,7 @@
     "eyebrow": "Services",
     "heading": "Modern primary care,",
     "headingItalic": "on the coast.",
-    "subhead": "A complete practice for adults — preventive, proactive, and personal. Everything your health needs, under one roof."
+    "subhead": "Thoughtful primary care for adults — preventive, proactive, and personal. The everyday care you need, close to home."
   },
   "services": [
     {
@@ -24,7 +24,7 @@
     {
       "title": "Women's & Men's Health",
       "body": "Annual exams, hormone health, perimenopause care, men's wellness — handled with care, not a checklist.",
-      "detail": "From preventive screenings to complex hormonal questions, we approach gender-specific care with depth and respect."
+      "detail": "From preventive screenings to hormone and perimenopause questions, we approach gender-specific care with depth and respect."
     },
     {
       "title": "Preventive Screenings & Labs",
@@ -32,9 +32,9 @@
       "detail": "We coordinate colonoscopies, mammograms, DEXA scans, and other referrals — so you don't have to manage it all yourself."
     },
     {
-      "title": "Travel & Lifestyle Medicine",
-      "body": "Pre-travel consults, vaccines, sleep, performance, and longevity — care that fits how you actually live.",
-      "detail": "International travel prep, sleep optimization, executive wellness, and longevity-focused care — for patients invested in the long view."
+      "title": "Lifestyle & Wellness Guidance",
+      "body": "Practical guidance on weight, nutrition, sleep, and stress — woven into your regular care, not sold as a separate program.",
+      "detail": "Routine vaccinations and down-to-earth lifestyle counseling — support for everyday goals like better sleep, steady weight, and more energy."
     }
   ],
   "approach": {
