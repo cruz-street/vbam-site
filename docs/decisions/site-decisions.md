@@ -4,6 +4,27 @@ Newest entry first.
 
 ---
 
+## 2026-05-28 — New-patient intake: Jotform Gold (Path A, secure-link delivery) as 4-month bridge to Yosi/Athena
+
+**Decision:** Stand up a HIPAA-compliant new-patient registration form on **Jotform Gold** ($99/mo, signed BAA) as an interim solution until the planned **Yosi → Athena** integration goes live. Form is embedded at `/for-patients/new-patient-registration/` using Jotform's Smart Embed (iframe + `jotformEmbedHandler` autoresize script via Next.js `<Script>`). Submissions notify `careteam@verobeachadultmedicine.com` (M365 shared mailbox, covered under Microsoft's BAA) — Path A: notification email contains a secure login link, **not** PHI; staff click through to view the organized submission inside Jotform's HIPAA portal.
+
+**Why Jotform over alternatives:**
+- **FormDr** ($39/mo, healthcare-native) — cheaper but defaults to secure-link delivery without flexible PDF customization; would have been a fine alt
+- **Cognito Forms** (~$99–129/mo) — best conditional-logic depth but overkill for a 10-option insurance gate
+- **Microsoft Forms** (included with M365) — Microsoft's BAA covers it, but logic/branching is shallow and embedding into a Next.js site renders the Microsoft chrome
+- **Hushmail Secure Forms** ($11–20/mo) — would bundle receiving inbox, but requires routing careteam@ through Hushmail (too much change for a 4-month bridge)
+- **Paubox / encrypted email** — overkill, infrastructure switch
+
+**Why Path A (not PHI-in-email):** Jotform's HIPAA mode hard-locks PHI out of notification emails by design. The "data shipped to email" pattern that was originally requested would have required turning HIPAA mode off — which voids the BAA for that form. Path A (login link → portal PDF view) keeps the entire chain under BAA and delivers the same "organized patient notes" via a custom PDF Editor layout, one click behind the email.
+
+**Two-bucket insurance gate (Page 1):** Patient picks from 10 advertised plans + "my plan is not listed." Advertised plans flow through to the rest of the form. "Not listed" routes to a hidden verify page: *"Don't see your plan? Call (772) 569-3212 and we'll verify your coverage."* Three internal plans (Humana Military Tricare East, Oscar Direct, Centene Ambetter) are accepted at the desk on a case-by-case basis but **never appear on the form** — Medicaid (Sunshine/Simply) also off, effectively a decline since Florida Medicaid is managed care.
+
+**Trade-offs / flags:** $99/mo (cancel when Yosi lands). Staff must sign into Jotform to view each submission — one extra click vs. inline email, accepted as the compliance cost. PDF Editor is GUI-only — branding (logo, colors, fonts) applied per Jotform's designer, not automatable. Yosi integration when ready will replace this entire flow; `for-patients.json` exposes `newPatientRegistration.formUrl` + `formId` as Decap-editable fields so the cutover is no-code (set both to empty → page falls back to "call to register" panel).
+
+**HIPAA chain:** Patient → Jotform Gold (BAA) → TLS notification email → Exchange Online with M365 BAA → careteam@ shared mailbox. Patient consents via HIPAA acknowledgment checkbox linking to the **Privia HIPAA Privacy Notice** (`priviahealth.com/privacy-and-compliance/`) already in the site footer — avoids writing new privacy language for a Privia-affiliated practice.
+
+---
+
 ## 2026-05-19 — Reviews: render our own carousel from build-time data (supersedes the embed plan)
 
 **Decision:** Abandon the Featurable client-side **embed** and instead render VBP's reviews in our own on-brand scroll-snap carousel, fed by `reviews.json`, which is refreshed at build time by `scripts/fetch-marketing-content.ts`. Source priority: **Featurable widget API** (`/api/v1/widgets/{id}`, ~34 cached reviews, no API key) → **Google Places API** (fallback, 5-review cap, needs key) → committed snapshot.

@@ -7,3 +7,4 @@ export const VISIT_FLOW = data.visitFlow;
 export const INSURANCE = data.insurance;
 export const FAQS = data.faqs;
 export const FOR_PATIENTS_CTA = data.cta;
+export const NEW_PATIENT_REGISTRATION = data.newPatientRegistration;

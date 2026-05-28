@@ -12,7 +12,7 @@ const LINKS: Record<string, FooterLink[]> = {
   ],
   Patients: [
     { href: '/contact/',      label: 'Book an Appointment' },
-    { href: '/for-patients/', label: 'New Patient Forms'   },
+    { href: '/for-patients/new-patient-registration/', label: 'New Patient Registration' },
     { href: '/for-patients/#insurance', label: 'Insurance'           },
     { href: 'https://www.myprivia.com/account-access/', label: 'Patient Portal', external: true },
     { href: 'https://payment.patient.athenahealth.com/statement/', label: 'Bill Pay', external: true },

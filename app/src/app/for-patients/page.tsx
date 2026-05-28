@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import FaqAccordion from '@/components/for-patients/FaqAccordion';
-import { FOR_PATIENTS_HERO, NEW_PATIENT, NEW_PATIENT_CHECKLIST, VISIT_FLOW, INSURANCE, FOR_PATIENTS_CTA } from '@/content/for-patients';
+import { FOR_PATIENTS_HERO, NEW_PATIENT, NEW_PATIENT_CHECKLIST, VISIT_FLOW, INSURANCE, FOR_PATIENTS_CTA, NEW_PATIENT_REGISTRATION } from '@/content/for-patients';
 
 const VISIT_FLOW_ICONS = [
   // 01 Before — phone with checkmark
@@ -70,9 +70,16 @@ export default function ForPatientsPage() {
                   </li>
                 ))}
               </ul>
-              <p className="font-inter font-[300] text-vbam-atlantic/60" style={{ fontSize: 14, lineHeight: 1.65 }}>
+              <p className="font-inter font-[300] text-vbam-atlantic/60" style={{ fontSize: 14, lineHeight: 1.65, marginBottom: 24 }}>
                 {NEW_PATIENT.note}
               </p>
+              <Link
+                href="/for-patients/new-patient-registration/"
+                className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
+                style={{ fontSize: 13, padding: '12px 22px' }}
+              >
+                {NEW_PATIENT_REGISTRATION.buttonLabel} →
+              </Link>
             </div>
           </ScrollReveal>
 
@@ -211,6 +218,13 @@ export default function ForPatientsPage() {
             <div className="flex gap-3 justify-center flex-wrap">
               <Link href="/contact/" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '14px 28px' }}>
                 {FOR_PATIENTS_CTA.cta1}
+              </Link>
+              <Link
+                href="/for-patients/new-patient-registration/"
+                className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full"
+                style={{ fontSize: 14, padding: '14px 28px', background: 'rgba(245,241,232,.45)', backdropFilter: 'blur(6px)' }}
+              >
+                {NEW_PATIENT_REGISTRATION.buttonLabel}
               </Link>
               <a href="tel:7725693212" className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full" style={{ fontSize: 14, padding: '14px 28px', background: 'rgba(245,241,232,.45)', backdropFilter: 'blur(6px)' }}>
                 (772) 569-3212

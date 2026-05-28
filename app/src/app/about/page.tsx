@@ -4,6 +4,7 @@ import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import ReviewsSection from '@/components/home/ReviewsSection';
 import { ABOUT_HERO, DR_STEWART, ABOUT_CTA } from '@/content/about';
+import { NEW_PATIENT_REGISTRATION } from '@/content/for-patients';
 
 export const metadata: Metadata = {
   title: 'About the Practice',
@@ -115,9 +116,18 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={140}>
-            <Link href="/contact/" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '14px 28px' }}>
-              {ABOUT_CTA.cta}
-            </Link>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <Link href="/contact/" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '14px 28px' }}>
+                {ABOUT_CTA.cta}
+              </Link>
+              <Link
+                href="/for-patients/new-patient-registration/"
+                className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full"
+                style={{ fontSize: 14, padding: '14px 28px', background: 'rgba(245,241,232,.45)', backdropFilter: 'blur(6px)' }}
+              >
+                {NEW_PATIENT_REGISTRATION.buttonLabel}
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
       </section>

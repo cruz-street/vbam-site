@@ -271,6 +271,30 @@ collections:
               - { label: Heading, name: heading, widget: string }
               - { label: Subhead, name: subhead, widget: string }
               - { label: CTA button text, name: cta1, widget: string }
+          - label: New Patient Registration
+            name: newPatientRegistration
+            widget: object
+            fields:
+              - { label: Button label (used in all 4 CTA placements), name: buttonLabel, widget: string }
+              - { label: Jotform hosted URL (paste from Jotform Publish → Direct Link), name: formUrl, widget: string, required: false }
+              - { label: Jotform form ID (the numeric ID from the form URL), name: formId, widget: string, required: false }
+              - label: Page Hero
+                name: hero
+                widget: object
+                fields:
+                  - { label: Eyebrow, name: eyebrow, widget: string }
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Heading — italic part, name: headingItalic, widget: string }
+                  - { label: Subhead, name: subhead, widget: text }
+              - { label: HIPAA reassurance line (shown above form), name: reassurance, widget: text }
+              - label: Fallback (shown if form URL is blank)
+                name: fallback
+                widget: object
+                fields:
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Body, name: body, widget: text }
+                  - { label: Phone display, name: phone, widget: string }
+                  - { label: Phone href (tel:XXXXXXXXXX), name: phoneHref, widget: string }
 
       # ── Contact Page ──────────────────────────────────────────────
       - name: contact

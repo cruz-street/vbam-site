@@ -104,5 +104,23 @@
     "heading": "Ready when you are.",
     "subhead": "New patients are always welcome. Book your first visit online or give us a call.",
     "cta1": "Book an Appointment →"
+  },
+  "newPatientRegistration": {
+    "buttonLabel": "Start New Patient Registration",
+    "formUrl": "",
+    "formId": "",
+    "hero": {
+      "eyebrow": "New Patient Registration",
+      "heading": "Get started in",
+      "headingItalic": "a few minutes.",
+      "subhead": "Complete your registration online before your first visit. The form is encrypted and sent securely to our care team."
+    },
+    "reassurance": "Your information is protected. This form uses HIPAA-compliant encryption and is only accessible to our care team. We never share your data outside of your care.",
+    "fallback": {
+      "heading": "Registration form coming soon.",
+      "body": "Our online registration is being finalized. To get started today, please call our office at (772) 569-3212 and we'll send you the new patient paperwork.",
+      "phone": "(772) 569-3212",
+      "phoneHref": "tel:7725693212"
+    }
   }
 }
