@@ -1,5 +1,18 @@
 # Component Change Log (newest first)
 
+### 2026-05-28 22:32 — feat: sync-before-work rule (CLAUDE.md Rule 16 + feedback memory)
+- Files: /Users/ashwinchandran/work/vbam-site/CLAUDE.md + /Users/ashwinchandran/.claude/projects/-Users-ashwinchandran-work-vbam-site/memory/feedback_sync_before_work.md
+- Added Rule 16 (Non-Negotiable): before any edit, fetch from origin and fast-forward both `main` and `staging` to match `origin/*`. If staging is behind main, FF it forward. If a clean FF isn't possible (divergence), stop and surface to user — no `--hard` reset / force-push recovery without explicit instruction. Reason: repo has two long-lived branches + Decap CMS commits to staging without warning + multiple actors touch the repo (humans + Claude sessions). Stale checkouts caused a near-miss earlier this session where staging was 3 commits behind main. Saved a matching feedback-type memory.
+- Renumbered the previously-added staging-first deploy rule from Rule 16 → Rule 17 in CLAUDE.md and in `feedback_staging_first_deploy.md`.
+
+### 2026-05-28 22:29 — feat: staging-first deploy rule (CLAUDE.md Rule 17 + feedback memory)
+- Files: /Users/ashwinchandran/work/vbam-site/CLAUDE.md + /Users/ashwinchandran/.claude/projects/-Users-ashwinchandran-work-vbam-site/memory/feedback_staging_first_deploy.md
+- Added Rule 17 (Non-Negotiable): all application changes (anything affecting the built site under `app/**`, `.github/workflows/**`, content, public assets) must land on `staging` first → user reviews on `vbam-site.pages.dev` → promotion to `main` only after explicit satisfaction. For larger feature/fix work, Claude must generate a CodeFoundry-style `/cf-test` manual test checklist before requesting review. Exemptions: repo-meta files (.claude/memory, CHANGELOG, decisions, docs, README/CLAUDE.md). Hotfix carve-out with explicit confirmation + immediate staging rebase. Captured the same intent as a feedback-type memory so future sessions surface it automatically.
+
+### 2026-05-28 22:16 — feat: cf-account-access reference memory
+- File: /Users/ashwinchandran/.claude/projects/-Users-ashwinchandran-work-vbam-site/memory/cf-account-access.md
+- Documents that Ashwin is a Member on Jesse's CF account (ID `037aff9f2c67ac6312058b641540ebd5`) — can manage `vbam-site-prod` Pages, the `verobeachadultmedicine.com` zone, and rotate the "VBAM site deploy (claude)" API token directly without involving Jesse. Captured after rotating the prod CF API token solo via dash.cloudflare.com/profile/api-tokens.
+
 ### 2026-05-28 20:52 — feat: deploy.yml builds once + deploys to staging or prod by branch
 - File: /Users/ashwinchandran/work/vbam-site/.github/workflows/deploy.yml
 - Extended the GH Actions deploy workflow to trigger on both `main` AND `staging` branches. Single build step bakes `NEXT_PUBLIC_WEB3FORMS_KEY` + new `NEXT_PUBLIC_KLARA_WIDGET_ID` env vars into the static export; then a branch-gated deploy step runs `wrangler pages deploy` against `vbam-site-prod` (Jesse's CF account, on push to main) or `vbam-site` (Ashwin's CF account, on push to staging). Skipped CF GitHub App entirely — Direct Upload + wrangler pattern matches what the existing project already uses

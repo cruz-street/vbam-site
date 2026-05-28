@@ -122,11 +122,11 @@ Read this channel at session start for current project context. Key people: Jess
 
 ### Open items (resume from here)
 
-1. **Ashwin dashboard task:** Flip the existing `vbam-site` Pages project's production branch from `main` → `staging`. Steps: dash.cloudflare.com → Ashwin's account → Workers & Pages → vbam-site → Settings → Builds & deployments → Production branch → edit → `staging` → Save. Until done, `vbam-site.pages.dev` keeps serving the latest main-branch deploy.
+1. ~~**Ashwin dashboard task:**~~ DONE 2026-05-28 — `vbam-site` Pages project's production branch flipped from `main` → `staging` via CF dashboard. Verified by task 5 smoke test.
 2. **GoDaddy task (Jesse):** Update nameservers at GoDaddy from `ns69.domaincontrol.com`, `ns70.domaincontrol.com` → `adam.ns.cloudflare.com`, `annabel.ns.cloudflare.com`. After propagation (1–24h) the zone will go active and `verobeachadultmedicine.com` will start resolving to `vbam-site-prod.pages.dev`.
-3. **Token rotation reminder:** the CF API token used for the `vbam-site-prod` Pages project was pasted in chat history. Rotate via CF dashboard once we're done — delete it, generate a fresh one, update `CLOUDFLARE_API_TOKEN_PROD` GH secret.
+3. ~~**Token rotation reminder:**~~ DONE 2026-05-28 — rolled "VBAM site deploy (claude)" token via CF dashboard (per-user API Tokens page; Ashwin is a Member on Jesse's CF account, so no account switcher needed). New value pasted into `CLOUDFLARE_API_TOKEN_PROD` GH secret; verified via re-run of latest main deploy workflow.
 4. **Vestigial:** `NEXT_PUBLIC_WEB3FORMS_KEY` is referenced in deploy.yml but no longer used (contact form refactored to Klara CTA). Harmless. Can clean up in a future commit.
-5. **Test staging deploy:** push a tiny no-op to `staging` to verify the workflow's staging branch path works end-to-end. Skipped during this session — do after the production_branch swap in (1) so vbam-site.pages.dev actually reflects the staging deploy.
+5. ~~**Test staging deploy:**~~ DONE 2026-05-28 — fast-forwarded `staging` to `main` (incl. new dual-env workflow), pushed to origin. GH Actions run #26588904871 succeeded in 45s: build ✓, prod step correctly skipped (branch ≠ main), staging step deployed via wrangler to `vbam-site` project. `https://vbam-site.pages.dev` HTTP 200 with fresh content. Dual-environment deploy verified end-to-end.
 
 ### Useful IDs (for resume)
 
@@ -146,7 +146,9 @@ Read this channel at session start for current project context. Key people: Jess
 - Local branches: `main`, `staging`, `feat/marketing-content-layer` (old, can delete)
 - Untracked (not committed): `docs/claude-code-setup-guide.md`, `docs/claude-code-setup-guide.pdf` (from earlier session — keep or commit when ready), `.wrangler/` (build cache, gitignored)
 
-- **Last sync commit:** 3a81b1e (ci(deploy): two-environment workflow — main → prod, staging → staging)
+- **Last sync commit:** 8c3fb99 (memory: session pause checkpoint — terminal restart)
+- **Last completed:** Added Rule 16 (Sync-Before-Work — fetch + ff main/staging before any edit) and Rule 17 (Staging-First Deploy — app changes land on staging first, user reviews on `vbam-site.pages.dev`, promotion to main only after explicit satisfaction; larger work needs a `/cf-test`-style manual checklist) to project CLAUDE.md, with matching feedback memories.
+- **Next:** Task 2 — Jesse's GoDaddy nameserver swap to `adam.ns.cloudflare.com` / `annabel.ns.cloudflare.com`. This is the last blocker for `verobeachadultmedicine.com` going live on `vbam-site-prod`.
 
 ## Implementation Plan
 
