@@ -107,11 +107,46 @@ Read this channel at session start for current project context. Key people: Jess
 - Google Ads: launched 2026-05-07 by Alec, ramping
 - Site: NOT YET BUILT — this is a priority
 
-## Session State
+## Session State (paused 2026-05-28 ~21:00 IST — terminal rendering glitched, user restarting)
 
-- **Last completed:** Created `vbam-site-prod` Pages project in Jesse's CF account (Direct Upload mode, no CF GitHub App needed). Added GH Actions secrets `CLOUDFLARE_API_TOKEN_PROD`, `CLOUDFLARE_ACCOUNT_ID_PROD`, `NEXT_PUBLIC_KLARA_WIDGET_ID`. Updated `.github/workflows/deploy.yml` to deploy to prod (Jesse's account) on push to main, staging (Ashwin's account) on push to staging. Attached `verobeachadultmedicine.com` + `www` custom domains to the prod project (status: initializing, pending nameserver propagation from GoDaddy ns69/70 → adam/annabel.ns.cloudflare.com).
-- **Next:** Commit + push the deploy.yml change (it'll trigger a build that deploys to vbam-site-prod). Then have Ashwin reconfigure the existing `vbam-site` project's production_branch from `main` → `staging` in CF dashboard so vbam-site.pages.dev serves staging.
-- **Last sync commit:** dcb8875 (Promote initial staging/prod setup to main)
+### What's done — pushed and live
+- **Prod Pages project `vbam-site-prod`** created in Jesse's CF account (account ID `037aff9f2c67ac6312058b641540ebd5`, project ID `e7d062c6-8d3b-40d0-94c0-15685d8a1ff2`). Direct Upload mode — no CF GitHub App. URL: https://vbam-site-prod.pages.dev (verified HTTP 200)
+- **Custom domains attached** to `vbam-site-prod`: `verobeachadultmedicine.com` + `www.verobeachadultmedicine.com`. Status: `initializing` (will activate after nameservers propagate)
+- **`.github/workflows/deploy.yml` extended** to dual-environment: push to `main` → wrangler deploy to `vbam-site-prod`; push to `staging` → wrangler deploy to `vbam-site`. Single build step bakes `NEXT_PUBLIC_WEB3FORMS_KEY` + `NEXT_PUBLIC_KLARA_WIDGET_ID` (committed: `3a81b1e`)
+- **First prod deploy ran successfully** (run #26584216918) — Klara widget loaded in HTML at `vbam-site-prod.pages.dev`
+- **GH Actions secrets added**: `CLOUDFLARE_API_TOKEN_PROD`, `CLOUDFLARE_ACCOUNT_ID_PROD`, `NEXT_PUBLIC_KLARA_WIDGET_ID = 168b842c-9a0d-43dd-bc25-d0dc202289aa`
+- **Domain references corrected** site-wide from `vbadultmedicine.com` → `verobeachadultmedicine.com` (commit `cbc6d5e`)
+- **Staging branch** created and pushed; Decap CMS retargeted from `main` → `staging` (commit `f0b52f5`)
+- **Ironside finalized brand assets** archived at `docs/brand-assets/` (commit `89dc0e8`)
+- **Dr. Stewart photo** cropped to remove arms below elbows (commit `e1de488`)
+
+### Open items (resume from here)
+
+1. **Ashwin dashboard task:** Flip the existing `vbam-site` Pages project's production branch from `main` → `staging`. Steps: dash.cloudflare.com → Ashwin's account → Workers & Pages → vbam-site → Settings → Builds & deployments → Production branch → edit → `staging` → Save. Until done, `vbam-site.pages.dev` keeps serving the latest main-branch deploy.
+2. **GoDaddy task (Jesse):** Update nameservers at GoDaddy from `ns69.domaincontrol.com`, `ns70.domaincontrol.com` → `adam.ns.cloudflare.com`, `annabel.ns.cloudflare.com`. After propagation (1–24h) the zone will go active and `verobeachadultmedicine.com` will start resolving to `vbam-site-prod.pages.dev`.
+3. **Token rotation reminder:** the CF API token used for the `vbam-site-prod` Pages project was pasted in chat history. Rotate via CF dashboard once we're done — delete it, generate a fresh one, update `CLOUDFLARE_API_TOKEN_PROD` GH secret.
+4. **Vestigial:** `NEXT_PUBLIC_WEB3FORMS_KEY` is referenced in deploy.yml but no longer used (contact form refactored to Klara CTA). Harmless. Can clean up in a future commit.
+5. **Test staging deploy:** push a tiny no-op to `staging` to verify the workflow's staging branch path works end-to-end. Skipped during this session — do after the production_branch swap in (1) so vbam-site.pages.dev actually reflects the staging deploy.
+
+### Useful IDs (for resume)
+
+| What | Value |
+|---|---|
+| Jesse's CF account ID | `037aff9f2c67ac6312058b641540ebd5` |
+| Ashwin's CF account ID | `5cd6b90ef438de1c66cb99601d48c035` (hardcoded in deploy.yml) |
+| `verobeachadultmedicine.com` zone ID | `31e396109293b79d4510b1a8ee36cf6f` |
+| `vbam-site-prod` project ID | `e7d062c6-8d3b-40d0-94c0-15685d8a1ff2` |
+| Klara widget UUID | `168b842c-9a0d-43dd-bc25-d0dc202289aa` |
+| CF nameservers to set at GoDaddy | `adam.ns.cloudflare.com`, `annabel.ns.cloudflare.com` |
+
+### Current git state at pause
+
+- Branch: `main`, HEAD `3a81b1e` ci(deploy): two-environment workflow
+- In sync with origin/main
+- Local branches: `main`, `staging`, `feat/marketing-content-layer` (old, can delete)
+- Untracked (not committed): `docs/claude-code-setup-guide.md`, `docs/claude-code-setup-guide.pdf` (from earlier session — keep or commit when ready), `.wrangler/` (build cache, gitignored)
+
+- **Last sync commit:** 3a81b1e (ci(deploy): two-environment workflow — main → prod, staging → staging)
 
 ## Implementation Plan
 
