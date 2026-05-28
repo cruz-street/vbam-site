@@ -84,6 +84,79 @@ Before pushing, confirm `git config --local user.email` returns the cruzstreet
 address. Push credentials (keychain PAT) must also map to a GitHub account with
 write access to `cruz-street/vbam-site` — the iCD account does not.
 
+### 16. Sync-Before-Work Rule (Non-Negotiable)
+Before starting any change in this repo — whether a one-line tweak or a multi-file
+feature — Claude (and any human collaborator) must pull the latest from the relevant
+remote branches. Stale branches cause merge conflicts, accidental reverts of
+collaborator work, and broken staging/prod parity.
+
+**Required steps before the first edit of a session, or any time work resumes:**
+
+1. `git fetch --all --prune`
+2. Pull `main`:
+   - `git checkout main && git pull --ff-only`
+3. Pull `staging` (because most changes land there first per Rule 17):
+   - `git checkout staging && git pull --ff-only`
+4. Confirm both branches are at their respective `origin/<branch>`:
+   - `git log --oneline -1 main` matches `origin/main`
+   - `git log --oneline -1 staging` matches `origin/staging`
+5. If `staging` is behind `main` (because a hotfix landed directly on main):
+   - Fast-forward staging up to main before starting new work: `git merge --ff-only main`
+6. Only then create the working branch or start editing.
+
+**If a fast-forward isn't clean** (the branches have diverged), stop and surface
+this to the user before doing anything else. Do NOT resolve divergence with
+destructive operations (`git reset --hard`, `git push --force`) without explicit
+user instruction.
+
+**Skip-able only when:** the session is clearly resuming work already in flight
+in the same calendar day with no commits from anyone else since (e.g., the user
+just paused and came back). When in doubt, sync anyway — it's cheap.
+
+### 17. Staging-First Deploy Rule (Non-Negotiable)
+Whenever any change is made to the application — anything under `app/` (components,
+pages, content files, public assets, styles, config), `.github/workflows/`, or anything
+else that affects the built/deployed site — Claude must follow this flow:
+
+1. **Push to `staging` first.** Never push application changes directly to `main`.
+   Commit on `staging` (or merge a feature branch into `staging`).
+2. **After the push, wait for the GH Actions deploy to finish**, then print the
+   staging URL in the terminal: `https://vbam-site.pages.dev`. Include the run
+   number/link from `gh run list` so the user can inspect logs if needed.
+3. **Ask the user to review the changes on the live staging URL** before doing
+   anything else. Do not assume satisfaction — wait for explicit confirmation.
+4. **Only after the user confirms satisfaction**, offer to promote to production
+   by merging `staging` → `main` (fast-forward where possible). State clearly that
+   this will deploy to `verobeachadultmedicine.com`.
+
+**For larger feature/fix work** (anything beyond a trivial copy/style tweak — new
+sections, new pages, refactors, animation work, form changes, accessibility passes,
+SEO changes, anything touching 3+ files, or anything where regressions are plausible):
+
+- Before asking the user to review the staging URL, **generate a manual test
+  checklist** modeled on the CodeFoundry `/cf-test` pattern: enumerate the golden
+  path, the edge cases, and any browsers/viewports/states that need verification
+  (mobile, desktop, dark/light if applicable, keyboard nav, empty/loaded states,
+  form validation, etc.).
+- Print the checklist to the terminal and have the user walk through it on the
+  staging URL.
+- Only promote to `main` after the user reports the checklist passes.
+
+**Exemptions** — the staging-first flow does NOT apply to repo-meta changes that
+don't affect the built site:
+- `.claude/memory/*` updates
+- `CHANGELOG.md`, `DEPLOYMENTS.md`, `docs/decisions/*` updates
+- Untracked-doc additions under `docs/` that aren't published (the site doesn't
+  serve `docs/`)
+- Pure README / CLAUDE.md edits
+
+These can be committed directly to `main` as session-end checkpoints.
+
+**Hotfix carve-out:** If a hotfix to production is genuinely time-critical (broken
+prod, security issue), it may go directly to `main` — but Claude must (a) flag it
+explicitly as a hotfix and get user confirmation before pushing, and (b) immediately
+rebase `staging` onto `main` afterward so the branches don't diverge.
+
 ---
 
 ## Staging / Production Workflow
