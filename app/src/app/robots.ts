@@ -5,6 +5,6 @@ export const dynamic = "force-static";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://vbadultmedicine.com/sitemap.xml",
+    sitemap: "https://verobeachadultmedicine.com/sitemap.xml",
   };
 }

@@ -6,6 +6,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Changed
+- **Canonical domain corrected from `vbadultmedicine.com` to `verobeachadultmedicine.com`.** Original code was built around the short form, which turned out to be a planning assumption — the actual domain Jesse has registered (now visible in Cloudflare) is the full form. Updated all 13 references: `sitemap.ts`, `robots.ts`, per-page `metadata.alternates.canonical` (home / about / services / for-patients / contact), `layout.tsx` `metadataBase`, MedicalOrganization JSON-LD `url` + `logo`, Footer copy, `_redirects` comment, and CLAUDE.md
 - Dr. Stewart portrait (per Dr. Stewart's request via Jesse, 2026-05-28): cropped `dr-stewart-cutout.webp` to remove arms from elbows down — the folded forearms / hands composition Dr. Stewart didn't like. New dimensions 975×950 (was 975×1300, ~3:4 → ~1:1), file size 76 KB (was 120 KB). Head, shoulders, dress neckline, and the peach orb backdrop are all preserved. About oval (5:7) and homepage circle (1:1) both render the new asset without component changes (objectFit cover handles the new aspect)
 
 ### Added

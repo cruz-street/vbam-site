@@ -7,7 +7,7 @@ import { SERVICES_HERO, SERVICES, SERVICES_APPROACH, SERVICES_CTA } from '@/cont
 export const metadata: Metadata = {
   title: 'Services',
   description: "Comprehensive adult primary care in Vero Beach — annual physicals, chronic condition management, same-day sick visits, women's and men's health, and more.",
-  alternates: { canonical: 'https://vbadultmedicine.com/services/' },
+  alternates: { canonical: 'https://verobeachadultmedicine.com/services/' },
 };
 
 export default function ServicesPage() {

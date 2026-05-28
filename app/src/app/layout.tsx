@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   description:
     "A boutique adult primary care practice in Vero Beach, FL. Accepting new patients. Sibling practice of Vero Beach Pediatrics.",
-  metadataBase: new URL("https://vbadultmedicine.com"),
+  metadataBase: new URL("https://verobeachadultmedicine.com"),
   openGraph: {
     siteName: "Vero Beach Adult Medicine",
     locale: "en_US",

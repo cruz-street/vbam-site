@@ -187,7 +187,7 @@ export default function Footer() {
 
         {/* Colophon */}
         <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left pt-5 border-t border-vbam-foam/10 font-archivo text-[9px] tracking-[.14em] uppercase text-vbam-foam/35 gap-3">
-          <span>© 2026 Vero Beach Adult Medicine · vbadultmedicine.com</span>
+          <span>© 2026 Vero Beach Adult Medicine · verobeachadultmedicine.com</span>
           <span>
             <Link href="/contact/" className="hover:text-vbam-foam/60 transition-colors mr-4">Contact</Link>
             Sibling of{' '}

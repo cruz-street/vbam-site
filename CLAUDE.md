@@ -1,7 +1,7 @@
 # Vero Beach Adult Medicine — Rules
 
 New Next.js marketing site for VBAM, deployed on Cloudflare Pages.
-Client: Dr. Patricia Stewart · Domain: vbadultmedicine.com
+Client: Dr. Patricia Stewart · Domain: verobeachadultmedicine.com
 
 ---
 

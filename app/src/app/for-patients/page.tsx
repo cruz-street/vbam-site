@@ -34,7 +34,7 @@ const VISIT_FLOW_ICONS = [
 export const metadata: Metadata = {
   title: 'For Patients',
   description: 'New patient information, accepted insurance, FAQs, and how to book your first appointment at Vero Beach Adult Medicine.',
-  alternates: { canonical: 'https://vbadultmedicine.com/for-patients/' },
+  alternates: { canonical: 'https://verobeachadultmedicine.com/for-patients/' },
 };
 
 export default function ForPatientsPage() {

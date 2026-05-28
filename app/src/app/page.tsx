@@ -19,15 +19,15 @@ export const metadata: Metadata = {
   title: 'Vero Beach Adult Medicine | Primary Care on the Treasure Coast',
   description:
     'A boutique adult primary care practice in Vero Beach, FL — now welcoming new patients. Sibling of Vero Beach Pediatrics.',
-  alternates: { canonical: 'https://vbadultmedicine.com' },
+  alternates: { canonical: 'https://verobeachadultmedicine.com' },
 };
 
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'MedicalOrganization',
   name: 'Vero Beach Adult Medicine',
-  url: 'https://vbadultmedicine.com',
-  logo: 'https://vbadultmedicine.com/images/vbam-mark.svg',
+  url: 'https://verobeachadultmedicine.com',
+  logo: 'https://verobeachadultmedicine.com/images/vbam-mark.svg',
   description: 'A boutique adult primary care practice in Vero Beach, FL — now welcoming new patients. Sibling of Vero Beach Pediatrics.',
   telephone: '+1-772-569-3212',
   address: {

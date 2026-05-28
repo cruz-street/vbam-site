@@ -8,7 +8,7 @@ import { ABOUT_HERO, DR_STEWART, ABOUT_CTA } from '@/content/about';
 export const metadata: Metadata = {
   title: 'About the Practice',
   description: "Vero Beach Adult Medicine — a new adult primary care practice on the Treasure Coast, led by our inaugural physician Dr. Patricia Stewart and built to grow.",
-  alternates: { canonical: 'https://vbadultmedicine.com/about/' },
+  alternates: { canonical: 'https://verobeachadultmedicine.com/about/' },
 };
 
 function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {

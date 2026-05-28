@@ -7,14 +7,14 @@ import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_KLARA, CONTACT_CTA }
 export const metadata: Metadata = {
   title: 'Contact & Appointments',
   description: 'Book an appointment or contact Vero Beach Adult Medicine. Located at Citrus Medical Plaza, 955 37th Place, Vero Beach, FL 32960. Call (772) 569-3212.',
-  alternates: { canonical: 'https://vbadultmedicine.com/contact/' },
+  alternates: { canonical: 'https://verobeachadultmedicine.com/contact/' },
 };
 
 const contactJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'MedicalOrganization',
   name: 'Vero Beach Adult Medicine',
-  url: 'https://vbadultmedicine.com',
+  url: 'https://verobeachadultmedicine.com',
   telephone: '+1-772-569-3212',
   address: {
     '@type': 'PostalAddress',
