@@ -1,5 +1,9 @@
 # Component Change Log (newest first)
 
+### 2026-05-28 14:43 — feat: archive Ironside finalized brand assets in docs/brand-assets/
+- Files: docs/brand-assets/README.md + 41 Ironside deliverables (AI source, FINAL+GUIDE PDF, EPS / SVG / PNG matrix: Full Color · White · Black × Icon · Stacked · Horiz × no BG · w-BG)
+- Removed our 11 speculative SVG variants in `docs/logo-versions/` now that Ironside has shipped the official files (via Amy's Dropbox link 2026-05-28 1:33 AM IST). README maps each variant to its use case on the site and documents that logo colors `#004E6C` / `#009AB2` differ from the broader VBAM brand tokens
+
 ### 2026-05-23 23:15 — feat: Claude Code + Decap CMS setup guide for content editors
 - File: /Users/ashwinchandran/work/vbam-site/docs/claude-code-setup-guide.md
 - New non-technical onboarding doc covering Mac + Windows install of Node, Git, pnpm, Claude Code, repo clone, Playwright + GitHub MCPs (user scope), local `pnpm dev`, Decap CMS at localhost/admin, first-edit smoke test, daily workflow, security, troubleshooting, escalation — modeled on the WordPress-Claude-Setup-Guide reference; install commands verified against https://code.claude.com/docs/en/setup and /mcp

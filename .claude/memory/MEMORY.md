@@ -109,9 +109,9 @@ Read this channel at session start for current project context. Key people: Jess
 
 ## Session State
 
-- **Last completed:** Authored `docs/claude-code-setup-guide.md` — Mac+Windows setup guide for content editors covering Claude Code install, Playwright + GitHub MCPs, repo clone, local Decap CMS at localhost/admin, first-edit smoke test, security, troubleshooting. Modeled on the WordPress-Claude-Setup-Guide PDF reference. Install commands verified against official Claude Code docs.
-- **Next:** Generate styled PDF of the guide via markdown-to-pdf skill using the Cruz Street brand template.
-- **Last sync commit:** beb66af (docs: changelog — marketing content layer)
+- **Last completed:** Pulled Ironside's finalized brand asset package from Amy's Dropbox (delivered 2026-05-28 1:33 AM IST), archived 41 files (AI/PDF/EPS/SVG/PNG) at `docs/brand-assets/Vero Beach Adult Medicine Logo - FINAL FILES/`, wrote README mapping each variant to its site usage. Removed `docs/logo-versions/` speculative work. Cropped Dr. Stewart's photo to remove arms (`e1de488` already on prod).
+- **Next:** Commit the brand-assets archive, ensure PNG variants are force-added (gitignore strips `*.png`), push to prod.
+- **Last sync commit:** e1de488 (Dr. Stewart portrait: tighten crop to remove arms (elbows down))
 
 ## Implementation Plan
 
