@@ -109,9 +109,9 @@ Read this channel at session start for current project context. Key people: Jess
 
 ## Session State
 
-- **Last completed:** Pulled Ironside's finalized brand asset package from Amy's Dropbox (delivered 2026-05-28 1:33 AM IST), archived 41 files (AI/PDF/EPS/SVG/PNG) at `docs/brand-assets/Vero Beach Adult Medicine Logo - FINAL FILES/`, wrote README mapping each variant to its site usage. Removed `docs/logo-versions/` speculative work. Cropped Dr. Stewart's photo to remove arms (`e1de488` already on prod).
-- **Next:** Commit the brand-assets archive, ensure PNG variants are force-added (gitignore strips `*.png`), push to prod.
-- **Last sync commit:** e1de488 (Dr. Stewart portrait: tighten crop to remove arms (elbows down))
+- **Last completed:** Created `vbam-site-prod` Pages project in Jesse's CF account (Direct Upload mode, no CF GitHub App needed). Added GH Actions secrets `CLOUDFLARE_API_TOKEN_PROD`, `CLOUDFLARE_ACCOUNT_ID_PROD`, `NEXT_PUBLIC_KLARA_WIDGET_ID`. Updated `.github/workflows/deploy.yml` to deploy to prod (Jesse's account) on push to main, staging (Ashwin's account) on push to staging. Attached `verobeachadultmedicine.com` + `www` custom domains to the prod project (status: initializing, pending nameserver propagation from GoDaddy ns69/70 → adam/annabel.ns.cloudflare.com).
+- **Next:** Commit + push the deploy.yml change (it'll trigger a build that deploys to vbam-site-prod). Then have Ashwin reconfigure the existing `vbam-site` project's production_branch from `main` → `staging` in CF dashboard so vbam-site.pages.dev serves staging.
+- **Last sync commit:** dcb8875 (Promote initial staging/prod setup to main)
 
 ## Implementation Plan
 

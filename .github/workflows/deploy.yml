@@ -2,7 +2,8 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, staging]
+  workflow_dispatch: {}
 
 jobs:
   deploy:
@@ -23,13 +24,30 @@ jobs:
       - name: Install dependencies
         run: cd app && pnpm install --frozen-lockfile
 
+      # Single build — Next.js static export consumes the env vars below at build time.
+      # Same artifact is then deployed to the right Pages project based on the branch.
       - name: Build
         run: cd app && pnpm build
         env:
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
+          NEXT_PUBLIC_KLARA_WIDGET_ID: ${{ secrets.NEXT_PUBLIC_KLARA_WIDGET_ID }}
 
-      - name: Deploy to Cloudflare Pages
-        run: npx wrangler@latest pages deploy app/out --project-name=vbam-site --branch=main
+      # PRODUCTION — push to `main` deploys to vbam-site-prod (Jesse's CF account)
+      # which is wired to the custom domain verobeachadultmedicine.com.
+      - name: Deploy to production (verobeachadultmedicine.com)
+        if: github.ref == 'refs/heads/main'
+        run: npx wrangler@latest pages deploy app/out --project-name=vbam-site-prod --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_PROD }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_PROD }}
+
+      # STAGING — push to `staging` deploys to vbam-site (Ashwin's CF account)
+      # which serves vbam-site.pages.dev. Note: the existing project's
+      # production_branch must be set to `staging` in the CF dashboard
+      # for vbam-site.pages.dev to serve this branch's content.
+      - name: Deploy to staging (vbam-site.pages.dev)
+        if: github.ref == 'refs/heads/staging'
+        run: npx wrangler@latest pages deploy app/out --project-name=vbam-site --branch=staging
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: 5cd6b90ef438de1c66cb99601d48c035

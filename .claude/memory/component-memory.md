@@ -1,5 +1,9 @@
 # Component Change Log (newest first)
 
+### 2026-05-28 20:52 — feat: deploy.yml builds once + deploys to staging or prod by branch
+- File: /Users/ashwinchandran/work/vbam-site/.github/workflows/deploy.yml
+- Extended the GH Actions deploy workflow to trigger on both `main` AND `staging` branches. Single build step bakes `NEXT_PUBLIC_WEB3FORMS_KEY` + new `NEXT_PUBLIC_KLARA_WIDGET_ID` env vars into the static export; then a branch-gated deploy step runs `wrangler pages deploy` against `vbam-site-prod` (Jesse's CF account, on push to main) or `vbam-site` (Ashwin's CF account, on push to staging). Skipped CF GitHub App entirely — Direct Upload + wrangler pattern matches what the existing project already uses
+
 ### 2026-05-28 14:43 — feat: archive Ironside finalized brand assets in docs/brand-assets/
 - Files: docs/brand-assets/README.md + 41 Ironside deliverables (AI source, FINAL+GUIDE PDF, EPS / SVG / PNG matrix: Full Color · White · Black × Icon · Stacked · Horiz × no BG · w-BG)
 - Removed our 11 speculative SVG variants in `docs/logo-versions/` now that Ironside has shipped the official files (via Amy's Dropbox link 2026-05-28 1:33 AM IST). README maps each variant to its use case on the site and documents that logo colors `#004E6C` / `#009AB2` differ from the broader VBAM brand tokens
