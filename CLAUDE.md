@@ -86,6 +86,36 @@ write access to `cruz-street/vbam-site` — the iCD account does not.
 
 ---
 
+## Staging / Production Workflow
+
+Two Cloudflare Pages projects deploy from this one repo on different branches.
+
+| Environment | Branch | URL | CF Account |
+|---|---|---|---|
+| **Production** | `main` | `verobeachadultmedicine.com` (+ `vbam-site-prod.pages.dev`) | Jesse's Cruz Street CF |
+| **Staging / dev** | `staging` | `vbam-site.pages.dev` | ashwin@cruzstreet.com |
+
+### Decap CMS
+
+`app/public/admin/config.yml` is set to commit to **`staging`**. Content edits made
+in the Decap UI at `https://vbam-site.pages.dev/admin/` (or future
+`verobeachadultmedicine.com/admin/`) land on the staging branch first, deploy to
+`vbam-site.pages.dev`, and stay there until promoted.
+
+### Promotion flow (staging → prod)
+
+1. Verify the change on `vbam-site.pages.dev`
+2. Merge `staging` → `main` on GitHub (PR or fast-forward)
+3. CF Pages builds `main` and the prod URL `verobeachadultmedicine.com` updates in ~2 min
+
+### Code changes
+
+Land on `staging` first (same flow as CMS edits). Merge to `main` to release.
+Hotfixes can go directly to `main` if needed — but you must then rebase `staging`
+on top so the branches don't diverge.
+
+---
+
 ## Tech Stack
 
 | Layer | Choice |

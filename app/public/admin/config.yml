@@ -10,7 +10,10 @@
 backend:
   name: github
   repo: cruz-street/vbam-site
-  branch: main
+  # Decap commits go to the `staging` branch (deploys to vbam-site.pages.dev).
+  # To publish to production (verobeachadultmedicine.com), merge `staging` -> `main`
+  # on GitHub. See CLAUDE.md "Staging / Production Workflow".
+  branch: staging
   base_url: https://vbam-cms-auth.cruzstreet-vbam.workers.dev
 
 logo_url: https://vbam-site.pages.dev/images/cms-logo.svg
