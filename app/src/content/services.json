@@ -14,12 +14,12 @@
     {
       "title": "Chronic Condition Management",
       "body": "Hypertension, diabetes, thyroid, cholesterol — managed proactively with a doctor who knows your history.",
-      "detail": "Coordinated care plans, regular monitoring, and direct access to your physician when things change."
+      "detail": "Coordinated care plans, regular monitoring, and a clear path back to the practice when things change."
     },
     {
-      "title": "Same-Day Sick Visits",
-      "body": "Direct line to the practice. Same-day appointments when you need them. No waiting-room marathon.",
-      "detail": "Call or portal message in the morning. We'll fit you in. Because that's what primary care should mean."
+      "title": "Timely Care When You Need It",
+      "body": "We make every effort to accommodate same-day sick visits for urgent concerns. When our schedule is full, virtual care keeps you covered.",
+      "detail": "Call or message us in the morning. If a same-day slot isn't available, we'll route you to virtual care for prompt attention."
     },
     {
       "title": "Women's & Men's Health",
@@ -41,7 +41,7 @@
     "heading": "What to expect at your",
     "headingItalic": "first visit.",
     "body": "Your first appointment is longer than you might expect. We want to understand your history, your goals, and what matters most to you — not just your vitals.",
-    "pullQuote": "Same-day callbacks. Same-week visits. A doctor who remembers your last conversation — and your story."
+    "pullQuote": "Prompt callbacks. Visits that don't make you wait weeks. A doctor who remembers your last conversation — and your story."
   },
   "cta": {
     "heading": "Not sure where to start?",
