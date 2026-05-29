@@ -129,9 +129,13 @@
       "requirementsLabel": "To register this way, you must be:",
       "requirements": [
         "18 years or older",
-        "Covered by an insurance plan we accept (see our list above)",
-        "A family member of a current Vero Beach Pediatrics patient"
+        "Covered by an insurance plan we accept",
+        "A current Vero Beach Pediatrics patient family — during our exclusive enrollment period for VBP families"
       ],
+      "insuranceListLink": {
+        "label": "See our accepted insurance plans →",
+        "href": "/for-patients/#insurance"
+      },
       "pdfs": [
         { "label": "New Patient Form", "href": "/forms/vbam-new-patient-form.pdf" },
         { "label": "Consents", "href": "/forms/vbam-consents.pdf" }

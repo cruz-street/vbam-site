@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import JotformEmbed from '@/components/for-patients/JotformEmbed';
@@ -106,7 +107,7 @@ export default function NewPatientRegistrationPage() {
                 >
                   {pdfFallback.requirementsLabel}
                 </p>
-                <ul className="space-y-2" style={{ marginBottom: 26 }}>
+                <ul className="space-y-2" style={{ marginBottom: pdfFallback.insuranceListLink ? 14 : 26 }}>
                   {pdfFallback.requirements.map((req: string) => (
                     <li key={req} className="flex items-start gap-3">
                       <svg
@@ -122,6 +123,18 @@ export default function NewPatientRegistrationPage() {
                     </li>
                   ))}
                 </ul>
+
+                {pdfFallback.insuranceListLink && (
+                  <div style={{ marginLeft: 27, marginBottom: 26 }}>
+                    <Link
+                      href={pdfFallback.insuranceListLink.href}
+                      className="font-archivo font-[600] text-vbam-coral hover:text-vbam-inlet transition-colors"
+                      style={{ fontSize: 13, letterSpacing: '0.02em' }}
+                    >
+                      {pdfFallback.insuranceListLink.label}
+                    </Link>
+                  </div>
+                )}
 
                 <div className="flex gap-3 flex-wrap" style={{ marginBottom: 22 }}>
                   {pdfFallback.pdfs.map((pdf: { label: string; href: string }) => (

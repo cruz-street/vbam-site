@@ -317,6 +317,13 @@ collections:
                     name: requirements
                     widget: list
                     field: { label: Requirement, name: item, widget: string }
+                  - label: "Insurance list link (rendered right below the requirements as a small link to /for-patients/#insurance)"
+                    name: insuranceListLink
+                    widget: object
+                    required: false
+                    fields:
+                      - { label: Link label, name: label, widget: string }
+                      - { label: Link href, name: href, widget: string }
                   - label: PDF downloads
                     name: pdfs
                     widget: list
