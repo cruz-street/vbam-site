@@ -11,8 +11,11 @@ export const metadata: Metadata = {
 };
 
 export default function NewPatientRegistrationPage() {
-  const { hero, reassurance, formUrl, formId, fallback } = NEW_PATIENT_REGISTRATION;
+  const { hero, reassurance, formUrl, formId, fallback, pdfFallback } = NEW_PATIENT_REGISTRATION;
   const formReady = formUrl && formId;
+  const pdfMailto = pdfFallback
+    ? `mailto:${pdfFallback.emailTo}?subject=${encodeURIComponent(pdfFallback.emailSubject)}`
+    : '';
 
   return (
     <main>
@@ -71,6 +74,95 @@ export default function NewPatientRegistrationPage() {
               )}
             </div>
           </ScrollReveal>
+
+          {pdfFallback && (
+            <ScrollReveal delay={140}>
+              <div
+                className="bg-vbam-sand/60 border border-vbam-atlantic/[.08]"
+                style={{ borderRadius: 12, padding: 'clamp(24px, 4vw, 36px)', marginTop: 48 }}
+              >
+                <p
+                  className="font-archivo font-[700] text-vbam-coral"
+                  style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 12 }}
+                >
+                  {pdfFallback.eyebrow}
+                </p>
+                <h3
+                  className="font-fraunces font-[400] text-vbam-atlantic"
+                  style={{ fontSize: 'clamp(22px, 2.8vw, 28px)', lineHeight: 1.2, letterSpacing: '-0.012em', marginBottom: 14 }}
+                >
+                  {pdfFallback.heading}
+                </h3>
+                <p
+                  className="font-inter font-[300] text-vbam-atlantic/[.82]"
+                  style={{ fontSize: 15, lineHeight: 1.7, marginBottom: 22, maxWidth: 640 }}
+                >
+                  {pdfFallback.intro}
+                </p>
+
+                <p
+                  className="font-archivo font-[700] text-vbam-atlantic/65"
+                  style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 10 }}
+                >
+                  {pdfFallback.requirementsLabel}
+                </p>
+                <ul className="space-y-2" style={{ marginBottom: 26 }}>
+                  {pdfFallback.requirements.map((req: string) => (
+                    <li key={req} className="flex items-start gap-3">
+                      <svg
+                        aria-hidden="true"
+                        width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+                        className="text-vbam-coral flex-shrink-0 mt-[3px]"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span className="font-inter font-[400] text-vbam-atlantic/[.86]" style={{ fontSize: 15, lineHeight: 1.55 }}>
+                        {req}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex gap-3 flex-wrap" style={{ marginBottom: 22 }}>
+                  {pdfFallback.pdfs.map((pdf: { label: string; href: string }) => (
+                    <a
+                      key={pdf.href}
+                      href={pdf.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full inline-flex items-center gap-2"
+                      style={{ fontSize: 13, padding: '11px 20px', background: 'rgba(255,255,255,0.6)' }}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      {pdf.label}
+                    </a>
+                  ))}
+                </div>
+
+                <p
+                  className="font-inter font-[300] text-vbam-atlantic/75"
+                  style={{ fontSize: 14, lineHeight: 1.6 }}
+                >
+                  {pdfFallback.emailLine}{' '}
+                  <a
+                    href={pdfMailto}
+                    className="font-archivo font-[700] text-vbam-coral hover:text-vbam-inlet transition-colors"
+                    style={{ letterSpacing: '0.01em' }}
+                  >
+                    {pdfFallback.emailTo}
+                  </a>
+                  .
+                </p>
+              </div>
+            </ScrollReveal>
+          )}
 
         </div>
       </section>

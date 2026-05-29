@@ -305,6 +305,27 @@ collections:
                   - { label: Body, name: body, widget: text }
                   - { label: Phone display, name: phone, widget: string }
                   - { label: Phone href (tel:XXXXXXXXXX), name: phoneHref, widget: string }
+              - label: PDF Fallback (Plan B — paper forms emailed to careteam@)
+                name: pdfFallback
+                widget: object
+                fields:
+                  - { label: Eyebrow, name: eyebrow, widget: string }
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Intro (explains the paper alternative), name: intro, widget: text }
+                  - { label: Requirements label (e.g. "To register this way, you must be:"), name: requirementsLabel, widget: string }
+                  - label: Eligibility requirements (checklist shown above PDFs)
+                    name: requirements
+                    widget: list
+                    field: { label: Requirement, name: item, widget: string }
+                  - label: PDF downloads
+                    name: pdfs
+                    widget: list
+                    fields:
+                      - { label: Button label, name: label, widget: string }
+                      - { label: "PDF file path (e.g. /forms/new-patient-registration.pdf)", name: href, widget: string }
+                  - { label: "Email line lead-in (e.g. \"Email both completed forms to\")", name: emailLine, widget: string }
+                  - { label: Email recipient, name: emailTo, widget: string }
+                  - { label: Email subject (pre-fills in patient's mail client), name: emailSubject, widget: string }
 
       # ── Contact Page ──────────────────────────────────────────────
       - name: contact

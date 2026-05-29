@@ -121,6 +121,24 @@
       "body": "Our online registration is being finalized. To get started today, please call our office at (772) 569-3212 and we'll send you the new patient paperwork.",
       "phone": "(772) 569-3212",
       "phoneHref": "tel:7725693212"
+    },
+    "pdfFallback": {
+      "eyebrow": "Prefer paper?",
+      "heading": "Technology isn't always easy.",
+      "intro": "If you'd rather skip the online form, you can complete these by hand and email them back to our care team. Please confirm you meet all three requirements below before sending.",
+      "requirementsLabel": "To register this way, you must be:",
+      "requirements": [
+        "18 years or older",
+        "Covered by an insurance plan we accept (see our list above)",
+        "A family member of a current Vero Beach Pediatrics patient"
+      ],
+      "pdfs": [
+        { "label": "New Patient Form", "href": "/forms/vbam-new-patient-form.pdf" },
+        { "label": "Consents", "href": "/forms/vbam-consents.pdf" }
+      ],
+      "emailLine": "Email both completed forms to",
+      "emailTo": "careteam@verobeachadultmedicine.com",
+      "emailSubject": "New Patient Registration — Paper Submission"
     }
   }
 }
