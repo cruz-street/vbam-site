@@ -76,7 +76,6 @@ export default function HomePage() {
       <JsonLd data={homeJsonLd} />
       <HeroSection />
       <TrustBar />
-      <FacebookUpdates />
       <PositioningSection />
       <DoctorsSection />
       <PhilosophySection />
@@ -87,6 +86,7 @@ export default function HomePage() {
       <FlowSection />
       <VideosSection />
       <SocialFeedSection />
+      <FacebookUpdates />
       <CtaStrip />
     </main>
   );
