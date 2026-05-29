@@ -46,8 +46,8 @@ export default function ContactPage() {
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
 
-          {/* Contact info */}
-          <ScrollReveal animation="left">
+          {/* Contact info — on mobile this drops below the Klara CTA so texting leads */}
+          <ScrollReveal animation="left" as="div" className="order-2 md:order-1">
             <div>
               <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
                 {CONTACT_INFO.eyebrow}
@@ -96,9 +96,17 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          {/* Klara CTA */}
-          <ScrollReveal animation="left" delay={100}>
+          {/* Klara CTA — on mobile this floats above the contact info so texting is the lead action */}
+          <ScrollReveal animation="left" delay={100} as="div" className="order-1 md:order-2">
             <div className="bg-vbam-sand rounded-xl" style={{ padding: 'clamp(28px, 4vw, 44px) clamp(20px, 3vw, 40px)' }}>
+              {CONTACT_KLARA.eyebrow && (
+                <p
+                  className="font-archivo font-[700] text-vbam-coral"
+                  style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 12 }}
+                >
+                  {CONTACT_KLARA.eyebrow}
+                </p>
+              )}
               <h3 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 26, lineHeight: 1.15, letterSpacing: '-0.012em', marginBottom: 10 }}>
                 {CONTACT_KLARA.heading}
               </h3>
