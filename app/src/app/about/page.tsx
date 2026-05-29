@@ -15,13 +15,14 @@ export const metadata: Metadata = {
 function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
   return (
     <div
-      className="relative overflow-hidden mx-auto"
+      className="relative overflow-hidden rounded-full mx-auto"
       style={{
-        width: '100%', maxWidth: 360,
-        aspectRatio: '5 / 7',
-        borderRadius: '50%',
+        width: 'clamp(240px, 45vw, 420px)',
+        height: 'clamp(240px, 45vw, 420px)',
         background: 'transparent',
         flexShrink: 0,
+        boxShadow: '0 24px 64px -28px rgba(10,61,74,.3)',
+        border: '1px solid rgba(10,61,74,.07)',
       }}
     >
       {src ? (
@@ -30,7 +31,7 @@ function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
           src={src}
           alt={alt ?? ''}
           className="absolute inset-0 w-full h-full"
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 18%' }}
         />
       ) : (
         <div aria-hidden="true" className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, #FBCF9A 0%, #F7D8B4 30%, rgba(245,241,232,.5) 65%, #E8DCC8 100%)', opacity: 0.55 }} />
