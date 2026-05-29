@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: "%s | Vero Beach Adult Medicine",
   },
   description:
-    "A boutique adult primary care practice in Vero Beach, FL. Accepting new patients. Sibling practice of Vero Beach Pediatrics.",
+    "Patient-oriented adult primary care in Vero Beach, FL — modern tools, attentive care, a familiar team. Now welcoming new patients. Sibling of Vero Beach Pediatrics.",
   metadataBase: new URL("https://verobeachadultmedicine.com"),
   openGraph: {
     siteName: "Vero Beach Adult Medicine",
