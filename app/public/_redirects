@@ -3,5 +3,9 @@
 # SEO gate (Phase 5): map every existing verobeachadultmedicine.com URL before DNS cutover.
 # Existing site has regional landing pages — audit traffic, then add redirects here.
 
+# Short, memorable URLs for phone tree, business cards, and verbal reference.
+# Canonical pages stay where they are; these are 301 aliases.
+/register   /for-patients/new-patient-registration/   301
+
 # Placeholder: old home → new home (remove when DNS is live)
 # /index.html  /  301
