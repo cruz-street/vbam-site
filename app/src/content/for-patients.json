@@ -137,10 +137,9 @@
         "href": "/for-patients/#insurance"
       },
       "pdfs": [
-        { "label": "New Patient Form", "href": "/forms/vbam-new-patient-form.pdf" },
-        { "label": "Consents", "href": "/forms/vbam-consents.pdf" }
+        { "label": "New Patient Form", "href": "/forms/vbam-new-patient-form.pdf" }
       ],
-      "emailLine": "Email both completed forms to",
+      "emailLine": "Email the completed form to",
       "emailTo": "careteam@verobeachadultmedicine.com",
       "emailSubject": "New Patient Registration — Paper Submission"
     }
