@@ -54,7 +54,7 @@ export default function CtaStrip() {
         <ScrollReveal delay={180}>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
-              href="/contact/"
+              href="/for-patients/new-patient-registration/"
               className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
               style={{ fontSize: 14, padding: '14px 28px' }}
             >
