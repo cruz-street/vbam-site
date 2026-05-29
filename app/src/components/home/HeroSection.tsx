@@ -210,14 +210,14 @@ export default function HeroSection() {
         {/* CTAs */}
         <div id="hero-ctas" ref={ctasRef} className="flex gap-3 justify-center flex-wrap" style={{ marginTop: 36 }}>
           <Link
-            href="/contact/"
+            href="/for-patients/new-patient-registration/"
             className="hero-btn btn-primary font-archivo text-[14px] font-[600] px-6 py-3.5 rounded-full transition-colors inline-flex items-center gap-2"
             style={{ opacity: 0 }}
           >
             {HERO.cta1} →
           </Link>
           <Link
-            href="/about/"
+            href="/contact/"
             className="hero-btn font-archivo text-[14px] font-[600] text-vbam-atlantic px-6 py-3.5 rounded-full border border-vbam-atlantic/20 hover:border-vbam-atlantic/50 transition-colors"
             style={{ opacity: 0, backdropFilter: 'blur(6px)', background: 'rgba(245,241,232,.6)' }}
           >

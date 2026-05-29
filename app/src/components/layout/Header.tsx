@@ -37,10 +37,10 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/contact/"
+            href="/for-patients/new-patient-registration/"
             className="btn-primary font-archivo text-[13px] font-[600] px-5 py-2.5 rounded-full transition-colors"
           >
-            Book an Appointment
+            Start Registration →
           </Link>
         </nav>
 
@@ -118,9 +118,9 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="px-5 sm:px-8 py-5">
+          <div className="px-5 sm:px-8 py-5 space-y-3">
             <Link
-              href="/contact/"
+              href="/for-patients/new-patient-registration/"
               onClick={() => setMenuOpen(false)}
               className="font-archivo font-[600] text-center block rounded-full"
               style={{
@@ -131,7 +131,19 @@ export default function Header() {
                 letterSpacing: '0.01em',
               }}
             >
-              Book an Appointment →
+              Start Registration →
+            </Link>
+            <Link
+              href="/contact/"
+              onClick={() => setMenuOpen(false)}
+              className="font-archivo font-[600] text-center block rounded-full border border-vbam-atlantic/30 text-vbam-atlantic"
+              style={{
+                fontSize: 13,
+                padding: '12px 28px',
+                letterSpacing: '0.01em',
+              }}
+            >
+              Book an Appointment
             </Link>
           </div>
         </div>
