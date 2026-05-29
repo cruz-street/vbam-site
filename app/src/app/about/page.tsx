@@ -86,11 +86,21 @@ export default function AboutPage() {
                 <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 20 }}>
                   {DR_STEWART.bio1}
                 </p>
-                <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 28 }}>
+                <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 22 }}>
                   {DR_STEWART.bio2}
                 </p>
               </ScrollReveal>
-              <ScrollReveal animation="left" delay={180}>
+              {DR_STEWART.closer && (
+                <ScrollReveal animation="left" delay={170}>
+                  <p
+                    className="font-cormorant italic text-vbam-sea-glass"
+                    style={{ fontSize: 19, lineHeight: 1.45, marginBottom: 24 }}
+                  >
+                    {DR_STEWART.closer}
+                  </p>
+                </ScrollReveal>
+              )}
+              <ScrollReveal animation="left" delay={200}>
                 <Link href="/contact/" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 13, padding: '12px 24px' }}>
                   {DR_STEWART.cta}
                 </Link>
