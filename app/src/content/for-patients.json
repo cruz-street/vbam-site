@@ -47,7 +47,7 @@
     "eyebrow": "Insurance",
     "heading": "Most plans",
     "headingItalic": "accepted.",
-    "note": "Call our office to verify your specific plan before your first visit — we're happy to help.",
+    "note": "Don't see your plan? Call (772) 569-3212 and we'll verify your coverage.",
     "groups": [
       {
         "label": "National Carriers",
@@ -107,8 +107,8 @@
   },
   "newPatientRegistration": {
     "buttonLabel": "Start New Patient Registration",
-    "formUrl": "",
-    "formId": "",
+    "formUrl": "https://form.jotform.com/261475755824063",
+    "formId": "261475755824063",
     "hero": {
       "eyebrow": "New Patient Registration",
       "heading": "Get started in",
