@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import SunSeaMark from '@/components/shared/SunSeaMark';
+import AccessibilityMenu from '@/components/shared/AccessibilityMenu';
 
 const NAV_LINKS = [
   { href: '/about/',        label: 'About'        },
@@ -42,11 +43,16 @@ export default function Header() {
           >
             Start Registration →
           </Link>
+          <AccessibilityMenu />
         </nav>
 
-        {/* Hamburger — mobile only, animates to × */}
-        <button
-          className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] shrink-0"
+        {/* Mobile-only accessibility menu — sits next to hamburger */}
+        <div className="md:hidden flex items-center gap-1 shrink-0">
+          <AccessibilityMenu />
+
+          {/* Hamburger — animates to × */}
+          <button
+            className="flex flex-col justify-center items-center w-9 h-9 gap-[5px]"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
@@ -75,7 +81,8 @@ export default function Header() {
               transform: menuOpen ? 'translateY(-6.5px) rotate(-45deg)' : 'none',
             }}
           />
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Mobile dropdown — always in DOM, slide + fade via max-height + opacity */}

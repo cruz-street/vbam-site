@@ -72,3 +72,44 @@
 .sr-left  { opacity: 0; transform: translateX(-24px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .sr-scale { opacity: 0; transform: scale(0.93);       transition: opacity 0.7s ease, transform 0.7s ease; }
 .sr-in    { opacity: 1; transform: none; }
+
+/* ─── Accessibility toggles ──────────────────────────────────────────────────
+   Applied to <html> by the AccessibilityMenu component. Persist in localStorage.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Larger text — bump root font 12.5% (effective ~18px from 16px). */
+.a11y-large-text { font-size: 112.5%; }
+
+/* High contrast — push the anchor + bg tokens to true black/white. Most body
+   text uses opacity-modified atlantic via Tailwind /60 /75 /82 — bump those
+   back to full opacity for legibility. Keep brand accents (coral, sunrise)
+   so the page still feels itself, just with maximum text contrast. */
+.a11y-high-contrast {
+  --color-vbam-atlantic: #000000;
+  --color-vbam-foam: #FFFFFF;
+  --color-vbam-sand: #F5F1E8;
+}
+.a11y-high-contrast body { background-color: #FFFFFF; color: #000000; }
+.a11y-high-contrast [class*="text-vbam-atlantic/"],
+.a11y-high-contrast [class*="text-vbam-atlantic\\["] { color: #000000 !important; opacity: 1; }
+.a11y-high-contrast .text-grad-sunrise {
+  background: none;
+  -webkit-text-fill-color: #000000;
+  color: #000000;
+}
+
+/* Reduce motion — kill animations, transitions, parallax, anime.js loops. */
+.a11y-reduce-motion *,
+.a11y-reduce-motion *::before,
+.a11y-reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+.a11y-reduce-motion .sr-rise,
+.a11y-reduce-motion .sr-left,
+.a11y-reduce-motion .sr-scale {
+  opacity: 1 !important;
+  transform: none !important;
+}
