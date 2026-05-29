@@ -124,6 +124,16 @@ collections:
               - { label: Primary button, name: cta1, widget: string }
               - { label: Secondary button, name: cta2, widget: string }
 
+          - label: Facebook Updates band (under hero, for closures/holiday hours)
+            name: facebookUpdates
+            widget: object
+            fields:
+              - { label: "Facebook page URL (clear this field to hide the section)", name: pageUrl, widget: string, required: false }
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Heading — italic part, name: headingItalic, widget: string }
+              - { label: Body copy (explains what's shown), name: body, widget: text }
+
       # ── Doctors ───────────────────────────────────────────────────
       - name: doctors
         label: Our Doctors

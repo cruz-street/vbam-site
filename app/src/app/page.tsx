@@ -13,6 +13,7 @@ import JsonLd from '@/components/shared/JsonLd';
 import ReviewsSection from '@/components/home/ReviewsSection';
 import VideosSection from '@/components/home/VideosSection';
 import SocialFeedSection from '@/components/home/SocialFeedSection';
+import FacebookUpdates from '@/components/home/FacebookUpdates';
 import { REVIEWS } from '@/content/reviews';
 
 export const metadata: Metadata = {
@@ -75,6 +76,7 @@ export default function HomePage() {
       <JsonLd data={homeJsonLd} />
       <HeroSection />
       <TrustBar />
+      <FacebookUpdates />
       <PositioningSection />
       <DoctorsSection />
       <PhilosophySection />

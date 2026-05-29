@@ -94,6 +94,13 @@
     "headingItalic": "for adults.",
     "subhead": "Primary care that pays attention to the whole of your health — not just the reason you came in today."
   },
+  "facebookUpdates": {
+    "pageUrl": "https://www.facebook.com/verobeachadultmedicine",
+    "eyebrow": "Latest update",
+    "heading": "Closures and quick updates,",
+    "headingItalic": "straight from our Facebook.",
+    "body": "Holiday hours, weather closures, and short notes from the practice — posted to our Facebook page and shown here as they happen. Clear this URL in the CMS to hide the section."
+  },
   "ctaStrip": {
     "proof": "★★★★★  Rated 5.0 across 361 Google reviews at our sister practice, Vero Beach Pediatrics.",
     "headingLine1": "Now welcoming",

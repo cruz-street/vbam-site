@@ -14,3 +14,4 @@ export const REVIEWS_SECTION = data.reviewsSection;
 export const VIDEOS_SECTION = data.videosSection;
 export const SOCIAL_SECTION = data.socialSection;
 export const CTA_STRIP = data.ctaStrip;
+export const FACEBOOK_UPDATES = data.facebookUpdates;
