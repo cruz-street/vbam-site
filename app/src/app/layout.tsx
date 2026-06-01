@@ -59,6 +59,27 @@ export default function RootLayout({
       className={`${fraunces.variable} ${cormorant.variable} ${archivo.variable} ${inter.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        {/* Google Tag Manager — base container (GTM-WRKLM7XK).
+            Individual tags (GA4, Meta/IG Pixel, AdRoll) are configured inside GTM,
+            not here. Keep marketing pixels page-scoped away from patient-data /
+            registration pages to avoid PHI capture (HIPAA). */}
+        <Script id="gtm-base" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WRKLM7XK');`}
+        </Script>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WRKLM7XK"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <Header />
         {children}
         <Footer />
