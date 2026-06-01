@@ -6,6 +6,7 @@ import { HERO } from '@/content/home';
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const markRef   = useRef<HTMLImageElement>(null);
+  const badgeRef  = useRef<HTMLDivElement>(null);
   const veroRef   = useRef<HTMLSpanElement>(null);
   const adultRef  = useRef<HTMLSpanElement>(null);
   const tagRef    = useRef<HTMLParagraphElement>(null);
@@ -43,6 +44,7 @@ export default function HeroSection() {
       const tl = createTimeline({ defaults: { ease: 'outExpo' } });
 
       tl.add(markRef.current!,  { scale: [0.5, 1], opacity: [0, 1], duration: 900 }, 0)
+        .add(badgeRef.current!, { translateY: ['12px', '0px'], opacity: [0, 1], duration: 700 }, 250)
         .add(veroRef.current!,  { translateY: ['-48px', '0px'], opacity: [0, 1], duration: 850 }, 300)
         .add(adultRef.current!, { translateY: ['36px', '0px'],  opacity: [0, 1], duration: 850 }, 480)
         .add(tagRef.current!,   { translateY: ['16px', '0px'],  opacity: [0, 1], duration: 700 }, 800)
@@ -148,6 +150,24 @@ export default function HeroSection() {
           aria-hidden="true"
           style={{ width: 'clamp(180px, 26vw, 300px)', height: 'auto', display: 'block', margin: '0 auto 30px', opacity: 0 }}
         />
+
+        {/* Opening announcement badge */}
+        <div ref={badgeRef} className="flex justify-center" style={{ opacity: 0, marginBottom: 22 }}>
+          <span
+            className="font-archivo font-[700] text-vbam-coral inline-flex items-center gap-2 rounded-full border border-vbam-coral/30"
+            style={{
+              fontSize: 11,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              padding: '7px 16px',
+              backdropFilter: 'blur(6px)',
+              background: 'rgba(245,241,232,.55)',
+            }}
+          >
+            <span aria-hidden="true" className="w-[5px] h-[5px] rounded-full bg-vbam-coral flex-shrink-0" />
+            {HERO.openingBadge}
+          </span>
+        </div>
 
         {/* Wordmark */}
         <h1

@@ -31,7 +31,7 @@ Newest entry first.
 
 **Why the embed was dropped:** Featurable's loader `<script>` URL is not publicly documented and wasn't discoverable (every guessed path 404'd; their own site bundles it), and the widget enforces a **client-side domain allowlist**. Rendering the data ourselves removes both problems, drops a third-party runtime script (better mobile PageSpeed), and gives full `vbam-` brand control. The Featurable **API** itself returns the full payload server-side with no key or domain gate, so it's an ideal build-time source.
 
-**Honest attribution:** Each card is tagged "Vero Beach Pediatrics · Google" and the section says these are the sister practice's reviews — not VBAM's own (VBAM opens Sept 1 with none yet).
+**Honest attribution:** Each card is tagged "Vero Beach Pediatrics · Google" and the section says these are the sister practice's reviews — not VBAM's own (VBAM opens Sept 2 with none yet).
 
 **Trade-offs / flags:** Reviews refresh per deploy, not live (acceptable — a 5.0/361 profile is stable; a scheduled rebuild can be added later). Featurable's `/api/v1/widgets/{id}` is undocumented and could change; the Google Places fallback + committed snapshot keep the section resilient. Widget ID defaults in-script but is overridable via `FEATURABLE_WIDGET_ID`. The carousel uses native CSS scroll-snap — no new dependency.
 
@@ -39,7 +39,7 @@ Newest entry first.
 
 ## 2026-05-19 — Reviews section: Featurable embed pulling Vero Beach Pediatrics' Google reviews
 
-**Decision:** Populate the home "What patients say" section with a third-party **Featurable** widget that auto-pulls Google reviews for **Vero Beach Pediatrics** (the sister practice), rather than VBAM's own (VBAM has no reviews yet — opens Sept 1). Gated behind `reviewsSection.featurableWidgetId` in `home.json`; empty string falls back to the manual grid / "just getting started" empty state.
+**Decision:** Populate the home "What patients say" section with a third-party **Featurable** widget that auto-pulls Google reviews for **Vero Beach Pediatrics** (the sister practice), rather than VBAM's own (VBAM has no reviews yet — opens Sept 2). Gated behind `reviewsSection.featurableWidgetId` in `home.json`; empty string falls back to the manual grid / "just getting started" empty state.
 
 **Why:** VBP runs the "Widget for Google Reviews" (Richplugins) WordPress plugin — not portable to VBAM's static Next.js export. Featurable is a free, script-embed equivalent that works on static sites, has no 5-review cap (it caches on its own servers, unlike the raw Google Places API which returns max 5 and bars >30-day storage), and renders its own carousel. Pointing it at VBP's listing means each card is natively labeled as a Vero Beach Pediatrics review — honest attribution is built in.
 

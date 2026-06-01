@@ -143,12 +143,14 @@
     "body2": "We practice medicine the way it was meant to work — with continuity. A practice where the staff knows your name, your physician knows you, and your story follows you between visits — not just when something goes wrong."
   },
   "hero": {
+    "openingBadge": "Opening September 2, 2026",
     "tagline": "Sunrise to shoreline care.",
     "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with a familiar team who knows your name. Quiet, modern tools keep your visit about your health, not paperwork. Most insurance accepted.",
     "cta1": "Start Registration",
     "cta2": "Book an Appointment"
   },
   "trustBar": [
+    "Opening September 2, 2026",
     "Now welcoming new patients",
     "A practice that knows your name",
     "Mobile check-in · Text our staff",
