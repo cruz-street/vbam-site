@@ -368,6 +368,7 @@ collections:
                   - { label: City/State/Zip, name: city, widget: string }
               - { label: "Phone (formatted, e.g. (772) 569-3212)", name: phone, widget: string }
               - { label: "Phone (digits only for tel: link)", name: phoneTel, widget: string }
+              - { label: "Fax (formatted, e.g. (772) 569-1435)", name: fax, widget: string, required: false }
               - label: Office Hours
                 name: hours
                 widget: list

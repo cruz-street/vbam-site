@@ -78,6 +78,13 @@ export default function ContactPage() {
                 </div>
 
                 <div>
+                  <p className="font-archivo font-[700] text-vbam-atlantic/50 mb-2" style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' }}>Fax</p>
+                  <p className="font-inter font-[400] text-vbam-atlantic" style={{ fontSize: 20, letterSpacing: '0.01em' }}>
+                    {PRACTICE_INFO.fax}
+                  </p>
+                </div>
+
+                <div>
                   <p className="font-archivo font-[700] text-vbam-atlantic/50 mb-2" style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' }}>Hours</p>
                   <ul className="font-inter font-[300] text-vbam-atlantic/[.82] space-y-1" style={{ fontSize: 15 }}>
                     {PRACTICE_INFO.hours.map(h => <li key={h}>{h}</li>)}
