@@ -32,6 +32,12 @@ const contactJsonLd = {
 };
 
 export default function ContactPage() {
+  const mapQuery = encodeURIComponent(
+    `${PRACTICE_INFO.address.building}, ${PRACTICE_INFO.address.street}, ${PRACTICE_INFO.address.city}`
+  );
+  const mapEmbedSrc = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+  const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
+
   return (
     <main>
       <JsonLd data={contactJsonLd} />
@@ -141,6 +147,32 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
+        </div>
+      </section>
+
+      {/* ── Map ─── */}
+      <section className="bg-vbam-foam" style={{ padding: '0 0 clamp(48px, 8vw, 104px)' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
+          <ScrollReveal animation="rise" as="div">
+            <div className="rounded-xl overflow-hidden border border-vbam-atlantic/[.08]">
+              <iframe
+                title="Map of Vero Beach Adult Medicine at Citrus Medical Plaza, 955 37th Place, Vero Beach, FL"
+                src={mapEmbedSrc}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ border: 0, width: '100%', height: 'clamp(280px, 42vw, 440px)', display: 'block' }}
+              />
+            </div>
+            <a
+              href={directionsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center font-archivo font-[600] text-vbam-inlet hover:text-vbam-atlantic transition-colors"
+              style={{ fontSize: 14, marginTop: 16, letterSpacing: '0.01em' }}
+            >
+              Get Directions →
+            </a>
+          </ScrollReveal>
         </div>
       </section>
 
