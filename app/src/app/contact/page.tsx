@@ -154,6 +154,16 @@ export default function ContactPage() {
       <section className="bg-vbam-foam" style={{ padding: '0 0 clamp(48px, 8vw, 104px)' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
           <ScrollReveal animation="rise" as="div">
+            <div style={{ marginBottom: 18 }}>
+              <p className="font-inter font-[400] text-vbam-atlantic" style={{ fontSize: 16, lineHeight: 1.6 }}>
+                {PRACTICE_INFO.address.building} · {PRACTICE_INFO.address.street}, {PRACTICE_INFO.address.city}
+              </p>
+              {PRACTICE_INFO.mapNote && (
+                <p className="font-cormorant italic text-vbam-sea-glass" style={{ fontSize: 17, lineHeight: 1.4, marginTop: 2 }}>
+                  {PRACTICE_INFO.mapNote}
+                </p>
+              )}
+            </div>
             <div className="rounded-xl overflow-hidden border border-vbam-atlantic/[.08]">
               <iframe
                 title="Map of Vero Beach Adult Medicine at Citrus Medical Plaza, 955 37th Place, Vero Beach, FL"
