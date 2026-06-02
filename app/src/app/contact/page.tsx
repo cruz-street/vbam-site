@@ -159,9 +159,12 @@ export default function ContactPage() {
                 {PRACTICE_INFO.address.building} · {PRACTICE_INFO.address.street}, {PRACTICE_INFO.address.city}
               </p>
               {PRACTICE_INFO.mapNote && (
-                <p className="font-cormorant italic text-vbam-sea-glass" style={{ fontSize: 17, lineHeight: 1.4, marginTop: 2 }}>
+                <span
+                  className="inline-flex items-center font-archivo font-[600] text-vbam-foam bg-vbam-coral rounded-full"
+                  style={{ fontSize: 13.5, letterSpacing: '0.04em', textTransform: 'uppercase', padding: '8px 16px', marginTop: 12 }}
+                >
                   {PRACTICE_INFO.mapNote}
-                </p>
+                </span>
               )}
             </div>
             <div className="rounded-xl overflow-hidden border border-vbam-atlantic/[.08]">
