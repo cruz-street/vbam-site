@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: '/about/',        label: 'About'        },
   { href: '/services/',     label: 'Services'     },
   { href: '/for-patients/', label: 'For Patients' },
+  { href: '/contact/',      label: 'Contact'      },
 ];
 
 export default function Header() {
@@ -139,18 +140,6 @@ export default function Header() {
               }}
             >
               Start Registration →
-            </Link>
-            <Link
-              href="/contact/"
-              onClick={() => setMenuOpen(false)}
-              className="font-archivo font-[600] text-center block rounded-full border border-vbam-atlantic/30 text-vbam-atlantic"
-              style={{
-                fontSize: 13,
-                padding: '12px 28px',
-                letterSpacing: '0.01em',
-              }}
-            >
-              Book an Appointment
             </Link>
           </div>
         </div>
