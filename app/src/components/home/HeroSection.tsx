@@ -118,12 +118,6 @@ export default function HeroSection() {
           }}
         />
       </div>
-      {/* Separator line */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 pointer-events-none h-px"
-        style={{ top: '63%', background: 'linear-gradient(90deg, transparent, rgba(10,61,74,.13) 25%, rgba(10,61,74,.13) 75%, transparent)' }}
-      />
 
       {/* Halo disc — breathes out of phase from wash */}
       <div
@@ -217,6 +211,14 @@ export default function HeroSection() {
         >
           {HERO.tagline}
         </p>
+
+        {/* Shoreline — full-width horizon line; sits in the gap below the tagline
+            so it never crosses the text, regardless of content above it. */}
+        <div
+          aria-hidden="true"
+          className="relative left-1/2 -translate-x-1/2 w-screen h-px pointer-events-none"
+          style={{ marginTop: 26, background: 'linear-gradient(90deg, transparent, rgba(10,61,74,.13) 25%, rgba(10,61,74,.13) 75%, transparent)' }}
+        />
 
         {/* Lede */}
         <p
