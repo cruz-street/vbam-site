@@ -32,11 +32,14 @@ const contactJsonLd = {
 };
 
 export default function ContactPage() {
-  const mapQuery = encodeURIComponent(
-    `${PRACTICE_INFO.address.building}, ${PRACTICE_INFO.address.street}, ${PRACTICE_INFO.address.city}`
-  );
-  const mapEmbedSrc = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
-  const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
+  // Prefer exact coordinates so the pin + directions land on the physical unit
+  // rather than snapping to a nearby indexed business (e.g. the former LabCorp).
+  // Falls back to the address if coords are ever cleared in the CMS.
+  const mapDestination =
+    PRACTICE_INFO.coords ||
+    encodeURIComponent(`${PRACTICE_INFO.address.building}, ${PRACTICE_INFO.address.street}, ${PRACTICE_INFO.address.city}`);
+  const mapEmbedSrc = `https://www.google.com/maps?q=${mapDestination}&output=embed`;
+  const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${mapDestination}`;
 
   return (
     <main>

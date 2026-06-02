@@ -370,6 +370,7 @@ collections:
               - { label: "Phone (digits only for tel: link)", name: phoneTel, widget: string }
               - { label: "Fax (formatted, e.g. (772) 569-1435)", name: fax, widget: string, required: false }
               - { label: "Map note (temporary wayfinding, e.g. Formerly LabCorp — clear when Google listing is verified)", name: mapNote, widget: string, required: false }
+              - { label: "Map coordinates (lat,lng — exact pin for map + directions; leave as-is unless the location moves)", name: coords, widget: string, required: false }
               - label: Office Hours
                 name: hours
                 widget: list
