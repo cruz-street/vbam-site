@@ -41,13 +41,14 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_PROD }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_PROD }}
 
-      # STAGING — push to `staging` deploys to vbam-dev (Jesse's CF tenant,
-      # production_branch=staging) which serves vbam-dev.pages.dev and
-      # dev.verobeachadultmedicine.com. The old vbam-site project on Ashwin's
-      # account is abandoned in place — do not deploy to it.
-      - name: Deploy to staging (dev.verobeachadultmedicine.com)
+      # STAGING — push to `staging` deploys to verobeachadultmedicine (Jesse's
+      # CF tenant, production_branch=staging) which serves
+      # verobeachadultmedicine.pages.dev. Dev-URL convention: <site-name>.pages.dev.
+      # The old vbam-site project on Ashwin's account is abandoned in place —
+      # do not deploy to it.
+      - name: Deploy to staging (verobeachadultmedicine.pages.dev)
         if: github.ref == 'refs/heads/staging'
-        run: npx wrangler@latest pages deploy app/out --project-name=vbam-dev --branch=staging
+        run: npx wrangler@latest pages deploy app/out --project-name=verobeachadultmedicine --branch=staging
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: 037aff9f2c67ac6312058b641540ebd5
