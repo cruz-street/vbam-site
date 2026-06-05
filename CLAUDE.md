@@ -74,15 +74,13 @@ Nothing identifying the internal development toolchain may be committed to this 
 in any file, comment, or commit message.
 
 ### 15. Git Identity Rule (Non-Negotiable)
-All work on this project must be committed under the `ashwin@cruzstreet.com` identity,
-not the `ashwin_eviocld` / iCD account or any personal Gmail. Local repo config
-(`.git/config`) must be set to:
-- `user.name = Ashwin Chandran`
-- `user.email = ashwin@cruzstreet.com`
+All work on this project must be committed under a `cruzstreet.com` identity
+(`jesse@cruzstreet.com` or `ashwin@cruzstreet.com`) — not the `ashwin_eviocld` /
+iCD account or any personal Gmail.
 
-Before pushing, confirm `git config --local user.email` returns the cruzstreet
-address. Push credentials (keychain PAT) must also map to a GitHub account with
-write access to `cruz-street/vbam-site` — the iCD account does not.
+Before pushing, confirm `git config user.email` returns a cruzstreet address.
+Push credentials must also map to a GitHub account with write access to
+`cruz-street/vbam-site` — the iCD account does not.
 
 ### 16. Sync-Before-Work Rule (Non-Negotiable)
 Before starting any change in this repo — whether a one-line tweak or a multi-file
@@ -121,8 +119,9 @@ else that affects the built/deployed site — Claude must follow this flow:
 1. **Push to `staging` first.** Never push application changes directly to `main`.
    Commit on `staging` (or merge a feature branch into `staging`).
 2. **After the push, wait for the GH Actions deploy to finish**, then print the
-   staging URL in the terminal: `https://vbam-site.pages.dev`. Include the run
-   number/link from `gh run list` so the user can inspect logs if needed.
+   staging URL in the terminal: `https://dev.verobeachadultmedicine.com` (also
+   served at `https://vbam-dev.pages.dev`). Include the run number/link from
+   `gh run list` so the user can inspect logs if needed.
 3. **Ask the user to review the changes on the live staging URL** before doing
    anything else. Do not assume satisfaction — wait for explicit confirmation.
 4. **Only after the user confirms satisfaction**, offer to promote to production
@@ -165,19 +164,24 @@ Two Cloudflare Pages projects deploy from this one repo on different branches.
 
 | Environment | Branch | URL | CF Account |
 |---|---|---|---|
-| **Production** | `main` | `verobeachadultmedicine.com` (+ `vbam-site-prod.pages.dev`) | Jesse's Cruz Street CF |
-| **Staging / dev** | `staging` | `vbam-site.pages.dev` | ashwin@cruzstreet.com |
+| **Production** | `main` | `verobeachadultmedicine.com` (+ `vbam-site-prod.pages.dev`) | Jesse's CF tenant |
+| **Staging / dev** | `staging` | `dev.verobeachadultmedicine.com` (+ `vbam-dev.pages.dev`) | Jesse's CF tenant |
+
+Note: the original `vbam-site` staging project (vbam-site.pages.dev) lives on
+Ashwin's CF account and is abandoned in place — never deploy to it. CMS auth runs
+through the `vbam-cms-auth` Worker on Jesse's tenant
+(`vbam-cms-auth.jesse-037.workers.dev`).
 
 ### Decap CMS
 
 `app/public/admin/config.yml` is set to commit to **`staging`**. Content edits made
-in the Decap UI at `https://vbam-site.pages.dev/admin/` (or future
+in the Decap UI at `https://dev.verobeachadultmedicine.com/admin/` (or future
 `verobeachadultmedicine.com/admin/`) land on the staging branch first, deploy to
-`vbam-site.pages.dev`, and stay there until promoted.
+staging, and stay there until promoted.
 
 ### Promotion flow (staging → prod)
 
-1. Verify the change on `vbam-site.pages.dev`
+1. Verify the change on `dev.verobeachadultmedicine.com`
 2. Merge `staging` → `main` on GitHub (PR or fast-forward)
 3. CF Pages builds `main` and the prod URL `verobeachadultmedicine.com` updates in ~2 min
 
