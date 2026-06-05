@@ -2,6 +2,14 @@
 
 ## Change Log
 
+### 2026-06-05 — staging re-homed to Jesse's CF tenant
+- New staging target: `vbam-dev` Pages project (Jesse's tenant, production_branch=staging) → https://vbam-dev.pages.dev, custom domain `dev.verobeachadultmedicine.com` attached (pending Jesse's CNAME: `dev` → `vbam-dev.pages.dev`)
+- Old `vbam-site` project (vbam-site.pages.dev, Ashwin's account) abandoned in place — never deploy to it
+- CMS auth Worker redeployed into Jesse's tenant: `vbam-cms-auth.jesse-037.workers.dev`; Decap `config.yml` base_url/logo_url updated. Pending: Worker secrets (GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, ALLOWED_DOMAINS) + OAuth app callback URL update — CMS login broken until then
+- deploy.yml staging step → vbam-dev + Jesse account ID; repo secret CLOUDFLARE_API_TOKEN rotated to Jesse's deploy token
+- Rule 15 widened: any cruzstreet.com identity (jesse@ or ashwin@)
+- On staging branch, not yet promoted to main
+
 ### 2026-05-11 16:32 — fix screens.html Direction B rendering errors
 - File: /Users/ashwinchandran/work/vbam-site/docs/screens.html
 - Rewrote hero image panel gradient from warm sky-sea (#F9C784 start) to correct cool coastal teal (`linear-gradient(160deg, #1A6B7E, #5FB3C0, #C8D8E8)`); moved orange circle accent to junction between columns (right edge of left col, `position: absolute; right: -17px`); fixed "reimagined" to use coral gradient italic (not sunrise); removed warm `foam-icon` blue tint; corrected doctor photo placeholder to cool gradient; tightened ticker separator visibility; padding/rule-coral spec-aligned.
