@@ -31,7 +31,7 @@
       },
       {
         "title": "In the room",
-        "body": "Your provider walks in already familiar with what you submitted. The time in the room is for your health, not for catching up on forms."
+        "body": "Your doctor walks in already familiar with what you submitted. The time in the room is for your health, not for catching up on forms."
       },
       {
         "title": "After your visit",
@@ -77,7 +77,7 @@
   "faqs": [
     {
       "q": "Are you accepting new patients?",
-      "a": "Yes — we are actively welcoming new patients. Book an appointment online or call us at (772) 569-3212 to get started."
+      "a": "Yes — our inaugural panel is open and intentionally limited. Book online or call us at (772) 569-3212 to claim your place."
     },
     {
       "q": "Do you accept my insurance?",
@@ -102,7 +102,7 @@
   ],
   "cta": {
     "heading": "Ready when you are.",
-    "subhead": "New patients are always welcome. Book your first visit online or give us a call.",
+    "subhead": "Our founding panel is forming now. Book your first visit online or give us a call.",
     "cta1": "Book an Appointment →"
   },
   "newPatientRegistration": {

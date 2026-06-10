@@ -132,11 +132,11 @@ export default function HomePage() {
       <PositioningSection />
       <DoctorsSection />
       <PhilosophySection />
+      <FlowSection />
       <ServicesSection />
       <VbpSection />
       <ReviewsSection />
       <PriviaSection />
-      <FlowSection />
       <VideosSection />
       <SocialFeedSection />
       <FacebookUpdates />

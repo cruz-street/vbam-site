@@ -1,6 +1,6 @@
 {
   "flowSection": {
-    "eyebrow": "07 · How a Visit Works",
+    "eyebrow": "04 · How a Visit Works",
     "headingLine1": "Built around",
     "headingItalic": "your time.",
     "body": "Modern tools, used in a personal practice. The system works quietly in the background so your visit can be about your health — not paperwork.",
@@ -17,7 +17,7 @@
         "label": "In the room",
         "headingLine1": "Your story,",
         "headingItalic": "already in hand.",
-        "body": "Your provider walks in already familiar with your story. The visit is about you — not catching up on forms."
+        "body": "Your doctor walks in already familiar with your story. The visit is about you — not catching up on forms."
       },
       {
         "number": "03",
@@ -37,7 +37,7 @@
     "footer": "Quiet efficiency. More comfort. More time with your doctor."
   },
   "priviaSection": {
-    "eyebrow": "06 · Part of Privia Medical Group",
+    "eyebrow": "07 · Part of Privia Medical Group",
     "headingLine1": "Locally owned.",
     "headingItalic": "Collectively committed.",
     "body": "Vero Beach Adult Medicine is locally owned and physician-led — one of the independent practices that together make up Privia Medical Group, a physician-led ACO and national collective of member practices. We share a simple commitment: raise the standard of primary care, and stay accountable to the patients and communities we serve.",
@@ -73,7 +73,7 @@
     "body": "Updates, patient education, and behind-the-scenes from Instagram and Facebook."
   },
   "vbpSection": {
-    "eyebrow": "05 · The VBP Connection",
+    "eyebrow": "06 · The VBP Connection",
     "headingLine1": "Same family.",
     "headingItalic": "New chapter.",
     "body": "Vero Beach Pediatrics opened in 2022 with deep local roots, started because Vero families wanted an alternative — a practice they'd recognize, with staff who know them by name. Built and maintained by the community it serves, VBP has stood for that kind of care from day one. Vero Beach Adult Medicine carries the same conviction forward for adults in 2026.",
@@ -90,7 +90,7 @@
     "footer": "Same family. Different chapter."
   },
   "servicesSection": {
-    "eyebrow": "04 · Services",
+    "eyebrow": "05 · Services",
     "headingLine1": "Everyday care,",
     "headingItalic": "for adults.",
     "subhead": "Primary care that pays attention to the whole of your health — not just the reason you came in today."
@@ -103,7 +103,7 @@
     "body": "Holiday hours, weather closures, and short notes from the practice — posted to our Facebook page and shown here as they happen. Clear this URL in the CMS to hide the section."
   },
   "ctaStrip": {
-    "proof": "★★★★★  Rated 5.0 across 361 Google reviews at our sister practice, Vero Beach Pediatrics.",
+    "proof": "★★★★★  Rated 5.0 across 364 Google reviews at our sister practice, Vero Beach Pediatrics.",
     "headingLine1": "Claim a place in the",
     "headingItalic": "founding panel.",
     "subhead": "Our inaugural panel is intentionally limited. Register online in minutes, or call to reserve your place. Most insurance accepted.",
