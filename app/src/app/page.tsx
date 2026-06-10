@@ -15,11 +15,12 @@ import VideosSection from '@/components/home/VideosSection';
 import SocialFeedSection from '@/components/home/SocialFeedSection';
 import FacebookUpdates from '@/components/home/FacebookUpdates';
 import { REVIEWS } from '@/content/reviews';
+import { PRACTICE_INFO } from '@/content/contact';
 
 export const metadata: Metadata = {
   title: 'Vero Beach Adult Medicine | Primary Care on the Treasure Coast',
   description:
-    'Patient-oriented adult primary care in Vero Beach, FL — modern tools, attentive care, a familiar team. Now welcoming new patients. Sibling of Vero Beach Pediatrics.',
+    'A personal-physician primary care practice in Vero Beach, FL — a deliberately limited panel, online registration, and secure text with your care team. Founding patients welcome. Sibling of Vero Beach Pediatrics.',
   alternates: { canonical: 'https://verobeachadultmedicine.com' },
 };
 
@@ -70,10 +71,62 @@ const homeJsonLd = {
   }),
 };
 
+// LocalBusiness (MedicalBusiness subtype) — local SEO entity built from the
+// address/contact already in the CMS. `hasMap` points at our verified sibling
+// listing, Vero Beach Pediatrics (same plaza, next door), until VBAM's own
+// Google listing is verified — mirrors the map note on the contact page.
+const mapQuery = encodeURIComponent(
+  PRACTICE_INFO.mapQuery ||
+    `${PRACTICE_INFO.address.building}, ${PRACTICE_INFO.address.street}, ${PRACTICE_INFO.address.city}`,
+);
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  '@id': 'https://verobeachadultmedicine.com/#localbusiness',
+  name: 'Vero Beach Adult Medicine',
+  url: 'https://verobeachadultmedicine.com',
+  logo: 'https://verobeachadultmedicine.com/images/vbam-mark.svg',
+  image: 'https://verobeachadultmedicine.com/images/vbam-mark.svg',
+  telephone: '+1-772-569-3212',
+  faxNumber: PRACTICE_INFO.fax,
+  priceRange: 'Accepts most insurance',
+  medicalSpecialty: 'Internal Medicine',
+  address: {
+    '@type': 'PostalAddress',
+    name: PRACTICE_INFO.address.building,
+    streetAddress: PRACTICE_INFO.address.street,
+    addressLocality: 'Vero Beach',
+    addressRegion: 'FL',
+    postalCode: '32960',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 27.6648,
+    longitude: -80.3781,
+  },
+  hasMap: `https://www.google.com/maps?q=${mapQuery}`,
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '12:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '17:00' },
+  ],
+  parentOrganization: {
+    '@type': 'MedicalOrganization',
+    name: 'Privia Medical Group',
+    url: 'https://www.priviahealth.com/',
+  },
+  sameAs: [
+    'https://www.facebook.com/verobeachadultmedicine',
+    'https://www.instagram.com/verobeachadultmedicine/',
+    'https://verobeachpediatrics.com',
+  ],
+};
+
 export default function HomePage() {
   return (
     <main>
       <JsonLd data={homeJsonLd} />
+      <JsonLd data={localBusinessJsonLd} />
       <HeroSection />
       <TrustBar />
       <PositioningSection />

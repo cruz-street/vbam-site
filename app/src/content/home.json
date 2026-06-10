@@ -49,6 +49,7 @@
     "linkHref": "https://www.priviahealth.com/",
     "footer": "Proud to be part of Privia Medical Group."
   },
+  "showReviewsSection": true,
   "reviewsSection": {
     "eyebrow": "What patients say",
     "headingLine1": "Trusted by our",
@@ -57,7 +58,7 @@
     "emptyTitle": "We're just getting started.",
     "emptyBody": "Be the first to share your experience with Vero Beach Adult Medicine.",
     "emptyCtaLabel": "Leave a Google review",
-    "emptyCtaHref": "https://www.google.com/maps"
+    "emptyCtaHref": "https://search.google.com/local/writereview?placeid=ChIJ0ZqeOPdf3ogRtYhNl_3jHS0"
   },
   "videosSection": {
     "eyebrow": "See us in action",
@@ -103,10 +104,10 @@
   },
   "ctaStrip": {
     "proof": "★★★★★  Rated 5.0 across 361 Google reviews at our sister practice, Vero Beach Pediatrics.",
-    "headingLine1": "Now welcoming",
-    "headingItalic": "new patients.",
-    "subhead": "Most insurance accepted. Start your registration online or give us a call.",
-    "cta1": "Start Registration →",
+    "headingLine1": "Claim a place in the",
+    "headingItalic": "founding panel.",
+    "subhead": "Our inaugural panel is intentionally limited. Register online in minutes, or call to reserve your place. Most insurance accepted.",
+    "cta1": "Request Your Place →",
     "cta2": "Book an Appointment"
   },
   "philosophy": {
@@ -136,24 +137,24 @@
   ],
   "positioning": {
     "eyebrow": "01 · About",
-    "headingLine1": "Adult medicine,",
-    "headingItalic": "done differently.",
-    "body1": "Vero Beach Adult Medicine was built by the same team behind Vero Beach Pediatrics — a practice with deep local roots, started because Vero Beach families wanted an alternative to how medicine has been delivered here. Not a call center on the other end of the phone. Not a different face at every visit. A practice where you know who answers, who works the front desk, and who your doctor is.",
-    "pullQuote": "A real practice. A real doctor. Every visit.",
-    "body2": "We practice medicine the way it was meant to work — with continuity. A practice where the staff knows your name, your physician knows you, and your story follows you between visits — not just when something goes wrong."
+    "headingLine1": "A personal physician,",
+    "headingItalic": "by design.",
+    "body1": "Vero Beach Adult Medicine was built by the same team behind Vero Beach Pediatrics — a practice with deep local roots, started because Vero Beach families wanted an alternative to how medicine has been delivered here. Not a call center on the other end of the phone. Not a different face at every visit. A practice deliberately kept small, where you know who answers, who works the front desk, and who your doctor is.",
+    "pullQuote": "One physician. One panel. Your whole story.",
+    "body2": "We practice medicine the way it was meant to work — a limited panel, so your physician has the time continuity requires. The staff knows your name, your doctor knows you, and your story follows you between visits — not just when something goes wrong."
   },
   "hero": {
-    "openingBadge": "Opening September 2, 2026",
-    "tagline": "Sunrise to shoreline care.",
-    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built around one idea: that good medicine is proactive, not reactive. We see adult patients for the full picture — annual well visits, preventive screenings, chronic disease management, and acute care — with a familiar team who knows your name. Quiet, modern tools keep your visit about your health, not paperwork. Most insurance accepted.",
-    "cta1": "Start Registration",
+    "openingBadge": "Opening September 2, 2026 · Limited inaugural panel",
+    "tagline": "Your own physician. Sunrise to shoreline.",
+    "lede": "Vero Beach Adult Medicine is a relationship-based primary care practice built on a deliberately limited panel — so the doctor who knows your name has the time your care deserves. You see the same physician for the full picture: annual well visits, preventive screenings, chronic disease management, and acute care. Register online in minutes and reach our staff by secure text between visits. Founding patients welcome now; most insurance accepted.",
+    "cta1": "Request Your Place",
     "cta2": "Book an Appointment"
   },
   "trustBar": [
     "Opening September 2, 2026",
-    "Now welcoming new patients",
-    "A practice that knows your name",
-    "Mobile check-in · Text our staff",
+    "Limited founding panel",
+    "One physician who knows your name",
+    "Register online · Secure text with your care team",
     "Sibling of Vero Beach Pediatrics · 5.0★ Google",
     "Most insurance accepted"
   ],

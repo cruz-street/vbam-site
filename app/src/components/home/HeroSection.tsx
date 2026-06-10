@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { HERO } from '@/content/home';
+import { DOCTORS } from '@/content/doctors';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -14,6 +15,13 @@ export default function HeroSection() {
   const ctasRef   = useRef<HTMLDivElement>(null);
   const glowRef   = useRef<HTMLDivElement>(null);
   const washRef   = useRef<HTMLDivElement>(null);
+  const portraitRef = useRef<HTMLDivElement>(null);
+
+  // Inaugural physician — surfaced above the fold. Falls back gracefully if no
+  // photo/doctor is present in the CMS.
+  const inaugural = DOCTORS[0];
+  const portraitSrc = inaugural?.photo;
+  const portraitName = inaugural ? `${inaugural.namePrefix}${inaugural.nameItalic}`.trim() : '';
 
   useEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -48,8 +56,11 @@ export default function HeroSection() {
         .add(veroRef.current!,  { translateY: ['-48px', '0px'], opacity: [0, 1], duration: 850 }, 300)
         .add(adultRef.current!, { translateY: ['36px', '0px'],  opacity: [0, 1], duration: 850 }, 480)
         .add(tagRef.current!,   { translateY: ['16px', '0px'],  opacity: [0, 1], duration: 700 }, 800)
-        .add(ledeRef.current!,  { translateY: ['14px', '0px'],  opacity: [0, 1], duration: 650 }, 1000)
-        .add(`#hero-ctas .hero-btn`, { translateY: ['12px', '0px'], opacity: [0, 1], delay: stagger(120), duration: 600 }, 1180);
+        // Inaugural physician rises into frame — staggered just after the tagline,
+        // so the face lands as the eye settles below the wordmark.
+        .add(portraitRef.current!, { translateY: ['28px', '0px'], scale: [0.94, 1], opacity: [0, 1], duration: 950 }, 880)
+        .add(ledeRef.current!,  { translateY: ['14px', '0px'],  opacity: [0, 1], duration: 650 }, 1080)
+        .add(`#hero-ctas .hero-btn`, { translateY: ['12px', '0px'], opacity: [0, 1], delay: stagger(120), duration: 600 }, 1260);
 
       // ── Wave underline draws in after "Adult Medicine" ────────
       animate(svg.createDrawable('#hero-underline'), {
@@ -91,6 +102,11 @@ export default function HeroSection() {
       // ── Logo float ────────────────────────────────────────────
       if (!reducedMotion) {
         animate(markRef.current!, { translateY: ['-7px', '7px'], duration: 3200, ease: 'inOutSine', loop: true, alternate: true, delay: 1600 });
+      }
+
+      // ── Portrait drift — softer, slower than the logo, out of phase ──
+      if (!reducedMotion && portraitRef.current) {
+        animate(portraitRef.current, { translateY: ['-4px', '4px'], duration: 4200, ease: 'inOutSine', loop: true, alternate: true, delay: 2000 });
       }
 
     });
@@ -219,6 +235,49 @@ export default function HeroSection() {
           className="relative left-1/2 -translate-x-1/2 w-screen h-px pointer-events-none"
           style={{ marginTop: 26, background: 'linear-gradient(90deg, transparent, rgba(10,61,74,.13) 25%, rgba(10,61,74,.13) 75%, transparent)' }}
         />
+
+        {/* Inaugural physician — a face above the fold. Circular framed
+            portrait with a sunrise ring, entering on the hero timeline. */}
+        {portraitSrc && (
+          <div
+            ref={portraitRef}
+            className="flex flex-col items-center"
+            style={{ marginTop: 30, opacity: 0 }}
+          >
+            <div
+              className="relative rounded-full overflow-hidden"
+              style={{
+                width: 'clamp(112px, 16vw, 156px)',
+                height: 'clamp(112px, 16vw, 156px)',
+                padding: 3,
+                background: 'var(--grad-sunrise)',
+                boxShadow: '0 22px 56px -26px rgba(10,61,74,.42)',
+              }}
+            >
+              <div className="relative w-full h-full rounded-full overflow-hidden" style={{ background: 'var(--color-vbam-foam)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={portraitSrc}
+                  alt={portraitName}
+                  className="absolute inset-0 w-full h-full"
+                  style={{ objectFit: 'cover', objectPosition: 'center 16%' }}
+                />
+              </div>
+            </div>
+            <p
+              className="font-archivo font-[700] text-vbam-coral"
+              style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: 14 }}
+            >
+              {inaugural.eyebrow}
+            </p>
+            <p
+              className="font-cormorant italic text-vbam-inlet"
+              style={{ fontSize: 18, lineHeight: 1.2, marginTop: 4 }}
+            >
+              {inaugural.namePrefix}{inaugural.nameItalic}
+            </p>
+          </div>
+        )}
 
         {/* Lede */}
         <p

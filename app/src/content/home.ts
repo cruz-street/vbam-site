@@ -11,6 +11,7 @@ export const VBP_SECTION = data.vbpSection;
 export const FLOW_SECTION = data.flowSection;
 export const PRIVIA_SECTION = data.priviaSection;
 export const REVIEWS_SECTION = data.reviewsSection;
+export const SHOW_REVIEWS_SECTION = (data as { showReviewsSection?: boolean }).showReviewsSection ?? true;
 export const VIDEOS_SECTION = data.videosSection;
 export const SOCIAL_SECTION = data.socialSection;
 export const CTA_STRIP = data.ctaStrip;

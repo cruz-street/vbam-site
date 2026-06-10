@@ -1,5 +1,5 @@
 import ScrollReveal from '@/components/shared/ScrollReveal';
-import { REVIEWS_SECTION } from '@/content/home';
+import { REVIEWS_SECTION, SHOW_REVIEWS_SECTION } from '@/content/home';
 import { REVIEWS } from '@/content/reviews';
 
 function GoogleG({ size = 14 }: { size?: number }) {
@@ -46,6 +46,10 @@ function EmptyState() {
 }
 
 export default function ReviewsSection() {
+  // CMS toggle: hide the VBP-sourced reviews block entirely until VBAM has its
+  // own reviews. Flip `showReviewsSection` to false in home.json to hide.
+  if (!SHOW_REVIEWS_SECTION) return null;
+
   const hasReviews = REVIEWS.reviews.length > 0;
   const profileUrl = REVIEWS.profileUrl ?? REVIEWS_SECTION.emptyCtaHref;
 

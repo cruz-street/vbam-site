@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { TRUST_BAR_ITEMS } from '@/content/home';
 
 const TRUST_BAR_LINKS: Record<string, string> = {
-  'Now welcoming new patients': '/for-patients/new-patient-registration/',
+  'Limited founding panel': '/for-patients/new-patient-registration/',
 };
 
 export default function TrustBar() {
