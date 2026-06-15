@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "eyebrow": "After-Hours Coverage",
+    "heading": "Virtual Care",
+    "headingItalic": "when you need it.",
+    "subhead": "When our office is closed and your care can't wait, we're still here — through Privia Virtual Clinic."
+  },
+  "intro": {
+    "eyebrow": "Privia Virtual Clinic",
+    "heading": "Still your VBAM",
+    "headingItalic": "doctor.",
+    "body1": "On Tuesday evenings and weekends, Vero Beach Adult Medicine provides on-call doctor coverage. When you call after hours, our team handles your concern in three steps: an administrative team member takes your message, an on-call nurse calls you back to assess, and if the nurse determines you need to speak with a doctor, a real VBAM physician will call — and if appropriate, see you virtually through Privia Virtual Clinic.",
+    "body2": "This isn't a referral to a stranger. It's your practice covering you when the office is closed.",
+    "costNote": "Virtual visits are billed separately and may have a co-pay. Have your insurance card handy. Call us with billing questions.",
+    "ctaLabel": "Start Your Virtual Visit",
+    "ctaHref": "https://care.myprivia.com/virtual-clinic"
+  },
+  "setup": {
+    "eyebrow": "Before You Begin",
+    "heading": "Two minutes of prep",
+    "headingItalic": "prevents a dozen of trouble.",
+    "intro": "The most common reason a virtual visit doesn't work is a camera or microphone blocked by your device. Here's how to clear it before you join.",
+    "mobile": {
+      "label": "On Your Phone",
+      "steps": [
+        "Download the Privia Health app (App Store or Google Play), or open your visit link in your mobile browser.",
+        "Sign in to your Privia account before the visit starts.",
+        "When your phone asks for camera and microphone access, tap Allow.",
+        "Use Wi-Fi if possible — video calls are more stable than cellular."
+      ],
+      "permissionNote": "Tap Allow — you'll see a prompt like this."
+    },
+    "desktop": {
+      "label": "On Your Computer",
+      "steps": [
+        "Use Chrome, Microsoft Edge, or Safari. Internet Explorer is not supported.",
+        "When your browser asks for camera and microphone access, click Allow.",
+        "If you see a camera icon with a line through it in the address bar, click it to change the permission to Allow.",
+        "Close Zoom, FaceTime, Teams, or any other app currently using your camera."
+      ],
+      "permissionNote": "Click Allow — you'll see a prompt like this."
+    }
+  },
+  "tips": {
+    "eyebrow": "Helpful Tips",
+    "heading": "Set yourself up",
+    "headingItalic": "for success.",
+    "items": [
+      {
+        "label": "Strong connection",
+        "body": "Wi-Fi is more reliable than cellular for video. If the call is choppy, move closer to your router."
+      },
+      {
+        "label": "Good lighting",
+        "body": "Face a window or a lamp so the provider can see you clearly. Avoid sitting with a bright light behind you."
+      },
+      {
+        "label": "Insurance & medications",
+        "body": "Have your insurance card and a current medication list nearby before you join."
+      },
+      {
+        "label": "Join a few minutes early",
+        "body": "Connecting early gives you time to resolve any setup issues before your visit starts."
+      },
+      {
+        "label": "Stay charged",
+        "body": "Plug in your device or confirm your battery is above 20% before the visit begins."
+      }
+    ]
+  },
+  "helpCta": {
+    "eyebrow": "Questions or Trouble?",
+    "heading": "We're a phone call",
+    "headingItalic": "away.",
+    "body": "If you run into technical difficulties or have questions before your virtual visit, call our office — we'll help you get connected.",
+    "phone": "(772) 569-3212",
+    "phoneHref": "tel:7725693212",
+    "phoneLabel": "Call Our Office"
+  }
+}

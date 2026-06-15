@@ -5,6 +5,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+- **Virtual Care page at `/virtual-care/` (2026-06-15).** New patient-facing page explaining the practice's after-hours virtual visit coverage through Privia Virtual Clinic. Positioned as on-call escalation (Tuesday evenings + weekends): admin team takes message → on-call nurse assesses → VBAM doctor calls back and may see patient virtually. Tone: "still your VBAM doctor, just different hours." Sections: hero, context + primary CTA (links to `care.myprivia.com/virtual-clinic`), Before You Begin (mobile and desktop setup steps with inline permission-prompt illustrations), Helpful Tips (5-item icon grid), and Need Help CTA with phone number. Honest cost note (billed separately, have insurance card) without alarming patients. Added to sitemap at priority 0.6.
+
 ### Changed
 - **Modern-tools story surfaced higher on Home (2026-06-10).** `FlowSection` ("How a Visit Works" — check in from your phone, story in hand, one-tap feedback, text-or-call one capability) moved from after the Privia section (position 10 of 14) to directly after Care Philosophy, before Services. Numbered eyebrows renumbered in `home.json` only: Flow 07→04, Services 04→05, VBP Connection 05→06, Privia 06→07. Capability language only — no vendor names.
 - **"Provider" purged from patient-facing copy (2026-06-10).** Home visit-flow stage 02 and For Patients visit-flow step 2: "Your provider walks in" → "Your doctor walks in" (per the physicians/doctors-never-providers rule; supersedes the 2026-05-22 softening that introduced "provider" for PA/NP headroom).
