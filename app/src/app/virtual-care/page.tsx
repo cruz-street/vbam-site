@@ -296,11 +296,20 @@ export default function VirtualCarePage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={130}>
-            <p className="font-cormorant italic text-vbam-inlet mx-auto" style={{ fontSize: 20, lineHeight: 1.5, marginBottom: 32 }}>
+            <p className="font-cormorant italic text-vbam-inlet mx-auto" style={{ fontSize: 20, lineHeight: 1.5, marginBottom: 28 }}>
               {VIRTUAL_CARE_INTRO.body2}
             </p>
           </ScrollReveal>
-          <ScrollReveal delay={160}>
+          <ScrollReveal delay={150}>
+            <a
+              href={VIRTUAL_CARE_INTRO.callHref}
+              className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors inline-flex items-center gap-2 rounded-full"
+              style={{ fontSize: 14, padding: '13px 26px', marginBottom: 28 }}
+            >
+              {VIRTUAL_CARE_INTRO.callLabel} →
+            </a>
+          </ScrollReveal>
+          <ScrollReveal delay={170}>
             <div
               className="mx-auto rounded-lg border border-vbam-atlantic/[.10] flex items-start gap-3"
               style={{ marginTop: 28, padding: '14px 18px', background: 'rgba(232,220,200,.35)', maxWidth: 520 }}
@@ -374,9 +383,41 @@ export default function VirtualCarePage() {
                       >
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <span className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 15, lineHeight: 1.6 }}>
-                        {step}
-                      </span>
+                      <div>
+                        <span className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 15, lineHeight: 1.6 }}>
+                          {step}
+                        </span>
+                        {i === 0 && (
+                          <div className="flex gap-2 flex-wrap mt-2">
+                            <a
+                              href={VIRTUAL_CARE_SETUP.mobile.appStoreUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${VIRTUAL_CARE_SETUP.mobile.appStoreLabel} — opens in new tab`}
+                              className="font-archivo font-[600] text-vbam-inlet border border-vbam-inlet/30 hover:border-vbam-inlet/60 hover:bg-vbam-inlet/[.04] transition-colors rounded-md inline-flex items-center gap-1.5"
+                              style={{ fontSize: 11, letterSpacing: '0.04em', padding: '6px 13px' }}
+                            >
+                              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                              </svg>
+                              {VIRTUAL_CARE_SETUP.mobile.appStoreLabel}
+                            </a>
+                            <a
+                              href={VIRTUAL_CARE_SETUP.mobile.googlePlayUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${VIRTUAL_CARE_SETUP.mobile.googlePlayLabel} — opens in new tab`}
+                              className="font-archivo font-[600] text-vbam-inlet border border-vbam-inlet/30 hover:border-vbam-inlet/60 hover:bg-vbam-inlet/[.04] transition-colors rounded-md inline-flex items-center gap-1.5"
+                              style={{ fontSize: 11, letterSpacing: '0.04em', padding: '6px 13px' }}
+                            >
+                              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.18 23.76c.3.17.64.22.99.14l12.45-7.19-2.71-2.71-10.73 9.76zM.54 1.18C.2 1.54 0 2.1 0 2.82v18.36c0 .72.2 1.28.54 1.64l.09.08 10.28-10.28v-.24L.63 2.1l-.09.08zM20.12 10.5l-2.94-1.7-3.03 3.03 3.03 3.03 2.96-1.71c.84-.49.84-1.17-.02-1.65zM3.18.24L15.63 7.43l-2.71 2.71L2.19.38c.3-.17.64-.22.99-.14z"/>
+                              </svg>
+                              {VIRTUAL_CARE_SETUP.mobile.googlePlayLabel}
+                            </a>
+                          </div>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ol>

@@ -13,7 +13,10 @@
     "body2": "Same practice. Same doctors. Just different hours.",
     "costNote": "Virtual visits are billed separately and may have a co-pay. Have your insurance card handy. Call us with billing questions.",
     "ctaLabel": "Start Your Virtual Visit",
-    "ctaHref": "https://care.myprivia.com/virtual-clinic"
+    "ctaHref": "https://care.myprivia.com/virtual-clinic",
+    "callLabel": "Call Our Office",
+    "callHref": "tel:7725693212",
+    "callPhone": "(772) 569-3212"
   },
   "setup": {
     "eyebrow": "Before You Begin",
@@ -22,6 +25,10 @@
     "intro": "The most common reason a virtual visit doesn't work is a camera or microphone blocked by your device. Here's how to clear it before you join.",
     "mobile": {
       "label": "On Your Phone",
+      "appStoreUrl": "https://apps.apple.com/us/app/privia-health/id1098325712",
+      "appStoreLabel": "App Store",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.priviahealth.patient",
+      "googlePlayLabel": "Google Play",
       "steps": [
         "Download the Privia Health app (App Store or Google Play), or open your visit link in your mobile browser.",
         "Sign in to your Privia account before the visit starts.",
