@@ -75,8 +75,8 @@ in any file, comment, or commit message.
 
 ### 15. Git Identity Rule (Non-Negotiable)
 All work on this project must be committed under a `cruzstreet.com` identity
-(`jesse@cruzstreet.com` or `ashwin@cruzstreet.com`) — not the `ashwin_eviocld` /
-iCD account or any personal Gmail.
+(`jesse@cruzstreet.com`, `ashwin@cruzstreet.com`, or `alex@cruzstreet.com`) — not
+personal Gmail or non-cruzstreet accounts.
 
 Before pushing, confirm `git config user.email` returns a cruzstreet address.
 Push credentials must also map to a GitHub account with write access to
