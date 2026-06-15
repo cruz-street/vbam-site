@@ -11,10 +11,10 @@
     "headingItalic": "doctor's office.",
     "body1": "When your concern can't wait, a Vero Beach Adult Medicine doctor is available to you — not a call center, not a stranger. Your on-call physician can speak with you and, if appropriate, see you virtually through Privia Virtual Clinic.",
     "body2": "Same practice. Same doctors. Just different hours.",
-    "costNote": "Virtual visits are billed separately and may have a co-pay. Have your insurance card handy. Call us with billing questions.",
+    "costNote": "Virtual visits are billed separately and may have a co-pay. Have your insurance card handy. Text or call us with billing questions.",
     "ctaLabel": "Start Your Virtual Visit",
     "ctaHref": "https://care.myprivia.com/virtual-clinic",
-    "callLabel": "Call Our Office",
+    "callLabel": "Need Help? Text or Call Us",
     "callHref": "tel:7725693212",
     "callPhone": "(772) 569-3212"
   },
@@ -24,7 +24,7 @@
     "headingItalic": "and you're all set.",
     "intro": "The most common reason a virtual visit doesn't work is a camera or microphone blocked by your device. Here's how to clear it before you join.",
     "mobile": {
-      "label": "On Your Phone",
+      "label": "A Phone",
       "appStoreUrl": "https://apps.apple.com/us/app/privia-health/id1098325712",
       "appStoreLabel": "App Store",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.priviahealth.patient",
@@ -39,7 +39,7 @@
       "permissionNote": "Tap Allow — you'll see a prompt like this."
     },
     "desktop": {
-      "label": "On Your Computer",
+      "label": "A Computer",
       "steps": [
         "Use Google Chrome if possible — it's Privia's recommended browser. Edge and Safari also work. Internet Explorer is not supported.",
         "When your browser asks for camera and microphone access, click Allow.",
@@ -56,6 +56,14 @@
     "headingItalic": "for success.",
     "items": [
       {
+        "label": "Insurance & medications",
+        "body": "Have your insurance card and a current medication list nearby before you join."
+      },
+      {
+        "label": "Stay charged",
+        "body": "Plug in your device or confirm your battery is above 20% before the visit begins."
+      },
+      {
         "label": "Strong connection",
         "body": "Privia requires at least 20 Mbps. Not sure? Test at speedtest.net before your visit. If Wi-Fi is slow, try moving closer to your router or switching to a wired connection."
       },
@@ -64,16 +72,8 @@
         "body": "Face a window or a lamp so the provider can see you clearly. Avoid sitting with a bright light behind you."
       },
       {
-        "label": "Insurance & medications",
-        "body": "Have your insurance card and a current medication list nearby before you join."
-      },
-      {
         "label": "Be ready when the call comes",
         "body": "Your doctor will call you when they're ready. Have your device open, camera and microphone allowed, and a quiet spot picked out before you expect the call."
-      },
-      {
-        "label": "Stay charged",
-        "body": "Plug in your device or confirm your battery is above 20% before the visit begins."
       },
       {
         "label": "Open a fresh window",
@@ -83,11 +83,11 @@
   },
   "helpCta": {
     "eyebrow": "Questions or Trouble?",
-    "heading": "We're a phone call",
+    "heading": "We're a message",
     "headingItalic": "away.",
-    "body": "If you run into technical difficulties or have questions before your virtual visit, call our office — we'll help you get connected.",
+    "body": "If you run into technical difficulties or have questions before your virtual visit, text or call our office — we'll help you get connected.",
     "phone": "(772) 569-3212",
     "phoneHref": "tel:7725693212",
-    "phoneLabel": "Call Our Office"
+    "phoneLabel": "Text or Call Us"
   }
 }

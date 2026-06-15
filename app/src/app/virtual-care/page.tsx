@@ -97,11 +97,11 @@ function IconWindow() {
 }
 
 const TIP_ICONS = [
+  <IconCard key="card" />,
+  <IconBattery key="battery" />,
   <IconWifi key="wifi" />,
   <IconSun key="sun" />,
-  <IconCard key="card" />,
   <IconClock key="clock" />,
-  <IconBattery key="battery" />,
   <IconWindow key="window" />,
 ];
 
@@ -301,13 +301,25 @@ export default function VirtualCarePage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={150}>
-            <a
-              href={VIRTUAL_CARE_INTRO.callHref}
-              className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors inline-flex items-center gap-2 rounded-full"
-              style={{ fontSize: 14, padding: '13px 26px', marginBottom: 28 }}
-            >
-              {VIRTUAL_CARE_INTRO.callLabel} →
-            </a>
+            <div className="flex gap-3 justify-center flex-wrap" style={{ marginBottom: 28 }}>
+              <a
+                href={VIRTUAL_CARE_INTRO.ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${VIRTUAL_CARE_INTRO.ctaLabel} — opens in new tab`}
+                className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
+                style={{ fontSize: 14, padding: '13px 26px' }}
+              >
+                {VIRTUAL_CARE_INTRO.ctaLabel} →
+              </a>
+              <a
+                href={VIRTUAL_CARE_INTRO.callHref}
+                className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors inline-flex items-center gap-2 rounded-full"
+                style={{ fontSize: 14, padding: '13px 26px', background: 'rgba(245,241,232,.6)' }}
+              >
+                {VIRTUAL_CARE_INTRO.callLabel}
+              </a>
+            </div>
           </ScrollReveal>
           <ScrollReveal delay={170}>
             <div
@@ -488,7 +500,7 @@ export default function VirtualCarePage() {
           <ScrollReveal delay={60}>
             <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 40, maxWidth: 560 }}>
               {VIRTUAL_CARE_TIPS.heading}{' '}
-              <em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_TIPS.headingItalic}</em>
+              <em className="font-cormorant italic text-vbam-coral">{VIRTUAL_CARE_TIPS.headingItalic}</em>
             </h2>
           </ScrollReveal>
 
