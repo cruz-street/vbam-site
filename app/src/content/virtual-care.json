@@ -33,17 +33,19 @@
         "Download the Privia Health app (App Store or Google Play), or open your visit link in your mobile browser.",
         "Sign in to your Privia account before the visit starts.",
         "When your phone asks for camera and microphone access, tap Allow.",
-        "Use Wi-Fi if possible — video calls are more stable than cellular."
+        "Use Wi-Fi if possible — video calls are more stable than cellular.",
+        "If the call drops, check your confirmation text or email for a rejoin link. Your doctor may also call you back directly."
       ],
       "permissionNote": "Tap Allow — you'll see a prompt like this."
     },
     "desktop": {
       "label": "On Your Computer",
       "steps": [
-        "Use Chrome, Microsoft Edge, or Safari. Internet Explorer is not supported.",
+        "Use Google Chrome if possible — it's Privia's recommended browser. Edge and Safari also work. Internet Explorer is not supported.",
         "When your browser asks for camera and microphone access, click Allow.",
         "If you see a camera icon with a line through it in the address bar, click it to change the permission to Allow.",
-        "Close Zoom, FaceTime, Teams, or any other app currently using your camera."
+        "Close Zoom, FaceTime, Teams, or any other app currently using your camera.",
+        "If the call drops, check your confirmation email or text for a rejoin link. Your doctor may also call you back directly."
       ],
       "permissionNote": "Click Allow — you'll see a prompt like this."
     }
@@ -55,7 +57,7 @@
     "items": [
       {
         "label": "Strong connection",
-        "body": "Wi-Fi is more reliable than cellular for video. If the call is choppy, move closer to your router."
+        "body": "Privia requires at least 20 Mbps. Not sure? Test at speedtest.net before your visit. If Wi-Fi is slow, try moving closer to your router or switching to a wired connection."
       },
       {
         "label": "Good lighting",
@@ -66,8 +68,8 @@
         "body": "Have your insurance card and a current medication list nearby before you join."
       },
       {
-        "label": "Join a few minutes early",
-        "body": "Connecting early gives you time to resolve any setup issues before your visit starts."
+        "label": "Be ready when the call comes",
+        "body": "Your doctor will call you when they're ready. Have your device open, camera and microphone allowed, and a quiet spot picked out before you expect the call."
       },
       {
         "label": "Stay charged",
