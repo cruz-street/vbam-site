@@ -7,8 +7,8 @@
   },
   "intro": {
     "eyebrow": "Privia Virtual Clinic",
-    "heading": "Still your VBAM",
-    "headingItalic": "doctor.",
+    "heading": "Still your",
+    "headingItalic": "doctor's office.",
     "body1": "On Tuesday evenings and weekends, a Vero Beach Adult Medicine doctor is available to you — not a call center, not a stranger. When your concern can't wait until Monday morning, our on-call physician can speak with you and, if appropriate, see you virtually through Privia Virtual Clinic.",
     "body2": "Same practice. Same doctors. Just different hours.",
     "costNote": "Virtual visits are billed separately and may have a co-pay. Have your insurance card handy. Call us with billing questions.",
@@ -18,7 +18,7 @@
   "setup": {
     "eyebrow": "Before You Begin",
     "heading": "Two minutes of prep",
-    "headingItalic": "prevents a dozen of trouble.",
+    "headingItalic": "and you're all set.",
     "intro": "The most common reason a virtual visit doesn't work is a camera or microphone blocked by your device. Here's how to clear it before you join.",
     "mobile": {
       "label": "On Your Phone",
@@ -65,6 +65,10 @@
       {
         "label": "Stay charged",
         "body": "Plug in your device or confirm your battery is above 20% before the visit begins."
+      },
+      {
+        "label": "Open a fresh window",
+        "body": "Open your virtual visit in its own browser window and close extra tabs. Other open windows can compete for bandwidth and slow the connection."
       }
     ]
   },

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import {
   VIRTUAL_CARE_HERO,
@@ -86,12 +85,24 @@ function IconBattery() {
   );
 }
 
+function IconWindow() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="M2 9h20" />
+      <circle cx="5.5" cy="6.5" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="8.5" cy="6.5" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 const TIP_ICONS = [
   <IconWifi key="wifi" />,
   <IconSun key="sun" />,
   <IconCard key="card" />,
   <IconClock key="clock" />,
   <IconBattery key="battery" />,
+  <IconWindow key="window" />,
 ];
 
 // ── Permission prompt illustrations ──────────────────────────────────────────
@@ -224,13 +235,46 @@ export default function VirtualCarePage() {
   return (
     <main>
 
-      {/* ── Hero ─── */}
-      <PageHero
-        eyebrow={VIRTUAL_CARE_HERO.eyebrow}
-        heading={VIRTUAL_CARE_HERO.heading}
-        headingItalic={VIRTUAL_CARE_HERO.headingItalic}
-        subhead={VIRTUAL_CARE_HERO.subhead}
-      />
+      {/* ── Hero — custom (CTA above fold, forced 2-line heading) ─── */}
+      <section
+        className="bg-vbam-sand text-center"
+        style={{ paddingTop: 'clamp(110px, 12vw, 160px)', paddingBottom: 'clamp(40px, 6vw, 72px)' }}
+      >
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
+          <ScrollReveal>
+            <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 22 }}>
+              {VIRTUAL_CARE_HERO.eyebrow}
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={60}>
+            <h1
+              className="font-fraunces font-[400] text-vbam-atlantic mx-auto"
+              style={{ fontSize: 'clamp(38px, 6vw, 72px)', lineHeight: 1.06, letterSpacing: '-0.02em', maxWidth: 760 }}
+            >
+              {VIRTUAL_CARE_HERO.heading}
+              <br />
+              <em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_HERO.headingItalic}</em>
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={120}>
+            <p className="font-inter font-[300] text-vbam-atlantic/70 mx-auto" style={{ fontSize: 18, lineHeight: 1.65, maxWidth: 520, marginTop: 20, marginBottom: 28 }}>
+              {VIRTUAL_CARE_HERO.subhead}
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={170}>
+            <a
+              href={VIRTUAL_CARE_INTRO.ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${VIRTUAL_CARE_INTRO.ctaLabel} — opens in new tab`}
+              className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
+              style={{ fontSize: 16, padding: '16px 36px' }}
+            >
+              {VIRTUAL_CARE_INTRO.ctaLabel} →
+            </a>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* ── Context + Primary CTA ─── */}
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
@@ -257,18 +301,6 @@ export default function VirtualCarePage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={160}>
-            <a
-              href={VIRTUAL_CARE_INTRO.ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${VIRTUAL_CARE_INTRO.ctaLabel} — opens in new tab`}
-              className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
-              style={{ fontSize: 16, padding: '16px 36px' }}
-            >
-              {VIRTUAL_CARE_INTRO.ctaLabel} →
-            </a>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
             <div
               className="mx-auto rounded-lg border border-vbam-atlantic/[.10] flex items-start gap-3"
               style={{ marginTop: 28, padding: '14px 18px', background: 'rgba(232,220,200,.35)', maxWidth: 520 }}
