@@ -24,7 +24,7 @@
     "headingItalic": "and you're all set.",
     "intro": "The most common reason a virtual visit doesn't work is a camera or microphone blocked by your device. Here's how to clear it before you join.",
     "mobile": {
-      "label": "A Phone",
+      "label": "On a Phone",
       "appStoreUrl": "https://apps.apple.com/us/app/privia-health/id1098325712",
       "appStoreLabel": "App Store",
       "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.priviahealth.patient",
@@ -39,7 +39,7 @@
       "permissionNote": "Tap Allow — you'll see a prompt like this."
     },
     "desktop": {
-      "label": "A Computer",
+      "label": "On a Computer",
       "steps": [
         "Use Google Chrome if possible — it's Privia's recommended browser. Edge and Safari also work. Internet Explorer is not supported.",
         "When your browser asks for camera and microphone access, click Allow.",
