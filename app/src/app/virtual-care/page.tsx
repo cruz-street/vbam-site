@@ -311,12 +311,12 @@ export default function VirtualCarePage() {
                 {VIRTUAL_CARE_ACCESS.body1}
               </p>
             </ScrollReveal>
-            <ScrollReveal delay={130}>
-              <p className="font-cormorant italic text-vbam-inlet mx-auto" style={{ fontSize: 20, lineHeight: 1.5, marginBottom: 48 }}>
-                {VIRTUAL_CARE_ACCESS.body2}
-              </p>
-            </ScrollReveal>
           </div>
+          <ScrollReveal delay={130}>
+            <p className="font-cormorant italic text-vbam-inlet text-center" style={{ fontSize: 24, lineHeight: 1.5, marginBottom: 48 }}>
+              {VIRTUAL_CARE_ACCESS.body2}
+            </p>
+          </ScrollReveal>
 
           {/* Three-step path */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
