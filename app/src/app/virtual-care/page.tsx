@@ -397,8 +397,9 @@ export default function VirtualCarePage() {
             </ScrollReveal>
             <ScrollReveal delay={60}>
               <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 14 }}>
-                {VIRTUAL_CARE_TUESDAY.heading}{' '}
-                <em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_TUESDAY.headingItalic}</em>
+                {VIRTUAL_CARE_TUESDAY.heading}
+                <br className="md:hidden" />
+                {' '}<em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_TUESDAY.headingItalic}</em>
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={90}>
@@ -455,8 +456,9 @@ export default function VirtualCarePage() {
           </ScrollReveal>
           <ScrollReveal delay={60}>
             <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 14, maxWidth: 680 }}>
-              {VIRTUAL_CARE_SETUP.heading}{' '}
-              <em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_SETUP.headingItalic}</em>
+              {VIRTUAL_CARE_SETUP.heading}
+              <br className="md:hidden" />
+              {' '}<em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_SETUP.headingItalic}</em>
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={90}>
