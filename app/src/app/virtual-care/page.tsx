@@ -381,9 +381,6 @@ export default function VirtualCarePage() {
                   {VIRTUAL_CARE_ACCESS.ctaLabel}
                 </a>
               </div>
-              <p className="font-inter font-[300] text-vbam-atlantic/50 mx-auto" style={{ fontSize: 13, lineHeight: 1.6, marginTop: 16, maxWidth: 480 }}>
-                {VIRTUAL_CARE_ACCESS.ctaNote}
-              </p>
             </ScrollReveal>
           </div>
         </div>
