@@ -410,7 +410,7 @@ export default function VirtualCarePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-vbam-atlantic/[.12] md:divide-y-0 md:divide-x">
             {VIRTUAL_CARE_TUESDAY.options.map((opt, i) => {
-              const colPad = i === 0 ? 'py-8 md:py-0 md:pr-10' : i === 2 ? 'pt-8 md:pt-0 md:pl-10' : 'pt-8 md:pt-0 md:px-10';
+              const colPad = i === 0 ? 'py-8 md:py-0 md:pr-14' : i === 2 ? 'pt-8 md:pt-0 md:pl-14' : 'pt-8 md:pt-0 md:px-14';
               return (
                 <ScrollReveal key={opt.label} delay={i * 80}>
                   <div className={`flex flex-col gap-4 ${colPad}`}>
@@ -427,10 +427,7 @@ export default function VirtualCarePage() {
           </div>
 
           <ScrollReveal delay={120}>
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5" style={{ marginTop: 40 }}>
-              <p className="font-cormorant italic text-vbam-atlantic/75 text-center sm:text-left" style={{ fontSize: 18, lineHeight: 1.5, maxWidth: 560 }}>
-                {VIRTUAL_CARE_TUESDAY.note}
-              </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6" style={{ marginTop: 40 }}>
               <a
                 href={VIRTUAL_CARE_TUESDAY.callHref}
                 className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors inline-flex items-center gap-2 rounded-full shrink-0"
@@ -438,6 +435,9 @@ export default function VirtualCarePage() {
               >
                 {VIRTUAL_CARE_TUESDAY.callLabel} →
               </a>
+              <p className="font-cormorant italic text-vbam-atlantic/75 text-center sm:text-left" style={{ fontSize: 18, lineHeight: 1.5, maxWidth: 560 }}>
+                {VIRTUAL_CARE_TUESDAY.note}
+              </p>
             </div>
           </ScrollReveal>
         </div>
