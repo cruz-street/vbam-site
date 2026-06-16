@@ -402,7 +402,7 @@ export default function VirtualCarePage() {
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={90}>
-              <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 16, lineHeight: 1.7, maxWidth: 600, marginBottom: 44 }}>
+              <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 16, lineHeight: 1.7, maxWidth: 600, marginBottom: 22 }}>
                 {VIRTUAL_CARE_TUESDAY.intro}
               </p>
             </ScrollReveal>
