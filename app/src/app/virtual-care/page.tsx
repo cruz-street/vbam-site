@@ -258,13 +258,8 @@ export default function VirtualCarePage() {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={120}>
-            <p className="font-inter font-[300] text-vbam-atlantic/70 mx-auto" style={{ fontSize: 18, lineHeight: 1.65, maxWidth: 560, marginTop: 20, marginBottom: 12 }}>
+            <p className="font-inter font-[300] text-vbam-atlantic/70 mx-auto" style={{ fontSize: 18, lineHeight: 1.65, maxWidth: 560, marginTop: 20, marginBottom: 28 }}>
               {VIRTUAL_CARE_HERO.subhead}
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={145}>
-            <p className="font-inter font-[300] text-vbam-atlantic/45 mx-auto" style={{ fontSize: 13, lineHeight: 1.6, maxWidth: 420, marginBottom: 24 }}>
-              {VIRTUAL_CARE_HERO.note}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={170}>
@@ -287,6 +282,11 @@ export default function VirtualCarePage() {
                 {VIRTUAL_CARE_ACCESS.ctaLabel}
               </a>
             </div>
+          </ScrollReveal>
+          <ScrollReveal delay={210}>
+            <p className="font-inter font-[300] text-vbam-atlantic/45 mx-auto" style={{ fontSize: 13, lineHeight: 1.6, maxWidth: 440, marginTop: 16 }}>
+              {VIRTUAL_CARE_HERO.note}
+            </p>
           </ScrollReveal>
         </div>
       </section>
