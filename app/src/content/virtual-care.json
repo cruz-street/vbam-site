@@ -28,9 +28,10 @@
     "costNote": "Virtual visits are billed separately and may have a co-pay. Have your insurance card handy, and text or call us with any billing questions.",
     "ctaLabel": "Start a Virtual Visit",
     "ctaHref": "https://care.myprivia.com/virtual-clinic",
-    "callLabel": "Call — We'll Help You Choose",
+    "callLabel": "Call Our Office",
     "callHref": "tel:7725693212",
-    "callPhone": "(772) 569-3212"
+    "callPhone": "(772) 569-3212",
+    "ctaNote": "Our staff will help direct you to the right place — virtual visit, an appointment, or whatever you need."
   },
   "tuesday": {
     "eyebrow": "Tuesdays",

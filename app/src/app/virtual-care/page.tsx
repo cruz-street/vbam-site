@@ -269,7 +269,7 @@ export default function VirtualCarePage() {
                 className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
                 style={{ fontSize: 16, padding: '16px 36px' }}
               >
-                {VIRTUAL_CARE_ACCESS.callLabel} →
+                {VIRTUAL_CARE_ACCESS.callLabel}
               </a>
               <a
                 href={VIRTUAL_CARE_ACCESS.ctaHref}
@@ -363,7 +363,7 @@ export default function VirtualCarePage() {
                   className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
                   style={{ fontSize: 14, padding: '13px 26px' }}
                 >
-                  {VIRTUAL_CARE_ACCESS.callLabel} →
+                  {VIRTUAL_CARE_ACCESS.callLabel}
                 </a>
                 <a
                   href={VIRTUAL_CARE_ACCESS.ctaHref}
@@ -376,6 +376,9 @@ export default function VirtualCarePage() {
                   {VIRTUAL_CARE_ACCESS.ctaLabel}
                 </a>
               </div>
+              <p className="font-inter font-[300] text-vbam-atlantic/50 mx-auto" style={{ fontSize: 13, lineHeight: 1.6, marginTop: 16, maxWidth: 480 }}>
+                {VIRTUAL_CARE_ACCESS.ctaNote}
+              </p>
             </ScrollReveal>
           </div>
         </div>
