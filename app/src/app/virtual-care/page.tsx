@@ -410,7 +410,7 @@ export default function VirtualCarePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-vbam-atlantic/[.12] md:divide-y-0 md:divide-x">
             {VIRTUAL_CARE_TUESDAY.options.map((opt, i) => {
-              const colPad = i === 0 ? 'py-8 md:py-0 md:pr-14' : i === 2 ? 'pt-8 md:pt-0 md:pl-14' : 'pt-8 md:pt-0 md:px-14';
+              const colPad = i === 0 ? 'py-8 md:py-0 md:pr-14' : i === 2 ? 'pt-8 md:pt-0 md:pl-14' : 'py-8 md:py-0 md:px-14';
               return (
                 <ScrollReveal key={opt.label} delay={i * 80}>
                   <div className={`flex flex-col gap-4 ${colPad}`}>
