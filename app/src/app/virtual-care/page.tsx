@@ -403,22 +403,32 @@ export default function VirtualCarePage() {
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {VIRTUAL_CARE_TUESDAY.options.map((opt, i) => (
-              <ScrollReveal key={opt.label} animation="scale" delay={i * 80}>
-                <div
-                  className="rounded-xl border border-vbam-atlantic/[.08] h-full"
-                  style={{ background: '#FAF7EC', padding: 'clamp(26px, 3.5vw, 34px)' }}
-                >
-                  <h3 className="font-fraunces font-[500] text-vbam-inlet" style={{ fontSize: 19, lineHeight: 1.25, marginBottom: 10, letterSpacing: '-0.005em' }}>
-                    {opt.label}
-                  </h3>
-                  <p className="font-inter font-[300] text-vbam-atlantic/[.80]" style={{ fontSize: 15, lineHeight: 1.65 }}>
-                    {opt.body}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-vbam-atlantic/[.12] md:divide-y-0 md:divide-x">
+            {VIRTUAL_CARE_TUESDAY.options.map((opt, i) => {
+              const isExternal = opt.ctaHref.startsWith('http');
+              const isPrimary = i === 2;
+              const colPad = i === 0 ? 'py-8 md:py-0 md:pr-10' : i === 2 ? 'pt-8 md:pt-0 md:pl-10' : 'pt-8 md:pt-0 md:px-10';
+              return (
+                <ScrollReveal key={opt.label} delay={i * 80}>
+                  <div className={`flex flex-col gap-5 ${colPad}`}>
+                    <h3 className="font-fraunces font-[500] text-vbam-atlantic" style={{ fontSize: 19, lineHeight: 1.25, letterSpacing: '-0.005em' }}>
+                      {opt.label}
+                    </h3>
+                    <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 15, lineHeight: 1.65 }}>
+                      {opt.body}
+                    </p>
+                    <a
+                      href={opt.ctaHref}
+                      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer', 'aria-label': `${opt.ctaLabel} — opens in new tab` } : {})}
+                      className={`font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full self-start ${isPrimary ? 'btn-primary' : 'text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60'}`}
+                      style={{ fontSize: 13, padding: '11px 22px', ...(isPrimary ? {} : { background: 'rgba(245,241,232,.6)' }) }}
+                    >
+                      {opt.ctaLabel} →
+                    </a>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
           </div>
 
           <ScrollReveal delay={120}>

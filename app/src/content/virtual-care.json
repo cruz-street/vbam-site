@@ -40,15 +40,21 @@
     "options": [
       {
         "label": "Need a form or paperwork?",
-        "body": "Come by on Tuesday — we're open and glad to help."
+        "body": "Come by on Tuesday — we're open and here to help with forms, referrals, or anything administrative.",
+        "ctaLabel": "Patient Resources",
+        "ctaHref": "/for-patients/"
       },
       {
         "label": "Need to see Dr. Stewart?",
-        "body": "Come back Wednesday, or we'll find you the next available visit."
+        "body": "Give us a call and we'll do our best to find you the next available appointment. We can't promise same-day, but we'll get you in as soon as we can.",
+        "ctaLabel": "Call Our Office",
+        "ctaHref": "tel:7725693212"
       },
       {
         "label": "Need care today?",
-        "body": "Start a virtual visit through Privia and see a physician by video — no urgent care required."
+        "body": "A physician is available by phone or video through Privia Virtual Clinic — no urgent care required.",
+        "ctaLabel": "Start a Virtual Visit",
+        "ctaHref": "https://care.myprivia.com/virtual-clinic"
       }
     ],
     "note": "Some services may still be available in person on Tuesdays — call and our staff will help you choose what's right for you.",
