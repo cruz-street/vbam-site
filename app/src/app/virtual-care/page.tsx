@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import {
   VIRTUAL_CARE_HERO,
-  VIRTUAL_CARE_INTRO,
+  VIRTUAL_CARE_ACCESS,
+  VIRTUAL_CARE_TUESDAY,
   VIRTUAL_CARE_SETUP,
   VIRTUAL_CARE_TIPS,
   VIRTUAL_CARE_HELP_CTA,
@@ -11,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: 'Virtual Care',
   description:
-    'Connect with your Vero Beach Adult Medicine provider virtually during after-hours, evenings, and weekends through Privia Virtual Clinic.',
+    'When our office is closed for doctor visits — after hours, on weekends, and on Tuesdays — an on-call Vero Beach Adult Medicine physician is still within reach by phone or video through Privia Virtual Clinic.',
   alternates: { canonical: 'https://verobeachadultmedicine.com/virtual-care/' },
 };
 
@@ -235,7 +236,7 @@ export default function VirtualCarePage() {
   return (
     <main>
 
-      {/* ── Hero — custom (CTA above fold, forced 2-line heading) ─── */}
+      {/* ── Hero ─── */}
       <section
         className="bg-vbam-sand text-center"
         style={{ paddingTop: 'clamp(110px, 12vw, 160px)', paddingBottom: 'clamp(40px, 6vw, 72px)' }}
@@ -257,90 +258,188 @@ export default function VirtualCarePage() {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={120}>
-            <p className="font-inter font-[300] text-vbam-atlantic/70 mx-auto" style={{ fontSize: 18, lineHeight: 1.65, maxWidth: 520, marginTop: 20, marginBottom: 28 }}>
+            <p className="font-inter font-[300] text-vbam-atlantic/70 mx-auto" style={{ fontSize: 18, lineHeight: 1.65, maxWidth: 560, marginTop: 20, marginBottom: 28 }}>
               {VIRTUAL_CARE_HERO.subhead}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={170}>
-            <a
-              href={VIRTUAL_CARE_INTRO.ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${VIRTUAL_CARE_INTRO.ctaLabel} — opens in new tab`}
-              className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
-              style={{ fontSize: 16, padding: '16px 36px' }}
-            >
-              {VIRTUAL_CARE_INTRO.ctaLabel} →
-            </a>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ── Context + Primary CTA ─── */}
-      <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
-        <div className="max-w-[760px] mx-auto px-5 sm:px-8 md:px-12 text-center">
-          <ScrollReveal>
-            <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 22 }}>
-              {VIRTUAL_CARE_INTRO.eyebrow}
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={60}>
-            <h2 className="font-fraunces font-[400] text-vbam-atlantic mx-auto" style={{ fontSize: 'clamp(30px, 4vw, 48px)', lineHeight: 1.1, letterSpacing: '-0.018em', marginBottom: 24 }}>
-              {VIRTUAL_CARE_INTRO.heading}{' '}
-              <em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_INTRO.headingItalic}</em>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <p className="font-inter font-[300] text-vbam-atlantic/[.82] mx-auto" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 16 }}>
-              {VIRTUAL_CARE_INTRO.body1}
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={130}>
-            <p className="font-cormorant italic text-vbam-inlet mx-auto" style={{ fontSize: 20, lineHeight: 1.5, marginBottom: 28 }}>
-              {VIRTUAL_CARE_INTRO.body2}
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={150}>
-            <div className="flex gap-3 justify-center flex-wrap" style={{ marginBottom: 28 }}>
+            <div className="flex gap-3 justify-center flex-wrap">
               <a
-                href={VIRTUAL_CARE_INTRO.ctaHref}
+                href={VIRTUAL_CARE_ACCESS.callHref}
+                className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
+                style={{ fontSize: 16, padding: '16px 36px' }}
+              >
+                {VIRTUAL_CARE_ACCESS.callLabel} →
+              </a>
+              <a
+                href={VIRTUAL_CARE_ACCESS.ctaHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${VIRTUAL_CARE_INTRO.ctaLabel} — opens in new tab`}
-                className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
-                style={{ fontSize: 14, padding: '13px 26px' }}
-              >
-                {VIRTUAL_CARE_INTRO.ctaLabel} →
-              </a>
-              <a
-                href={VIRTUAL_CARE_INTRO.callHref}
+                aria-label={`${VIRTUAL_CARE_ACCESS.ctaLabel} — opens in new tab`}
                 className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors inline-flex items-center gap-2 rounded-full"
-                style={{ fontSize: 14, padding: '13px 26px', background: 'rgba(245,241,232,.6)' }}
+                style={{ fontSize: 16, padding: '16px 36px', background: 'rgba(245,241,232,.5)' }}
               >
-                {VIRTUAL_CARE_INTRO.callLabel}
+                {VIRTUAL_CARE_ACCESS.ctaLabel}
               </a>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={170}>
-            <div
-              className="mx-auto rounded-lg border border-vbam-atlantic/[.10] flex items-start gap-3"
-              style={{ marginTop: 28, padding: '14px 18px', background: 'rgba(232,220,200,.35)', maxWidth: 520 }}
-            >
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-vbam-atlantic/40 shrink-0 mt-0.5">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="12" />
-                <line x1="12" y1="16" x2="12.01" y2="16" />
-              </svg>
-              <p className="font-inter font-[300] text-vbam-atlantic/60 text-left" style={{ fontSize: 13, lineHeight: 1.6 }}>
-                {VIRTUAL_CARE_INTRO.costNote}
-              </p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Before You Begin ─── */}
+      {/* ── How Virtual Care Works (the warm path) ─── */}
+      <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="text-center max-w-[760px] mx-auto">
+            <ScrollReveal>
+              <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 22 }}>
+                {VIRTUAL_CARE_ACCESS.eyebrow}
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={60}>
+              <h2 className="font-fraunces font-[400] text-vbam-atlantic mx-auto" style={{ fontSize: 'clamp(30px, 4vw, 48px)', lineHeight: 1.1, letterSpacing: '-0.018em', marginBottom: 24 }}>
+                {VIRTUAL_CARE_ACCESS.heading}{' '}
+                <em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_ACCESS.headingItalic}</em>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <p className="font-inter font-[300] text-vbam-atlantic/[.82] mx-auto" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 16 }}>
+                {VIRTUAL_CARE_ACCESS.body1}
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={130}>
+              <p className="font-cormorant italic text-vbam-inlet mx-auto" style={{ fontSize: 20, lineHeight: 1.5, marginBottom: 48 }}>
+                {VIRTUAL_CARE_ACCESS.body2}
+              </p>
+            </ScrollReveal>
+          </div>
+
+          {/* Three-step path */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            {VIRTUAL_CARE_ACCESS.steps.map((step, i) => (
+              <ScrollReveal key={step.label} animation="left" delay={i * 90}>
+                <div
+                  className="rounded-xl border border-vbam-atlantic/[.08] h-full relative"
+                  style={{ background: '#FAF7EC', padding: 'clamp(26px, 3.5vw, 36px)' }}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="font-archivo font-[700] text-vbam-coral block"
+                    style={{ fontSize: 12, letterSpacing: '0.12em', marginBottom: 14 }}
+                  >
+                    STEP {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="font-fraunces font-[500] text-vbam-atlantic" style={{ fontSize: 21, lineHeight: 1.2, marginBottom: 10, letterSpacing: '-0.01em' }}>
+                    {step.label}
+                  </h3>
+                  <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 15, lineHeight: 1.65 }}>
+                    {step.body}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Cost note + CTAs */}
+          <div className="text-center max-w-[760px] mx-auto">
+            <ScrollReveal delay={120}>
+              <div
+                className="mx-auto rounded-lg border border-vbam-atlantic/[.10] flex items-start gap-3"
+                style={{ marginTop: 48, padding: '14px 18px', background: 'rgba(232,220,200,.35)', maxWidth: 560 }}
+              >
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-vbam-atlantic/40 shrink-0 mt-0.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <p className="font-inter font-[300] text-vbam-atlantic/60 text-left" style={{ fontSize: 13, lineHeight: 1.6 }}>
+                  {VIRTUAL_CARE_ACCESS.costNote}
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={150}>
+              <div className="flex gap-3 justify-center flex-wrap" style={{ marginTop: 28 }}>
+                <a
+                  href={VIRTUAL_CARE_ACCESS.callHref}
+                  className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
+                  style={{ fontSize: 14, padding: '13px 26px' }}
+                >
+                  {VIRTUAL_CARE_ACCESS.callLabel} →
+                </a>
+                <a
+                  href={VIRTUAL_CARE_ACCESS.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${VIRTUAL_CARE_ACCESS.ctaLabel} — opens in new tab`}
+                  className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors inline-flex items-center gap-2 rounded-full"
+                  style={{ fontSize: 14, padding: '13px 26px', background: 'rgba(245,241,232,.6)' }}
+                >
+                  {VIRTUAL_CARE_ACCESS.ctaLabel}
+                </a>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Tuesdays (decision frame) ─── */}
       <section className="bg-vbam-sand border-t border-vbam-atlantic/[.06]" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
+          <div className="max-w-[680px]">
+            <ScrollReveal>
+              <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
+                {VIRTUAL_CARE_TUESDAY.eyebrow}
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={60}>
+              <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 14 }}>
+                {VIRTUAL_CARE_TUESDAY.heading}{' '}
+                <em className="font-cormorant italic text-grad-sunrise">{VIRTUAL_CARE_TUESDAY.headingItalic}</em>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={90}>
+              <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 16, lineHeight: 1.7, maxWidth: 600, marginBottom: 44 }}>
+                {VIRTUAL_CARE_TUESDAY.intro}
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            {VIRTUAL_CARE_TUESDAY.options.map((opt, i) => (
+              <ScrollReveal key={opt.label} animation="scale" delay={i * 80}>
+                <div
+                  className="rounded-xl border border-vbam-atlantic/[.08] h-full"
+                  style={{ background: '#FAF7EC', padding: 'clamp(26px, 3.5vw, 34px)' }}
+                >
+                  <h3 className="font-fraunces font-[500] text-vbam-inlet" style={{ fontSize: 19, lineHeight: 1.25, marginBottom: 10, letterSpacing: '-0.005em' }}>
+                    {opt.label}
+                  </h3>
+                  <p className="font-inter font-[300] text-vbam-atlantic/[.80]" style={{ fontSize: 15, lineHeight: 1.65 }}>
+                    {opt.body}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal delay={120}>
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5" style={{ marginTop: 40 }}>
+              <p className="font-cormorant italic text-vbam-atlantic/75 text-center sm:text-left" style={{ fontSize: 18, lineHeight: 1.5, maxWidth: 560 }}>
+                {VIRTUAL_CARE_TUESDAY.note}
+              </p>
+              <a
+                href={VIRTUAL_CARE_TUESDAY.callHref}
+                className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors inline-flex items-center gap-2 rounded-full shrink-0"
+                style={{ fontSize: 14, padding: '13px 26px', background: 'rgba(245,241,232,.6)' }}
+              >
+                {VIRTUAL_CARE_TUESDAY.callLabel} →
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── Before Your Visit ─── */}
+      <section className="bg-vbam-foam border-t border-vbam-atlantic/[.06]" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
           {/* Section header */}
@@ -490,7 +589,7 @@ export default function VirtualCarePage() {
       </section>
 
       {/* ── Helpful Tips ─── */}
-      <section className="bg-vbam-foam border-t border-vbam-atlantic/[.06]" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
+      <section className="bg-vbam-sand border-t border-vbam-atlantic/[.06]" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
           <ScrollReveal>
             <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
