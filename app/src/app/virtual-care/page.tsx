@@ -384,7 +384,7 @@ export default function VirtualCarePage() {
       {/* ── Tuesdays (decision frame) ─── */}
       <section className="bg-vbam-sand border-t border-vbam-atlantic/[.06]" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
-          <div className="max-w-[680px]">
+          <div>
             <ScrollReveal>
               <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
                 {VIRTUAL_CARE_TUESDAY.eyebrow}
