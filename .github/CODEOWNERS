@@ -1,0 +1,5 @@
+# Every change to this repo requires Jesse's review before it can land on a
+# protected branch (main). This is the gate that makes "all change requests go
+# through me" real: team members open PRs, Jesse (code owner) approves, and only
+# then can the change merge to main and deploy to live production.
+* @jessepc
