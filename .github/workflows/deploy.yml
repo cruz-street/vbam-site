@@ -34,8 +34,12 @@ jobs:
 
       # PRODUCTION — push to `main` deploys to vbam-site-prod (Jesse's CF account)
       # which is wired to the custom domain verobeachadultmedicine.com.
+      # LIVE deploy gate: pushes to main are gated by the branch ruleset (Jesse
+      # code-owner approval), so the staging->main promotion requires Jesse;
+      # manual dispatch on main is restricted to Jesse. Decap CMS + team publish
+      # freely to staging (verobeachadultmedicine.pages.dev) below.
       - name: Deploy to production (verobeachadultmedicine.com)
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.actor == 'jessepc')
         run: npx wrangler@latest pages deploy app/out --project-name=vbam-site-prod --branch=main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_PROD }}
