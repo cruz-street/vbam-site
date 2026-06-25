@@ -154,7 +154,7 @@ export default function Footer() {
             aria-label="Privia Medical Group — priviahealth.com"
           >
             {/* Placeholder logo — replace with official Privia asset when provided */}
-            <PriviaLogo variant="light" height={20} className="opacity-70" />
+            <PriviaLogo variant="light" height={32} />
             <span
               className="font-archivo font-[700]"
               style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase' }}
