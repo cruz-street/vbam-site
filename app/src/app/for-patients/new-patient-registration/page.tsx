@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function NewPatientRegistrationPage() {
-  const { hero, reassurance, formUrl, formId, fallback, pdfFallback } = NEW_PATIENT_REGISTRATION;
+  const { hero, reassurance, formUrl, formId, fallback, pdfFallback, priviaForms } = NEW_PATIENT_REGISTRATION;
   const formReady = formUrl && formId;
   const pdfMailto = pdfFallback
     ? `mailto:${pdfFallback.emailTo}?subject=${encodeURIComponent(pdfFallback.emailSubject)}`
@@ -173,6 +173,64 @@ export default function NewPatientRegistrationPage() {
                   </a>
                   .
                 </p>
+              </div>
+            </ScrollReveal>
+          )}
+
+          {priviaForms && (
+            <ScrollReveal delay={160}>
+              <div style={{ marginTop: 56 }}>
+                <p
+                  className="font-archivo font-[700] text-vbam-coral"
+                  style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 12 }}
+                >
+                  {priviaForms.eyebrow}
+                </p>
+                <h3
+                  className="font-fraunces font-[400] text-vbam-atlantic"
+                  style={{ fontSize: 'clamp(22px, 2.8vw, 28px)', lineHeight: 1.2, letterSpacing: '-0.012em', marginBottom: 14 }}
+                >
+                  {priviaForms.heading}
+                </h3>
+                <p
+                  className="font-inter font-[300] text-vbam-atlantic/[.82]"
+                  style={{ fontSize: 15, lineHeight: 1.7, marginBottom: 28, maxWidth: 640 }}
+                >
+                  {priviaForms.intro}
+                </p>
+
+                <ul className="border-t border-vbam-atlantic/[.10]">
+                  {(priviaForms.items as Array<{ title: string; description: string; spanish?: string; href: string; linkLabel: string }>).map(item => (
+                    <li
+                      key={item.title}
+                      className="border-b border-vbam-atlantic/[.10] flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-6"
+                      style={{ padding: '18px 0' }}
+                    >
+                      <div style={{ maxWidth: 540 }}>
+                        <p className="font-fraunces font-[500] text-vbam-atlantic" style={{ fontSize: 16, lineHeight: 1.3 }}>
+                          {item.title}
+                          {item.spanish && (
+                            <em className="font-cormorant italic text-vbam-inlet/75 font-[400]" style={{ fontSize: 15 }}>
+                              {' · '}{item.spanish}
+                            </em>
+                          )}
+                        </p>
+                        <p className="font-inter font-[300] text-vbam-atlantic/65" style={{ fontSize: 13.5, lineHeight: 1.6, marginTop: 4 }}>
+                          {item.description}
+                        </p>
+                      </div>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-archivo font-[600] text-vbam-coral hover:text-vbam-inlet transition-colors flex-shrink-0 whitespace-nowrap self-start sm:mt-1"
+                        style={{ fontSize: 12, letterSpacing: '0.04em' }}
+                      >
+                        {item.linkLabel} →
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </ScrollReveal>
           )}
