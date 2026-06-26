@@ -5,6 +5,10 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Script from "next/script";
 
+// Shared VBP/VBAM Klara patient-messaging widget id (public; not a secret).
+const KLARA_WIDGET_ID =
+  process.env.NEXT_PUBLIC_KLARA_WIDGET_ID || "168b842c-9a0d-43dd-bc25-d0dc202289aa";
+
 const fraunces = Fraunces({
   variable: "--nf-fraunces",
   subsets: ["latin"],
@@ -83,14 +87,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Header />
         {children}
         <Footer />
-        {/* Klara floating "Message us" widget — site-wide. Inert until VBAM Klara widget UUID is set. */}
-        {process.env.NEXT_PUBLIC_KLARA_WIDGET_ID && (
-          <Script
-            id="klara-widget"
-            src={`https://patient.klara.com/widget.js?id=${process.env.NEXT_PUBLIC_KLARA_WIDGET_ID}`}
-            strategy="lazyOnload"
-          />
-        )}
+        {/* Klara floating "Message us" widget — the patient-messaging widget shared
+            with Vero Beach Pediatrics. Queue-init then load the official bundle
+            (matches the live embed). Widget id is public; env can override. */}
+        <Script id="klara-widget-init" strategy="lazyOnload">
+          {`window.klaraWidget=window.klaraWidget||[];window.klaraWidget.push(['setWidgetId','${KLARA_WIDGET_ID}']);`}
+        </Script>
+        <Script
+          id="klara-widget-bundle"
+          src="https://s3.amazonaws.com/widget-frontend.klara.com/bundle.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
