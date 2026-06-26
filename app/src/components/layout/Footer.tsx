@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import SunSeaMark from '@/components/shared/SunSeaMark';
-import PriviaLogo from '@/components/shared/PriviaLogo';
 
 type FooterLink = { href: string; label: string; external?: boolean };
 
@@ -151,15 +150,22 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 text-vbam-foam/70 hover:text-vbam-sunrise transition-colors"
-            aria-label="Privia Medical Group — priviahealth.com"
+            aria-label="Proud to be part of Privia Medical Group — priviahealth.com"
           >
-            {/* Placeholder logo — replace with official Privia asset when provided */}
-            <PriviaLogo variant="light" height={32} />
             <span
               className="font-archivo font-[700]"
               style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase' }}
             >
-              Proud to be part of Privia Medical Group
+              Proud to be part of
+            </span>
+            {/* Official Privia Medical Group logo on a white field (brand-correct treatment) */}
+            <span className="inline-flex items-center rounded-md bg-white" style={{ padding: '8px 13px' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/privia-medical-group-logo.webp"
+                alt="Privia Medical Group"
+                style={{ height: 24, width: 'auto', display: 'block' }}
+              />
             </span>
           </a>
           <nav
