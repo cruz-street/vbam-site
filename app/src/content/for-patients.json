@@ -142,6 +142,51 @@
       "emailLine": "Email the completed form to",
       "emailTo": "careteam@verobeachadultmedicine.com",
       "emailSubject": "New Patient Registration — Paper Submission"
+    },
+    "priviaForms": {
+      "eyebrow": "Forms & Notices",
+      "heading": "Privia Medical Group forms & notices.",
+      "intro": "Vero Beach Adult Medicine is a member of Privia Medical Group. The notices and forms below apply to all our patients — review or download any you need. Your care team can also provide paper copies at your visit.",
+      "items": [
+        {
+          "title": "Notice of Privacy Practices",
+          "description": "Describes how your health information may be used and disclosed, and how you can access your individually identifiable health information. Please review this notice carefully.",
+          "href": "https://www.priviahealth.com/privacy-and-compliance",
+          "linkLabel": "View notice"
+        },
+        {
+          "title": "Authorization for Release of Medical Information",
+          "description": "Allows you to authorize the disclosure of your health information to a designated individual, company, agency, or facility.",
+          "href": "https://www.myprivia.com/sites/default/files/2023-07/Authorization_Release_Form.pdf",
+          "linkLabel": "Download (PDF)"
+        },
+        {
+          "title": "Authorization & Consent for Treatment",
+          "description": "Your consent for treatment, communications (calls, emails, and text messaging), and agreement of financial responsibility.",
+          "spanish": "Autorización y Consentimiento Para el Tratamiento.",
+          "href": "https://www.myprivia.com/sites/default/files/2023-07/Authorization_and_Consent_for_Treatment_Form.pdf",
+          "linkLabel": "Download (PDF)"
+        },
+        {
+          "title": "Preferred Contacts",
+          "description": "Encouraged but not required — lets us know who we may share information with on your behalf.",
+          "spanish": "Contactos Preferidos.",
+          "href": "https://www.myprivia.com/sites/default/files/2023-07/Preferred_Contacts.pdf",
+          "linkLabel": "Download (PDF)"
+        },
+        {
+          "title": "Financial Policy",
+          "description": "Advises patients of their complete financial responsibility for all medical services received, without regard to insurance eligibility or coverage determinations.",
+          "href": "https://www.myprivia.com/sites/default/files/2023-07/Financial_Policy.pdf",
+          "linkLabel": "Download (PDF)"
+        },
+        {
+          "title": "Language Services",
+          "description": "Free language assistance and communication aids, with our Notice of Nondiscrimination (English & Spanish).",
+          "href": "https://www.priviahealth.com/notice-nondiscrimination/",
+          "linkLabel": "View notice"
+        }
+      ]
     }
   }
 }

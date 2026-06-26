@@ -1,0 +1,139 @@
+{
+  "hero": {
+    "eyebrow": "Tuesdays · After Hours · Weekends",
+    "heading": "Care that doesn't",
+    "headingItalic": "clock out.",
+    "subhead": "When our office is closed for doctor visits, an on-call physician is still within reach — by phone or video.",
+    "note": "Whether it's a virtual visit, scheduling your next appointment, or finding and filling out forms — our team will help you get there."
+  },
+  "access": {
+    "eyebrow": "How Virtual Care Works",
+    "heading": "Still your",
+    "headingItalic": "doctor's office.",
+    "body1": "When the office is closed for doctor visits — after hours on weekdays, on weekends, and on Tuesdays — you still have a way to reach care. You start with a call, and our staff helps you choose the right next step.",
+    "body2": "Not a call center. Your concern reaches a nurse, and a physician, who care for you just as we would in the office.",
+    "steps": [
+      {
+        "label": "Start with a call",
+        "body": "Reach our office and a team member points you in the right direction — paperwork, the patient portal, or where to go for what you need."
+      },
+      {
+        "label": "Talk to a nurse",
+        "body": "For medical questions, our nurses — through Privia — can advise on most concerns and help decide what comes next."
+      },
+      {
+        "label": "A physician calls you back",
+        "body": "If you need a doctor, an on-call physician reaches you by phone or video and cares for you just as if your own doctor called. Virtual visits bill to your insurance."
+      }
+    ],
+    "costNote": "Virtual visits are billed separately and may have a co-pay. Have your insurance card handy, and text or call us with any billing questions.",
+    "ctaLabel": "Start a Virtual Visit",
+    "ctaHref": "https://care.myprivia.com/virtual-clinic",
+    "callLabel": "Call Our Office",
+    "callHref": "tel:7725693212",
+    "callPhone": "(772) 569-3212",
+    "ctaNote": "Our team will help direct you to the right place — virtual visit, an appointment, or whatever you need."
+  },
+  "tuesday": {
+    "eyebrow": "Tuesdays",
+    "heading": "Open at the front desk,",
+    "headingItalic": "covered for the rest.",
+    "intro": "On Tuesdays our office is open for administrative needs, but Dr. Stewart isn't seeing patients that day. Here's how to get what you need:",
+    "options": [
+      {
+        "label": "Need a form or paperwork?",
+        "body": "Come by on Tuesday — we're open and here to help with forms, referrals, or anything administrative.",
+        "ctaLabel": "Patient Resources",
+        "ctaHref": "/for-patients/"
+      },
+      {
+        "label": "Need to see Dr. Stewart?",
+        "body": "Give us a call and we'll do our best to find you the next available appointment. When it can't wait, virtual care keeps you covered.",
+        "ctaLabel": "Call Our Office",
+        "ctaHref": "tel:7725693212"
+      },
+      {
+        "label": "Need care today?",
+        "body": "A physician is available by phone or video through Privia Virtual Clinic — no urgent care required.",
+        "ctaLabel": "Start a Virtual Visit",
+        "ctaHref": "https://care.myprivia.com/virtual-clinic"
+      }
+    ],
+    "note": "Some services may still be available in person on Tuesdays — call and our staff will help you choose what's right for you.",
+    "callLabel": "Call Our Office",
+    "callHref": "tel:7725693212",
+    "callPhone": "(772) 569-3212"
+  },
+  "setup": {
+    "eyebrow": "Before Your Visit",
+    "heading": "Two minutes of prep",
+    "headingItalic": "and you're all set.",
+    "intro": "Once your visit moves to video, a couple of minutes of prep keeps it smooth. The most common snag is a camera or microphone blocked by your device — here's how to clear it before you join.",
+    "mobile": {
+      "label": "On a Phone",
+      "appStoreUrl": "https://apps.apple.com/us/app/privia-health/id1098325712",
+      "appStoreLabel": "App Store",
+      "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.priviahealth.patient",
+      "googlePlayLabel": "Google Play",
+      "steps": [
+        "Download the Privia Health app (App Store or Google Play), or open your visit link in your mobile browser.",
+        "Sign in to your Privia account before the visit starts.",
+        "When your phone asks for camera and microphone access, tap Allow.",
+        "Use Wi-Fi if possible — video calls are more stable than cellular.",
+        "If the call drops, check your confirmation text or email for a rejoin link. Your doctor may also call you back directly."
+      ],
+      "permissionNote": "Tap Allow — you'll see a prompt like this."
+    },
+    "desktop": {
+      "label": "On a Computer",
+      "steps": [
+        "Use Google Chrome if possible — it's Privia's recommended browser. Edge and Safari also work. Internet Explorer is not supported.",
+        "When your browser asks for camera and microphone access, click Allow.",
+        "If you see a camera icon with a line through it in the address bar, click it to change the permission to Allow.",
+        "Close Zoom, FaceTime, Teams, or any other app currently using your camera.",
+        "If the call drops, check your confirmation email or text for a rejoin link. Your doctor may also call you back directly."
+      ],
+      "permissionNote": "Click Allow — you'll see a prompt like this."
+    }
+  },
+  "tips": {
+    "eyebrow": "Helpful Tips",
+    "heading": "Set yourself up",
+    "headingItalic": "for success.",
+    "items": [
+      {
+        "label": "Insurance & medications",
+        "body": "Have your insurance card and a current medication list nearby before you join."
+      },
+      {
+        "label": "Stay charged",
+        "body": "Plug in your device or confirm your battery is above 20% before the visit begins."
+      },
+      {
+        "label": "Strong connection",
+        "body": "Privia requires at least 20 Mbps. Not sure? Test at speedtest.net before your visit. If Wi-Fi is slow, try moving closer to your router or switching to a wired connection."
+      },
+      {
+        "label": "Good lighting",
+        "body": "Face a window or a lamp so the doctor can see you clearly. Avoid sitting with a bright light behind you."
+      },
+      {
+        "label": "Be ready when the call comes",
+        "body": "Your doctor will call you when they're ready. Have your device open, camera and microphone allowed, and a quiet spot picked out before you expect the call."
+      },
+      {
+        "label": "Open a fresh window",
+        "body": "Open your virtual visit in its own browser window and close extra tabs. Other open windows can compete for bandwidth and slow the connection."
+      }
+    ]
+  },
+  "helpCta": {
+    "eyebrow": "Questions or Trouble?",
+    "heading": "We're a message",
+    "headingItalic": "away.",
+    "body": "If you run into technical difficulties or have questions before your virtual visit, text or call our office — we'll help you get connected.",
+    "phone": "(772) 569-3212",
+    "phoneHref": "tel:7725693212",
+    "phoneLabel": "Text or Call Us"
+  }
+}
