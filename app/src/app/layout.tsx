@@ -3,11 +3,8 @@ import { Fraunces, Cormorant_Garamond, Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MessageUsButton from "@/components/MessageUsButton";
 import Script from "next/script";
-
-// Shared VBP/VBAM Klara patient-messaging widget id (public; not a secret).
-const KLARA_WIDGET_ID =
-  process.env.NEXT_PUBLIC_KLARA_WIDGET_ID || "168b842c-9a0d-43dd-bc25-d0dc202289aa";
 
 const fraunces = Fraunces({
   variable: "--nf-fraunces",
@@ -87,17 +84,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Header />
         {children}
         <Footer />
-        {/* Klara floating "Message us" widget — the patient-messaging widget shared
-            with Vero Beach Pediatrics. Queue-init then load the official bundle
-            (matches the live embed). Widget id is public; env can override. */}
-        <Script id="klara-widget-init" strategy="lazyOnload">
-          {`window.klaraWidget=window.klaraWidget||[];window.klaraWidget.push(['setWidgetId','${KLARA_WIDGET_ID}']);`}
-        </Script>
-        <Script
-          id="klara-widget-bundle"
-          src="https://s3.amazonaws.com/widget-frontend.klara.com/bundle.js"
-          strategy="lazyOnload"
-        />
+        {/* Text-first practice: a reliable floating "Message us" button that opens
+            the shared Klara messaging widget. Replaces the embedded Klara script,
+            which intermittently rendered blank (same fix as VBP). */}
+        <MessageUsButton />
       </body>
     </html>
   );
