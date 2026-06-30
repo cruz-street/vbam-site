@@ -115,6 +115,7 @@
       "headingItalic": "a few minutes.",
       "subhead": "Complete your registration online before your first visit. The form is encrypted and sent securely to our care team."
     },
+    "panelStatus": "Registration is open. We'll close the panel when it's full — register now to hold your spot.",
     "reassurance": "Your information is protected. This form uses HIPAA-compliant encryption and is only accessible to our care team. We never share your data outside of your care.",
     "fallback": {
       "heading": "Registration form coming soon.",
@@ -129,8 +130,7 @@
       "requirementsLabel": "To register this way, you must be:",
       "requirements": [
         "18 years or older",
-        "Covered by an insurance plan we accept",
-        "A current Vero Beach Pediatrics patient family — during our exclusive enrollment period for VBP families"
+        "Covered by an insurance plan we accept"
       ],
       "insuranceListLink": {
         "label": "See our accepted insurance plans →",
