@@ -22,7 +22,8 @@
   },
   "cta": {
     "heading": "Ready to claim your place?",
-    "subhead": "Our founding panel is forming now. Register online in minutes.",
-    "cta": "Book an Appointment →"
+    "subhead": "Now accepting new patients. We'll close the panel when it's full.",
+    "cta": "Book an Appointment →",
+    "cta2": "Register now to hold your spot."
   }
 }

@@ -10,7 +10,6 @@ const LINKS: Record<string, FooterLink[]> = {
     { href: '/for-patients/', label: 'For Patients'   },
   ],
   Patients: [
-    { href: '/contact/',      label: 'Book an Appointment' },
     { href: '/for-patients/new-patient-registration/', label: 'New Patient Registration' },
     { href: '/for-patients/#insurance', label: 'Insurance'           },
     { href: 'https://www.myprivia.com/account-access/', label: 'Patient Portal', external: true },
