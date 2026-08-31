@@ -195,8 +195,13 @@ export default function Footer() {
           <span>© 2026 Vero Beach Adult Medicine · verobeachadultmedicine.com</span>
           <span>
             <Link href="/contact/" className="hover:text-vbam-foam/60 transition-colors mr-4">Contact</Link>
-            Sibling of{' '}
-            <a href="https://verobeachpediatrics.com" className="hover:text-vbam-foam/60 transition-colors">
+            One organization with{' '}
+            <a
+              href="https://www.verobeachpediatrics.com/?utm_source=verobeachadultmedicine&utm_medium=referral&utm_campaign=peds-crosslink&utm_content=footer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-vbam-foam/60 transition-colors"
+            >
               Vero Beach Pediatrics
             </a>
           </span>
