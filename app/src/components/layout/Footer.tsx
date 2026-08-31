@@ -163,7 +163,7 @@ export default function Footer() {
               <img
                 src="/images/privia-medical-group-logo.webp"
                 alt="Privia Medical Group"
-                style={{ height: 24, width: 'auto', display: 'block' }}
+                style={{ height: 32, width: 'auto', display: 'block' }}
               />
             </span>
           </a>
