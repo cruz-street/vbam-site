@@ -131,9 +131,11 @@
     "eyebrow": "Questions or Trouble?",
     "heading": "We're a message",
     "headingItalic": "away.",
-    "body": "If you run into technical difficulties or have questions before your virtual visit, text or call our office — we'll help you get connected.",
-    "phone": "(772) 569-3212",
-    "phoneHref": "tel:7725693212",
-    "phoneLabel": "Text or Call Us"
+    "body": "Text or call — our after-hours care team will help direct you to the right point of contact. If you need to be seen urgently, we'll make every effort to fit you in same-day; when the schedule is full, virtual care gives you a way to be seen promptly.",
+    "textLabel": "Text Us",
+    "textHref": "sms:+18554308172",
+    "callLabel": "Call Us",
+    "callHref": "tel:+17725693212",
+    "callPhone": "(772) 569-3212"
   }
 }
