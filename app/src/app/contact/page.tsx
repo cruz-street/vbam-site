@@ -79,13 +79,24 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <p className="font-archivo font-[700] text-vbam-atlantic/50 mb-2" style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' }}>Phone</p>
+                  <p className="font-archivo font-[700] text-vbam-atlantic/50 mb-2" style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' }}>Call</p>
                   <a
                     href={`tel:${PRACTICE_INFO.phoneTel}`}
                     className="font-inter font-[400] text-vbam-atlantic hover:text-vbam-inlet transition-colors"
                     style={{ fontSize: 20, letterSpacing: '0.01em' }}
                   >
                     {PRACTICE_INFO.phone}
+                  </a>
+                </div>
+
+                <div>
+                  <p className="font-archivo font-[700] text-vbam-atlantic/50 mb-2" style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase' }}>SMS/Text</p>
+                  <a
+                    href={PRACTICE_INFO.smsHref}
+                    className="font-inter font-[400] text-vbam-atlantic hover:text-vbam-inlet transition-colors"
+                    style={{ fontSize: 20, letterSpacing: '0.01em' }}
+                  >
+                    Text Us
                   </a>
                 </div>
 
@@ -115,7 +126,7 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          {/* Klara CTA — on mobile this floats above the contact info so texting is the lead action */}
+          {/* SMS CTA — on mobile this floats above the contact info so texting is the lead action */}
           <ScrollReveal animation="left" delay={100} as="div" className="order-1 md:order-2">
             <div className="bg-vbam-sand rounded-xl" style={{ padding: 'clamp(28px, 4vw, 44px) clamp(20px, 3vw, 40px)' }}>
               {CONTACT_KLARA.eyebrow && (
@@ -134,9 +145,7 @@ export default function ContactPage() {
               </p>
 
               <a
-                href={CONTACT_KLARA.klaraUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CONTACT_KLARA.ctaHref}
                 className="btn-primary inline-block w-full text-center font-archivo font-[600] rounded-full transition-colors"
                 style={{ fontSize: 14, padding: '14px 28px', letterSpacing: '0.01em' }}
               >

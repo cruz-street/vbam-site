@@ -47,6 +47,8 @@
     "eyebrow": "Insurance",
     "heading": "Most plans",
     "headingItalic": "accepted.",
+    "orgLine": "Vero Beach Pediatrics & Adult Medicine accepts most major insurance plans. Accepted plans differ between the two practices.",
+    "orgLineLink": { "label": "See the pediatrics plan list →", "href": "https://www.verobeachpediatrics.com/accepted-health-insurance-plans/?utm_source=verobeachadultmedicine&utm_medium=referral&utm_campaign=peds-crosslink&utm_content=insurance" },
     "note": "Don't see your plan? Call (772) 569-3212 and we'll verify your coverage.",
     "groups": [
       {

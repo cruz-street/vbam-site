@@ -92,6 +92,20 @@ export default function ForPatientsPage() {
               <h2 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 32, lineHeight: 1.15, letterSpacing: '-0.015em', marginBottom: 20 }}>
                 {INSURANCE.heading} <em className="font-cormorant italic text-grad-sunrise">{INSURANCE.headingItalic}</em>
               </h2>
+              {INSURANCE.orgLine && (
+                <p className="font-archivo text-vbam-atlantic/75" style={{ fontSize: 15, lineHeight: 1.6, marginBottom: 20 }}>
+                  {INSURANCE.orgLine}{' '}
+                  {INSURANCE.orgLineLink && (
+                    <a
+                      href={INSURANCE.orgLineLink.href}
+                      rel="noopener"
+                      className="font-[700] text-vbam-coral hover:underline whitespace-nowrap"
+                    >
+                      {INSURANCE.orgLineLink.label}
+                    </a>
+                  )}
+                </p>
+              )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7" style={{ marginBottom: 24 }}>
                 {INSURANCE.groups.map(group => (
                   <div key={group.label}>

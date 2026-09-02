@@ -4,11 +4,15 @@ import Link from 'next/link';
 import SunSeaMark from '@/components/shared/SunSeaMark';
 import AccessibilityMenu from '@/components/shared/AccessibilityMenu';
 
-const NAV_LINKS = [
+const PEDIATRICS_HREF =
+  'https://www.verobeachpediatrics.com/?utm_source=verobeachadultmedicine&utm_medium=referral&utm_campaign=peds-crosslink';
+
+const NAV_LINKS: { href: string; label: string; external?: boolean }[] = [
   { href: '/about/',        label: 'About'        },
   { href: '/services/',     label: 'Services'     },
   { href: '/for-patients/', label: 'For Patients' },
   { href: '/contact/',      label: 'Contact'      },
+  { href: PEDIATRICS_HREF,  label: 'Pediatrics', external: true },
 ];
 
 export default function Header() {
@@ -29,15 +33,26 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-7">
-          {NAV_LINKS.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="font-archivo text-[13px] font-[500] text-vbam-atlantic opacity-80 hover:opacity-100 transition-opacity"
-            >
-              {label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(({ href, label, external }) =>
+            external ? (
+              <a
+                key={href}
+                href={href}
+                rel="noopener"
+                className="font-archivo text-[13px] font-[500] text-vbam-atlantic opacity-80 hover:opacity-100 transition-opacity"
+              >
+                {label}
+              </a>
+            ) : (
+              <Link
+                key={href}
+                href={href}
+                className="font-archivo text-[13px] font-[500] text-vbam-atlantic opacity-80 hover:opacity-100 transition-opacity"
+              >
+                {label}
+              </Link>
+            )
+          )}
           <Link
             href="/for-patients/new-patient-registration/"
             className="btn-primary font-archivo text-[13px] font-[600] px-5 py-2.5 rounded-full transition-colors"
@@ -102,28 +117,49 @@ export default function Header() {
 
         <div className="bg-vbam-sand">
           <nav className="flex flex-col px-5 sm:px-8 pt-1 pb-1">
-            {NAV_LINKS.map(({ href, label }, i) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className="group flex items-center justify-between py-[18px] font-fraunces font-[400] text-vbam-atlantic hover:text-vbam-inlet transition-colors"
-                style={{
-                  fontSize: 22,
-                  lineHeight: 1,
-                  letterSpacing: '-0.01em',
-                  borderBottom: i < NAV_LINKS.length - 1 ? '1px solid rgba(10,61,74,.09)' : 'none',
-                }}
-              >
-                <span>{label}</span>
-                <span
-                  className="text-vbam-coral transition-[transform,opacity] group-hover:translate-x-1"
-                  style={{ fontSize: 16, opacity: 0.55 }}
+            {NAV_LINKS.map(({ href, label, external }, i) => {
+              const itemClassName =
+                'group flex items-center justify-between py-[18px] font-fraunces font-[400] text-vbam-atlantic hover:text-vbam-inlet transition-colors';
+              const itemStyle = {
+                fontSize: 22,
+                lineHeight: 1,
+                letterSpacing: '-0.01em',
+                borderBottom: i < NAV_LINKS.length - 1 ? '1px solid rgba(10,61,74,.09)' : 'none',
+              } as const;
+              const content = (
+                <>
+                  <span>{label}</span>
+                  <span
+                    className="text-vbam-coral transition-[transform,opacity] group-hover:translate-x-1"
+                    style={{ fontSize: 16, opacity: 0.55 }}
+                  >
+                    →
+                  </span>
+                </>
+              );
+              return external ? (
+                <a
+                  key={href}
+                  href={href}
+                  rel="noopener"
+                  onClick={() => setMenuOpen(false)}
+                  className={itemClassName}
+                  style={itemStyle}
                 >
-                  →
-                </span>
-              </Link>
-            ))}
+                  {content}
+                </a>
+              ) : (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className={itemClassName}
+                  style={itemStyle}
+                >
+                  {content}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="px-5 sm:px-8 py-5 space-y-3">
