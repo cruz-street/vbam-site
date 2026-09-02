@@ -75,6 +75,23 @@ export default function Footer() {
               ))}
             </div>
           )}
+
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <a
+              href="sms:+18554308172"
+              className="font-archivo font-[600] text-vbam-atlantic rounded-full transition-opacity hover:opacity-90"
+              style={{ fontSize: 13, padding: '11px 24px', background: 'var(--grad-sunrise)' }}
+            >
+              Text Us
+            </a>
+            <a
+              href="tel:7725693212"
+              className="font-archivo font-[600] text-vbam-foam/90 border border-vbam-foam/25 rounded-full hover:border-vbam-sunrise/50 hover:text-vbam-sunrise transition-colors"
+              style={{ fontSize: 13, padding: '11px 24px' }}
+            >
+              Call Us
+            </a>
+          </div>
         </div>
 
         {/* Grid */}
