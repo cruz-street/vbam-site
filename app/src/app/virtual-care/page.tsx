@@ -660,18 +660,19 @@ export default function VirtualCarePage() {
           <ScrollReveal delay={150}>
             <div className="flex gap-3 justify-center flex-wrap">
               <a
-                href={VIRTUAL_CARE_HELP_CTA.phoneHref}
+                href={VIRTUAL_CARE_HELP_CTA.textHref}
                 className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full"
                 style={{ fontSize: 15, padding: '15px 32px' }}
               >
-                {VIRTUAL_CARE_HELP_CTA.phoneLabel} →
+                {VIRTUAL_CARE_HELP_CTA.textLabel} →
               </a>
-              <span
-                className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 rounded-full inline-flex items-center"
+              <a
+                href={VIRTUAL_CARE_HELP_CTA.callHref}
+                className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full inline-flex items-center gap-2"
                 style={{ fontSize: 15, padding: '15px 32px', background: 'rgba(245,241,232,.45)', backdropFilter: 'blur(6px)' }}
               >
-                {VIRTUAL_CARE_HELP_CTA.phone}
-              </span>
+                {VIRTUAL_CARE_HELP_CTA.callLabel} · {VIRTUAL_CARE_HELP_CTA.callPhone}
+              </a>
             </div>
           </ScrollReveal>
         </div>
