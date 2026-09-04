@@ -145,18 +145,24 @@ export default function ContactPage() {
                 {CONTACT_SCHEDULING.subhead}
               </p>
 
-              {/* Yosi self-scheduling widget */}
+              {/* Yosi self-scheduling widget. The loader script reads
+                  yosi_widget_obj synchronously the instant it runs, with no
+                  guard for it being undefined — so the config assignment and
+                  the loader injection have to be one script, not two separate
+                  next/script tags (a race there means both the inline embed
+                  and its floating-button fallback silently fail). */}
               <div style={{ maxWidth: '100%', overflowX: 'auto' }}>
                 <div id="yosi-widget-container" />
               </div>
-              <Script id="yosi-widget-config" strategy="afterInteractive">
-                {`var yosi_widget_obj = {background: '#f5f1f3', width: '400px', height: '88vh', btn_color: '#1b3c49', page_container_id: 'yosi-widget-container'};`}
+              <Script id="yosi-widget-init" strategy="afterInteractive">
+                {`
+                  window.yosi_widget_obj = {background: '#f5f1f3', width: '400px', height: '88vh', btn_color: '#1b3c49', page_container_id: 'yosi-widget-container'};
+                  var yosiScript = document.createElement('script');
+                  yosiScript.src = 'https://s3-us-west-2.amazonaws.com/s3-schedulewidget.yosicare.com/script.js';
+                  yosiScript.async = true;
+                  document.body.appendChild(yosiScript);
+                `}
               </Script>
-              <Script
-                id="yosi-widget-script"
-                src="https://s3-us-west-2.amazonaws.com/s3-schedulewidget.yosicare.com/script.js"
-                strategy="afterInteractive"
-              />
 
               <div style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid rgba(10,61,74,.1)' }}>
                 <p className="font-inter font-[300] text-vbam-atlantic/70 text-center" style={{ fontSize: 14, lineHeight: 1.6, marginBottom: 14 }}>
