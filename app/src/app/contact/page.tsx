@@ -78,7 +78,7 @@ export default function ContactPage() {
 
       {/* ── Contact info + form ─── */}
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-16 items-start">
 
           {/* Contact info — on mobile this drops below the Klara CTA so texting
               leads. No ScrollReveal here (unlike the scheduling column) --
