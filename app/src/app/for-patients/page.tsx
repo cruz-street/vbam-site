@@ -230,7 +230,7 @@ export default function ForPatientsPage() {
           </ScrollReveal>
           <ScrollReveal delay={140}>
             <div className="flex gap-3 justify-center flex-wrap">
-              <Link href="/contact/" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '14px 28px' }}>
+              <Link href="/contact/#schedule" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '14px 28px' }}>
                 {FOR_PATIENTS_CTA.cta1}
               </Link>
               <Link
