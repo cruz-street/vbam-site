@@ -157,6 +157,7 @@ export default function ContactPage() {
               <Script id="yosi-widget-init" strategy="afterInteractive">
                 {`
                   window.yosi_widget_obj = {background: '#f5f1f3', width: '400px', height: '88vh', btn_color: '#1b3c49', page_container_id: 'yosi-widget-container'};
+                  window.yosi_widgetId = '2ce5dea52d9c2339d2eb678d5eb3f7b8';
                   var yosiScript = document.createElement('script');
                   yosiScript.src = 'https://s3-us-west-2.amazonaws.com/s3-schedulewidget.yosicare.com/script.js';
                   yosiScript.async = true;
