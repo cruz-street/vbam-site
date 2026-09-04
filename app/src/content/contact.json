@@ -33,8 +33,9 @@
   },
   "scheduling": {
     "eyebrow": "Existing Patients",
-    "heading": "Schedule online.",
-    "subhead": "Self-scheduling below is available to existing patients only.",
+    "newTabPrompt": "Prefer a full window?",
+    "newTabCta": "Open in a new tab →",
+    "newTabHref": "https://schedule.yosicare.com/2ce5dea52d9c2339d2eb678d5eb3f7b8",
     "textPrompt": "New patient, or prefer to text?",
     "textCta": "Text Us",
     "textHref": "sms:+18554308172",

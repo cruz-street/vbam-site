@@ -138,13 +138,17 @@ export default function ContactPage() {
                   {CONTACT_SCHEDULING.eyebrow}
                 </p>
               )}
-              <h3 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 26, lineHeight: 1.15, letterSpacing: '-0.012em', marginBottom: 10 }}>
-                {CONTACT_SCHEDULING.heading}
-              </h3>
-              <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 15, lineHeight: 1.65, marginBottom: 24 }}>
-                {CONTACT_SCHEDULING.subhead}
+              <p className="font-inter font-[300] text-vbam-atlantic/70" style={{ fontSize: 13, lineHeight: 1.6, marginBottom: 16 }}>
+                {CONTACT_SCHEDULING.newTabPrompt}{' '}
+                <a
+                  href={CONTACT_SCHEDULING.newTabHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-[600] text-vbam-coral hover:text-vbam-atlantic underline transition-colors"
+                >
+                  {CONTACT_SCHEDULING.newTabCta}
+                </a>
               </p>
-
               {/* Yosi self-scheduling widget. The loader script reads
                   yosi_widget_obj synchronously the instant it runs, with no
                   guard for it being undefined — so the config assignment and
