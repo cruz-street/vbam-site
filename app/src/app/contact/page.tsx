@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import JsonLd from '@/components/shared/JsonLd';
-import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_KLARA, CONTACT_CTA } from '@/content/contact';
+import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_SCHEDULING, CONTACT_CTA } from '@/content/contact';
 
 export const metadata: Metadata = {
   title: 'Contact & Appointments',
@@ -126,38 +127,52 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          {/* SMS CTA — on mobile this floats above the contact info so texting is the lead action */}
+          {/* Self-scheduling — on mobile this floats above the contact info so it leads */}
           <ScrollReveal animation="left" delay={100} as="div" className="order-1 md:order-2">
             <div className="bg-vbam-sand rounded-xl" style={{ padding: 'clamp(28px, 4vw, 44px) clamp(20px, 3vw, 40px)' }}>
-              {CONTACT_KLARA.eyebrow && (
+              {CONTACT_SCHEDULING.eyebrow && (
                 <p
                   className="font-archivo font-[700] text-vbam-coral"
                   style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 12 }}
                 >
-                  {CONTACT_KLARA.eyebrow}
+                  {CONTACT_SCHEDULING.eyebrow}
                 </p>
               )}
               <h3 className="font-fraunces font-[400] text-vbam-atlantic" style={{ fontSize: 26, lineHeight: 1.15, letterSpacing: '-0.012em', marginBottom: 10 }}>
-                {CONTACT_KLARA.heading}
+                {CONTACT_SCHEDULING.heading}
               </h3>
-              <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 15, lineHeight: 1.65, marginBottom: 28 }}>
-                {CONTACT_KLARA.subhead}
+              <p className="font-inter font-[300] text-vbam-atlantic/[.78]" style={{ fontSize: 15, lineHeight: 1.65, marginBottom: 24 }}>
+                {CONTACT_SCHEDULING.subhead}
               </p>
 
-              <a
-                href={CONTACT_KLARA.ctaHref}
-                className="btn-primary inline-block w-full text-center font-archivo font-[600] rounded-full transition-colors"
-                style={{ fontSize: 14, padding: '14px 28px', letterSpacing: '0.01em' }}
-              >
-                {CONTACT_KLARA.cta}
-              </a>
+              {/* Yosi self-scheduling widget */}
+              <div style={{ maxWidth: '100%', overflowX: 'auto' }}>
+                <div id="yosi-widget-container" />
+              </div>
+              <Script id="yosi-widget-config" strategy="afterInteractive">
+                {`var yosi_widget_obj = {background: '#f5f1f3', width: '400px', height: '88vh', btn_color: '#1b3c49', page_container_id: 'yosi-widget-container'};`}
+              </Script>
+              <Script
+                id="yosi-widget-script"
+                src="https://s3-us-west-2.amazonaws.com/s3-schedulewidget.yosicare.com/script.js"
+                strategy="afterInteractive"
+              />
 
-              <p className="font-inter font-[300] text-vbam-atlantic/70 text-center" style={{ fontSize: 14, lineHeight: 1.6, marginTop: 24 }}>
-                {CONTACT_KLARA.altLine}
-              </p>
+              <div style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid rgba(10,61,74,.1)' }}>
+                <p className="font-inter font-[300] text-vbam-atlantic/70 text-center" style={{ fontSize: 14, lineHeight: 1.6, marginBottom: 14 }}>
+                  {CONTACT_SCHEDULING.textPrompt}
+                </p>
+                <a
+                  href={CONTACT_SCHEDULING.textHref}
+                  className="btn-primary inline-block w-full text-center font-archivo font-[600] rounded-full transition-colors"
+                  style={{ fontSize: 14, padding: '14px 28px', letterSpacing: '0.01em' }}
+                >
+                  {CONTACT_SCHEDULING.textCta}
+                </a>
+              </div>
 
               <p className="font-inter font-[300] text-vbam-atlantic/40 text-center" style={{ fontSize: 12, lineHeight: 1.5, marginTop: 18 }}>
-                {CONTACT_KLARA.disclaimer}
+                {CONTACT_SCHEDULING.disclaimer}
               </p>
             </div>
           </ScrollReveal>
