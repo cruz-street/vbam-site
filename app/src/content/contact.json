@@ -32,7 +32,7 @@
     "sameDay": "Call in the morning when you need to be seen — we'll do our best to fit you in or route you to virtual care for a prompt option."
   },
   "scheduling": {
-    "eyebrow": "Existing Patients",
+    "eyebrow": "Schedule Online",
     "newTabPrompt": "Prefer a full window?",
     "newTabCta": "Open in a new tab →",
     "newTabHref": "https://schedule.yosicare.com/2ce5dea52d9c2339d2eb678d5eb3f7b8",
