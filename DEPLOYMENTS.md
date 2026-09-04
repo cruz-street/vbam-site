@@ -1,5 +1,12 @@
 # Deployments
 
+**Current environments** (see CLAUDE.md for full detail): production is `main` →
+`verobeachadultmedicine.com`; staging is `staging` → `verobeachadultmedicine.pages.dev`.
+The `vbam-site.pages.dev` host referenced in the earliest log rows below is the
+original staging project — it moved to Jesse's CF tenant and now lives at
+`verobeachadultmedicine.pages.dev`. The old `vbam-site.pages.dev` project is
+abandoned in place, serves stale content, and should never be used to verify a change.
+
 | Date | Environment | CF Pages URL | Commit | Notes |
 |---|---|---|---|---|
 | 2026-07-02 | **production** | https://verobeachadultmedicine.com | 4ad8d3c | Hero eyebrow updated for open-to-everyone policy: "Opening September 2, 2026 · Limited inaugural panel" → "Now accepting new patients · Doors open September 2, 2026" (option 3, approved by Alex in DM). Staging run #28616683844 green + text verified on verobeachadultmedicine.pages.dev, promoted `staging → main` (ff), prod run #28616747616 green, text verified live on .com and vbam-site-prod.pages.dev. |

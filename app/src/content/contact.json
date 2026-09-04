@@ -31,13 +31,13 @@
     "hoursNote": "By appointment",
     "sameDay": "Call in the morning when you need to be seen — we'll do our best to fit you in or route you to virtual care for a prompt option."
   },
-  "klara": {
-    "eyebrow": "Fastest way to reach us",
-    "heading": "Text us to schedule.",
-    "subhead": "Send a secure message and our staff will respond — usually within one business day.",
-    "cta": "Text Us to Schedule →",
-    "ctaHref": "sms:+18554308172",
-    "altLine": "Prefer to call? Reach our front desk directly at (772) 569-3212 — our call tree even gives you the option to text instead.",
+  "scheduling": {
+    "eyebrow": "Existing Patients",
+    "heading": "Schedule online.",
+    "subhead": "Self-scheduling below is available to existing patients only.",
+    "textPrompt": "New patient, or prefer to text?",
+    "textCta": "Text Us",
+    "textHref": "sms:+18554308172",
     "disclaimer": "Not for medical emergencies. Call 911 or go to your nearest emergency room."
   },
   "sibling": "Same family. Different chapter. Same coast."
