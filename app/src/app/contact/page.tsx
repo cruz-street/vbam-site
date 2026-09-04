@@ -53,13 +53,12 @@ export default function ContactPage() {
         heading={CONTACT_HERO.heading}
         headingItalic={CONTACT_HERO.headingItalic}
         subhead={CONTACT_HERO.subhead}
-      />
-
-      {/* Jump links — same two destinations every "Book Appointment" button
-          on the site points at (#schedule) plus a way to reach the info
-          column directly on mobile, where it's second in DOM order. */}
-      <div className="bg-vbam-foam" style={{ padding: '0 0 clamp(28px, 4vw, 40px)' }}>
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 flex gap-3 justify-center flex-wrap">
+      >
+        {/* Jump links — same two destinations every "Book Appointment"
+            button on the site points at (#schedule), plus a way to reach
+            the info column directly on mobile, where it's second in DOM
+            order. */}
+        <div className="flex gap-3 justify-center flex-wrap" style={{ marginTop: 28 }}>
           <a
             href="#info"
             className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full"
@@ -75,15 +74,17 @@ export default function ContactPage() {
             Book Appointment Online
           </a>
         </div>
-      </div>
+      </PageHero>
 
       {/* ── Contact info + form ─── */}
-      <section className="bg-vbam-foam" style={{ padding: '0 0 clamp(40px, 7vw, 96px)' }}>
+      <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
 
-          {/* Contact info — on mobile this drops below the Klara CTA so texting leads */}
+          {/* Contact info — on mobile this drops below the Klara CTA so texting
+              leads. No ScrollReveal here (unlike the scheduling column) --
+              the #info jump link lands here directly, and a scroll-reveal
+              fade made it feel slow to appear right after an anchor jump. */}
           <div id="info" className="order-2 md:order-1">
-          <ScrollReveal animation="left" as="div">
             <div>
               <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 18 }}>
                 {CONTACT_INFO.eyebrow}
@@ -148,13 +149,12 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-          </ScrollReveal>
           </div>
 
           {/* Self-scheduling — on mobile this floats above the contact info so it leads */}
           <div id="schedule" className="order-1 md:order-2">
           <ScrollReveal animation="left" delay={100} as="div">
-            <div className="bg-vbam-sand rounded-xl" style={{ padding: 'clamp(28px, 4vw, 44px) clamp(20px, 3vw, 40px)' }}>
+            <div className="bg-vbam-sand rounded-xl" style={{ paddingTop: 'clamp(14px, 2vw, 20px)', paddingBottom: 'clamp(28px, 4vw, 44px)', paddingLeft: 'clamp(20px, 3vw, 40px)', paddingRight: 'clamp(20px, 3vw, 40px)' }}>
               {CONTACT_SCHEDULING.eyebrow && (
                 <p
                   className="font-archivo font-[700] text-vbam-coral"
