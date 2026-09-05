@@ -121,7 +121,7 @@ export default function ContactPage() {
                     className="font-inter font-[400] text-vbam-atlantic hover:text-vbam-inlet transition-colors"
                     style={{ fontSize: 20, letterSpacing: '0.01em' }}
                   >
-                    Text Us
+                    {PRACTICE_INFO.sms}
                   </a>
                 </div>
 
