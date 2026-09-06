@@ -15,3 +15,6 @@ out/
 *.png
 *.jpeg
 *.jpg
+
+# ...but campaign print assets (QR codes) are deliverables, not screenshots
+!docs/campaigns/**/*.png

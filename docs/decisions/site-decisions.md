@@ -4,6 +4,22 @@ Newest entry first.
 
 ---
 
+## 2026-09-06 — Campaign tracking: UTM-tagged short links in `_redirects`, not a link shortener
+
+**Decision:** Offline/print campaigns get a vanity path in `app/public/_redirects` that redirects to the canonical page with UTM parameters baked into the destination. First instance: `/laborday` → `/for-patients/new-patient-registration/?utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026`. QR codes and campaign notes are generated into `docs/campaigns/<campaign>/`, which the site does not serve.
+
+**Why not a third-party shortener (Bitly, Dub, Short.io):** the QR would point at someone else's domain, so a printed asset outlives our control of where it lands, and a scanner sees a non-VBAM hostname on a healthcare registration link — bad for trust. A shortener also adds a second network hop and a vendor with no BAA in a path that leads to an intake form. Cloudflare Pages already resolves `_redirects` at the edge, so the vanity path costs one rule and no new dependency (Rule: no new libraries without a decision entry).
+
+**Why not a Next.js route or a `redirects()` config:** `output: 'export'` means `next.config.ts` `redirects()` is not applied to a static export, and a real route would ship an HTML page that has to redirect client-side — slower, and it would need excluding from the sitemap. `_redirects` is the existing, proven mechanism here (`/register` precedent).
+
+**302, not 301** — unlike `/register`, which is a permanent alias. A campaign link's destination and its UTM tags are expected to change (next year's campaign, a different landing page); a 301 gets cached indefinitely in the browser of every person who scanned the code, and those scans can never be redirected again. The `/register` 301 stays as-is.
+
+**UTM convention** (`utm_source` = where the scan physically happened, `utm_medium` = `qr-code`, `utm_campaign` = `<campaign>-<year>`, all lowercase-hyphenated, `utm_content` reserved for splitting signage variants). GA4 is case-sensitive on UTM values, so casing drift silently forks a campaign into two rows.
+
+**Trade-offs / flags:** each campaign adds a permanent line to `_redirects` — prune expired campaign rules when the printed assets are out of circulation. Cloudflare Pages caps static redirect rules at 2,000, which is not a near-term concern. The registration form is a Jotform iframe with no `dataLayer` submission event, so this measures campaign *landings*, not completed registrations; wiring a submission event is a separate piece of work.
+
+---
+
 ## 2026-05-28 — New-patient intake: Jotform Gold (Path A, secure-link delivery) as 4-month bridge to Yosi/Athena
 
 **Decision:** Stand up a HIPAA-compliant new-patient registration form on **Jotform Gold** ($99/mo, signed BAA) as an interim solution until the planned **Yosi → Athena** integration goes live. Form is embedded at `/for-patients/new-patient-registration/` using Jotform's Smart Embed (iframe + `jotformEmbedHandler` autoresize script via Next.js `<Script>`). Submissions notify `careteam@verobeachadultmedicine.com` (M365 shared mailbox, covered under Microsoft's BAA) — Path A: notification email contains a secure login link, **not** PHI; staff click through to view the organized submission inside Jotform's HIPAA portal.

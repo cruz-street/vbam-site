@@ -7,5 +7,12 @@
 # Canonical pages stay where they are; these are 301 aliases.
 /register   /for-patients/new-patient-registration/   301
 
+# Campaign short links — QR codes and print signage.
+# 302 (not 301) so the destination and UTM tags stay repointable after the
+# campaign; a 301 would be cached in scanners' browsers indefinitely.
+# Labor Day Bash 2026 — table signage / handout QR code.
+/laborday   /for-patients/new-patient-registration/?utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026   302
+/laborday/  /for-patients/new-patient-registration/?utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026   302
+
 # Placeholder: old home → new home (remove when DNS is live)
 # /index.html  /  301
