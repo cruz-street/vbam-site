@@ -25,19 +25,46 @@ TARGETS = {
     # /laborday redirect has not been promoted to production yet.
     "vbam-laborday-qr-direct": (
         "https://verobeachadultmedicine.com/for-patients/new-patient-registration/"
-        "?utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026",
+        "?source=labor-day-2026"
+        "&utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026",
         "q",
+    ),
+    # Last resort: straight to the Jotform, skipping the website. Needs no
+    # deploy at all — only the hidden `source` field on the form. Loses the
+    # branded page; keeps the registration attribution, which matters more.
+    "vbam-laborday-qr-jotform": (
+        "https://form.jotform.com/262025447324048?source=labor-day-2026",
+        "h",
     ),
 }
 
+try:
+    import cv2
+    import zxingcpp
+except ImportError:  # verification is optional, generation is not
+    cv2 = zxingcpp = None
+
+failures = []
+
 for name, (url, ecc) in TARGETS.items():
     qr = segno.make(url, error=ecc)
-    qr.save(OUT / f"{name}.svg", scale=10, dark=DARK, light=LIGHT, border=4)
-    qr.save(OUT / f"{name}.png", scale=1, dark=DARK, light=LIGHT, border=4)
-    # re-save PNG at print resolution
     modules = qr.symbol_size(scale=1, border=4)[0]
-    qr.save(OUT / f"{name}.png", scale=max(1, 2000 // modules),
-            dark=DARK, light=LIGHT, border=4)
+    scale = max(1, 2000 // modules)
+
+    qr.save(OUT / f"{name}.svg", scale=10, dark=DARK, light=LIGHT, border=4)
+    qr.save(OUT / f"{name}.png", scale=scale, dark=DARK, light=LIGHT, border=4)
+
+    check = "not verified (pip install zxing-cpp opencv-python-headless)"
+    if zxingcpp is not None:
+        found = zxingcpp.read_barcodes(cv2.imread(str(OUT / f"{name}.png")))
+        ok = bool(found) and found[0].text == url
+        check = "decodes OK" if ok else "*** DOES NOT DECODE ***"
+        if not ok:
+            failures.append(name)
+
     print(f"{name}: version {qr.version}, ecc {ecc.upper()}, "
-          f"{modules} modules -> {qr.symbol_size(scale=max(1, 2000 // modules), border=4)[0]}px PNG")
+          f"{modules} modules -> {modules * scale}px PNG — {check}")
     print(f"  {url}")
+
+if failures:
+    raise SystemExit(f"\nFAILED to verify: {', '.join(failures)} — do not print these.")

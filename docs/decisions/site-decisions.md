@@ -4,6 +4,20 @@ Newest entry first.
 
 ---
 
+## 2026-09-06 — Registration attribution lives in the Jotform submission, not GA4
+
+**Decision:** Campaign attribution for new-patient registrations is captured as a hidden `source` field **on the Jotform submission record**, prefilled by forwarding an allowlist of campaign params from the page URL onto the iframe `src` in `JotformEmbed.tsx`. GA4/UTM tracking stays, but measures *reach* (page landings), not *registrations*.
+
+**Why:** UTM tags on the page URL answer "how many people saw the registration page," which is not the question anyone actually asks after an event. The form is a cross-origin Jotform iframe that pushes no `dataLayer` event, so GA4 structurally cannot see a submission — and an iframe does not inherit its parent's query string, so the form itself had no idea where a registrant came from either. Prefilling a hidden field puts the answer in the same row as the registration, where staff already look, with no correlation-by-timestamp guesswork.
+
+**Why an allowlist, not a pass-through:** blindly appending the parent query string to a HIPAA form URL would let anyone craft a link that prefills arbitrary fields (`?email=…`, `?q3_name=…`) and have those values ride along into a submission and into URL logs. Forwarding only `source`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, each capped at 100 characters, keeps the surface to values we chose. Jotform ignores params with no matching field unique name, so future campaigns extend by adding a hidden field — no code change.
+
+**Why not `useSearchParams`:** under `output: 'export'` it forces the client subtree up to the nearest `Suspense` boundary to client-render. Reading `window.location.search` in `useEffect` avoids that, and initializing `src` to the bare form URL keeps the first client render identical to the prerendered HTML — no hydration mismatch, and untagged visitors (the overwhelming majority) never pay for a second iframe load.
+
+**Trade-offs / flags:** the hidden field is created in the Jotform GUI and cannot be provisioned from this repo — if it is missing or its unique name drifts, the param is silently discarded and attribution fails with no error anywhere. Test with a real scan after any form edit. Attribution is also last-touch and per-device: someone who scans at the event and finishes registering that night on a laptop is not counted. For a single-weekend event that undercount is acceptable; a longer campaign would want a cookie-persisted source instead.
+
+---
+
 ## 2026-09-06 — Campaign tracking: UTM-tagged short links in `_redirects`, not a link shortener
 
 **Decision:** Offline/print campaigns get a vanity path in `app/public/_redirects` that redirects to the canonical page with UTM parameters baked into the destination. First instance: `/laborday` → `/for-patients/new-patient-registration/?utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026`. QR codes and campaign notes are generated into `docs/campaigns/<campaign>/`, which the site does not serve.

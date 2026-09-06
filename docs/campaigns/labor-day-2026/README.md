@@ -42,12 +42,20 @@ a campaign without breaking the source/medium rollup.
 
 ## QR files
 
-| File | Use |
-|---|---|
-| `vbam-laborday-qr.svg` | **Print.** Vector — scales to any size with no blur |
-| `vbam-laborday-qr.png` | 1980px raster, for tools that will not take SVG |
-| `vbam-laborday-qr-direct.svg` | Backup — encodes the full UTM URL, no redirect needed |
-| `vbam-laborday-qr-direct.png` | 1950px raster of the same |
+Three targets, each as SVG (**use this for print** — vector, scales with no
+blur) and a ~2000px PNG for tools that will not take SVG.
+
+| File | Target | Needs |
+|---|---|---|
+| `vbam-laborday-qr.*` | `/laborday` short link | Deploy + hidden field |
+| `vbam-laborday-qr-direct.*` | Full UTM URL, no redirect | Deploy + hidden field |
+| `vbam-laborday-qr-jotform.*` | Straight to the Jotform | **Hidden field only** |
+
+All three are verified to decode at their shipped size by `generate-qr.py`,
+which fails loudly rather than emitting a code it cannot read back.
+
+Every one of them needs the hidden `source` field to attribute registrations.
+Only the third works with no deploy at all.
 
 Both QRs are Atlantic (`#0A3D4A`) on white. The short-link QR uses error
 correction level H, the direct one level Q — both survive a scuff or a
@@ -62,12 +70,58 @@ Regenerate with `pip install segno && python3 generate-qr.py`.
 
 ## Reading the results
 
-GA4 → Reports → Acquisition → Traffic acquisition, then filter on Session
-campaign = `labor-day-2026`. Data flows through the existing GTM container
-(`GTM-WRKLM7XK`) already on every page; no tag changes were needed.
+Two different questions, two different places to look.
 
-**Known limit:** the registration form is a Jotform iframe and does not push a
-submission event to `dataLayer`. GA4 will therefore report how many people
-*landed* on the registration page from the event, not how many *finished*
-registering. Completion counts have to come from Jotform's own submission log
-for now.
+### Who *registered* from the QR — Jotform
+
+This is the number that matters, and it requires **one manual setup step in the
+Jotform builder that has to happen before the event:**
+
+1. Open form `262025447324048` in the Jotform builder.
+2. Add a **Short Text** element. Label it `Source`.
+3. In its **Advanced** properties, set the **Unique Name** to exactly `source`
+   (lowercase), and toggle **Hidden** on.
+4. Save. Do a test scan and confirm the submission records
+   `source = labor-day-2026`.
+
+Once that field exists, every registration that came through the QR carries
+`source = labor-day-2026` in the submission row itself. Open the form's
+Submissions table, add the Source column, and sort or filter on it. That is a
+direct count of registrations attributable to the event — not an estimate.
+
+Without that field, the parameter arrives at the form and is silently
+discarded, and there is no way to tell an event registration from any other.
+
+**Why this needs code:** an iframe does not inherit the parent page's query
+string, so the UTM tags on the page URL never reached the form on their own.
+`JotformEmbed.tsx` now forwards an allowlist (`source`, `utm_source`,
+`utm_medium`, `utm_campaign`, `utm_content`) onto the iframe `src`. It is an
+allowlist rather than a pass-through so a crafted link cannot prefill arbitrary
+fields on a HIPAA form. Any future campaign gets the same treatment for free;
+adding another hidden field named after one of those params captures it.
+
+### How many *saw* the page — GA4
+
+GA4 → Reports → Acquisition → Traffic acquisition, filter Session campaign =
+`labor-day-2026`. Rides the existing GTM container (`GTM-WRKLM7XK`); no tag
+changes were needed. This measures reach — scans that landed on the page,
+including people who then didn't fill anything out. Comparing it against the
+Jotform count gives the drop-off.
+
+GA4 still cannot see the submission itself: the form is a cross-origin iframe
+that pushes no `dataLayer` event. That is why the Jotform field, not GA4, is
+the system of record for registrations.
+
+### No-deploy fallback
+
+If the code change does not reach production in time, point the QR straight at
+the form and skip the website entirely:
+
+```
+https://form.jotform.com/262025447324048?source=labor-day-2026
+```
+
+Prefill works natively on a direct Jotform URL, so this needs only the hidden
+field — no deploy at all. The trade-off is that scanners land on a bare Jotform
+page instead of the branded VBAM page. At an event table, that is arguably the
+better experience anyway: one less tap between the code and the first question.

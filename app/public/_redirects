@@ -10,9 +10,15 @@
 # Campaign short links — QR codes and print signage.
 # 302 (not 301) so the destination and UTM tags stay repointable after the
 # campaign; a 301 would be cached in scanners' browsers indefinitely.
+#
+# utm_* feed GA4 (page landings). `source` is what actually attributes a
+# completed registration: JotformEmbed forwards it into the form iframe, where
+# it prefills the hidden "source" field and is stored on the submission itself.
+# Keep both — GA4 measures reach, the Jotform field measures signups.
+#
 # Labor Day Bash 2026 — table signage / handout QR code.
-/laborday   /for-patients/new-patient-registration/?utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026   302
-/laborday/  /for-patients/new-patient-registration/?utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026   302
+/laborday   /for-patients/new-patient-registration/?source=labor-day-2026&utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026   302
+/laborday/  /for-patients/new-patient-registration/?source=labor-day-2026&utm_source=labor-day-bash&utm_medium=qr-code&utm_campaign=labor-day-2026   302
 
 # Placeholder: old home → new home (remove when DNS is live)
 # /index.html  /  301
