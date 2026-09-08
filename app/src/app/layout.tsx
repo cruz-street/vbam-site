@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MessageUsButton from "@/components/MessageUsButton";
+import ClickAttribution from "@/components/ClickAttribution";
 import Script from "next/script";
 
 const fraunces = Fraunces({
@@ -81,6 +82,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             title="Google Tag Manager"
           />
         </noscript>
+        {/* Captures gclid, utm_source, and other click params from the URL
+            into localStorage on every landing page, so the new-patient
+            registration form (a separate page, and a cross-origin iframe)
+            can still see them later. */}
+        <ClickAttribution />
         <Header />
         {children}
         <Footer />
