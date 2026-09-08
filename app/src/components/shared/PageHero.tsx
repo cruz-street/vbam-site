@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 
 interface Props {
@@ -6,9 +7,10 @@ interface Props {
   headingItalic?: string;
   subhead?: string;
   bg?: 'sand' | 'foam';
+  children?: ReactNode;
 }
 
-export default function PageHero({ eyebrow, heading, headingItalic, subhead, bg = 'sand' }: Props) {
+export default function PageHero({ eyebrow, heading, headingItalic, subhead, bg = 'sand', children }: Props) {
   return (
     <section
       className={bg === 'sand' ? 'bg-vbam-sand' : 'bg-vbam-foam'}
@@ -46,6 +48,7 @@ export default function PageHero({ eyebrow, heading, headingItalic, subhead, bg 
             </p>
           </ScrollReveal>
         )}
+        {children}
       </div>
     </section>
   );

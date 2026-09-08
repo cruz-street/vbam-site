@@ -23,7 +23,7 @@ export default function ServicesPage() {
       {/* ── Mobile-only CTAs (above the fold of cards) ─── */}
       <div className="md:hidden bg-vbam-sand text-center" style={{ paddingBottom: 36 }}>
         <div className="flex gap-3 justify-center flex-wrap px-5">
-          <Link href="/contact/" className="btn-primary font-archivo font-[600] inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '12px 22px' }}>
+          <Link href="/contact/#schedule" className="btn-primary font-archivo font-[600] inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '12px 22px' }}>
             Book an Appointment →
           </Link>
           <Link href="/for-patients/" className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full" style={{ fontSize: 14, padding: '12px 22px' }}>
@@ -100,7 +100,7 @@ export default function ServicesPage() {
           </ScrollReveal>
           <ScrollReveal delay={140}>
             <div className="flex gap-3 justify-center flex-wrap">
-              <Link href="/contact/" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '14px 28px' }}>
+              <Link href="/contact/#schedule" className="btn-primary font-archivo font-[600] transition-colors inline-flex items-center gap-2 rounded-full" style={{ fontSize: 14, padding: '14px 28px' }}>
                 {SERVICES_CTA.cta1}
               </Link>
               <Link href="/for-patients/" className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full" style={{ fontSize: 14, padding: '14px 28px', background: 'rgba(245,241,232,.45)', backdropFilter: 'blur(6px)' }}>

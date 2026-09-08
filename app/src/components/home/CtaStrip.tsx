@@ -61,7 +61,7 @@ export default function CtaStrip() {
               {CTA_STRIP.cta1}
             </Link>
             <Link
-              href="/contact/"
+              href="/contact/#schedule"
               className="font-archivo font-[600] text-vbam-atlantic border border-vbam-atlantic/30 hover:border-vbam-atlantic/60 transition-colors rounded-full"
               style={{ fontSize: 14, padding: '14px 28px', background: 'rgba(245,241,232,.45)', backdropFilter: 'blur(6px)' }}
             >

@@ -298,7 +298,7 @@ export default function HeroSection() {
             {HERO.cta1} →
           </Link>
           <Link
-            href="/contact/"
+            href="/contact/#schedule"
             className="hero-btn font-archivo text-[14px] font-[600] text-vbam-atlantic px-6 py-3.5 rounded-full border border-vbam-atlantic/20 hover:border-vbam-atlantic/50 transition-colors"
             style={{ opacity: 0, backdropFilter: 'blur(6px)', background: 'rgba(245,241,232,.6)' }}
           >
