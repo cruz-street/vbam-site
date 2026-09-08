@@ -6,6 +6,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- Added display ad creative for the AdRoll prospecting test (5 IAB sizes) under `app/public/images/ads/`.
 - **Virtual Care page at `/virtual-care/` (2026-06-15).** New patient-facing page explaining the practice's after-hours virtual visit coverage through Privia Virtual Clinic. Positioned as on-call escalation (Tuesday evenings + weekends): admin team takes message → on-call nurse assesses → VBAM doctor calls back and may see patient virtually. Tone: "still your VBAM doctor, just different hours." Sections: hero, context + primary CTA (links to `care.myprivia.com/virtual-clinic`), Before You Begin (mobile and desktop setup steps with inline permission-prompt illustrations), Helpful Tips (5-item icon grid), and Need Help CTA with phone number. Honest cost note (billed separately, have insurance card) without alarming patients. Added to sitemap at priority 0.6.
 
 ### Changed
