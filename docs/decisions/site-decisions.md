@@ -4,7 +4,21 @@ Newest entry first.
 
 ---
 
-## 2026-09-06 — Registration attribution lives in the Jotform submission, not GA4
+## 2026-09-08 — Registration attribution: superseded by the click-ID capture (PR #16)
+
+**Decision:** The `JotformEmbed` param-forwarding written on 2026-09-06 (entry below) is **withdrawn before merge**. Jesse's `claude/click-id-attribution` (PR #16) is the mechanism that lands instead. This branch keeps only the campaign short-link pattern and drops its change to `JotformEmbed.tsx` entirely, so the two branches no longer touch the same file.
+
+**Why the other approach wins:** the 09-06 version read `window.location.search` on the registration page itself. That works for a QR scanner who lands directly on the form, and fails for everyone else — anyone who arrives on the homepage from an ad and *then* navigates to registration loses the attribution completely, which is the majority path for paid traffic. PR #16 captures on the landing page and persists to `localStorage` with a 90-day TTL, so the value survives the hop. It also captures the click IDs (`gclid`, `gbraid`, `wbraid`, `msclkid`), which matter now that paid search is coming in-house from Ironside.
+
+**What carries over:** the allowlist principle (a fixed set of known keys, never the whole query string, so a crafted link cannot prefill arbitrary fields on a HIPAA form) — PR #16 independently does the same thing. Jesse also indicated he may keep the `useSyncExternalStore` read pattern; that is his call, and his `localStorage` resolve needs an effect regardless, so there is no reason to hold the merge for it.
+
+**Consequence for campaign links:** `source=` is dead as a parameter name. PR #16 captures the standard `utm_*` keys and the click IDs, and nothing else — a `source=` value would be silently discarded. Campaign short links in `_redirects` now use `utm_campaign` to name the campaign. The `/laborday` redirect was updated accordingly.
+
+**Still not done, and not done by either branch:** the hidden fields on the Jotform form. Every captured parameter only reaches the submission record if the form has a hidden Short Text field whose unique name matches exactly. That is GUI work in the Jotform builder, no error is raised when it is missing, and until it happens neither mechanism produces attributed submissions.
+
+---
+
+## 2026-09-06 — Registration attribution lives in the Jotform submission, not GA4 *(superseded 2026-09-08 — see above)*
 
 **Decision:** Campaign attribution for new-patient registrations is captured as a hidden `source` field **on the Jotform submission record**, prefilled by forwarding an allowlist of campaign params from the page URL onto the iframe `src` in `JotformEmbed.tsx`. GA4/UTM tracking stays, but measures *reach* (page landings), not *registrations*.
 

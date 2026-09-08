@@ -1,5 +1,24 @@
 # Labor Day Bash 2026 — registration QR + UTM links
 
+> **Post-event record (updated 2026-09-08).** The event has passed and the
+> attribution mechanism changed after this was first written. Two things below
+> are no longer accurate and are kept only so the printed assets stay
+> explicable:
+>
+> - The QR codes encode a `source=labor-day-2026` parameter. That key is **not**
+>   captured by the mechanism that actually landed (the click-ID capture in
+>   PR #16, which reads the standard `utm_*` keys and the click IDs and nothing
+>   else). The `_redirects` entry has been corrected to `utm_*` only.
+> - The "add a hidden `source` field in Jotform" instructions under *Reading the
+>   results* describe the withdrawn approach. Hidden fields are still required,
+>   but they must be named for the parameters PR #16 captures — `utm_source`,
+>   `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `gclid`, `gbraid`,
+>   `wbraid`, `msclkid`.
+>
+> Everything about the QR generation, sizing, and print handling below still
+> holds and is the reusable part. See `docs/decisions/site-decisions.md`
+> (2026-09-08) for why the mechanism changed.
+
 Campaign links for the Labor Day event. Destination is the live new-patient
 registration page.
 
