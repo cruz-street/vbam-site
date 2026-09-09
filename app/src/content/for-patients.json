@@ -65,12 +65,11 @@
         "plans": [
           "Medicare",
           "Railroad Medicare",
-          "Health First Health Plans",
-          "Florida Health Care Plans (FHCP)",
-          "MultiPlan / PHCS"
+          "Health First Health Plans"
         ]
       }
     ],
+    "comingSoon": ["MultiPlan / PHCS"],
     "selfPay": {
       "label": "Self-Pay Welcome",
       "note": "A simple, transparent option — common for patients with high-deductible plans, those without insurance, or anyone who prefers to pay directly. Call our office for current rates."
