@@ -26,12 +26,17 @@ export default function PriviaSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={80}>
-          <p
-            className="font-inter font-[300] text-vbam-atlantic/[.84] mx-auto"
-            style={{ fontSize: 18, lineHeight: 1.72, maxWidth: 680, marginBottom: 24 }}
-          >
-            {PRIVIA_SECTION.body}
-          </p>
+          <div className="mx-auto" style={{ maxWidth: 680, marginBottom: 24 }}>
+            {PRIVIA_SECTION.body.map((paragraph, i) => (
+              <p
+                key={i}
+                className="font-inter font-[300] text-vbam-atlantic/[.84]"
+                style={{ fontSize: 18, lineHeight: 1.72, marginBottom: i === PRIVIA_SECTION.body.length - 1 ? 0 : 24 }}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </ScrollReveal>
 
         {PRIVIA_SECTION.attribution && (
