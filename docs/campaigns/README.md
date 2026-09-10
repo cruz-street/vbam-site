@@ -55,9 +55,12 @@ lowercase-hyphenated) and keep every asset for a campaign consistent with it.
 
 ## 3. QR generation and print handling
 
-Use `generate-qr.py` in this directory (`pip install segno && python3
-generate-qr.py <url> <output-basename> [output-dir]`) to produce assets for
-each campaign target. See the script's own docstring for full usage.
+Use `generate-qr.py` in this directory (`pip install segno zxing-cpp
+opencv-python-headless && python3 generate-qr.py <url> <output-basename>
+[output-dir]`) to produce assets for each campaign target. See the script's
+own docstring for full usage. All three packages are the required install
+for a print run — `zxing-cpp` and `opencv-python-headless` are not optional
+extras, they're what makes decode-verification possible at all.
 
 - **Two formats per target:** SVG (vector — use this for print, scales with
   no blur) and a ~2000px PNG for tools that won't take SVG.
@@ -70,11 +73,17 @@ each campaign target. See the script's own docstring for full usage.
   hex; pull the value from the existing color tokens). Do not invert to a
   light-on-dark code — many scanners will not read it.
 - **Decode-verification is mandatory, not optional.** The script reads back
-  every PNG it generates and confirms it decodes to the exact target URL.
-  If verification is available (`pip install zxing-cpp
-  opencv-python-headless`) and a code fails to decode, the script fails
-  loudly (non-zero exit, listing which files not to print) rather than
-  silently shipping a QR code nobody can scan.
+  every PNG it generates and confirms it decodes to the exact target URL. A
+  code that fails to decode exits non-zero and names the file — do not print
+  it. If `zxing-cpp`/`opencv-python-headless` aren't installed, the script
+  refuses to generate anything and exits non-zero rather than silently
+  shipping an unverified code with a success exit status.
+- **`--allow-unverified` is a deliberate override, not a normal flag.** It
+  exists only for someone who knowingly wants a QR code generated without
+  decode-verification (e.g. a quick draft to eyeball layout). It prints an
+  unmistakable warning and names the file as unverified in its output. Never
+  use it for anything that will actually be printed or sent to a printer —
+  an unverified code has not been confirmed to scan.
 - **Printing:** keep the white quiet-zone margin around the code (it's part
   of the generated file — don't crop it), print at least 1.5 in / 4 cm
   square for arm's-length scanning, bigger for anything read from further
