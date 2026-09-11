@@ -129,6 +129,15 @@ export default function ForPatientsPage() {
                 ))}
               </div>
 
+              {INSURANCE.comingSoon && INSURANCE.comingSoon.length > 0 && (
+                <p
+                  className="font-inter font-[300] text-vbam-atlantic/60"
+                  style={{ fontSize: 13, lineHeight: 1.6, marginBottom: 18 }}
+                >
+                  Coming soon: {INSURANCE.comingSoon.join(', ')}
+                </p>
+              )}
+
               {INSURANCE.selfPay && (
                 <div className="border-t border-vbam-atlantic/[.10] pt-5" style={{ marginBottom: 18 }}>
                   <p

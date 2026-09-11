@@ -24,6 +24,15 @@ const SOCIAL: Social[] = [
   { label: 'Instagram', href: 'https://www.instagram.com/verobeachadultmedicine/', icon: 'instagram' },
 ];
 
+const COMPLIANCE_LINKS: FooterLink[] = [
+  { href: '/privacy-policy/', label: 'Privacy Policy' },
+  { href: 'https://www.priviahealth.com/notice-nondiscrimination/', label: 'Notice of Nondiscrimination', external: true },
+  { href: 'https://www.priviahealth.com/privacy-and-compliance/', label: 'HIPAA Privacy Notice', external: true },
+  { href: 'https://www.priviahealth.com/newsroom/', label: 'Press Room', external: true },
+  { href: 'https://www.priviahealth.com/who-we-support/physicians/', label: 'Prospective Doctors', external: true },
+  { href: 'https://www.priviahealth.com/', label: 'priviahealth.com', external: true },
+];
+
 function SocialIcon({ icon }: { icon: Social['icon'] }) {
   if (icon === 'facebook') {
     return (
@@ -189,21 +198,17 @@ export default function Footer() {
             className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-archivo text-vbam-foam/55"
             style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase' }}
           >
-            <a href="https://www.priviahealth.com/notice-nondiscrimination/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
-              Notice of Nondiscrimination
-            </a>
-            <a href="https://www.priviahealth.com/privacy-and-compliance/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
-              HIPAA Privacy Notice
-            </a>
-            <a href="https://www.priviahealth.com/newsroom/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
-              Press Room
-            </a>
-            <a href="https://www.priviahealth.com/who-we-support/physicians/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
-              Prospective Doctors
-            </a>
-            <a href="https://www.priviahealth.com/" target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
-              priviahealth.com
-            </a>
+            {COMPLIANCE_LINKS.map(({ href, label, external }) =>
+              external ? (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="hover:text-vbam-foam/85 transition-colors">
+                  {label}
+                </a>
+              ) : (
+                <Link key={label} href={href} className="hover:text-vbam-foam/85 transition-colors">
+                  {label}
+                </Link>
+              )
+            )}
           </nav>
         </div>
 
