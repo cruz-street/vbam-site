@@ -1,5 +1,10 @@
-# Every change to this repo requires Jesse's review before it can land on a
-# protected branch (main). This is the gate that makes "all change requests go
-# through me" real: team members open PRs, Jesse (code owner) approves, and only
-# then can the change merge to main and deploy to live production.
-* @jessepc
+# Changes to protected branches (main) require a code owner's review before they
+# can land and deploy to live production. Code owners cannot approve their own
+# pull requests, so every change still gets a second pair of eyes.
+#
+# Jesse was the sole code owner until 2026-09-14. That made his OWN pull requests
+# unmergeable — a single code owner plus GitHub's self-approval ban is
+# unsatisfiable by construction, and promotes had to be forced through with
+# `--admin`, which bypasses the protection entirely. Alex is a second code owner
+# so promote PRs and Jesse-authored changes can be approved normally instead.
+* @jessepc @alexxrobbins
