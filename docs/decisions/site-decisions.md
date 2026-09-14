@@ -4,6 +4,20 @@ Newest entry first.
 
 ---
 
+## 2026-09-08 — Attribution: `source=` parameter withdrawn in favor of the click-ID capture (PR #16)
+
+**Decision:** Links no longer carry a non-standard `source=` query parameter for attribution. Registration attribution instead relies entirely on the click-ID capture merged in PR #16 (`app/src/lib/click-attribution.ts` + `ClickAttribution.tsx`), which reads the standard `utm_*` keys plus ad click IDs (`gclid`, `gbraid`, `wbraid`, `msclkid`) off the landing page and forwards them into the Jotform submission. Anything needing attribution is named with `utm_campaign`, not a separate `source` value. See `docs/attribution.md` for the full mechanism and naming convention.
+
+**Why:** An earlier design (hidden `source` field forwarded through `JotformEmbed.tsx`) worked only for a visitor who lands directly on the registration page — anyone who arrives on the homepage or elsewhere first and navigates to registration afterward lost the attribution entirely, which is the majority path for paid traffic. PR #16 captures on first landing and persists the value (`localStorage`, 90-day TTL) so it survives that hop, and it captures click IDs at the same time — useful now that paid search is coming in-house. Consolidating on one mechanism means every channel is attributed the same way, instead of parallel systems.
+
+**Consequence:** `source=` is dead as a parameter name — the click-ID capture reads only `utm_*` keys, click IDs, and (as of 2026-09-14) the landing referrer, so a `source=` value is silently discarded and produces no attribution. Every link needing attribution must use `utm_campaign` (and `utm_source`/`utm_medium`/`utm_content` as appropriate) instead.
+
+**Update, 2026-09-14:** the hidden fields on the Jotform form (`utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `gclid`, `gbraid`, `wbraid`, `msclkid`, `landing_referrer`) are now confirmed live and correctly named — verified via the Jotform API and against real captured submissions. No longer the open item this entry originally flagged.
+
+**Alternatives considered:** Keep the hidden `source` field approach and add campaign-specific fields per campaign (rejected — doesn't generalize, and duplicates what PR #16 already does for paid search).
+
+---
+
 ## 2026-05-28 — New-patient intake: Jotform Gold (Path A, secure-link delivery) as 4-month bridge to Yosi/Athena
 
 **Decision:** Stand up a HIPAA-compliant new-patient registration form on **Jotform Gold** ($99/mo, signed BAA) as an interim solution until the planned **Yosi → Athena** integration goes live. Form is embedded at `/for-patients/new-patient-registration/` using Jotform's Smart Embed (iframe + `jotformEmbedHandler` autoresize script via Next.js `<Script>`). Submissions notify `careteam@verobeachadultmedicine.com` (M365 shared mailbox, covered under Microsoft's BAA) — Path A: notification email contains a secure login link, **not** PHI; staff click through to view the organized submission inside Jotform's HIPAA portal.
