@@ -48,7 +48,10 @@
     "heading": "Most plans",
     "headingItalic": "accepted.",
     "orgLine": "Vero Beach Pediatrics & Adult Medicine accepts most major insurance plans. Accepted plans differ between the two practices.",
-    "orgLineLink": { "label": "See the pediatrics plan list →", "href": "https://www.verobeachpediatrics.com/accepted-health-insurance-plans/?utm_source=verobeachadultmedicine&utm_medium=referral&utm_campaign=peds-crosslink&utm_content=insurance" },
+    "orgLineLink": {
+      "label": "See the pediatrics plan list →",
+      "href": "https://www.verobeachpediatrics.com/accepted-health-insurance-plans/?utm_source=verobeachadultmedicine&utm_medium=referral&utm_campaign=peds-crosslink&utm_content=insurance"
+    },
     "note": "Don't see your plan? Call (772) 569-3212 and we'll verify your coverage.",
     "groups": [
       {
@@ -57,7 +60,8 @@
           "Florida Blue (Blue Cross Blue Shield)",
           "United Healthcare (UHC)",
           "CIGNA / CIGNA HealthSpring",
-          "Aetna / Coventry / First Health"
+          "Aetna / Coventry / First Health",
+          "Humana"
         ]
       },
       {
@@ -65,11 +69,17 @@
         "plans": [
           "Medicare",
           "Railroad Medicare",
-          "Health First Health Plans"
+          "Health First Health Plans",
+          "Humana Military (TRICARE East)",
+          "Ambetter (Centene)",
+          "Disney Cruise Lines"
         ]
       }
     ],
-    "comingSoon": ["MultiPlan / PHCS"],
+    "comingSoon": [
+      "MultiPlan / PHCS",
+      "Oscar Health"
+    ],
     "selfPay": {
       "label": "Self-Pay Welcome",
       "note": "A simple, transparent option — common for patients with high-deductible plans, those without insurance, or anyone who prefers to pay directly. Call our office for current rates."
@@ -138,7 +148,10 @@
         "href": "/for-patients/#insurance"
       },
       "pdfs": [
-        { "label": "New Patient Form", "href": "/forms/vbam-new-patient-form.pdf" }
+        {
+          "label": "New Patient Form",
+          "href": "/forms/vbam-new-patient-form.pdf"
+        }
       ],
       "emailLine": "Email the completed form to",
       "emailTo": "careteam@verobeachadultmedicine.com",
