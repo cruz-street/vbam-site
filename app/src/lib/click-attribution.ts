@@ -27,6 +27,17 @@ export const CLICK_PARAMS = [
   'utm_content',
 ] as const;
 
+/**
+ * Not a URL param — captured from document.referrer instead. Covers organic
+ * traffic that was never going to carry a UTM tag (a bare link in an
+ * Instagram/Facebook caption reads badly with a query string appended), by
+ * recording which external site sent the click. Stores the origin only
+ * (e.g. "https://m.facebook.com"), matching how GA4 already classifies this
+ * traffic as "facebook.com / referral" — not the full referrer URL, which
+ * can carry long platform-internal tracking paths we don't need.
+ */
+const REFERRER_PARAM = 'landing_referrer';
+
 interface StoredParam {
   v: string;
   t: number;
@@ -66,16 +77,49 @@ export function captureClickParams(): void {
 }
 
 /**
+ * Captures the referring site's origin from document.referrer, if the visit
+ * arrived from an external domain. Only stored once per TTL window — a later
+ * internal navigation between pages on this site would otherwise overwrite
+ * the real entry referrer with our own domain, since document.referrer is
+ * set on every page load, not just the first one.
+ */
+export function captureLandingReferrer(): void {
+  if (typeof window === 'undefined') return;
+
+  const referrer = document.referrer;
+  if (!referrer) return;
+
+  let referrerOrigin: string;
+  try {
+    const referrerUrl = new URL(referrer);
+    if (referrerUrl.hostname === window.location.hostname) return;
+    referrerOrigin = referrerUrl.origin;
+  } catch {
+    return;
+  }
+
+  const key = storageKey(REFERRER_PARAM);
+  try {
+    if (window.localStorage.getItem(key)) return;
+    const record: StoredParam = { v: referrerOrigin, t: Date.now() };
+    window.localStorage.setItem(key, JSON.stringify(record));
+  } catch {
+    // Storage unavailable (private window, blocked site data, quota) — skip.
+  }
+}
+
+/**
  * Returns all stored, non-expired click/campaign params keyed by their plain
- * name (e.g. `{ gclid: '...' }`). Expired entries (older than the TTL) are
- * removed as they're encountered.
+ * name (e.g. `{ gclid: '...' }`), plus `landing_referrer` if one was
+ * captured. Expired entries (older than the TTL) are removed as they're
+ * encountered.
  */
 export function getClickParams(): Record<string, string> {
   if (typeof window === 'undefined') return {};
 
   const result: Record<string, string> = {};
 
-  for (const param of CLICK_PARAMS) {
+  for (const param of [...CLICK_PARAMS, REFERRER_PARAM]) {
     const key = storageKey(param);
     let raw: string | null;
     try {

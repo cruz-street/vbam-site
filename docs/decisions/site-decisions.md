@@ -4,6 +4,18 @@ Newest entry first.
 
 ---
 
+## 2026-09-14 — Referrer capture for organic attribution, alongside the existing UTM/click-ID mechanism
+
+**Decision:** Extend `click-attribution.ts` to also capture `document.referrer`'s origin (e.g. `https://m.facebook.com`) on first landing, stored and forwarded into the Jotform submission the same way as the existing `utm_*`/click-ID params (new hidden field `landing_referrer`). Only captured when the referrer's hostname differs from the current site's (so internal page-to-page navigation never overwrites the real entry referrer), and never overwrites an already-stored value within the TTL window — same discipline as the existing params.
+
+**Why:** Organic social captions (Instagram/Facebook) can't carry a visible UTM-tagged link without reading strangely to a real person — a query string appended to a caption link looks like spam. Referrer detection sidesteps this entirely: no visible link change needed, works off the browser's own behavior. GA4 already classifies this same signal as "facebook.com / referral" at the session level; this closes the gap so a *registration*, not just a session, can carry that same signal.
+
+**Known limitations, accepted:** Instagram's in-app browser is known to strip or obscure the real referrer more often than Facebook's does, so this will be less reliable on Instagram than Facebook — a platform limitation, not something fixable here. It also only identifies the referring domain, not which specific post or story drove the click — post-level detail still needs a real UTM tag (Stories can carry one invisibly via the link sticker). And it does nothing for SMS, QR, or print, which never have a referring webpage at all — those channels need `utm_source` set explicitly on a real link.
+
+**Scoped deliberately to Facebook/Instagram only.** The Labor Day campaign's short-link/QR pattern (`docs/campaigns/`, PR #18) was considered as a companion piece for Klara SMS, but that pattern was never actually used after Labor Day and its branch was intentionally left unmerged — not brought back in here. SMS attribution stays a separate, open question rather than reviving unused infrastructure to solve it.
+
+---
+
 ## 2026-05-28 — New-patient intake: Jotform Gold (Path A, secure-link delivery) as 4-month bridge to Yosi/Athena
 
 **Decision:** Stand up a HIPAA-compliant new-patient registration form on **Jotform Gold** ($99/mo, signed BAA) as an interim solution until the planned **Yosi → Athena** integration goes live. Form is embedded at `/for-patients/new-patient-registration/` using Jotform's Smart Embed (iframe + `jotformEmbedHandler` autoresize script via Next.js `<Script>`). Submissions notify `careteam@verobeachadultmedicine.com` (M365 shared mailbox, covered under Microsoft's BAA) — Path A: notification email contains a secure login link, **not** PHI; staff click through to view the organized submission inside Jotform's HIPAA portal.
