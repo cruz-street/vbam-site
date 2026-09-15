@@ -33,11 +33,17 @@ const contactJsonLd = {
 };
 
 export default function ContactPage() {
-  // Point the map + directions at our verified sibling listing, Vero Beach
-  // Pediatrics — same plaza, right next door to our 955 unit (the former
-  // LabCorp). VBAM's own Google listing isn't verified yet, so querying 955
-  // directly snaps to the wrong business. Switch mapQuery to "Vero Beach Adult
-  // Medicine" in the CMS once VBAM's listing is verified.
+  // VBAM's own Google listing still isn't verified, so the map falls back to a
+  // plain address pin for 955 37th Place. Verified 2026-09-15 that this lands
+  // on the correct building.
+  //
+  // Two things NOT to do here, both tested, both worse:
+  //   - "Citrus Medical Plaza, 955 ..." snaps to a PERMANENTLY CLOSED listing
+  //     at 925 37th Pl. The building name is what breaks it.
+  //   - Pointing at the sibling Vero Beach Pediatrics listing (the previous
+  //     workaround) sent adult patients to the pediatric practice's door at 959.
+  //
+  // Switch mapQuery to "Vero Beach Adult Medicine" once the listing is verified.
   const mapDestination = encodeURIComponent(
     PRACTICE_INFO.mapQuery ||
       `${PRACTICE_INFO.address.building}, ${PRACTICE_INFO.address.street}, ${PRACTICE_INFO.address.city}`
