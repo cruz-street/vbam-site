@@ -72,9 +72,10 @@ const homeJsonLd = {
 };
 
 // LocalBusiness (MedicalBusiness subtype) — local SEO entity built from the
-// address/contact already in the CMS. `hasMap` points at our verified sibling
-// listing, Vero Beach Pediatrics (same plaza, next door), until VBAM's own
-// Google listing is verified — mirrors the map note on the contact page.
+// address/contact already in the CMS. `hasMap` uses the plain 955 37th Place
+// address pin (no business name) since VBAM's own Google listing isn't
+// verified yet — see the fuller note on the contact page for what NOT to do
+// here (building name in the query snaps to a permanently closed listing).
 const mapQuery = encodeURIComponent(
   PRACTICE_INFO.mapQuery ||
     `${PRACTICE_INFO.address.building}, ${PRACTICE_INFO.address.street}, ${PRACTICE_INFO.address.city}`,

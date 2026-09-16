@@ -11,6 +11,29 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://verobeachadultmedicine.com/about/' },
 };
 
+// Physician schema — every field traces to this page's own visible text.
+// name: the page heading ("Meet Dr. Patricia Stewart."); medicalSpecialty: the
+// "Board-Certified · Internal Medicine" credential badge; description: bio1,
+// verbatim. No degree letters (MD/DO) — the site never states one, so none is
+// asserted here. worksFor is the minimal identifying stub for the practice;
+// VBAM's site-wide preferred Organization/Clinic schema type is still
+// TODO — needs Jesse per organic-kb/vbam/schema-map.md, so this does not
+// attempt to settle that — it only names the practice this physician works for.
+const PHYSICIAN_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  name: "Dr. Patricia Stewart",
+  medicalSpecialty: "Internal Medicine",
+  description: DR_STEWART.bio1,
+  image: "https://verobeachadultmedicine.com/images/dr-stewart-cutout.webp",
+  url: "https://verobeachadultmedicine.com/about/",
+  worksFor: {
+    "@type": "MedicalOrganization",
+    name: "Vero Beach Adult Medicine",
+    url: "https://verobeachadultmedicine.com",
+  },
+};
+
 function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
   return (
     <div
@@ -42,6 +65,11 @@ function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
 export default function AboutPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PHYSICIAN_JSON_LD) }}
+      />
+
       <PageHero
         eyebrow={ABOUT_HERO.eyebrow}
         heading={ABOUT_HERO.heading}
