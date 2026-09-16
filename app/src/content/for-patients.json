@@ -108,7 +108,11 @@
     },
     {
       "q": "Do you offer telehealth visits?",
-      "a": "Yes, telehealth visits are available for appropriate follow-ups and consultations. Contact our office to determine if your visit qualifies for a virtual appointment."
+      "a": "Yes, telehealth visits are available for appropriate follow-ups and consultations. Contact our office to determine if your visit qualifies for a virtual appointment.",
+      "link": {
+        "label": "See how virtual visits work →",
+        "href": "/virtual-care/"
+      }
     }
   ],
   "cta": {

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { FAQS } from '@/content/for-patients';
 
 export default function FaqAccordion() {
@@ -34,14 +35,25 @@ export default function FaqAccordion() {
               </svg>
             </span>
           </button>
-          {open === i && (
-            <p
-              className="font-inter font-[300] text-vbam-atlantic/75 pb-5"
-              style={{ fontSize: 15, lineHeight: 1.7 }}
-            >
-              {faq.a}
-            </p>
-          )}
+          {/* Always rendered, hidden with `hidden` rather than unmounted — same fix
+              as VBP's FaqAccordion (2026-09-15): the page's FAQPage schema declares
+              every answer, and structured data has to describe content that's
+              actually present in the built HTML, not just after a click. */}
+          <p
+            hidden={open !== i}
+            className="font-inter font-[300] text-vbam-atlantic/75 pb-5"
+            style={{ fontSize: 15, lineHeight: 1.7 }}
+          >
+            {faq.a}
+            {faq.link && (
+              <>
+                {' '}
+                <Link href={faq.link.href} className="font-[700] text-vbam-coral hover:underline whitespace-nowrap">
+                  {faq.link.label}
+                </Link>
+              </>
+            )}
+          </p>
         </div>
       ))}
     </div>

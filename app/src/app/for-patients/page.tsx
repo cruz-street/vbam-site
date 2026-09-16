@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import FaqAccordion from '@/components/for-patients/FaqAccordion';
-import { FOR_PATIENTS_HERO, NEW_PATIENT, NEW_PATIENT_CHECKLIST, VISIT_FLOW, INSURANCE, FOR_PATIENTS_CTA, NEW_PATIENT_REGISTRATION } from '@/content/for-patients';
+import { FOR_PATIENTS_HERO, NEW_PATIENT, NEW_PATIENT_CHECKLIST, VISIT_FLOW, INSURANCE, FAQS, FOR_PATIENTS_CTA, NEW_PATIENT_REGISTRATION } from '@/content/for-patients';
 
 const VISIT_FLOW_ICONS = [
   // 01 Before — phone with checkmark
@@ -37,9 +37,33 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://verobeachadultmedicine.com/for-patients/' },
 };
 
+// FAQPage schema — mirrors the FAQS array's visible text exactly, including the
+// telehealth answer's appended /virtual-care/ link sentence (FaqAccordion.tsx).
+// Requires FaqAccordion to render every answer with `hidden` rather than
+// unmounting it (fixed this run — see that component) so the built HTML
+// actually contains what this schema declares.
+type Faq = { q: string; a: string; link?: { label: string; href: string } };
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: (FAQS as Faq[]).map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.link ? `${f.a} ${f.link.label.replace(/\s*→$/, "")}.` : f.a,
+    },
+  })),
+};
+
 export default function ForPatientsPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
+
       <PageHero
         eyebrow={FOR_PATIENTS_HERO.eyebrow}
         heading={FOR_PATIENTS_HERO.heading}
