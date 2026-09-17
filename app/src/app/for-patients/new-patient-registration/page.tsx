@@ -6,8 +6,8 @@ import JotformEmbed from '@/components/for-patients/JotformEmbed';
 import { NEW_PATIENT_REGISTRATION } from '@/content/for-patients';
 
 export const metadata: Metadata = {
-  title: 'New Patient Registration',
-  description: 'Register as a new patient at Vero Beach Adult Medicine. Secure, HIPAA-compliant online intake — finish before your first visit.',
+  title: 'New Patient Registration Open',
+  description: "Register online in a few minutes to hold your spot with Vero Beach's adult primary care practice. Secure, HIPAA-compliant intake — panel now open.",
   alternates: { canonical: 'https://verobeachadultmedicine.com/for-patients/new-patient-registration/' },
 };
 
