@@ -160,3 +160,54 @@ function removeItem(key: string): void {
     // Storage unavailable — nothing to clean up.
   }
 }
+
+// Device/browser context for the Jotform submission. Unlike the click params
+// above, this isn't captured on the landing page and persisted — it's read
+// fresh from navigator.userAgent right when the form src is resolved, so it
+// always reflects the device actually submitting, not whatever device first
+// landed on the site. Kept as simple string matching (no UA-parsing
+// dependency) — good enough to tell "was this a mobile Safari submission,"
+// not a precise device/browser database.
+export type DeviceCategory = 'mobile' | 'tablet' | 'desktop';
+export type BrowserFamily =
+  | 'Safari'
+  | 'Chrome'
+  | 'Firefox'
+  | 'Edge'
+  | 'Samsung'
+  | 'other';
+
+export function getDeviceAndBrowser(): {
+  device_category: DeviceCategory;
+  browser_family: BrowserFamily;
+} {
+  if (typeof navigator === 'undefined') {
+    return { device_category: 'desktop', browser_family: 'other' };
+  }
+  const ua = navigator.userAgent;
+
+  let device_category: DeviceCategory = 'desktop';
+  if (/iPad|Android(?!.*Mobile)|Tablet/i.test(ua)) {
+    device_category = 'tablet';
+  } else if (/Mobi|iPhone|Android/i.test(ua)) {
+    device_category = 'mobile';
+  }
+
+  // Order matters: Edge, Samsung Internet, and Chrome-on-iOS (CriOS) all also
+  // carry "Chrome" and/or "Safari" tokens in their UA strings, so the more
+  // specific browsers must be checked first.
+  let browser_family: BrowserFamily = 'other';
+  if (/SamsungBrowser/i.test(ua)) {
+    browser_family = 'Samsung';
+  } else if (/Edg\//i.test(ua)) {
+    browser_family = 'Edge';
+  } else if (/Firefox\//i.test(ua)) {
+    browser_family = 'Firefox';
+  } else if (/CriOS|Chrome\//i.test(ua)) {
+    browser_family = 'Chrome';
+  } else if (/Safari\//i.test(ua)) {
+    browser_family = 'Safari';
+  }
+
+  return { device_category, browser_family };
+}
