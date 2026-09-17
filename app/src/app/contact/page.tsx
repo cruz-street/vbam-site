@@ -4,6 +4,7 @@ import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import JsonLd from '@/components/shared/JsonLd';
 import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_SCHEDULING, CONTACT_CTA } from '@/content/contact';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
   title: 'Contact & Appointments',
@@ -32,6 +33,11 @@ const contactJsonLd = {
   medicalSpecialty: 'Internal Medicine',
 };
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+  { name: 'Contact & Appointments', url: 'https://verobeachadultmedicine.com/contact/' },
+]);
+
 export default function ContactPage() {
   // VBAM's own Google listing still isn't verified, so the map falls back to a
   // plain address pin for 955 37th Place. Verified 2026-09-15 that this lands
@@ -54,6 +60,7 @@ export default function ContactPage() {
   return (
     <main>
       <JsonLd data={contactJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <PageHero
         eyebrow={CONTACT_HERO.eyebrow}
         heading={CONTACT_HERO.heading}
