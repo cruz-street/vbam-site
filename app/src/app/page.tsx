@@ -14,7 +14,6 @@ import ReviewsSection from '@/components/home/ReviewsSection';
 import VideosSection from '@/components/home/VideosSection';
 import SocialFeedSection from '@/components/home/SocialFeedSection';
 import FacebookUpdates from '@/components/home/FacebookUpdates';
-import { REVIEWS } from '@/content/reviews';
 import { PRACTICE_INFO } from '@/content/contact';
 
 export const metadata: Metadata = {
@@ -60,15 +59,16 @@ const homeJsonLd = {
     'https://verobeachpediatrics.com',
     'https://www.priviahealth.com/',
   ],
-  ...(REVIEWS.totalRatings > 0 && {
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: REVIEWS.placeRating,
-      reviewCount: REVIEWS.totalRatings,
-      bestRating: 5,
-      worstRating: 1,
-    },
-  }),
+  // No aggregateRating here. The reviews rendered on this page (ReviewsSection,
+  // sourced from content/reviews.json) are Vero Beach PEDIATRICS' Google
+  // reviews — the visible copy correctly discloses "Vero Beach Pediatrics"
+  // next to them, but a rating asserted in JSON-LD carries no such disclosure
+  // and would read as VBAM's own reputation. That is a false, misattributed
+  // claim about a different legal entity in machine-readable markup, and
+  // exactly what Google's review-markup spam policy targets. VBAM's own
+  // Google Business Profile is verified (2026-09-17) but has no reviews of
+  // its own yet — add aggregateRating back here once it does, sourced from
+  // VBAM's own listing, never from reviews.json.
 };
 
 // LocalBusiness (MedicalBusiness subtype) — local SEO entity built from the
