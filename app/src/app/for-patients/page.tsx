@@ -4,6 +4,7 @@ import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import FaqAccordion from '@/components/for-patients/FaqAccordion';
 import { FOR_PATIENTS_HERO, NEW_PATIENT, NEW_PATIENT_CHECKLIST, VISIT_FLOW, INSURANCE, FAQS, FOR_PATIENTS_CTA, NEW_PATIENT_REGISTRATION } from '@/content/for-patients';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 const VISIT_FLOW_ICONS = [
   // 01 Before — phone with checkmark
@@ -56,12 +57,21 @@ const FAQ_JSON_LD = {
   })),
 };
 
+const BREADCRUMB_JSON_LD = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+  { name: 'For Patients', url: 'https://verobeachadultmedicine.com/for-patients/' },
+]);
+
 export default function ForPatientsPage() {
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSON_LD) }}
       />
 
       <PageHero

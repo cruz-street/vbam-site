@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import PageHero from '@/components/shared/PageHero';
+import JsonLd from '@/components/shared/JsonLd';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 const PHONE = '(772) 569-3212';
 const PHONE_HREF = 'tel:+17725693212';
@@ -12,6 +14,11 @@ export const metadata: Metadata = {
     'Vero Beach Adult Medicine privacy policy — how we collect, use, share, and protect your personal information, your choices, and our HIPAA notice.',
   alternates: { canonical: 'https://verobeachadultmedicine.com/privacy-policy/' },
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+  { name: 'Privacy Policy', url: 'https://verobeachadultmedicine.com/privacy-policy/' },
+]);
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -32,6 +39,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 export default function PrivacyPolicy() {
   return (
     <main>
+      <JsonLd data={breadcrumbJsonLd} />
       <PageHero eyebrow="Legal" heading="Privacy Policy" />
 
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>

@@ -4,6 +4,7 @@ import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import ReviewsSection from '@/components/home/ReviewsSection';
 import { ABOUT_HERO, DR_STEWART, ABOUT_CTA } from '@/content/about';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
   title: 'About the Practice',
@@ -33,6 +34,11 @@ const PHYSICIAN_JSON_LD = {
     url: "https://verobeachadultmedicine.com",
   },
 };
+
+const BREADCRUMB_JSON_LD = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+  { name: 'About the Practice', url: 'https://verobeachadultmedicine.com/about/' },
+]);
 
 function DoctorPhoto({ src, alt }: { src?: string; alt?: string }) {
   return (
@@ -68,6 +74,10 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PHYSICIAN_JSON_LD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSON_LD) }}
       />
 
       <PageHero

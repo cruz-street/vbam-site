@@ -3,13 +3,21 @@ import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import JotformEmbed from '@/components/for-patients/JotformEmbed';
+import JsonLd from '@/components/shared/JsonLd';
 import { NEW_PATIENT_REGISTRATION } from '@/content/for-patients';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
-  title: 'New Patient Registration',
-  description: 'Register as a new patient at Vero Beach Adult Medicine. Secure, HIPAA-compliant online intake — finish before your first visit.',
+  title: 'New Patient Registration Open',
+  description: "Register online in a few minutes to hold your spot with Vero Beach's adult primary care practice. Secure, HIPAA-compliant intake — panel now open.",
   alternates: { canonical: 'https://verobeachadultmedicine.com/for-patients/new-patient-registration/' },
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+  { name: 'For Patients', url: 'https://verobeachadultmedicine.com/for-patients/' },
+  { name: 'New Patient Registration', url: 'https://verobeachadultmedicine.com/for-patients/new-patient-registration/' },
+]);
 
 export default function NewPatientRegistrationPage() {
   const { hero, panelStatus, reassurance, formUrl, formId, fallback, pdfFallback, priviaForms } = NEW_PATIENT_REGISTRATION;
@@ -20,6 +28,7 @@ export default function NewPatientRegistrationPage() {
 
   return (
     <main>
+      <JsonLd data={breadcrumbJsonLd} />
       <PageHero
         eyebrow={hero.eyebrow}
         heading={hero.heading}

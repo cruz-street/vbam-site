@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ScrollReveal from '@/components/shared/ScrollReveal';
+import JsonLd from '@/components/shared/JsonLd';
 import {
   VIRTUAL_CARE_HERO,
   VIRTUAL_CARE_ACCESS,
@@ -8,6 +9,7 @@ import {
   VIRTUAL_CARE_TIPS,
   VIRTUAL_CARE_HELP_CTA,
 } from '@/content/virtual-care';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
   title: 'Virtual Care',
@@ -15,6 +17,11 @@ export const metadata: Metadata = {
     'When our office is closed for doctor visits — after hours, on weekends, and on Tuesdays — an on-call Vero Beach Adult Medicine physician is still within reach by phone or video through Privia Virtual Clinic.',
   alternates: { canonical: 'https://verobeachadultmedicine.com/virtual-care/' },
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+  { name: 'Virtual Care', url: 'https://verobeachadultmedicine.com/virtual-care/' },
+]);
 
 // ── SVG icons ────────────────────────────────────────────────────────────────
 
@@ -235,6 +242,7 @@ function DesktopPermissionMockup({ note }: { note: string }) {
 export default function VirtualCarePage() {
   return (
     <main>
+      <JsonLd data={breadcrumbJsonLd} />
 
       {/* ── Hero ─── */}
       <section

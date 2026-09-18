@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
-import { getClickParams } from '@/lib/click-attribution';
+import { getClickParams, getDeviceAndBrowser } from '@/lib/click-attribution';
 
 interface Props {
   formUrl: string;
@@ -13,12 +13,17 @@ interface Props {
 declare global {
   interface Window {
     jotformEmbedHandler?: (selector: string, origin: string) => void;
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
 /** Matches the height the iframe renders at, so the placeholder holds the
  * page's layout steady while the src is resolved. */
 const IFRAME_HEIGHT = 600;
+
+// Origin Jotform's embed handler posts submission messages from — same
+// origin passed to jotformEmbedHandler() below.
+const JOTFORM_ORIGIN = 'https://form.jotform.com';
 
 export default function JotformEmbed({ formUrl, formId, title = 'New Patient Registration' }: Props) {
   const iframeId = `JotFormIFrame-${formId}`;
@@ -27,11 +32,16 @@ export default function JotformEmbed({ formUrl, formId, title = 'New Patient Reg
   // The iframe only ever renders with its final src — never the bare
   // formUrl first — so it never reloads and double-counts a submission.
   const [src, setSrc] = useState<string | null>(null);
+  // Guards against double-firing registration_submit — Jotform's embed
+  // handler can post the submission-completed message more than once for a
+  // single submit, and this component could theoretically remount.
+  const submittedRef = useRef(false);
 
   useEffect(() => {
     const url = new URL(formUrl);
     const clickParams = getClickParams();
-    for (const [param, value] of Object.entries(clickParams)) {
+    const deviceParams = getDeviceAndBrowser();
+    for (const [param, value] of Object.entries({ ...clickParams, ...deviceParams })) {
       url.searchParams.set(param, value);
     }
     // Deliberately effectful: getClickParams() reads localStorage, a browser
@@ -51,6 +61,32 @@ export default function JotformEmbed({ formUrl, formId, title = 'New Patient Reg
       window.jotformEmbedHandler(`iframe[id='${iframeId}']`, 'https://form.jotform.com');
     }
   }, [src, iframeId]);
+
+  // Jotform's embed handler posts a message to the parent window when the
+  // form is submitted (message shape is undocumented/internal to Jotform, so
+  // we guard defensively: verify the origin, require the exact
+  // "submission-completed" action, match this form's ID, and fire once).
+  // Other messages (resize, page-change on multi-page forms, etc.) are
+  // ignored.
+  useEffect(() => {
+    function handleMessage(event: MessageEvent) {
+      if (event.origin !== JOTFORM_ORIGIN) return;
+      const data = event.data;
+      if (!data || typeof data !== 'object') return;
+      if (data.action !== 'submission-completed') return;
+      if (String(data.formID) !== formId) return;
+      if (submittedRef.current) return;
+      submittedRef.current = true;
+
+      window.dataLayer?.push({
+        event: 'registration_submit',
+        practice: 'vbam',
+      });
+    }
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, [formId]);
 
   return (
     <>

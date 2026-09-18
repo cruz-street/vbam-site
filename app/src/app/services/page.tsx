@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
+import JsonLd from '@/components/shared/JsonLd';
 import { SERVICES_HERO, SERVICES, SERVICES_APPROACH, SERVICES_CTA } from '@/content/services';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -10,9 +12,15 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://verobeachadultmedicine.com/services/' },
 };
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+  { name: 'Services', url: 'https://verobeachadultmedicine.com/services/' },
+]);
+
 export default function ServicesPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbJsonLd} />
       <PageHero
         eyebrow={SERVICES_HERO.eyebrow}
         heading={SERVICES_HERO.heading}
