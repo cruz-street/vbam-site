@@ -15,3 +15,6 @@ out/
 *.png
 *.jpeg
 *.jpg
+
+# Real deliverable assets, not screenshots — negate the blanket rule above
+!app/public/images/og-image.png
