@@ -58,6 +58,7 @@ const homeJsonLd = {
   sameAs: [
     'https://verobeachpediatrics.com',
     'https://www.priviahealth.com/',
+    'https://www.linkedin.com/company/119633945/',
   ],
   // No aggregateRating here. The reviews rendered on this page (ReviewsSection,
   // sourced from content/reviews.json) are Vero Beach PEDIATRICS' Google
@@ -120,6 +121,7 @@ const localBusinessJsonLd = {
     'https://www.facebook.com/verobeachadultmedicine',
     'https://www.instagram.com/verobeachadultmedicine/',
     'https://verobeachpediatrics.com',
+    'https://www.linkedin.com/company/119633945/',
   ],
 };
 
