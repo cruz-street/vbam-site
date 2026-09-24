@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "eyebrow": "Careers",
+    "heading": "Join Our",
+    "headingItalic": "Team.",
+    "subhead": "We may not be hiring right now, but we're always collecting resumes. Send yours and we'll reach out when a role opens up."
+  },
+  "intro": "Vero Beach Adult Medicine is an independently owned primary care practice built on a deliberately limited, growing founding panel and continuity of care. We're a proud member of Privia Medical Group, and part of the same family as Vero Beach Pediatrics.",
+  "otherRoleNote": "Don't see your role? Choose Other and send your resume anyway.",
+  "eeoLine": "We are an equal opportunity employer.",
+  "formUrl": "https://form.jotform.com/262666400344050",
+  "formId": "262666400344050",
+  "source": "verobeachadultmedicine.com",
+  "roles": [
+    {
+      "key": "ma",
+      "title": "Medical Assistant",
+      "option": "Medical Assistant",
+      "summary": "Rooms patients, takes vitals, and supports our physician with an adult patient population.",
+      "bullets": [
+        "Room patients and take vitals",
+        "Assist with procedures and treatments",
+        "Comfortable working with electronic charting"
+      ]
+    },
+    {
+      "key": "provider",
+      "title": "Internal Medicine Provider",
+      "subtitle": "MD, DO, PA, or APRN welcome to apply",
+      "option": "Internal Medicine Provider (MD, DO, PA, APRN)",
+      "summary": "Adult primary care — annual wellness visits and chronic condition management for a growing founding panel.",
+      "bullets": [
+        "Annual physicals and preventive wellness care",
+        "Proactive chronic condition management",
+        "Part of Privia Medical Group"
+      ]
+    },
+    {
+      "key": "reception",
+      "title": "Receptionist",
+      "option": "Receptionist",
+      "summary": "Check-in and check-out, phones, and scheduling — the friendly first face our patients see.",
+      "bullets": [
+        "Greet and check patients in and out",
+        "Answer phones and schedule appointments",
+        "Verify insurance and collect copays"
+      ]
+    }
+  ]
+}

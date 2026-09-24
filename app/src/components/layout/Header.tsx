@@ -12,6 +12,7 @@ const NAV_LINKS: { href: string; label: string; external?: boolean }[] = [
   { href: '/services/',     label: 'Services'     },
   { href: '/for-patients/', label: 'For Patients' },
   { href: '/contact/',      label: 'Contact'      },
+  { href: '/careers/',      label: 'Careers'      },
   { href: PEDIATRICS_HREF,  label: 'Pediatrics', external: true },
 ];
 
