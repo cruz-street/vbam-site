@@ -8,6 +8,7 @@ const LINKS: Record<string, FooterLink[]> = {
     { href: '/about/',        label: 'About'          },
     { href: '/services/',     label: 'Services'       },
     { href: '/for-patients/', label: 'For Patients'   },
+    { href: '/careers/',      label: 'Careers'        },
   ],
   Patients: [
     { href: '/for-patients/new-patient-registration/', label: 'New Patient Registration' },
