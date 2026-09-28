@@ -8,6 +8,13 @@ interface Props {
   formUrl: string;
   formId: string;
   title?: string;
+  // Extra query params (e.g. position/source prefills) merged into the src
+  // alongside click/device attribution. Omit for existing callers — behavior
+  // is unchanged.
+  extraParams?: Record<string, string>;
+  // GA dataLayer event name fired on submission-completed. Defaults to the
+  // existing "registration_submit" so current callers see no change.
+  gaEventName?: string;
 }
 
 declare global {
@@ -25,7 +32,13 @@ const IFRAME_HEIGHT = 600;
 // origin passed to jotformEmbedHandler() below.
 const JOTFORM_ORIGIN = 'https://form.jotform.com';
 
-export default function JotformEmbed({ formUrl, formId, title = 'New Patient Registration' }: Props) {
+export default function JotformEmbed({
+  formUrl,
+  formId,
+  title = 'New Patient Registration',
+  extraParams,
+  gaEventName = 'registration_submit',
+}: Props) {
   const iframeId = `JotFormIFrame-${formId}`;
 
   // Resolved once on mount from stored click params, then held in state.
@@ -41,7 +54,7 @@ export default function JotformEmbed({ formUrl, formId, title = 'New Patient Reg
     const url = new URL(formUrl);
     const clickParams = getClickParams();
     const deviceParams = getDeviceAndBrowser();
-    for (const [param, value] of Object.entries({ ...clickParams, ...deviceParams })) {
+    for (const [param, value] of Object.entries({ ...clickParams, ...deviceParams, ...extraParams })) {
       url.searchParams.set(param, value);
     }
     // Deliberately effectful: getClickParams() reads localStorage, a browser
@@ -51,7 +64,11 @@ export default function JotformEmbed({ formUrl, formId, title = 'New Patient Reg
     // iframe and double-count the submission.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setSrc(url.toString());
-  }, [formUrl]);
+    // extraParams is an object literal from the caller; compare by value so a
+    // changed position/source (e.g. a careers page "Apply" click) re-resolves
+    // the src, not just a changed formUrl.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formUrl, JSON.stringify(extraParams)]);
 
   useEffect(() => {
     // Covers the case where the embed handler script finished loading before
@@ -79,14 +96,14 @@ export default function JotformEmbed({ formUrl, formId, title = 'New Patient Reg
       submittedRef.current = true;
 
       window.dataLayer?.push({
-        event: 'registration_submit',
+        event: gaEventName,
         practice: 'vbam',
       });
     }
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [formId]);
+  }, [formId, gaEventName]);
 
   return (
     <>
