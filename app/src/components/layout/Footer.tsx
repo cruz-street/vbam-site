@@ -54,6 +54,7 @@ function SocialIcon({ icon }: { icon: Social['icon'] }) {
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--grad-atlantic)' }} className="text-vbam-foam/85 pt-16 pb-8">
+      {/* runner staging test 2026-09-28: safe to revert */}
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
 
         {/* Brand */}
