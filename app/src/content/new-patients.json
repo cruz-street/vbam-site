@@ -1,0 +1,90 @@
+{
+  "hero": {
+    "eyebrow": "New Patients Welcome",
+    "heading": "Need a doctor who actually has",
+    "headingItalic": "time for you?",
+    "subhead": "Vero Beach Adult Medicine is accepting new patients. Primary care for adults, from Dr. Patricia Stewart, a board-certified internal medicine physician."
+  },
+  "accepting": {
+    "eyebrow": "Accepting New Patients",
+    "heading": "Yes, we're taking new",
+    "headingItalic": "adult patients.",
+    "body1": "If you've been putting off finding a primary care doctor in Vero Beach, or your last one never seemed to have a minute, you can start here. Register online in a few minutes, or call us and we'll walk you through it.",
+    "body2": "A new-patient visit is a chance to meet your doctor and get your whole health picture on the table, not just check a box."
+  },
+  "whoWeSee": {
+    "eyebrow": "Who We See",
+    "heading": "Primary care for adults with",
+    "headingItalic": "a full calendar.",
+    "intro": "Work, family, and everything else already fill your week. We built this practice so getting good primary care doesn't become one more thing you keep postponing.",
+    "physician": {
+      "name": "Dr. Patricia Stewart",
+      "lead": "Your doctor is Dr. Patricia Stewart, a board-certified internal medicine physician with more than 25 years in private practice and particular expertise in women's health.",
+      "body": "If you've been looking for a female primary care physician in Vero Beach, or simply an internist who will remember your last conversation, that's who you'll see.",
+      "linkLabel": "Meet Dr. Stewart →",
+      "linkHref": "/about/"
+    },
+    "listLabel": "What we help with",
+    "items": [
+      "Annual physicals and wellness visits",
+      "Ongoing care for conditions like blood pressure, diabetes, thyroid, and cholesterol",
+      "Sick visits, with every effort made to fit you in the same day",
+      "Women's and men's health, including perimenopause and hormone questions",
+      "Preventive screenings and labs, plus referrals for colonoscopies, mammograms, and DEXA scans",
+      "Practical guidance on sleep, weight, nutrition, and stress"
+    ],
+    "servicesLinkLabel": "See all services →"
+  },
+  "insurance": {
+    "eyebrow": "Insurance",
+    "heading": "Will my insurance",
+    "headingItalic": "work here?",
+    "intro": "Most likely, yes. We accept most major plans, and we'll confirm your coverage before your first visit so there are no surprises at the front desk.",
+    "linkLabel": "Full insurance details →"
+  },
+  "firstVisit": {
+    "eyebrow": "Your First Visit",
+    "heading": "What your first visit",
+    "headingItalic": "is like.",
+    "stepsLabel": "How it goes",
+    "bringLabel": "What to bring"
+  },
+  "faqs": [
+    {
+      "q": "Are you accepting new patients in Vero Beach?",
+      "a": "Yes. Vero Beach Adult Medicine is accepting new adult patients. You can register online or call us at (772) 569-3212."
+    },
+    {
+      "q": "Who would my primary care doctor be?",
+      "a": "Dr. Patricia Stewart, a board-certified internal medicine physician with more than 25 years in private practice and particular expertise in women's health."
+    },
+    {
+      "q": "Do you have an internal medicine doctor in Vero Beach?",
+      "a": "Yes. Dr. Stewart is board-certified in internal medicine, which means primary care for adults: annual physicals, ongoing care for conditions like blood pressure and diabetes, sick visits, and preventive screenings."
+    },
+    {
+      "q": "What insurance do you accept?",
+      "a": "We accept most major plans, including Florida Blue, United Healthcare, Cigna, Aetna, Humana, and Medicare. Self-pay is also welcome. Call (772) 569-3212 and we'll verify your specific plan before your first visit."
+    },
+    {
+      "q": "What should I bring to my first appointment?",
+      "a": "A valid photo ID, your insurance card, a list of your current medications and dosages, any relevant medical records or lab results, and a list of questions or concerns you'd like to discuss."
+    },
+    {
+      "q": "What if I'm sick and need to be seen quickly?",
+      "a": "Call or message us in the morning. We make every effort to accommodate same-day visits for urgent concerns. When our schedule is full, virtual care gives you a prompt alternative."
+    },
+    {
+      "q": "How do I book my first visit?",
+      "a": "Start your new patient registration online, book an appointment through our scheduling page, or call (772) 569-3212. You can also text our office."
+    }
+  ],
+  "cta": {
+    "eyebrow": "How to Book",
+    "heading": "Ready when you are.",
+    "subhead": "Register online in a few minutes, book a time, or just call. Whichever is easiest for you.",
+    "bookLabel": "Book an Appointment →",
+    "bookHref": "/contact/#schedule",
+    "textLine": "Prefer to text? Text our office at"
+  }
+}
