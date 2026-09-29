@@ -47,8 +47,8 @@ const FAQ_JSON_LD = {
 // or already published on the home and About pages. The clinic node reuses the
 // home page's #localbusiness @id so both pages describe ONE entity (no duplicate
 // business). Deliberately omitted: isAcceptingNewPatients, insurance and hours
-// (availability/insurance rot fast; add only once the availability TODO is
-// answered and a review date is set).
+// (availability/insurance rot fast; add only once availability is
+// confirmed by Jesse and a review date is set).
 const CLINIC_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': ['MedicalBusiness', 'MedicalClinic'],
@@ -142,14 +142,7 @@ export default function NewPatientsPage() {
               <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ ...bodyText, marginBottom: 24 }}>
                 {NEW_PATIENTS_ACCEPTING.body2}
               </p>
-              {/* Visible hard-stop placeholder: availability / panel openings / wait times
-                  are unverified. Jesse must answer it (or remove the line) before merge. */}
-              <p className="font-inter text-vbam-atlantic/75" style={{ fontSize: 15, lineHeight: 1.6 }}>
-                {NEW_PATIENTS_ACCEPTING.availabilityLabel}{' '}
-                <strong className="font-[700]" style={{ background: 'rgba(238,119,82,0.15)', padding: '2px 8px', borderRadius: 6 }}>
-                  {NEW_PATIENTS_ACCEPTING.availabilityPlaceholder}
-                </strong>
-              </p>
+
             </div>
           </ScrollReveal>
         </div>
