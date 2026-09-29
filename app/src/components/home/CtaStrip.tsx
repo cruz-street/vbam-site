@@ -68,6 +68,12 @@ export default function CtaStrip() {
               {CTA_STRIP.cta2}
             </Link>
           </div>
+          <p className="font-inter font-[300] text-vbam-atlantic/75" style={{ fontSize: 14, marginTop: 20 }}>
+            Not sure what to expect?{' '}
+            <Link href="/new-patients/" className="font-archivo font-[700] text-vbam-coral hover:underline">
+              See how new patients get started →
+            </Link>
+          </p>
         </ScrollReveal>
 
       </div>
