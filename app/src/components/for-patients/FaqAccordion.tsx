@@ -3,12 +3,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { FAQS } from '@/content/for-patients';
 
-export default function FaqAccordion() {
+type FaqItem = { q: string; a: string; link?: { label: string; href: string } };
+
+export default function FaqAccordion({ faqs = FAQS }: { faqs?: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
     <div className="max-w-[720px] mx-auto">
-      {FAQS.map((faq, i) => (
+      {faqs.map((faq, i) => (
         <div
           key={i}
           className="border-b border-vbam-atlantic/[.12]"
