@@ -28,6 +28,7 @@ const SOCIAL: Social[] = [
 
 const COMPLIANCE_LINKS: FooterLink[] = [
   { href: '/privacy-policy/', label: 'Privacy Policy' },
+  { href: '/terms/', label: 'Terms & Conditions' },
   { href: 'https://www.priviahealth.com/notice-nondiscrimination/', label: 'Notice of Nondiscrimination', external: true },
   { href: 'https://www.priviahealth.com/privacy-and-compliance/', label: 'HIPAA Privacy Notice', external: true },
   { href: 'https://www.priviahealth.com/newsroom/', label: 'Press Room', external: true },
