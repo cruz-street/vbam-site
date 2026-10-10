@@ -1,13 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { CALL_LINE, HOURS, SHARED_LINE, TEXT_LINE } from "@/lib/contact";
+import { CALL_LINE, HOURS, TEXT_LINE } from "@/lib/contact";
 
 /**
  * Persistent floating "Text or call us" button (bottom-right, every page) and the
  * pop-up it opens. No third-party code: a native <dialog> with plain text and
- * tel:/sms: links. Phones get the tap buttons; on a desktop the numbers are shown
- * instead, since a computer can't place a call or send a text.
+ * tel:/sms: links on the numbers.
  */
 export default function MessageUsButton() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -43,51 +42,26 @@ export default function MessageUsButton() {
             Text or <em className="font-cormorant italic">call us.</em>
           </h2>
 
-          {SHARED_LINE ? (
-            <p className="font-inter text-vbam-atlantic/80 mt-4" style={{ fontSize: 15, lineHeight: 1.6 }}>
-              Text or call us at{" "}
+          <ul className="font-inter text-vbam-atlantic/80 mt-4 space-y-2" style={{ fontSize: 17, lineHeight: 1.5 }}>
+            <li>
+              Text us at{" "}
+              <a href={`sms:${TEXT_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
+                {TEXT_LINE.display}
+              </a>
+            </li>
+            <li>
+              Call us at{" "}
               <a href={`tel:${CALL_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
                 {CALL_LINE.display}
               </a>
-              .
-            </p>
-          ) : (
-            <ul className="font-inter text-vbam-atlantic/80 mt-4 space-y-1" style={{ fontSize: 15, lineHeight: 1.6 }}>
-              <li>
-                <a href={`sms:${TEXT_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
-                  Text us at {TEXT_LINE.display}
-                </a>
-              </li>
-              <li>
-                <a href={`tel:${CALL_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
-                  Call us at {CALL_LINE.display}
-                </a>
-              </li>
-            </ul>
-          )}
-
-          <div className="reach-us-actions mt-5 gap-3">
-            <a
-              href={`sms:${TEXT_LINE.tel}`}
-              className="btn-primary font-archivo font-[600] rounded-full text-center transition-colors"
-              style={{ fontSize: 15, padding: "14px 28px", flex: 1 }}
-            >
-              Text us
-            </a>
-            <a
-              href={`tel:${CALL_LINE.tel}`}
-              className="font-archivo font-[600] rounded-full border border-vbam-atlantic/30 text-vbam-atlantic text-center transition-colors hover:border-vbam-atlantic/60"
-              style={{ fontSize: 15, padding: "14px 28px", flex: 1 }}
-            >
-              Call us
-            </a>
-          </div>
+            </li>
+          </ul>
 
           <p className="font-inter text-vbam-atlantic/70 mt-5" style={{ fontSize: 14, lineHeight: 1.6 }}>
             {HOURS} After hours, call and our nurse line will help.
           </p>
           <p className="font-inter text-vbam-atlantic/70 mt-2" style={{ fontSize: 14, lineHeight: 1.6 }}>
-            Please keep medical details out of texts. For an emergency, call 911.
+            For an emergency, call 911.
           </p>
 
           <button
