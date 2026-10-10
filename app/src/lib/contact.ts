@@ -13,8 +13,5 @@ const PRE_PORT_TEXT_LINE = { display: "(855) 430-8172", tel: "+18554308172" };
 
 export const TEXT_LINE = CONTACT_PHASE === "pre-port" ? PRE_PORT_TEXT_LINE : CALL_LINE;
 
-// True once one number handles both texts and calls.
-export const SHARED_LINE = TEXT_LINE.tel === CALL_LINE.tel;
-
 // Pop-up hours: the nurse line covers lunch, so the 12 to 1 closure is not listed here.
 export const HOURS = "Monday to Friday, 8 am to 5 pm.";
