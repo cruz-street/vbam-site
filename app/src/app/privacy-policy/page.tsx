@@ -129,7 +129,7 @@ export default function PrivacyPolicy() {
             <p>
               The patient opt-ins will not be shared with any third-party systems for marketing
               purposes. This ensures transparency and aligns with regulatory standards for data
-              protection. The advertising and analytics practices described elsewhere in this policy relate to activity on our website and do not apply to your mobile number or your consent to receive text messages.
+              protection.
             </p>
             <p>
               For questions, contact us at{' '}
