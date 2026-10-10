@@ -113,3 +113,9 @@
   opacity: 1 !important;
   transform: none !important;
 }
+
+/* ─── "Text or call us" pop-up ──────────────────────────────────────────────── */
+/* Tap buttons show on touch devices only; a desktop sees the numbers instead. */
+.reach-us::backdrop { background: color-mix(in srgb, var(--color-vbam-atlantic) 45%, transparent); }
+.reach-us-actions { display: none; }
+@media (pointer: coarse) { .reach-us-actions { display: flex; } }
