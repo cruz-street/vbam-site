@@ -45,15 +45,23 @@ export default function MessageUsButton() {
 
           {SHARED_LINE ? (
             <p className="font-inter text-vbam-atlantic/80 mt-4" style={{ fontSize: 15, lineHeight: 1.6 }}>
-              Text or call us at <strong className="font-[600] text-vbam-atlantic">{CALL_LINE.display}</strong>.
+              Text or call us at{" "}
+              <a href={`tel:${CALL_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
+                {CALL_LINE.display}
+              </a>
+              .
             </p>
           ) : (
             <ul className="font-inter text-vbam-atlantic/80 mt-4 space-y-1" style={{ fontSize: 15, lineHeight: 1.6 }}>
               <li>
-                Text us at <strong className="font-[600] text-vbam-atlantic">{TEXT_LINE.display}</strong>
+                <a href={`sms:${TEXT_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
+                  Text us at {TEXT_LINE.display}
+                </a>
               </li>
               <li>
-                Call us at <strong className="font-[600] text-vbam-atlantic">{CALL_LINE.display}</strong>
+                <a href={`tel:${CALL_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
+                  Call us at {CALL_LINE.display}
+                </a>
               </li>
             </ul>
           )}
