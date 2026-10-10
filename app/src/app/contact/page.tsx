@@ -27,8 +27,8 @@ const contactJsonLd = {
     addressCountry: 'US',
   },
   openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '12:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '12:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '17:00' },
   ],
   medicalSpecialty: 'Internal Medicine',
 };
@@ -93,7 +93,7 @@ export default function ContactPage() {
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-16 items-start">
 
-          {/* Contact info — on mobile this drops below the Klara CTA so texting
+          {/* Contact info — on mobile this drops below the scheduling CTA so texting
               leads. No ScrollReveal here (unlike the scheduling column) --
               the #info jump link lands here directly, and a scroll-reveal
               fade made it feel slow to appear right after an anchor jump. */}
