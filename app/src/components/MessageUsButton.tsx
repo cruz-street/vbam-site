@@ -84,7 +84,7 @@ export default function MessageUsButton() {
           </div>
 
           <p className="font-inter text-vbam-atlantic/70 mt-5" style={{ fontSize: 14, lineHeight: 1.6 }}>
-            {HOURS}
+            {HOURS} After hours, call and our nurse line will help.
           </p>
           <p className="font-inter text-vbam-atlantic/70 mt-2" style={{ fontSize: 14, lineHeight: 1.6 }}>
             Please keep medical details out of texts. For an emergency, call 911.
