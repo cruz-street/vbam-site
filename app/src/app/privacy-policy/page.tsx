@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
       <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
         <div className="max-w-[820px] mx-auto px-5 sm:px-8 md:px-10">
           <p className="font-archivo font-[700] text-vbam-atlantic" style={{ fontSize: 14 }}>
-            Last Updated: September 10, 2026
+            Last Updated: October 9, 2026
           </p>
 
           <Section title="Collection of Personal Information">
@@ -89,6 +89,64 @@ export default function PrivacyPolicy() {
               We may share your personal information with service providers who perform functions on
               our behalf, with advertising and analytics partners as described above, and when
               required to comply with the law or to protect our rights.
+            </p>
+          </Section>
+
+          <Section title="Text Messaging">
+            <p>
+              By providing your mobile number, you agree to receive text messages from Vero Beach Adult Medicine
+              regarding your healthcare and account. Messages may include appointment reminders and
+              confirmations, billing notifications and payment reminders, important health-related
+              updates, post-visit survey reminders, and two-factor authentication (2FA).
+            </p>
+            <p>
+              <strong>Message Frequency:</strong> You may receive multiple messages depending on
+              your appointments and account activity.
+            </p>
+            <p>
+              <strong>Message &amp; Data Rates:</strong> Standard message and data rates may apply
+              based on your mobile carrier&rsquo;s plan.
+            </p>
+            <p>
+              <strong>Privacy Policy:</strong> For information about how we collect, use, and
+              protect your information, please review our Privacy Policy:{' '}
+              <a
+                href="/privacy-policy/"
+                className="font-[600] text-vbam-inlet hover:text-vbam-atlantic transition-colors"
+              >
+                https://verobeachadultmedicine.com/privacy-policy/
+              </a>
+              .
+            </p>
+            <p>
+              <strong>Help &amp; Support:</strong> For assistance, reply &ldquo;HELP&rdquo; for more
+              information.
+            </p>
+            <p>
+              <strong>Opt-Out:</strong> Reply &ldquo;STOP&rdquo; at any time to unsubscribe from
+              future messages.
+            </p>
+            <p>
+              The patient opt-ins will not be shared with any third-party systems for marketing
+              purposes. This ensures transparency and aligns with regulatory standards for data
+              protection.
+            </p>
+            <p>
+              For questions, contact us at{' '}
+              <a
+                href={PHONE_HREF}
+                className="font-[600] text-vbam-inlet hover:text-vbam-atlantic transition-colors"
+              >
+                {PHONE}
+              </a>{' '}
+              or visit{' '}
+              <a
+                href="/"
+                className="font-[600] text-vbam-inlet hover:text-vbam-atlantic transition-colors"
+              >
+                verobeachadultmedicine.com
+              </a>
+              .
             </p>
           </Section>
 
