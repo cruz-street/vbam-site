@@ -30,7 +30,13 @@ const IFRAME_HEIGHT = 600;
 
 // Origin Jotform's embed handler posts submission messages from — same
 // origin passed to jotformEmbedHandler() below.
-const JOTFORM_ORIGINS = ['https://form.jotform.com', 'https://hipaa.jotform.com'];
+const JOTFORM_ORIGINS = [
+  'https://form.jotform.com',
+  'https://hipaa.jotform.com',
+  // Jotform posts submission-completed from this origin for HIPAA forms
+  // (seen on the VBAM registration form, 10/19).
+  'https://hipaa-submit.jotform.com',
+];
 
 export default function JotformEmbed({
   formUrl,
