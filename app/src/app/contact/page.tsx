@@ -14,7 +14,8 @@ export const metadata: Metadata = {
 
 const contactJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalOrganization',
+  '@type': ['MedicalBusiness', 'MedicalClinic'],
+  '@id': 'https://verobeachadultmedicine.com/#localbusiness',
   name: 'Vero Beach Adult Medicine',
   url: 'https://verobeachadultmedicine.com',
   telephone: '+1-772-569-3212',
