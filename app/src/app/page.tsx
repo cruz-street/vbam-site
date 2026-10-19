@@ -19,59 +19,13 @@ import { PRACTICE_INFO } from '@/content/contact';
 export const metadata: Metadata = {
   title: 'Vero Beach Adult Medicine | Primary Care on the Treasure Coast',
   description:
-    'A personal-physician primary care practice in Vero Beach, FL — a deliberately limited panel, online registration, and secure text with your care team. Founding patients welcome. Sibling of Vero Beach Pediatrics.',
+    'Primary care in Vero Beach: no membership fee, real time with your doctor, same-day sick visits for registered patients. Now accepting new adult patients.',
   alternates: { canonical: 'https://verobeachadultmedicine.com' },
 };
 
-const homeJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalOrganization',
-  name: 'Vero Beach Adult Medicine',
-  url: 'https://verobeachadultmedicine.com',
-  logo: 'https://verobeachadultmedicine.com/images/vbam-mark.svg',
-  description: 'Patient-oriented adult primary care in Vero Beach, FL — modern tools, attentive care, a familiar team. Now welcoming new patients. Sibling of Vero Beach Pediatrics.',
-  telephone: '+1-772-569-3212',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '955 37th Place',
-    addressLocality: 'Vero Beach',
-    addressRegion: 'FL',
-    postalCode: '32960',
-    addressCountry: 'US',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 27.6648,
-    longitude: -80.3781,
-  },
-  openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '12:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '17:00' },
-  ],
-  medicalSpecialty: 'Internal Medicine',
-  priceRange: 'Accepts most insurance',
-  parentOrganization: {
-    '@type': 'MedicalOrganization',
-    name: 'Privia Medical Group',
-    url: 'https://www.priviahealth.com/',
-  },
-  sameAs: [
-    'https://verobeachpediatrics.com',
-    'https://www.priviahealth.com/',
-    'https://www.linkedin.com/company/119633945/',
-  ],
-  // No aggregateRating here. The reviews rendered on this page (ReviewsSection,
-  // sourced from content/reviews.json) are Vero Beach PEDIATRICS' Google
-  // reviews — the visible copy correctly discloses "Vero Beach Pediatrics"
-  // next to them, but a rating asserted in JSON-LD carries no such disclosure
-  // and would read as VBAM's own reputation. That is a false, misattributed
-  // claim about a different legal entity in machine-readable markup, and
-  // exactly what Google's review-markup spam policy targets. VBAM's own
-  // Google Business Profile is verified (2026-09-17) but has no reviews of
-  // its own yet — add aggregateRating back here once it does, sourced from
-  // VBAM's own listing, never from reviews.json.
-};
-
+// ONE entity per site: the former separate MedicalOrganization node here described
+// the same practice with no @id (two competing entities for one business). It was
+// merged into this node; /contact/ and /new-patients/ now reference the same @id.
 // LocalBusiness (MedicalBusiness subtype) — local SEO entity built from the
 // address/contact already in the CMS. `hasMap` uses the plain 955 37th Place
 // address pin (no business name) since VBAM's own Google listing isn't
@@ -83,15 +37,15 @@ const mapQuery = encodeURIComponent(
 );
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
+  '@type': ['MedicalBusiness', 'MedicalClinic'],
   '@id': 'https://verobeachadultmedicine.com/#localbusiness',
   name: 'Vero Beach Adult Medicine',
+  description: 'Patient-oriented adult primary care in Vero Beach, FL — modern tools, attentive care, a familiar team. Now welcoming new patients. Sibling of Vero Beach Pediatrics.',
   url: 'https://verobeachadultmedicine.com',
   logo: 'https://verobeachadultmedicine.com/images/vbam-mark.svg',
   image: 'https://verobeachadultmedicine.com/images/vbam-mark.svg',
   telephone: '+1-772-569-3212',
   faxNumber: PRACTICE_INFO.fax,
-  priceRange: 'Accepts most insurance',
   medicalSpecialty: 'Internal Medicine',
   address: {
     '@type': 'PostalAddress',
@@ -128,7 +82,6 @@ const localBusinessJsonLd = {
 export default function HomePage() {
   return (
     <main>
-      <JsonLd data={homeJsonLd} />
       <JsonLd data={localBusinessJsonLd} />
       <HeroSection />
       <TrustBar />
