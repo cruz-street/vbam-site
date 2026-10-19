@@ -30,7 +30,7 @@ const IFRAME_HEIGHT = 600;
 
 // Origin Jotform's embed handler posts submission messages from — same
 // origin passed to jotformEmbedHandler() below.
-const JOTFORM_ORIGIN = 'https://form.jotform.com';
+const JOTFORM_ORIGINS = ['https://form.jotform.com', 'https://hipaa.jotform.com'];
 
 export default function JotformEmbed({
   formUrl,
@@ -40,6 +40,9 @@ export default function JotformEmbed({
   gaEventName = 'registration_submit',
 }: Props) {
   const iframeId = `JotFormIFrame-${formId}`;
+  // registration_submit -> registration_start; careers' own submit event name
+  // gets its own matching start name instead of a mislabeled one.
+  const startEventName = gaEventName.replace(/_submit$/, '_start');
 
   // Resolved once on mount from stored click params, then held in state.
   // The iframe only ever renders with its final src — never the bare
@@ -49,6 +52,8 @@ export default function JotformEmbed({
   // handler can post the submission-completed message more than once for a
   // single submit, and this component could theoretically remount.
   const submittedRef = useRef(false);
+  // Guards registration_start so it fires once per page view.
+  const startedRef = useRef(false);
 
   useEffect(() => {
     const url = new URL(formUrl);
@@ -87,23 +92,53 @@ export default function JotformEmbed({
   // ignored.
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (event.origin !== JOTFORM_ORIGIN) return;
-      const data = event.data;
+      if (!JOTFORM_ORIGINS.includes(event.origin)) return;
+      let data: unknown = event.data;
+      if (typeof data === 'string' && data.startsWith('{')) {
+        try {
+          data = JSON.parse(data);
+        } catch {
+          return;
+        }
+      }
       if (!data || typeof data !== 'object') return;
-      if (data.action !== 'submission-completed') return;
-      if (String(data.formID) !== formId) return;
+      const msg = data as { action?: string; formID?: string | number };
+      if (msg.action !== 'submission-completed') return;
+      if (String(msg.formID) !== formId) return;
       if (submittedRef.current) return;
       submittedRef.current = true;
 
+      // No form values, only the practice and form id (no PHI).
       window.dataLayer?.push({
         event: gaEventName,
         practice: 'vbam',
+        form_id: formId,
       });
     }
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
   }, [formId, gaEventName]);
+
+  // registration_start: Jotform does not post focus/start messages to the
+  // parent, so use the browser's own signal. When the user first clicks or
+  // tabs into the cross-origin iframe, the parent window blurs and
+  // document.activeElement becomes that iframe. Fires once, no form data.
+  useEffect(() => {
+    function handleBlur() {
+      if (startedRef.current) return;
+      const active = document.activeElement;
+      if (!active || active.id !== iframeId) return;
+      startedRef.current = true;
+      window.dataLayer?.push({
+        event: startEventName,
+        practice: 'vbam',
+        form_id: formId,
+      });
+    }
+    window.addEventListener('blur', handleBlur);
+    return () => window.removeEventListener('blur', handleBlur);
+  }, [iframeId, formId, startEventName]);
 
   return (
     <>
