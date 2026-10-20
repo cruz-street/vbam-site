@@ -12,6 +12,24 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://verobeachadultmedicine.com/services/' },
 };
 
+// Service catalog for the practice entity (same @id as the home page). Every
+// name/description is the visible card text from content/services.json.
+const servicesJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['MedicalBusiness', 'MedicalClinic'],
+  '@id': 'https://verobeachadultmedicine.com/#localbusiness',
+  name: 'Vero Beach Adult Medicine',
+  url: 'https://verobeachadultmedicine.com',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Adult primary care services',
+    itemListElement: SERVICES.map((svc) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: svc.title, description: svc.body },
+    })),
+  },
+};
+
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
   { name: 'Services', url: 'https://verobeachadultmedicine.com/services/' },
@@ -21,6 +39,7 @@ export default function ServicesPage() {
   return (
     <main>
       <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={servicesJsonLd} />
       <PageHero
         eyebrow={SERVICES_HERO.eyebrow}
         heading={SERVICES_HERO.heading}
