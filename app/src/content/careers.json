@@ -40,6 +40,8 @@
       "title": "Receptionist",
       "option": "Receptionist",
       "summary": "Check-in and check-out, phones, and scheduling — the friendly first face our patients see.",
+      "notHiring": "We're not currently hiring for this position, but we're always glad to meet great people. Feel free to submit your resume and we'll keep it on file for future openings.",
+      "ctaLabel": "Submit your resume for future openings",
       "bullets": [
         "Greet and check patients in and out",
         "Answer phones and schedule appointments",
