@@ -17,6 +17,8 @@
       "title": "Medical Assistant",
       "option": "Medical Assistant",
       "summary": "Rooms patients, takes vitals, and supports our physician with an adult patient population.",
+      "notHiring": "We're not currently hiring for this position, but we're always glad to meet great people. Feel free to submit your resume and we'll keep it on file for future openings.",
+      "ctaLabel": "Submit your resume for future openings",
       "bullets": [
         "Room patients and take vitals",
         "Assist with procedures and treatments",
