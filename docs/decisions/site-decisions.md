@@ -4,6 +4,18 @@ Newest entry first.
 
 ---
 
+## 2026-10-09 — Replace the Klara link with a plain "Text or call us" pop-up
+
+**Decision:** Remove the link to Klara's hosted widget. The floating button opens a native `<dialog>` with the text line, the call line, hours and a no-medical-details notice. Text and call numbers live in one file (`lib/contact.ts`) with a `pre-port` / `post-port` setting.
+
+**Why:** The Klara contract ends 2026-10-31 and texting moves to Yosi. The pop-up needs no third-party code, so it can't render blank like the old embedded script, and the same component works before and after the number port. Desktops can't place calls or send texts, so numbers are always shown and tap buttons appear on touch devices only.
+
+**Alternatives considered:** Linking straight to `sms:` and `tel:` with no pop-up (no room for hours or the notice). A third-party embed (new vendor code, same blank-render risk). Keeping the text line and call line in `contact.json` only (no single switch for the port).
+
+**Wording:** Does not promise "secure messaging."
+
+---
+
 ## 2026-09-14 — Referrer capture for organic attribution, alongside the existing UTM/click-ID mechanism
 
 **Decision:** Extend `click-attribution.ts` to also capture `document.referrer`'s origin (e.g. `https://m.facebook.com`) on first landing, stored and forwarded into the Jotform submission the same way as the existing `utm_*`/click-ID params (new hidden field `landing_referrer`). Only captured when the referrer's hostname differs from the current site's (so internal page-to-page navigation never overwrites the real entry referrer), and never overwrites an already-stored value within the TTL window — same discipline as the existing params.
