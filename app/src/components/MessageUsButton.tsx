@@ -42,20 +42,27 @@ export default function MessageUsButton() {
             Text or <em className="font-cormorant italic">call us.</em>
           </h2>
 
-          <ul className="font-inter text-vbam-atlantic/80 mt-4 space-y-2" style={{ fontSize: 17, lineHeight: 1.5 }}>
-            <li>
-              Text us at{" "}
-              <a href={`sms:${TEXT_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
-                {TEXT_LINE.display}
-              </a>
-            </li>
-            <li>
-              Call us at{" "}
-              <a href={`tel:${CALL_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
-                {CALL_LINE.display}
-              </a>
-            </li>
-          </ul>
+          {TEXT_LINE.tel === CALL_LINE.tel ? (
+            <p className="font-inter text-vbam-atlantic/80 mt-4" style={{ fontSize: 17, lineHeight: 1.5 }}>
+              <a href={`sms:${TEXT_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">Text</a> or{" "}
+              <a href={`tel:${CALL_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">call</a> us at {CALL_LINE.display}
+            </p>
+          ) : (
+            <ul className="font-inter text-vbam-atlantic/80 mt-4 space-y-2" style={{ fontSize: 17, lineHeight: 1.5 }}>
+              <li>
+                Text us at{" "}
+                <a href={`sms:${TEXT_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
+                  {TEXT_LINE.display}
+                </a>
+              </li>
+              <li>
+                Call us at{" "}
+                <a href={`tel:${CALL_LINE.tel}`} className="font-[600] text-vbam-atlantic underline underline-offset-2 hover:text-vbam-inlet transition-colors">
+                  {CALL_LINE.display}
+                </a>
+              </li>
+            </ul>
+          )}
 
           <p className="font-inter text-vbam-atlantic/70 mt-5" style={{ fontSize: 14, lineHeight: 1.6 }}>
             {HOURS} After hours, call and our nurse line will help.

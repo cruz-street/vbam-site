@@ -5,7 +5,7 @@
 // "post-port": texting moves to the main line, so one number does both. At that
 // point also update the 855 links in content/contact.json, content/virtual-care.json
 // and components/layout/Footer.tsx.
-export const CONTACT_PHASE: "pre-port" | "post-port" = "pre-port";
+export const CONTACT_PHASE = "pre-port" as "pre-port" | "post-port";
 
 export const CALL_LINE = { display: "(772) 569-3212", tel: "+17725693212" };
 
