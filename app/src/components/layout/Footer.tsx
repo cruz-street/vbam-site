@@ -92,7 +92,7 @@ export default function Footer() {
 
           <div className="flex items-center justify-center gap-3 mt-6">
             <a
-              href="sms:+18554308172"
+              href="sms:+17725693212"
               className="font-archivo font-[600] text-vbam-atlantic rounded-full transition-opacity hover:opacity-90"
               style={{ fontSize: 13, padding: '11px 24px', background: 'var(--grad-sunrise)' }}
             >
