@@ -53,6 +53,14 @@ export default function CareersRoles() {
                   >
                     {role.summary}
                   </p>
+                  {role.notHiring && (
+                    <p
+                      className="font-inter font-[400] text-vbam-atlantic/80"
+                      style={{ fontSize: 13, lineHeight: 1.6, marginBottom: 14 }}
+                    >
+                      {role.notHiring}
+                    </p>
+                  )}
                   <ul className="flex-1" style={{ marginBottom: 20 }}>
                     {role.bullets.map((b) => (
                       <li
@@ -71,7 +79,7 @@ export default function CareersRoles() {
                     className="btn-primary font-archivo font-[600] rounded-full transition-colors self-start"
                     style={{ fontSize: 13, padding: '11px 22px' }}
                   >
-                    Apply
+                    {role.ctaLabel ?? 'Apply'}
                   </button>
                 </div>
               </ScrollReveal>

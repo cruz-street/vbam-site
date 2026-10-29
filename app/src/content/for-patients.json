@@ -72,13 +72,13 @@
           "Health First Health Plans",
           "Humana Military (TRICARE East)",
           "Ambetter (Centene)",
-          "Disney Cruise Lines"
+          "Disney Cruise Lines",
+          "Oscar Direct"
         ]
       }
     ],
     "comingSoon": [
-      "MultiPlan / PHCS",
-      "Oscar Health"
+      "MultiPlan / PHCS"
     ],
     "selfPay": {
       "label": "Self-Pay Welcome",

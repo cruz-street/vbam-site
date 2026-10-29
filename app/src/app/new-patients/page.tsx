@@ -46,9 +46,8 @@ const FAQ_JSON_LD = {
 // MedicalClinic + Physician: every field is drawn from text visible on this page
 // or already published on the home and About pages. The clinic node reuses the
 // home page's #localbusiness @id so both pages describe ONE entity (no duplicate
-// business). Deliberately omitted: isAcceptingNewPatients, insurance and hours
-// (availability/insurance rot fast; add only once availability is
-// confirmed by Jesse and a review date is set).
+// business). isAcceptingNewPatients added 2026-10-22 (merge only after Dr. Cruz
+// confirms new-patient status). Deliberately omitted: insurance and hours (they rot fast).
 const CLINIC_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': ['MedicalBusiness', 'MedicalClinic'],
@@ -57,6 +56,7 @@ const CLINIC_JSON_LD = {
   url: SITE,
   telephone: '+1-772-569-3212',
   medicalSpecialty: 'Internal Medicine',
+  isAcceptingNewPatients: true,
   address: {
     '@type': 'PostalAddress',
     streetAddress: PRACTICE_INFO.address.street,
