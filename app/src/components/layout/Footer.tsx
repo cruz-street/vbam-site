@@ -7,6 +7,7 @@ const LINKS: Record<string, FooterLink[]> = {
   Practice: [
     { href: '/about/',        label: 'About'          },
     { href: '/services/',     label: 'Services'       },
+    { href: '/primary-care-doctors-vero-beach/', label: 'Primary Care in Vero Beach' },
     { href: '/for-patients/', label: 'For Patients'   },
     { href: '/careers/',      label: 'Careers'        },
   ],
