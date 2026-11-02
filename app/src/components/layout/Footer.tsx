@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SunSeaMark from '@/components/shared/SunSeaMark';
+import { HolidayNotice } from '@/components/HolidayNotice';
 
 type FooterLink = { href: string; label: string; external?: boolean };
 
@@ -169,6 +170,7 @@ export default function Footer() {
               <li>Sat – Sun · Closed</li>
               <li className="text-vbam-sea-glass mt-2">By appointment</li>
             </ul>
+            <HolidayNotice className="font-inter text-[13px] text-vbam-sunrise mt-3" />
           </div>
         </div>
 

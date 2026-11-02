@@ -5,6 +5,8 @@ import ScrollReveal from '@/components/shared/ScrollReveal';
 import JsonLd from '@/components/shared/JsonLd';
 import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_SCHEDULING, CONTACT_CTA } from '@/content/contact';
 import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
+import { holidayOpeningHoursSpecs } from '@/lib/holidays';
+import { HolidayNotice } from '@/components/HolidayNotice';
 
 export const metadata: Metadata = {
   title: 'Contact & Appointments',
@@ -31,6 +33,7 @@ const contactJsonLd = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '12:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '17:00' },
   ],
+  specialOpeningHoursSpecification: holidayOpeningHoursSpecs(),
   medicalSpecialty: 'Internal Medicine',
 };
 
@@ -154,6 +157,7 @@ export default function ContactPage() {
                   <p className="font-cormorant italic text-vbam-sea-glass mt-2" style={{ fontSize: 16 }}>
                     {PRACTICE_INFO.hoursNote}
                   </p>
+                  <HolidayNotice className="font-inter font-[300] text-vbam-atlantic/[.82] mt-3" />
                 </div>
 
                 <div className="rounded-lg border border-vbam-atlantic/[.08] bg-vbam-sand" style={{ padding: '20px 22px' }}>
