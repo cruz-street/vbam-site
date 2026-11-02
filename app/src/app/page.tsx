@@ -15,6 +15,7 @@ import VideosSection from '@/components/home/VideosSection';
 import SocialFeedSection from '@/components/home/SocialFeedSection';
 import FacebookUpdates from '@/components/home/FacebookUpdates';
 import { PRACTICE_INFO } from '@/content/contact';
+import { holidayOpeningHoursSpecs } from '@/lib/holidays';
 
 export const metadata: Metadata = {
   title: 'Vero Beach Adult Medicine | Primary Care on the Treasure Coast',
@@ -112,6 +113,7 @@ const localBusinessJsonLd = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '12:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '17:00' },
   ],
+  specialOpeningHoursSpecification: holidayOpeningHoursSpecs(),
   parentOrganization: {
     '@type': 'MedicalOrganization',
     name: 'Privia Medical Group',
