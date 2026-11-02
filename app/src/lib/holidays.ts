@@ -34,6 +34,9 @@ function todayIso() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" });
 }
 
+/** Build date, inlined by next.config. Browser and static HTML agree on it, so the first client render matches the server. */
+export const BUILD_DATE = process.env.NEXT_PUBLIC_BUILD_DATE ?? todayIso();
+
 /** Up to `max` upcoming notices, e.g. "Closed Thu Nov 26 and Fri Nov 27 for Thanksgiving." */
 export function upcomingHolidayNotices(max = 3, today = todayIso()): string[] {
   const groups: { holiday: string; hours: Closure["hours"]; dates: string[] }[] = [];
