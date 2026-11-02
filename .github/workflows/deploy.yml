@@ -30,7 +30,6 @@ jobs:
         run: cd app && pnpm build
         env:
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
-          NEXT_PUBLIC_KLARA_WIDGET_ID: ${{ secrets.NEXT_PUBLIC_KLARA_WIDGET_ID }}
 
       # PRODUCTION — push to `main` deploys to vbam-site-prod (Jesse's CF account)
       # which is wired to the custom domain verobeachadultmedicine.com.

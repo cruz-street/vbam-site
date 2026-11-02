@@ -163,9 +163,9 @@ export default function Footer() {
               Hours
             </h4>
             <ul className="font-inter text-[13px] text-vbam-foam/75 space-y-1.5">
-              <li>Mon, Wed – Fri · 8a – 12p</li>
-              <li>Mon, Wed – Fri · 1p – 5p</li>
-              <li>Tue · Closed</li>
+              <li>Mon – Fri · 8a – 12p</li>
+              <li>Mon – Fri · 1p – 5p</li>
+              <li>Tuesdays: open by appointment for nurse &amp; office visits</li>
               <li>Sat – Sun · Closed</li>
               <li className="text-vbam-sea-glass mt-2">By appointment</li>
             </ul>

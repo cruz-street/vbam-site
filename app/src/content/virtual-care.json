@@ -38,7 +38,7 @@
     "eyebrow": "Tuesdays",
     "heading": "Open at the front desk,",
     "headingItalic": "covered for the rest.",
-    "intro": "On Tuesdays our office is open for administrative needs, but Dr. Stewart isn't seeing patients that day. Here's how to get what you need:",
+    "intro": "Tuesdays: open by appointment for nurse & office visits. Dr. Stewart isn't seeing patients that day. Here's how to get what you need:",
     "options": [
       {
         "label": "Need a form or paperwork?",
@@ -59,7 +59,7 @@
         "ctaHref": "https://care.myprivia.com/virtual-clinic"
       }
     ],
-    "note": "Some services may still be available in person on Tuesdays — call and our staff will help you choose what's right for you.",
+    "note": "Tuesdays: open by appointment for nurse & office visits. Call and our staff will help you choose what's right for you.",
     "callLabel": "Call Our Office",
     "callHref": "tel:7725693212",
     "callPhone": "(772) 569-3212"

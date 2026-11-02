@@ -102,9 +102,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Header />
         {children}
         <Footer />
-        {/* Text-first practice: a reliable floating "Message us" button that opens
-            the shared Klara messaging widget. Replaces the embedded Klara script,
-            which intermittently rendered blank (same fix as VBP). */}
+        {/* Text-first practice: a floating "Text or call us" button that opens a
+            pop-up with the text and call lines (see lib/contact.ts). */}
         <MessageUsButton />
       </body>
     </html>
