@@ -18,8 +18,8 @@
     },
     "phone": "(772) 569-3212",
     "phoneTel": "7725693212",
-    "sms": "(855) 430-8172",
-    "smsHref": "sms:+18554308172",
+    "sms": "(772) 569-3212",
+    "smsHref": "sms:+17725693212",
     "fax": "(772) 569-1435",
     "mapNote": "Formerly LabCorp",
     "mapQuery": "955 37th Place, Vero Beach, FL 32960",
@@ -39,7 +39,7 @@
     "newTabHref": "https://schedule.yosicare.com/2ce5dea52d9c2339d2eb678d5eb3f7b8",
     "textPrompt": "New patient, or prefer to text?",
     "textCta": "Text Us",
-    "textHref": "sms:+18554308172",
+    "textHref": "sms:+17725693212",
     "disclaimer": "Not for medical emergencies. Call 911 or go to your nearest emergency room."
   },
   "sibling": "Same family. Different chapter. Same coast."
