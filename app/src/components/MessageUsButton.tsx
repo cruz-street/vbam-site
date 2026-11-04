@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { CALL_LINE, HOURS, TEXT_LINE } from "@/lib/contact";
 
 /**
- * Persistent floating "Text or call us" button (bottom-right, every page) and the
+ * Persistent floating "Contact us" button (bottom-right, every page) and the
  * pop-up it opens. No third-party code: a native <dialog> with plain text and
  * tel:/sms: links on the numbers.
  */
@@ -35,7 +35,7 @@ export default function MessageUsButton() {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
         </svg>
-        <span>Text or call us</span>
+        <span>Contact us</span>
       </button>
 
       <dialog
@@ -47,10 +47,7 @@ export default function MessageUsButton() {
         className="reach-us m-auto w-[min(92vw,420px)] rounded-2xl bg-vbam-foam p-0 text-vbam-atlantic shadow-2xl"
       >
         <div className="p-7">
-          <p className="font-archivo font-[700] text-vbam-coral" style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-            Reach us
-          </p>
-          <h2 id="reach-us-title" className="font-fraunces font-[400] text-vbam-atlantic mt-2" style={{ fontSize: 28, lineHeight: 1.15, letterSpacing: "-0.015em" }}>
+          <h2 id="reach-us-title" className="font-fraunces font-[400] text-vbam-atlantic " style={{ fontSize: 28, lineHeight: 1.15, letterSpacing: "-0.015em" }}>
             Get in <em className="font-cormorant italic">touch.</em>
           </h2>
           <p className="font-inter text-vbam-atlantic/80 mt-2" style={{ fontSize: 17, lineHeight: 1.5 }}>
