@@ -5,7 +5,7 @@ interface Props {
   eyebrow?: string;
   heading: string;
   headingItalic?: string;
-  subhead?: string;
+  subhead?: ReactNode;
   bg?: 'sand' | 'foam';
   children?: ReactNode;
 }

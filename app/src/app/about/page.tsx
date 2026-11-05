@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
+import LinkPhrase from '@/components/shared/LinkPhrase';
 import ReviewsSection from '@/components/home/ReviewsSection';
 import { ABOUT_HERO, DR_STEWART, ABOUT_CTA } from '@/content/about';
 import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
@@ -30,6 +31,7 @@ const PHYSICIAN_JSON_LD = {
   url: "https://verobeachadultmedicine.com/about/",
   worksFor: {
     "@type": "MedicalOrganization",
+    "@id": "https://verobeachadultmedicine.com/#localbusiness",
     name: "Vero Beach Adult Medicine",
     url: "https://verobeachadultmedicine.com",
   },
@@ -121,7 +123,7 @@ export default function AboutPage() {
               </ScrollReveal>
               <ScrollReveal animation="left" delay={140}>
                 <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 20 }}>
-                  {DR_STEWART.bio1}
+                  <LinkPhrase text={DR_STEWART.bio1} phrase="adult primary care" href="/primary-care-doctors-vero-beach/" />
                 </p>
                 <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ fontSize: 17, lineHeight: 1.75, marginBottom: 22 }}>
                   {DR_STEWART.bio2}
