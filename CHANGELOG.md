@@ -5,6 +5,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+- **Reviews now come from VBAM's own Google Business Profile, 5-star only (2026-11-05, PR to `staging`; NOT live).** `scripts/fetch-marketing-content.ts` no longer defaults to Vero Beach Pediatrics' Featurable widget: `FEATURABLE_WIDGET_ID` must be set to a widget built on VBAM's profile (no default), the Places fallback defaults to VBAM's place ID, both paths share one filter (5-star, real text, and anything naming Drs. Vora, Johnson, Wiji or Cruz is dropped), and with neither source configured the committed `reviews.json` is kept. Committed snapshot is 16 verbatim VBAM reviews pulled from the Google Business Profile connector. Section copy, rating line and the empty-state review link updated to VBAM; reviewer names stay in the existing full-name format. Home JSON-LD `sameAs` no longer lists verobeachpediatrics.com.
+- **Schema and internal links (2026-11-05).** About Physician `worksFor` now carries the home `#localbusiness` `@id`; BreadcrumbList added on home and `/new-patients/`; contextual in-text links to `/primary-care-doctors-vero-beach/` from home, services, about and new-patients (wording unchanged).
+
 ### Added
 - **Tuesday shown as normal hours (2026-11-02).** Per Jesse, VBAM is open normal hours on Tuesdays (matches Google Business Profile). Removed the "Tuesdays: open by appointment for nurse & office visits" line from the footer Hours block and `contact.json` hours; reworded the two Tuesday "by appointment" strings in `virtual-care.json`. Home and contact JSON-LD already listed Tuesday (PR #42).
 - **Number port switch (2026-11-04, port confirmed complete).** Texting moves to the main line: `CONTACT_PHASE` in `lib/contact.ts` set to post-port, so the pop-up shows one line ("Text or call us at (772) 569-3212"). The 855 text links in `contact.json`, `virtual-care.json` and the footer now point to 772-569-3212. Merge on the day Yosi confirms the port is complete, then add the `sms:` click trigger in Tag Manager if not already done.

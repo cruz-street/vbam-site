@@ -16,6 +16,7 @@ import SocialFeedSection from '@/components/home/SocialFeedSection';
 import FacebookUpdates from '@/components/home/FacebookUpdates';
 import { PRACTICE_INFO } from '@/content/contact';
 import { holidayOpeningHoursSpecs } from '@/lib/holidays';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
   title: 'Vero Beach Adult Medicine | Primary Care on the Treasure Coast',
@@ -76,15 +77,19 @@ const localBusinessJsonLd = {
   sameAs: [
     'https://www.facebook.com/verobeachadultmedicine',
     'https://www.instagram.com/verobeachadultmedicine/',
-    'https://verobeachpediatrics.com',
     'https://www.linkedin.com/company/119633945/',
   ],
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+]);
 
 export default function HomePage() {
   return (
     <main>
       <JsonLd data={localBusinessJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <HeroSection />
       <TrustBar />
       <PositioningSection />
