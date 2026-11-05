@@ -1,6 +1,7 @@
 import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { mergeReviews, type Snapshot } from './merge-reviews';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -87,24 +88,33 @@ async function fetchGoogleReviews(): Promise<void> {
 
     const data = (await res.json()) as PlacesApiResponse;
 
-    const shown = (data.reviews ?? []).filter((r) => isShowable(r.rating, r.text?.text));
-    if (shown.length === 0) throw new Error('no usable reviews in payload');
-
-    const output = {
-      placeRating: data.rating ?? 0,
-      totalRatings: data.userRatingCount ?? 0,
-      profileUrl: `https://search.google.com/local/writereview?placeid=${placeId}`,
-      reviews: shown.map((r) => ({
+    const incoming = (data.reviews ?? [])
+      .filter((r) => isShowable(r.rating, r.text?.text))
+      .map((r) => ({
         author: r.authorAttribution?.displayName ?? 'Anonymous',
         rating: r.rating ?? 0,
         text: (r.text?.text ?? '').trim(),
         relativeTime: r.relativePublishTimeDescription ?? '',
         profilePhoto: r.authorAttribution?.photoUri ?? '',
-      })),
-    };
+      }));
 
-    writeJson('reviews.json', output);
-    console.log(`[reviews] wrote ${output.reviews.length} reviews · rating ${output.placeRating} (${output.totalRatings} total)`);
+    // Places returns at most 5 reviews, so MERGE into the committed snapshot
+    // (built from the full GBP data) instead of replacing it.
+    const existing = readJsonOrDefault<Snapshot | null>('reviews.json', null);
+    if (!existing || !Array.isArray(existing.reviews)) {
+      throw new Error('reviews.json missing or unreadable, refusing to overwrite');
+    }
+    const merged = mergeReviews(existing, incoming, {
+      placeRating: data.rating,
+      totalRatings: data.userRatingCount,
+    });
+    const added = merged.reviews.length - existing.reviews.length;
+    if (added === 0 && merged.totalRatings === existing.totalRatings && merged.placeRating === existing.placeRating) {
+      console.log('[reviews] Places: no new reviews, snapshot unchanged');
+      return;
+    }
+    writeJson('reviews.json', merged);
+    console.log(`[reviews] Places: merged ${added} new review(s); ${merged.reviews.length} in snapshot (${merged.totalRatings} total)`);
   } catch (err) {
     console.warn(`[reviews] fetch failed: ${(err as Error).message} — keeping existing reviews.json`);
   }
