@@ -34,12 +34,42 @@ interface PlacesApiResponse {
   reviews?: PlacesReview[];
 }
 
+// VBAM's own Google Business Profile place (verified 2026-11-05 via the GBP
+// connector: "Vero Beach Adult Medicine", locations/7666559477728970560).
+// Never point either source below at Vero Beach Pediatrics' listing.
+const VBAM_PLACE_ID = 'ChIJJa3p5l5f3ogR-XHJ-75Mq-c';
+
+// Reviews that name Vero Beach Pediatrics physicians (Drs. Vora, Johnson, Wiji,
+// Cruz) are about the sister practice and are never shown on this site.
+// Extend via REVIEWS_EXCLUDE_TERMS (comma-separated) without a code change.
+const EXCLUDE_TERMS: string[] = [
+  'vora',
+  'johnson',
+  'wiji',
+  'cruz',
+  ...(process.env.REVIEWS_EXCLUDE_TERMS ?? process.env.FEATURABLE_EXCLUDE_TERMS ?? '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean),
+];
+
+// Shared display filter: 5-star only, real text, no machine translations, no
+// excluded terms. Review text is passed through verbatim, never edited.
+function isShowable(stars: number | undefined, comment: string | undefined): boolean {
+  const c = (comment ?? '').trim();
+  if (stars !== 5) return false;
+  if (c.length < 20) return false;
+  if (/Translated by Google/i.test(c)) return false;
+  const lc = c.toLowerCase();
+  return !EXCLUDE_TERMS.some((t) => lc.includes(t.toLowerCase()));
+}
+
 async function fetchGoogleReviews(): Promise<void> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID;
+  const placeId = process.env.GOOGLE_PLACE_ID ?? VBAM_PLACE_ID;
 
-  if (!apiKey || !placeId) {
-    console.warn('[reviews] GOOGLE_PLACES_API_KEY or GOOGLE_PLACE_ID missing — keeping existing reviews.json');
+  if (!apiKey) {
+    console.warn('[reviews] GOOGLE_PLACES_API_KEY missing — keeping existing reviews.json');
     return;
   }
 
@@ -57,13 +87,17 @@ async function fetchGoogleReviews(): Promise<void> {
 
     const data = (await res.json()) as PlacesApiResponse;
 
+    const shown = (data.reviews ?? []).filter((r) => isShowable(r.rating, r.text?.text));
+    if (shown.length === 0) throw new Error('no usable reviews in payload');
+
     const output = {
       placeRating: data.rating ?? 0,
       totalRatings: data.userRatingCount ?? 0,
-      reviews: (data.reviews ?? []).map((r) => ({
+      profileUrl: `https://search.google.com/local/writereview?placeid=${placeId}`,
+      reviews: shown.map((r) => ({
         author: r.authorAttribution?.displayName ?? 'Anonymous',
         rating: r.rating ?? 0,
-        text: r.text?.text ?? '',
+        text: (r.text?.text ?? '').trim(),
         relativeTime: r.relativePublishTimeDescription ?? '',
         profilePhoto: r.authorAttribution?.photoUri ?? '',
       })),
@@ -79,8 +113,11 @@ async function fetchGoogleReviews(): Promise<void> {
 // ── Featurable (preferred reviews source) ──────────────────────────────────
 // Featurable caches the Google Business Profile's reviews on its own servers,
 // so this returns far more than the Google Places API's 5-review cap and needs
-// no API key (the widget ID is public). Points at Vero Beach Pediatrics — the
-// sister practice — since VBAM has no reviews yet.
+// no API key (the widget ID is public). Requires FEATURABLE_WIDGET_ID to be a
+// widget built on VBAM's OWN Google Business Profile. There is deliberately no
+// default: the previous default widget was Vero Beach Pediatrics' (the sister
+// practice), and a silent fallback to it would put another practice's reviews
+// under VBAM's name.
 interface FeaturableReview {
   reviewer?: { displayName?: string; profilePhotoUrl?: string };
   starRating?: number;
@@ -107,29 +144,18 @@ function relativeTime(iso?: string): string {
 }
 
 async function fetchFeaturableReviews(): Promise<boolean> {
-  const widgetId = process.env.FEATURABLE_WIDGET_ID ?? 'bae616c0-332c-490f-93f2-0d8c4981efa9';
+  const widgetId = process.env.FEATURABLE_WIDGET_ID;
+  if (!widgetId) {
+    console.warn('[reviews] FEATURABLE_WIDGET_ID not set — skipping Featurable');
+    return false;
+  }
   try {
     const res = await fetch(`https://featurable.com/api/v1/widgets/${widgetId}`);
     if (!res.ok) throw new Error(`Featurable ${res.status}`);
     const data = (await res.json()) as FeaturableResponse;
 
-    // Terms to hide: any review whose comment mentions one of these (case-
-    // insensitive) is excluded. Override/extend via FEATURABLE_EXCLUDE_TERMS
-    // (comma-separated env var) without code changes.
-    const EXCLUDE_TERMS: string[] = [
-      ...(process.env.FEATURABLE_EXCLUDE_TERMS ?? '').split(',').map((s) => s.trim()).filter(Boolean),
-    ];
-
     const picked = (data.reviews ?? [])
-      .filter((r) => {
-        const c = (r.comment ?? '').trim();
-        if (r.starRating !== 5) return false;          // 5-star only
-        if (c.length < 20) return false;               // must have real text, not rating-only
-        if (/Translated by Google/i.test(c)) return false;
-        const lc = c.toLowerCase();
-        if (EXCLUDE_TERMS.some((t) => lc.includes(t.toLowerCase()))) return false;
-        return true;
-      })
+      .filter((r) => isShowable(r.starRating, r.comment))
       // newest first, then older
       .sort((a, b) => new Date(b.createTime ?? 0).getTime() - new Date(a.createTime ?? 0).getTime())
       .slice(0, 12);
@@ -259,8 +285,10 @@ async function fetchSocialPosts(): Promise<void> {
 
 async function main(): Promise<void> {
   console.log('[fetch-marketing-content] start');
-  // Prefer Featurable (more reviews, no API key); fall back to Google Places;
-  // if both are unavailable the committed reviews.json is kept as-is.
+  // Sources are VBAM's own Google Business Profile only. Prefer Featurable
+  // (needs FEATURABLE_WIDGET_ID for a VBAM widget); fall back to the Google
+  // Places API (needs GOOGLE_PLACES_API_KEY; capped at 5 reviews by Google);
+  // if neither is configured the committed reviews.json is kept as-is.
   const gotReviews = await fetchFeaturableReviews();
   if (!gotReviews) await fetchGoogleReviews();
   await fetchSocialPosts();

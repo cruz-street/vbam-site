@@ -3,6 +3,8 @@ import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import JsonLd from '@/components/shared/JsonLd';
+import LinkPhrase from '@/components/shared/LinkPhrase';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 import FaqAccordion from '@/components/for-patients/FaqAccordion';
 import {
   NEW_PATIENTS_HERO,
@@ -78,6 +80,11 @@ const PHYSICIAN_JSON_LD = {
   worksFor: { '@id': `${SITE}/#localbusiness` },
 };
 
+const BREADCRUMB_JSON_LD = buildBreadcrumbJsonLd([
+  { name: 'Home', url: `${SITE}/` },
+  { name: 'Accepting New Patients', url: `${SITE}/new-patients/` },
+]);
+
 const eyebrow = { fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 18 };
 const h2 = { fontSize: 32, lineHeight: 1.15, letterSpacing: '-0.015em', marginBottom: 20 };
 const section = { padding: 'clamp(40px, 7vw, 96px) 0' };
@@ -108,6 +115,7 @@ export default function NewPatientsPage() {
       <JsonLd data={FAQ_JSON_LD} />
       <JsonLd data={CLINIC_JSON_LD} />
       <JsonLd data={PHYSICIAN_JSON_LD} />
+      <JsonLd data={BREADCRUMB_JSON_LD} />
 
       <PageHero
         eyebrow={NEW_PATIENTS_HERO.eyebrow}
@@ -137,7 +145,7 @@ export default function NewPatientsPage() {
                 {NEW_PATIENTS_ACCEPTING.heading} <em className="font-cormorant italic text-grad-sunrise">{NEW_PATIENTS_ACCEPTING.headingItalic}</em>
               </h2>
               <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ ...bodyText, marginBottom: 16 }}>
-                {NEW_PATIENTS_ACCEPTING.body1}
+                <LinkPhrase text={NEW_PATIENTS_ACCEPTING.body1} phrase="primary care doctor in Vero Beach" href="/primary-care-doctors-vero-beach/" />
               </p>
               <p className="font-inter font-[300] text-vbam-atlantic/[.82]" style={{ ...bodyText, marginBottom: 24 }}>
                 {NEW_PATIENTS_ACCEPTING.body2}

@@ -16,6 +16,7 @@ import SocialFeedSection from '@/components/home/SocialFeedSection';
 import FacebookUpdates from '@/components/home/FacebookUpdates';
 import { PRACTICE_INFO } from '@/content/contact';
 import { holidayOpeningHoursSpecs } from '@/lib/holidays';
+import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
   title: 'Vero Beach Adult Medicine | Primary Care on the Treasure Coast',
@@ -57,20 +58,14 @@ const homeJsonLd = {
     url: 'https://www.priviahealth.com/',
   },
   sameAs: [
-    'https://verobeachpediatrics.com',
     'https://www.priviahealth.com/',
     'https://www.linkedin.com/company/119633945/',
   ],
   // No aggregateRating here. The reviews rendered on this page (ReviewsSection,
-  // sourced from content/reviews.json) are Vero Beach PEDIATRICS' Google
-  // reviews — the visible copy correctly discloses "Vero Beach Pediatrics"
-  // next to them, but a rating asserted in JSON-LD carries no such disclosure
-  // and would read as VBAM's own reputation. That is a false, misattributed
-  // claim about a different legal entity in machine-readable markup, and
-  // exactly what Google's review-markup spam policy targets. VBAM's own
-  // Google Business Profile is verified (2026-09-17) but has no reviews of
-  // its own yet — add aggregateRating back here once it does, sourced from
-  // VBAM's own listing, never from reviews.json.
+  // sourced from content/reviews.json) are now VBAM's own Google Business
+  // Profile reviews, but adding aggregateRating to live JSON-LD is a separate
+  // Tier 2 change that needs Jesse's approval — never source it from any
+  // listing other than VBAM's own.
 };
 
 // LocalBusiness (MedicalBusiness subtype) — local SEO entity built from the
@@ -122,16 +117,20 @@ const localBusinessJsonLd = {
   sameAs: [
     'https://www.facebook.com/verobeachadultmedicine',
     'https://www.instagram.com/verobeachadultmedicine/',
-    'https://verobeachpediatrics.com',
     'https://www.linkedin.com/company/119633945/',
   ],
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
+]);
 
 export default function HomePage() {
   return (
     <main>
       <JsonLd data={homeJsonLd} />
       <JsonLd data={localBusinessJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <HeroSection />
       <TrustBar />
       <PositioningSection />
