@@ -7,6 +7,7 @@ import { CONTACT_HERO, PRACTICE_INFO, CONTACT_INFO, CONTACT_SCHEDULING, CONTACT_
 import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 import { holidayOpeningHoursSpecs } from '@/lib/holidays';
 import { HolidayNotice } from '@/components/HolidayNotice';
+import { CONTACT_CARD } from '@/lib/contact';
 
 export const metadata: Metadata = {
   title: 'Contact & Appointments',
@@ -140,6 +141,16 @@ export default function ContactPage() {
                   >
                     {PRACTICE_INFO.sms}
                   </a>
+                  <p className="mt-2">
+                    <a
+                      href={CONTACT_CARD.href}
+                      download
+                      className="font-inter font-[500] text-vbam-inlet underline underline-offset-4 hover:text-vbam-atlantic transition-colors"
+                      style={{ fontSize: 15 }}
+                    >
+                      {CONTACT_CARD.label}
+                    </a>
+                  </p>
                 </div>
 
                 <div>

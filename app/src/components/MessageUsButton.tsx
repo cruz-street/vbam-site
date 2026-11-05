@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { CALL_LINE, HOURS, TEXT_LINE } from "@/lib/contact";
+import { CALL_LINE, CONTACT_CARD, HOURS, TEXT_LINE } from "@/lib/contact";
 
 /**
  * Persistent floating "Contact us" button (bottom-right, every page) and the
@@ -79,7 +79,18 @@ export default function MessageUsButton() {
             </div>
           )}
 
-          <p className="font-inter text-vbam-atlantic/70 mt-6" style={{ fontSize: 14, lineHeight: 1.6 }}>
+          <p className="mt-4">
+            <a
+              href={CONTACT_CARD.href}
+              download
+              className="font-inter font-[500] text-vbam-inlet underline underline-offset-4 hover:text-vbam-atlantic transition-colors"
+              style={{ fontSize: 15 }}
+            >
+              {CONTACT_CARD.label}
+            </a>
+          </p>
+
+          <p className="font-inter text-vbam-atlantic/70 mt-5" style={{ fontSize: 14, lineHeight: 1.6 }}>
             {HOURS} After hours, call and our nurse line will help.
           </p>
           <p className="font-inter text-vbam-atlantic/70 mt-2" style={{ fontSize: 14, lineHeight: 1.6 }}>

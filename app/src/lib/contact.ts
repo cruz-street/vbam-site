@@ -15,3 +15,9 @@ export const TEXT_LINE = CONTACT_PHASE === "pre-port" ? PRE_PORT_TEXT_LINE : CAL
 
 // Pop-up hours: the nurse line covers lunch, so the 12 to 1 closure is not listed here.
 export const HOURS = "Monday to Friday, 8 am to 5 pm.";
+
+// Shareable contact card patients can save to their phone. Static file in public/.
+export const CONTACT_CARD = {
+  href: "/vero-beach-pediatrics-and-adult-medicine.vcf",
+  label: "Save us to your contacts",
+};
