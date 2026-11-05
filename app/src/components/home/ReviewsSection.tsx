@@ -46,8 +46,8 @@ function EmptyState() {
 }
 
 export default function ReviewsSection() {
-  // CMS toggle: hide the VBP-sourced reviews block entirely until VBAM has its
-  // own reviews. Flip `showReviewsSection` to false in home.json to hide.
+  // CMS toggle: hide the reviews block entirely. Reviews are VBAM's own Google
+  // Business Profile reviews (see scripts/fetch-marketing-content.ts). Flip `showReviewsSection` to false in home.json to hide.
   if (!SHOW_REVIEWS_SECTION) return null;
 
   const hasReviews = REVIEWS.reviews.length > 0;
@@ -92,7 +92,7 @@ export default function ReviewsSection() {
                 <StarRow rating={REVIEWS.placeRating} size={18} />
                 <span className="inline-flex items-center gap-1.5 font-inter font-[300] text-vbam-atlantic/[.7]" style={{ fontSize: 15 }}>
                   <GoogleG size={15} />
-                  {REVIEWS.totalRatings}+ Google reviews · Vero Beach Pediatrics
+                  {REVIEWS.totalRatings} Google reviews · Vero Beach Adult Medicine
                 </span>
               </div>
             </ScrollReveal>
@@ -127,7 +127,7 @@ export default function ReviewsSection() {
                         {r.author}
                       </p>
                       <p className="font-inter text-vbam-atlantic/[.5]" style={{ fontSize: 11, marginTop: 2 }}>
-                        Vero Beach Pediatrics · Google{r.relativeTime ? ` · ${r.relativeTime}` : ''}
+                        Vero Beach Adult Medicine · Google{r.relativeTime ? ` · ${r.relativeTime}` : ''}
                       </p>
                     </div>
                   </article>

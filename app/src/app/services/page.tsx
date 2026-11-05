@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
+import LinkPhrase from '@/components/shared/LinkPhrase';
 import JsonLd from '@/components/shared/JsonLd';
 import { SERVICES_HERO, SERVICES, SERVICES_APPROACH, SERVICES_CTA } from '@/content/services';
 import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
@@ -25,7 +26,7 @@ export default function ServicesPage() {
         eyebrow={SERVICES_HERO.eyebrow}
         heading={SERVICES_HERO.heading}
         headingItalic={SERVICES_HERO.headingItalic}
-        subhead={SERVICES_HERO.subhead}
+        subhead={<LinkPhrase text={SERVICES_HERO.subhead} phrase="primary care for adults" href="/primary-care-doctors-vero-beach/" />}
       />
 
       {/* ── Mobile-only CTAs (above the fold of cards) ─── */}

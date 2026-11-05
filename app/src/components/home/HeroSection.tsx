@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { HERO } from '@/content/home';
+import LinkPhrase from '@/components/shared/LinkPhrase';
 import { DOCTORS } from '@/content/doctors';
 
 export default function HeroSection() {
@@ -285,7 +286,7 @@ export default function HeroSection() {
           className="font-inter font-[300] text-vbam-atlantic/75 mx-auto w-full"
           style={{ fontSize: 17, marginTop: 18, maxWidth: 540, lineHeight: 1.65, opacity: 0 }}
         >
-          {HERO.lede}
+          <LinkPhrase text={HERO.lede} phrase="primary care practice" href="/primary-care-doctors-vero-beach/" />
         </p>
 
         {/* CTAs */}
