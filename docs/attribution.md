@@ -59,7 +59,7 @@ GA4:
 
 | Parameter | Convention | Notes |
 |---|---|---|
-| `utm_source` | lowercase-hyphenated, names where the click happens | e.g. `klara`, `facebook`, `phreesia` |
+| `utm_source` | lowercase-hyphenated, names where the click happens | e.g. `yosi`, `facebook`, `mailchimp` |
 | `utm_medium` | lowercase-hyphenated, names the channel | e.g. `sms`, `email`, `organic-social` |
 | `utm_campaign` | lowercase-hyphenated, `<name>-<year>` | groups every asset for one send/campaign in a single GA4 report |
 | `utm_content` | lowercase-hyphenated, optional | splits assets **within** a campaign without breaking the source/medium/campaign rollup |

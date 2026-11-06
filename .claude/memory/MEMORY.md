@@ -121,8 +121,8 @@ Read this channel at session start for current project context. Key people: Jess
 - **Prod Pages project `vbam-site-prod`** created in Jesse's CF account (account ID `037aff9f2c67ac6312058b641540ebd5`, project ID `e7d062c6-8d3b-40d0-94c0-15685d8a1ff2`). Direct Upload mode — no CF GitHub App. URL: https://vbam-site-prod.pages.dev (verified HTTP 200)
 - **Custom domains attached** to `vbam-site-prod`: `verobeachadultmedicine.com` + `www.verobeachadultmedicine.com`. Status: `initializing` (will activate after nameservers propagate)
 - **`.github/workflows/deploy.yml` extended** to dual-environment: push to `main` → wrangler deploy to `vbam-site-prod`; push to `staging` → wrangler deploy to `vbam-site`. Single build step bakes `NEXT_PUBLIC_WEB3FORMS_KEY` + `NEXT_PUBLIC_KLARA_WIDGET_ID` (committed: `3a81b1e`)
-- **First prod deploy ran successfully** (run #26584216918) — Klara widget loaded in HTML at `vbam-site-prod.pages.dev`
-- **GH Actions secrets added**: `CLOUDFLARE_API_TOKEN_PROD`, `CLOUDFLARE_ACCOUNT_ID_PROD`, `NEXT_PUBLIC_KLARA_WIDGET_ID = 168b842c-9a0d-43dd-bc25-d0dc202289aa`
+- **First prod deploy ran successfully** (run #26584216918) — Klara widget loaded in HTML at `vbam-site-prod.pages.dev` _(historical; Klara removed, VAM now uses Yosi, 2026-11)_
+- **GH Actions secrets added**: `CLOUDFLARE_API_TOKEN_PROD`, `CLOUDFLARE_ACCOUNT_ID_PROD`, `NEXT_PUBLIC_KLARA_WIDGET_ID` _(obsolete; Klara retired, secret can be deleted)_
 - **Domain references corrected** site-wide from `vbadultmedicine.com` → `verobeachadultmedicine.com` (commit `cbc6d5e`)
 - **Staging branch** created and pushed; Decap CMS retargeted from `main` → `staging` (commit `f0b52f5`)
 - **Ironside finalized brand assets** archived at `docs/brand-assets/` (commit `89dc0e8`)
@@ -133,7 +133,7 @@ Read this channel at session start for current project context. Key people: Jess
 1. ~~**Ashwin dashboard task:**~~ DONE 2026-05-28 — `vbam-site` Pages project's production branch flipped from `main` → `staging` via CF dashboard. Verified by task 5 smoke test.
 2. **GoDaddy task (Jesse):** Update nameservers at GoDaddy from `ns69.domaincontrol.com`, `ns70.domaincontrol.com` → `adam.ns.cloudflare.com`, `annabel.ns.cloudflare.com`. After propagation (1–24h) the zone will go active and `verobeachadultmedicine.com` will start resolving to `vbam-site-prod.pages.dev`.
 3. ~~**Token rotation reminder:**~~ DONE 2026-05-28 — rolled "VBAM site deploy (claude)" token via CF dashboard (per-user API Tokens page; Ashwin is a Member on Jesse's CF account, so no account switcher needed). New value pasted into `CLOUDFLARE_API_TOKEN_PROD` GH secret; verified via re-run of latest main deploy workflow.
-4. **Vestigial:** `NEXT_PUBLIC_WEB3FORMS_KEY` is referenced in deploy.yml but no longer used (contact form refactored to Klara CTA). Harmless. Can clean up in a future commit.
+4. **Vestigial:** `NEXT_PUBLIC_WEB3FORMS_KEY` is referenced in deploy.yml but no longer used (contact form was refactored to a Klara CTA, since replaced by the Yosi scheduling widget). Harmless. Can clean up in a future commit.
 5. ~~**Test staging deploy:**~~ DONE 2026-05-28 — fast-forwarded `staging` to `main` (incl. new dual-env workflow), pushed to origin. GH Actions run #26588904871 succeeded in 45s: build ✓, prod step correctly skipped (branch ≠ main), staging step deployed via wrangler to `vbam-site` project. `https://vbam-site.pages.dev` HTTP 200 with fresh content. Dual-environment deploy verified end-to-end.
 
 ### Useful IDs (for resume)
@@ -144,7 +144,7 @@ Read this channel at session start for current project context. Key people: Jess
 | Ashwin's CF account ID | `5cd6b90ef438de1c66cb99601d48c035` (hardcoded in deploy.yml) |
 | `verobeachadultmedicine.com` zone ID | `31e396109293b79d4510b1a8ee36cf6f` |
 | `vbam-site-prod` project ID | `e7d062c6-8d3b-40d0-94c0-15685d8a1ff2` |
-| Klara widget UUID | `168b842c-9a0d-43dd-bc25-d0dc202289aa` |
+| Scheduling | Yosi widget (Klara retired 2026-10-31) |
 | CF nameservers to set at GoDaddy | `adam.ns.cloudflare.com`, `annabel.ns.cloudflare.com` |
 
 ### Current git state at pause
