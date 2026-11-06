@@ -4,3 +4,5 @@ export const SERVICES_HERO = data.hero;
 export const SERVICES = data.services;
 export const SERVICES_APPROACH = data.approach;
 export const SERVICES_CTA = data.cta;
+export const SERVICES_FAQ_SECTION = data.faqSection;
+export const SERVICES_FAQS = data.faqs;

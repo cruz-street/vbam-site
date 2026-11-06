@@ -42,6 +42,36 @@
       "detail": "We review your medical and family history, current medications, and screening schedule together, then update your personalized prevention plan. Call our office and we'll confirm how your Medicare plan covers the visit."
     }
   ],
+  "faqSection": {
+    "heading": "Medicare Annual Wellness Visit:",
+    "headingItalic": "your questions, answered."
+  },
+  "faqs": [
+    {
+      "q": "What happens at a Medicare Annual Wellness Visit?",
+      "a": "Not sure what to expect? Your doctor reviews your medical and family history and your current medications with you, then updates your personalized prevention plan and screening schedule so small concerns get caught early. Call (772) 569-3212 and our team will walk you through the visit before you come in.",
+      "link": {
+        "label": "See more answers on our patient page →",
+        "href": "/for-patients/"
+      }
+    },
+    {
+      "q": "Will my Medicare plan cover my Annual Wellness Visit?",
+      "a": "Nobody wants a surprise bill. Coverage depends on your specific plan and on what else happens during the visit, so we don't promise it will be free. Medicare is on our accepted-plans list, and our team will confirm how your plan covers the visit before you come in. Call us at (772) 569-3212."
+    },
+    {
+      "q": "Should I book a wellness visit or an annual physical?",
+      "a": "It's easy to be unsure which one fits you. We offer both the Medicare Annual Wellness Visit and annual physicals, and our team can help you pick the right one when you call (772) 569-3212, so you aren't guessing."
+    },
+    {
+      "q": "How do I schedule my Medicare Annual Wellness Visit?",
+      "a": "Finding the time to call can feel like one more chore, so we've kept it simple. Call our office at (772) 569-3212, or request an appointment online and we'll take it from there.",
+      "link": {
+        "label": "Book an appointment →",
+        "href": "/contact/#schedule"
+      }
+    }
+  ],
   "approach": {
     "heading": "What to expect at your",
     "headingItalic": "first visit.",
