@@ -48,12 +48,12 @@
   },
   "faqs": [
     {
-      "q": "What is a Medicare Annual Wellness Visit, and is it the same as a physical?",
-      "a": "Worried you'll book the wrong visit? They're different. A Medicare Annual Wellness Visit is a yearly review with your doctor: your history, your medications, your prevention plan and your screening schedule. It is not a head-to-toe physical exam. To book yours, call us at (772) 569-3212."
-    },
-    {
       "q": "What happens at a Medicare Annual Wellness Visit?",
-      "a": "Not sure what to expect? Your doctor reviews your medical and family history and your current medications with you, then updates your personalized prevention plan and screening schedule so small concerns get caught early. Call (772) 569-3212 and our team will walk you through the visit before you come in."
+      "a": "Not sure what to expect? Your doctor reviews your medical and family history and your current medications with you, then updates your personalized prevention plan and screening schedule so small concerns get caught early. Call (772) 569-3212 and our team will walk you through the visit before you come in.",
+      "link": {
+        "label": "See more answers on our patient page →",
+        "href": "/for-patients/"
+      }
     },
     {
       "q": "Will my Medicare plan cover my Annual Wellness Visit?",
