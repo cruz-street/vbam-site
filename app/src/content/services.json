@@ -49,7 +49,7 @@
   "faqs": [
     {
       "q": "What happens at a Medicare Annual Wellness Visit?",
-      "a": "Not sure what to expect? Your doctor reviews your medical and family history and your current medications with you, then updates your personalized prevention plan and screening schedule so small concerns get caught early. Call (772) 569-3212 and our team will walk you through the visit before you come in.",
+      "a": "Not sure what to expect? At a Medicare Annual Wellness Visit (what our front desk calls an annual wellness check), your doctor reviews your medical and family history and your current medications with you, then updates your personalized prevention plan and screening schedule so small concerns get caught early. Call (772) 569-3212 and our team will walk you through the visit before you come in.",
       "link": {
         "label": "See more answers on our patient page →",
         "href": "/for-patients/"
@@ -61,15 +61,11 @@
     },
     {
       "q": "Should I book a wellness visit or an annual physical?",
-      "a": "It's easy to be unsure which one fits you. We offer both the Medicare Annual Wellness Visit and annual physicals, and our team can help you pick the right one when you call (772) 569-3212, so you aren't guessing."
+      "a": "It's easy to be unsure which one fits you. We offer both the Medicare Annual Wellness Visit (our annual wellness check) and annual physicals, and our team can help you pick the right one when you call or text (772) 569-3212, so you aren't guessing."
     },
     {
       "q": "How do I schedule my Medicare Annual Wellness Visit?",
-      "a": "Finding the time to call can feel like one more chore, so we've kept it simple. Call our office at (772) 569-3212, or request an appointment online and we'll take it from there.",
-      "link": {
-        "label": "Book an appointment →",
-        "href": "/contact/#schedule"
-      }
+      "a": "Finding the time to call can feel like one more chore, so we've kept it simple. Call or text our office at (772) 569-3212 and our team will book the right visit for you. Our front desk may call it an annual wellness check, and it's the same Medicare visit."
     }
   ],
   "approach": {
