@@ -12,7 +12,7 @@ backend:
   repo: cruz-street/vbam-site
   # Content edits open a pull request against `main` (editorial workflow, below).
   # Nothing reaches production until Jesse approves and merges the PR. Each PR
-  # gets a preview deploy. See CLAUDE.md "Staging / Production Workflow".
+  # gets a preview deploy. See CLAUDE.md "PR / Production Workflow".
   branch: main
   base_url: https://vbam-cms-auth.jesse-037.workers.dev
 
