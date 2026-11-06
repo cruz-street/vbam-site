@@ -10,12 +10,14 @@
 backend:
   name: github
   repo: cruz-street/vbam-site
-  # Decap commits go to the `staging` branch (deploys to
-  # verobeachadultmedicine.pages.dev). To publish to production
-  # (verobeachadultmedicine.com), merge `staging` -> `main` on GitHub.
-  # See CLAUDE.md "Staging / Production Workflow".
-  branch: staging
+  # Content edits open a pull request against `main` (editorial workflow, below).
+  # Nothing reaches production until Jesse approves and merges the PR. Each PR
+  # gets a preview deploy. See CLAUDE.md "Staging / Production Workflow".
+  branch: main
   base_url: https://vbam-cms-auth.jesse-037.workers.dev
+
+# Content edits become PRs (Draft -> In review -> Ready) instead of direct commits.
+publish_mode: editorial_workflow
 
 logo_url: https://verobeachadultmedicine.pages.dev/images/cms-logo.svg
 
