@@ -4,7 +4,8 @@ import PageHero from '@/components/shared/PageHero';
 import ScrollReveal from '@/components/shared/ScrollReveal';
 import LinkPhrase from '@/components/shared/LinkPhrase';
 import JsonLd from '@/components/shared/JsonLd';
-import { SERVICES_HERO, SERVICES, SERVICES_APPROACH, SERVICES_CTA } from '@/content/services';
+import FaqAccordion from '@/components/for-patients/FaqAccordion';
+import { SERVICES_HERO, SERVICES, SERVICES_APPROACH, SERVICES_CTA, SERVICES_FAQ_SECTION, SERVICES_FAQS } from '@/content/services';
 import { buildBreadcrumbJsonLd } from '@/lib/breadcrumb-schema';
 
 export const metadata: Metadata = {
@@ -31,6 +32,22 @@ const servicesJsonLd = {
   },
 };
 
+// FAQPage schema mirrors SERVICES_FAQS exactly, including the booking-link
+// sentence FaqAccordion appends (FaqAccordion renders every answer, hidden).
+type Faq = { q: string; a: string; link?: { label: string; href: string } };
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: (SERVICES_FAQS as Faq[]).map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.link ? `${f.a} ${f.link.label.replace(/\s*→$/, '')}.` : f.a,
+    },
+  })),
+};
+
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: 'Home', url: 'https://verobeachadultmedicine.com/' },
   { name: 'Services', url: 'https://verobeachadultmedicine.com/services/' },
@@ -41,6 +58,7 @@ export default function ServicesPage() {
     <main>
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={servicesJsonLd} />
+      <JsonLd data={faqJsonLd} />
       <PageHero
         eyebrow={SERVICES_HERO.eyebrow}
         heading={SERVICES_HERO.heading}
@@ -85,6 +103,19 @@ export default function ServicesPage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Medicare AWV FAQ ─── */}
+      <section className="bg-vbam-foam" style={{ padding: 'clamp(40px, 7vw, 96px) 0' }}>
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12">
+          <ScrollReveal>
+            <h2 className="font-fraunces font-[400] text-vbam-atlantic text-center" style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1, letterSpacing: '-0.015em', marginBottom: 32 }}>
+              {SERVICES_FAQ_SECTION.heading}{' '}
+              <em className="font-cormorant italic text-grad-sunrise">{SERVICES_FAQ_SECTION.headingItalic}</em>
+            </h2>
+          </ScrollReveal>
+          <FaqAccordion faqs={SERVICES_FAQS as Faq[]} />
         </div>
       </section>
 
