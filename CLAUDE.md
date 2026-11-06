@@ -86,23 +86,18 @@ Push credentials must also map to a GitHub account with write access to
 Before starting any change in this repo — whether a one-line tweak or a multi-file
 feature — Claude (and any human collaborator) must pull the latest from the relevant
 remote branches. Stale branches cause merge conflicts, accidental reverts of
-collaborator work, and broken staging/prod parity.
+collaborator work, and stale preview builds.
 
 **Required steps before the first edit of a session, or any time work resumes:**
 
 1. `git fetch --all --prune`
 2. Pull `main`:
    - `git checkout main && git pull --ff-only`
-3. Pull `staging` (because most changes land there first per Rule 17):
-   - `git checkout staging && git pull --ff-only`
-4. Confirm both branches are at their respective `origin/<branch>`:
+3. Confirm `main` is at `origin/main`:
    - `git log --oneline -1 main` matches `origin/main`
-   - `git log --oneline -1 staging` matches `origin/staging`
-5. If `staging` is behind `main` (because a hotfix landed directly on main):
-   - Fast-forward staging up to main before starting new work: `git merge --ff-only main`
-6. Only then create the working branch or start editing.
+4. Only then create the working branch (off `main`) or start editing.
 
-**If a fast-forward isn't clean** (the branches have diverged), stop and surface
+**If a fast-forward isn't clean** (local `main` has diverged from origin), stop and surface
 this to the user before doing anything else. Do NOT resolve divergence with
 destructive operations (`git reset --hard`, `git push --force`) without explicit
 user instruction.
@@ -111,88 +106,62 @@ user instruction.
 in the same calendar day with no commits from anyone else since (e.g., the user
 just paused and came back). When in doubt, sync anyway — it's cheap.
 
-### 17. Staging-First Deploy Rule (Non-Negotiable)
-Whenever any change is made to the application — anything under `app/` (components,
-pages, content files, public assets, styles, config), `.github/workflows/`, or anything
-else that affects the built/deployed site — Claude must follow this flow:
+### 17. PR-to-Main Deploy Rule (Non-Negotiable)
+The `staging` branch is retired (2026-11-06). Whenever any change is made to the
+application — anything under `app/`, `.github/workflows/`, or anything else that
+affects the built/deployed site — follow this flow:
 
-1. **Push to `staging` first.** Never push application changes directly to `main`.
-   Commit on `staging` (or merge a feature branch into `staging`).
-2. **After the push, wait for the GH Actions deploy to finish**, then print the
-   staging URL in the terminal: `https://verobeachadultmedicine.pages.dev`.
-   Include the run number/link from `gh run list` so the user can inspect logs
-   if needed.
-3. **Ask the user to review the changes on the live staging URL** before doing
-   anything else. Do not assume satisfaction — wait for explicit confirmation.
-4. **Only after the user confirms satisfaction**, offer to promote to production
-   by merging `staging` → `main` (fast-forward where possible). State clearly that
-   this will deploy to `verobeachadultmedicine.com`.
+1. **Branch off `main` and open a PR to `main`.** Never push application changes
+   directly to `main`.
+2. **A preview deploy runs on every PR** and the link is posted as a PR comment
+   (`verobeachadultmedicine` Pages project, under the PR branch alias).
+3. **Ask Jesse to review the preview link.** Do not assume satisfaction; wait for
+   explicit approval. Jesse approves and merges; the merge deploys to
+   `verobeachadultmedicine.com` (and refreshes `verobeachadultmedicine.pages.dev`).
 
-**For larger feature/fix work** (anything beyond a trivial copy/style tweak — new
-sections, new pages, refactors, animation work, form changes, accessibility passes,
-SEO changes, anything touching 3+ files, or anything where regressions are plausible):
+**For larger feature/fix work** (new sections, new pages, refactors, form changes,
+accessibility passes, SEO changes, anything touching 3+ files, or anything where
+regressions are plausible), generate a manual test checklist modeled on the
+CodeFoundry `/cf-test` pattern (golden path, edge cases, viewports/states) and have
+Jesse walk through it on the preview link before merge.
 
-- Before asking the user to review the staging URL, **generate a manual test
-  checklist** modeled on the CodeFoundry `/cf-test` pattern: enumerate the golden
-  path, the edge cases, and any browsers/viewports/states that need verification
-  (mobile, desktop, dark/light if applicable, keyboard nav, empty/loaded states,
-  form validation, etc.).
-- Print the checklist to the terminal and have the user walk through it on the
-  staging URL.
-- Only promote to `main` after the user reports the checklist passes.
-
-**Exemptions** — the staging-first flow does NOT apply to repo-meta changes that
-don't affect the built site:
+**Exemptions** — repo-meta changes that don't affect the built site may still be
+committed directly to `main` as session-end checkpoints:
 - `.claude/memory/*` updates
 - `CHANGELOG.md`, `DEPLOYMENTS.md`, `docs/decisions/*` updates
-- Untracked-doc additions under `docs/` that aren't published (the site doesn't
-  serve `docs/`)
+- Untracked-doc additions under `docs/` that aren't published
 - Pure README / CLAUDE.md edits
 
-These can be committed directly to `main` as session-end checkpoints.
-
-**Hotfix carve-out:** If a hotfix to production is genuinely time-critical (broken
-prod, security issue), it may go directly to `main` — but Claude must (a) flag it
-explicitly as a hotfix and get user confirmation before pushing, and (b) immediately
-rebase `staging` onto `main` afterward so the branches don't diverge.
+**Hotfix carve-out:** a time-critical production hotfix (broken prod, security issue)
+may go directly to `main` only after flagging it as a hotfix and getting Jesse's
+explicit confirmation.
 
 ---
 
-## Staging / Production Workflow
+## PR / Production Workflow
 
-Two Cloudflare Pages projects deploy from this one repo on different branches.
+One repo, two Cloudflare Pages projects, one long-lived branch (`main`).
 
-| Environment | Branch | URL | CF Account |
+| Environment | Source | URL | CF Account |
 |---|---|---|---|
-| **Production** | `main` | `verobeachadultmedicine.com` (+ `vbam-site-prod.pages.dev`) | Jesse's CF tenant |
-| **Staging / dev** | `staging` | `verobeachadultmedicine.pages.dev` | Jesse's CF tenant |
+| **Production** | push to `main` | `verobeachadultmedicine.com` (+ `vbam-site-prod.pages.dev`) | Jesse's CF tenant |
+| **Dev URL** | push to `main` | `verobeachadultmedicine.pages.dev` (project `verobeachadultmedicine`, production_branch=main) | Jesse's CF tenant |
+| **PR preview** | every PR to `main` | link posted on the PR | Jesse's CF tenant |
 
-Dev-URL convention (all Cruz Street-managed sites): dev = `<site-name>.pages.dev`,
-prod = the real domain. Type the site name in the browser to reach dev.
-
-Note: the original `vbam-site` staging project (vbam-site.pages.dev) lives on
-Ashwin's CF account and is abandoned in place — never deploy to it. CMS auth runs
-through the `vbam-cms-auth` Worker on Jesse's tenant
-(`vbam-cms-auth.jesse-037.workers.dev`).
+Note: the original `vbam-site` project (vbam-site.pages.dev) lives on Ashwin's CF
+account and is abandoned in place — never deploy to it. CMS auth runs through the
+`vbam-cms-auth` Worker on Jesse's tenant (`vbam-cms-auth.jesse-037.workers.dev`).
 
 ### Decap CMS
 
-`app/public/admin/config.yml` is set to commit to **`staging`**. Content edits made
-in the Decap UI at `https://verobeachadultmedicine.pages.dev/admin/` (or future
-`verobeachadultmedicine.com/admin/`) land on the staging branch first, deploy to
-staging, and stay there until promoted.
-
-### Promotion flow (staging → prod)
-
-1. Verify the change on `verobeachadultmedicine.pages.dev`
-2. Merge `staging` → `main` on GitHub (PR or fast-forward)
-3. CF Pages builds `main` and the prod URL `verobeachadultmedicine.com` updates in ~2 min
+`app/public/admin/config.yml` uses `editorial_workflow` against **`main`**. Content
+edits made in the Decap UI open a PR to `main` with a preview link; Jesse approves
+and merges.
 
 ### Code changes
 
-Land on `staging` first (same flow as CMS edits). Merge to `main` to release.
-Hotfixes can go directly to `main` if needed — but you must then rebase `staging`
-on top so the branches don't diverge.
+PR to `main`, preview link posted on the PR, Jesse approves. Hotfixes follow the
+carve-out in Rule 17.
 
 ---
 
