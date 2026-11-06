@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MessageUsButton from "@/components/MessageUsButton";
 import ClickAttribution from "@/components/ClickAttribution";
+import ContactCardTracking from "@/components/ContactCardTracking";
 import Script from "next/script";
 
 const fraunces = Fraunces({
@@ -99,6 +100,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             registration form (a separate page, and a cross-origin iframe)
             can still see them later. */}
         <ClickAttribution />
+        <ContactCardTracking />
         <Header />
         {children}
         <Footer />
