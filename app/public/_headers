@@ -1,0 +1,13 @@
+# Cloudflare Pages headers.
+# Keep stub/utility URLs out of the index. Deliberately NO /*.txt rule:
+# that would also match /llms.txt and /robots.txt, which must stay crawlable.
+/404
+  X-Robots-Tag: noindex
+/404/
+  X-Robots-Tag: noindex
+/_not-found/
+  X-Robots-Tag: noindex
+/index.txt
+  X-Robots-Tag: noindex
+/*/index.txt
+  X-Robots-Tag: noindex
